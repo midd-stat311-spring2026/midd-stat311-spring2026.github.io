@@ -1,0 +1,72 @@
+---
+title: "Week 05"
+---
+
+::: {style="color: #6284a2"}
+### Tuesday (03/12)
+:::
+
+**Topics**
+
+-   Fisher information
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_09.pdf)
+
+**Class activity**
+
+-   Fisher information [practice problems](class/10_fisher.pdf)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Thursday (03/14)
+:::
+
+**Material through today is fair game for Midterm 1!**
+
+**Topics**
+
+-   Asymptotic distribution of MLE
+-   CRLB
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_10.pdf)
+
+**Class activity**
+
+-   CRLB [practice problems](class/11_crlb.pdf)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Friday (03/15)
+:::
+
+**Topics**
+
+-   EM algorithm
+
+**Daily assignment**
+
+-   None!
+
+**Class activity**
+
+-   EM algorithm notes ([not filled in](class/EM.pdf)) and ([filled in](class/EM_filled.pdf))
+
+-   Example
+
+    -   Downloadable `.Rmd` template {{< downloadthis class/templates/EM_normal_mixture.Rmd dname="EM_normal_mixture" label=".Rmd" icon="arrow-down-short" class=styled id=btn1 >}} and data {{< downloadthis class/data/normal_mixture_data.Rda dname="normal_mixture_data" label=".Rda" icon="arrow-down-short" class=styled id=btn1 >}}
+    
+    - [Implemented example](class/EM_solns.qmd)
+
+```{=html}
+<!--
+-   Example [implementation](class/EM_solns.qmd)
+
+    -   Downloadable `.Rmd` template {{< downloadthis class/templates/EM_normal_mixture.Rmd dname="EM_normal_mixture" label=".Rmd" icon="arrow-down-short" class=styled id=btn1 >}} and data {{< downloadthis class/data/normal_mixture_data.Rda dname="normal_mixture_data" label=".Rda" icon="arrow-down-short" class=styled id=btn1 >}}
+-->
+```

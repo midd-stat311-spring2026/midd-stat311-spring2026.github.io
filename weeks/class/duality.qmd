@@ -1,0 +1,30 @@
+---
+title: "Equivalence of CI and HT"
+author: "Becky Tang"
+date: "04/26/2024"
+---
+
+Recall our donuts! I read online somewhere that a Boston creme donut weights 100 g. Let's see how Middlebury Bagel's donuts compare. Let $X_1,\ldots, X_n \sim N(\mu ,\sigma^2)$ represent the weight in grams of each donut. I have no idea what $\mu$ nor $\sigma^2$ are!
+
+I have the following hypotheses: $$H_{0}: \mu = 100 \qquad \text{ vs. } \qquad H_{1}: \mu \neq 100$$
+
+Suppose I want a level 0.05 test of these hypotheses. There are infinitely many tests out there that could test these hypotheses, so how do I pick one? One way is to use the duality of CI and HT!
+
+For this data, we know that a 95% CI for $\mu$ is of the form $$[A(\mathbf{X}),B(\mathbf{X})]= \left[\bar{X} - T_{n-1}^{-1}\left(\frac{1+\gamma}{2}\right)\frac{s}{\sqrt{n}}, \bar{X} + T_{n-1}^{-1}\left(\frac{1+\gamma}{2}\right)\frac{s}{\sqrt{n}}\right]$$
+
+By Duality Theorem 2, a test $\delta$ that defines an acceptance region of $R^c : \{r(\mathbf{x}): \mu_{0} \in [A(\mathbf{X}),B(\mathbf{X})]\}$ for the null $H_{0}: \mu = \mu_{0}$ yields a level $1-\gamma$ test.
+
+We (only) observed $n=4$ data points: $\mathbf{X} = (113, 110, 112, 106)$. A 95% CI for $\mu$ is thus:
+
+```{r}
+x <- c(113, 110, 112, 106)
+n <- length(x)
+
+xbar <- mean(x)
+s <- sd(x)
+c <- qt((1 + 0.95)/2, n-1)
+
+c(xbar - c * s/sqrt(n), xbar + c * s/sqrt(n))
+```
+
+Suppose we use the testing procedure defined above. Then since $\mu_{0} = 100$ does not fall into this interval, this level $0.05 = 1 - 0.95$ test rejects $H_{0}$. So we conclude that the average weight of Middlebury Bagel's boston creme donuts are not 100g.

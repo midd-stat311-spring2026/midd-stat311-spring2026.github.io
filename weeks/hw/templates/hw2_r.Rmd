@@ -1,0 +1,208 @@
+---
+title: "STAT 311: Homework 2 (R)"
+author: "Your name"
+date: "Due: 02-27-2024"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Question 1 (assigned for Tuesday 2/20)
+
+We want to answer the following question: How much does the prior distribution impact the posterior distribution of $\theta$? Studying the impact of the prior distribution choice is called *sensitivity analysis*. More generally, sensitivity analysis occurs whenever we look at how varying our model assumptions impacts inference.
+
+When I arrived at Middlebury, I thought that the correct pronunciation of the school was "middle-BURRY", but then a colleague told me that it is actually pronounced "middle-BERRY". That being said, I've continued to hear both pronunciations around campus, and I think people just say "midd" to avoid the pronunciation issue altogether.
+
+Let $\theta$ be the true proportion of Middlebury students who pronounce the name as "middle-BURRY". We will explore the posterior for $\theta$ under varying priors.
+
+**a) Choosing priors**. Using the Beta distribution, construct and graph three possible prior distributions for $\theta$ by choosing different hyperparameters. For prior 1: make each value in the parameter space equally likely, for prior 2: make values in the center most likely, for prior 3: skew to the left.
+
+Make sure to state the hyperparameters for each prior, and try to pick Betas that are fairly different from each other. *To learn more about a function, type* `?command_name` *in the Console. e.g.* `?dbeta`
+
+Below is a partially completed `R` chunk. Replace the underscores with relevant code, then change the `eval = FALSE` to `eval = TRUE` in the chunk header. You can run the code chunk by pressing the green triangle at the top-right of the chunk.
+
+```{r eval = F}
+# Sequence of parameter values (i.e. discretized parameter space)
+p <- seq(0, 1, by = 0.01)
+
+# Prior 1
+a1 <- ___
+b1 <- ___
+prior1 <- dbeta(x = p, shape1 = a1, shape2 = b1)
+
+# Prior 2
+a2 <- ___
+b2 <- ___
+prior2 <- dbeta(x = p, shape1 = a2, shape2 = b2)
+
+# Prior 3
+a3 <- ___
+b3 <- ___
+prior3 <- dbeta(____)
+
+plot(p, prior1, type="l",ylab="Probability", xlab="p", col="green", lwd=2, ylim=c(0,max(c(prior1, prior2, prior3))))
+lines(p,prior2,lty=2,col="blue", lwd=2)
+lines(p,prior3,lty=3, col="purple", lwd=2)
+legend("topright", legend=c("Prior 1","Prior 2", "Prior 3"),lty=1:3 , col=c("green","blue","purple"))
+```
+
+**b) Collecting data.** Ask 12 other Middlebury students (not in this class) to say the name of the college, and keep track of whether they pronounce it as "BURRY" (1) or "BERRY" (0). *It's important to not bias respondents by saying the name "Middlebury" yourself!*
+
+**Solution:** enter the data here:
+
+$X_{1}$:
+
+$X_{2}$:
+
+$X_{3}$:
+
+$X_{4}$:
+
+$X_{5}$:
+
+$X_{6}$:
+
+$X_{7}$:
+
+$X_{8}$:
+
+$X_{9}$:
+
+$X_{10}$:
+
+$X_{11}$:
+
+$X_{12}$:
+
+**c) Graphing posteriors (part 1)**. Using *only the first three* observations, compute and graph the three posterior distributions for the parameter based on your three prior distributions. Comment on any differences between the posteriors.
+
+Again, replace the underscores with relevant code. Then change the `eval = FALSE` to `eval = TRUE`.
+
+```{r eval = FALSE}
+# number of successes in first THREE observations
+x <- ___
+
+# number of observations under consideration
+n <- ___
+
+# posteriors
+post1_a <- dbeta(x=p, shape1 = ___, shape2 = ___)
+post2_a <- dbeta(x=p, shape1 = ___, shape2 = ___)
+post3_a <- dbeta(x=p, shape1 = ___, shape2 = ___)
+
+# plot
+plot(p, post1_a, type="l",ylab="Probability", xlab="p", col="green", lwd=2, ylim=c(0,max(c(post1_a, post2_a, post3_a))))
+lines(p,post2_a,lty=2,col="blue", lwd=2)
+lines(p,post3_a,lty=3, col="purple", lwd=2)
+legend("topright", legend=c("Prior 1","Prior 2", "Prior 3"),lty=1:3 , col=c("green","blue","purple"))
+```
+
+**Solution:**
+
+**d) Graphing posteriors (part 2)**. Now using *all* of your observations, compute and graph the three posterior distributions for the parameter based on your three prior distributions. Comment on any differences between the posteriors.
+
+Again, replace the underscores with relevant code. Then change the `eval = FALSE` to `eval = TRUE`.
+
+```{r eval = FALSE}
+x2 <- ___
+n2 <- ___
+
+# posteriors
+post1_all <- dbeta(x=p, shape1 = ___, shape2 = ___)
+post2_all <- dbeta(x=p, shape1 = ___, shape2 = ___)
+post3_all <- dbeta(x=p, shape1 = ___, shape2 = ___)
+
+plot(p, post1_all, type="l",ylab="Probability", xlab="p", col="green", lwd=2, ylim=c(0,max(c(post1_all, post2_all, post3_all))))
+lines(p,post2_all,lty=2,col="blue", lwd=2)
+lines(p,post3_all,lty=3, col="purple", lwd=2)
+legend("topright", legend=c("Prior 1","Prior 2", "Prior 3"),lty=1:3 , col=c("green","blue","purple"))
+```
+
+**Solution:**
+
+**e)** Which prior distribution showed greater **agreement** with the data? Explain why it is important to select the prior distribution before collecting the data.
+
+**Solution:**
+
+## Question 2 (assigned for Friday 2/23)
+
+We saw in class that the Normal distribution is the conjugate prior in the case of data from a Normal unknown mean and known variance. However, sometimes a conjugate prior does not accurately reflect prior knowledge and so we need to use a different prior. Suppose $X_{1}, \ldots, X_{n} | \theta \sim N(\theta, 1)$ (conditionally independent) and let the prior for $\theta$ be $$p(\theta) = c e^{-|\theta|}, \qquad \theta \in \mathbb{R}$$
+
+for some constant $c > 0$ which is a normalizing constant that ensures the PDF integrates to 1.
+
+**a)** Fill in the rest of the code below to write an `R` function for the kernel of the prior distribution of $\theta$ (i.e. your function takes the argument `theta` as input and should return a value equal to $e^{-|\theta|}$). Then use the `integrate()` function to find the value of $c$, which will be stored as the variable `c` in the code below. Set `eval = TRUE` when finished.
+
+(Note: the parameter space of $\theta$ is the entire real line, so the bounds for the `integrate()` function are `-Inf` and `Inf`). 
+
+```{r eval = FALSE}
+prior_kernel <- function(theta){
+  # write your code for the kernel of the prior here
+}
+
+val <- integrate(____)
+
+# normalizing constant for prior
+c <- ___
+c
+```
+
+**b)** Suppose we observe $n = 6$ data points: $X_{1} = 5, X_{2} = 4.1, X_{3} = 3.9, X_{4} = 6, X_{5} = 5.5, X_{6} = 4.8$. 
+
+The function `posterior_kernel()` below takes in a value `theta` as input, and should return the posterior evaluated at `theta`, up to proportionality. Fill out the rest of the function. In the code below, `sum_of_squares` is manually calculating $\sum_{i=1}^{n} (x_{i} - \theta)^2$ by iterating over each observation $i$.
+
+In particular, `lh` should be calculated using `sum_of_squares`.
+
+Then use your function and `integrate()` to find the normalizing constant of the posterior distribution of $\theta$ given the data. Call this normalizing constant `c_post`, and report its value. Set `eval = TRUE` when finished.
+
+
+
+```{r eval = FALSE}
+posterior_kernel <- function(theta){
+  sum_of_squares <- 0
+  dat <- c(5, 4.1, 3.9, 6, 5.5, 4.8)
+  for(i in 1:length(dat)){
+    square_i <- (dat[i] - theta)^2
+    sum_of_squares <- sum_of_squares + square_i
+  }
+  lh <- ___ # likelihood up to proportionality 
+  to_return <- ___ # this should be (likelihood) x (un-normalized prior evaluated at theta)
+  return(to_return)
+}
+
+# integrate
+
+# store/save normalizing constant
+
+
+```
+
+**c)**: Graph the exact prior and posterior distributions of $\theta$ on the same graph for the provided values of $\theta \in [-3, 10]$. Here, "exact" means including the normalizing constants such that the distributions are proper PDFs. 
+
+```{r eval = F}
+theta_vals <- seq(-3, 10, 0.1)
+
+## plot posterior 
+plot(____, ____, type="l",ylab="Probability", xlab="p", col="green", lwd=2)
+
+# add prior
+lines(____, ____,lty=2,col="blue", lwd=2)
+legend("topright", legend=c("posterior", "prior"),lty=1:3 , col=c("green","blue"))
+
+```
+
+**d)**: Use the `integrate()` function to find the Bayes estimate for $\theta$ under squared loss (you will need to write a new `R` function). Compare the Bayes estimate to the observed sample mean. (Recall that we can find the mean value of a vector of values using the `mean()` function.) 
+
+```{r}
+# write new R function
+
+# obtain Bayes estimate
+
+# obtain sample mean
+
+```
+
+**Solution**:

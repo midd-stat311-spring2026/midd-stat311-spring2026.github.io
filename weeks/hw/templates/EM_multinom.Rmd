@@ -1,0 +1,94 @@
+---
+title: "EM algorithm: Extra Credit"
+author: "Your name"
+date: "2024-04-01"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Be sure to set `eval = TRUE` before submitting!
+
+## E-step function
+
+Fill in the remainder of the `e_step` function which takes in the observed phenotype counts `x` (vector of length 3) and allele frequencies `p` (vector of length 3). Using `x` and `p`, the function should return a vector of length six of the expected genotype count for each of the six genotypes.
+
+```{r eval = FALSE}
+# x = observed phenotype counts (carbonaria, insularia, typica)
+# p = allele probabilities (carbonaria, insularia, typica)
+
+e_step <- function(x, p){
+  n_cc <- 
+  n_ci <- 
+  n_ct <- 
+  n_ii <-
+  n_it <- 
+  n_tt <-
+  return()
+}
+```
+
+## M-step function
+
+Fill in the remainder of the `m_step` function which takes in the observed phenotype counts `x` (vector of length 3) and expected genotype counts `n` (vector of length 6). This function should return a vector of length three of the new estimate of $\boldsymbol{\theta}$.
+
+```{r eval = FALSE}
+# x = observed phenotype counts (carbonaria, insularia, typica)
+# n = expected genotype counts (CC, CI, CT, II, IT, TT)
+m_step <- function(x, n){
+  p_c <- 
+  p_i <- 
+  p_t <- 
+  return()
+}
+```
+
+## Implementation
+
+We have the following observed counts/data of the three phenotypes for the peppered moths: $X = (N_{C} = 85, N_{I} = 196, N_{T} = 341)$.
+
+```{r}
+x <- c(85, 196, 341)
+```
+
+Now to implement the algorithm, complete the following:
+
+1.  Create a vector `p_old` of length three that initializes the algorithm with the three alleles being equal in frequency.
+2.  Create a variable `n_sim` that sets the number of iterations you'd like to run the algorithm for. I recommend you start with something relatively small just to test your code. You can always modify this value later on!
+3.  Create a matrix `p_mat` that will hold/store the $\hat{\mathbf{p}}$ estimates from each iteration of the algorithm. Use the `matrix()` function to do this (think about what dimensions you'll need `p_mat` to have). You can fill the matrix with `NA` or `0` values.
+4.  Replace the first row of `p_mat` with your initial value/guess for $\mathbf{p}$.
+5.  Complete the `for` loop where you iterate between the E and M steps by calling the appropriate functions and passing in the appropriate arguments. You may need to create an additional variable or two.
+
+Then go ahead and run this code chunk (make sure you've run all of the previous chunks first).
+
+```{r eval = FALSE}
+# 1. Initialize
+
+# 2. Set number of iterations
+
+# 3. Create p_mat
+
+# 4. Replace first row of p_mat
+
+# 5. for loop to run algorithm
+
+for(i in 2:n_sim){
+  # e_step
+  
+  # m_step
+  
+  # store estimate in p_mat
+
+}
+```
+
+### Assess convergence and state results.
+
+1.  Run your algorithm until convergence. Roughly how many iterations did we need until we hit convergence?
+    a.  **Solution:**
+2.  What are your maximum likelihood estimates for the frequencies of the three alleles $C$, $I$, and $T$ under the assumption of Hardy-Weinberg?
+    a.  **Solution**:
+3.  Optional: what are the maximum likelihood estimate for the frequencies of the three alleles $C$, $I$, and $T$ if we don't assume Hardy-Weinberg?
+    a.  **Solution**:

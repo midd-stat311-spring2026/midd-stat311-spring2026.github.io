@@ -1,0 +1,63 @@
+---
+title: "EM: Mixture of Normals"
+author: "Your name"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r eval = F}
+library(tidyverse)
+# change the file path if needed
+x <- readRDS("~/Downloads/normal_mixture_data.Rda")
+data.frame(x = x) %>%
+  ggplot(., aes(x= x))+
+  geom_histogram(bins = 15)
+```
+
+## Create function for E-Step
+
+```{r eval = FALSE}
+# x = observed data
+# n = number of observations
+# m = number of mixture components
+# mu = m-vector of means mu
+# p = m-vector of component proportions
+e.step <- function(x, n, m, mu, p){
+ 
+}
+```
+
+## EM algorithm
+
+```{r eval = FALSE}
+# set m and n
+
+
+# number of iterations until convergence; depends on the problem!
+
+# initialize
+
+
+# create matrices for storing iterations
+
+# Run algorithm
+
+for(s in 2:___){
+  # E-step
+  
+  # M-step and update in one go
+
+  
+  # store to monitor convergence
+
+  
+}
+```
+
+### Asses convergence
+
+```{r}
+# assess convergence by looking at the last few iterations
+
+```

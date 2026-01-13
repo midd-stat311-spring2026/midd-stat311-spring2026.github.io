@@ -1,0 +1,548 @@
+[
+  {
+    "objectID": "weeks/hw/templates/hw2_r.html",
+    "href": "weeks/hw/templates/hw2_r.html",
+    "title": "STAT 311: Homework 2 (R)",
+    "section": "",
+    "text": "We want to answer the following question: How much does the prior distribution impact the posterior distribution of \\(\\theta\\)? Studying the impact of the prior distribution choice is called sensitivity analysis. More generally, sensitivity analysis occurs whenever we look at how varying our model assumptions impacts inference.\nWhen I arrived at Middlebury, I thought that the correct pronunciation of the school was “middle-BURRY”, but then a colleague told me that it is actually pronounced “middle-BERRY”. That being said, I’ve continued to hear both pronunciations around campus, and I think people just say “midd” to avoid the pronunciation issue altogether.\nLet \\(\\theta\\) be the true proportion of Middlebury students who pronounce the name as “middle-BURRY”. We will explore the posterior for \\(\\theta\\) under varying priors.\na) Choosing priors. Using the Beta distribution, construct and graph three possible prior distributions for \\(\\theta\\) by choosing different hyperparameters. For prior 1: make each value in the parameter space equally likely, for prior 2: make values in the center most likely, for prior 3: skew to the left.\nMake sure to state the hyperparameters for each prior, and try to pick Betas that are fairly different from each other. To learn more about a function, type ?command_name in the Console. e.g. ?dbeta\nBelow is a partially completed R chunk. Replace the underscores with relevant code, then change the eval = FALSE to eval = TRUE in the chunk header. You can run the code chunk by pressing the green triangle at the top-right of the chunk.\n\n# Sequence of parameter values (i.e. discretized parameter space)\np <- seq(0, 1, by = 0.01)\n\n# Prior 1\na1 <- ___\nb1 <- ___\nprior1 <- dbeta(x = p, shape1 = a1, shape2 = b1)\n\n# Prior 2\na2 <- ___\nb2 <- ___\nprior2 <- dbeta(x = p, shape1 = a2, shape2 = b2)\n\n# Prior 3\na3 <- ___\nb3 <- ___\nprior3 <- dbeta(____)\n\nplot(p, prior1, type=\"l\",ylab=\"Probability\", xlab=\"p\", col=\"green\", lwd=2, ylim=c(0,max(c(prior1, prior2, prior3))))\nlines(p,prior2,lty=2,col=\"blue\", lwd=2)\nlines(p,prior3,lty=3, col=\"purple\", lwd=2)\nlegend(\"topright\", legend=c(\"Prior 1\",\"Prior 2\", \"Prior 3\"),lty=1:3 , col=c(\"green\",\"blue\",\"purple\"))\n\nb) Collecting data. Ask 12 other Middlebury students (not in this class) to say the name of the college, and keep track of whether they pronounce it as “BURRY” (1) or “BERRY” (0). It’s important to not bias respondents by saying the name “Middlebury” yourself!\nSolution: enter the data here:\n\\(X_{1}\\):\n\\(X_{2}\\):\n\\(X_{3}\\):\n\\(X_{4}\\):\n\\(X_{5}\\):\n\\(X_{6}\\):\n\\(X_{7}\\):\n\\(X_{8}\\):\n\\(X_{9}\\):\n\\(X_{10}\\):\n\\(X_{11}\\):\n\\(X_{12}\\):\nc) Graphing posteriors (part 1). Using only the first three observations, compute and graph the three posterior distributions for the parameter based on your three prior distributions. Comment on any differences between the posteriors.\nAgain, replace the underscores with relevant code. Then change the eval = FALSE to eval = TRUE.\n\n# number of successes in first THREE observations\nx <- ___\n\n# number of observations under consideration\nn <- ___\n\n# posteriors\npost1_a <- dbeta(x=p, shape1 = ___, shape2 = ___)\npost2_a <- dbeta(x=p, shape1 = ___, shape2 = ___)\npost3_a <- dbeta(x=p, shape1 = ___, shape2 = ___)\n\n# plot\nplot(p, post1_a, type=\"l\",ylab=\"Probability\", xlab=\"p\", col=\"green\", lwd=2, ylim=c(0,max(c(post1_a, post2_a, post3_a))))\nlines(p,post2_a,lty=2,col=\"blue\", lwd=2)\nlines(p,post3_a,lty=3, col=\"purple\", lwd=2)\nlegend(\"topright\", legend=c(\"Prior 1\",\"Prior 2\", \"Prior 3\"),lty=1:3 , col=c(\"green\",\"blue\",\"purple\"))\n\nSolution:\nd) Graphing posteriors (part 2). Now using all of your observations, compute and graph the three posterior distributions for the parameter based on your three prior distributions. Comment on any differences between the posteriors.\nAgain, replace the underscores with relevant code. Then change the eval = FALSE to eval = TRUE.\n\nx2 <- ___\nn2 <- ___\n\n# posteriors\npost1_all <- dbeta(x=p, shape1 = ___, shape2 = ___)\npost2_all <- dbeta(x=p, shape1 = ___, shape2 = ___)\npost3_all <- dbeta(x=p, shape1 = ___, shape2 = ___)\n\nplot(p, post1_all, type=\"l\",ylab=\"Probability\", xlab=\"p\", col=\"green\", lwd=2, ylim=c(0,max(c(post1_all, post2_all, post3_all))))\nlines(p,post2_all,lty=2,col=\"blue\", lwd=2)\nlines(p,post3_all,lty=3, col=\"purple\", lwd=2)\nlegend(\"topright\", legend=c(\"Prior 1\",\"Prior 2\", \"Prior 3\"),lty=1:3 , col=c(\"green\",\"blue\",\"purple\"))\n\nSolution:\ne) Which prior distribution showed greater agreement with the data? Explain why it is important to select the prior distribution before collecting the data.\nSolution:"
+  },
+  {
+    "objectID": "weeks/hw/templates/hw2_r.html#question-2-assigned-for-friday-223",
+    "href": "weeks/hw/templates/hw2_r.html#question-2-assigned-for-friday-223",
+    "title": "STAT 311: Homework 2 (R)",
+    "section": "Question 2 (assigned for Friday 2/23)",
+    "text": "Question 2 (assigned for Friday 2/23)\nWe saw in class that the Normal distribution is the conjugate prior in the case of data from a Normal unknown mean and known variance. However, sometimes a conjugate prior does not accurately reflect prior knowledge and so we need to use a different prior. Suppose \\(X_{1}, \\ldots, X_{n} | \\theta \\sim N(\\theta, 1)\\) (conditionally independent) and let the prior for \\(\\theta\\) be \\[p(\\theta) = c e^{-|\\theta|}, \\qquad \\theta \\in \\mathbb{R}\\]\nfor some constant \\(c > 0\\) which is a normalizing constant that ensures the PDF integrates to 1.\na) Fill in the rest of the code below to write an R function for the kernel of the prior distribution of \\(\\theta\\) (i.e. your function takes the argument theta as input and should return a value equal to \\(e^{-|\\theta|}\\)). Then use the integrate() function to find the value of \\(c\\), which will be stored as the variable c in the code below. Set eval = TRUE when finished.\n(Note: the parameter space of \\(\\theta\\) is the entire real line, so the bounds for the integrate() function are -Inf and Inf).\n\nprior_kernel <- function(theta){\n  # write your code for the kernel of the prior here\n}\n\nval <- integrate(____)\n\n# normalizing constant for prior\nc <- ___\nc\n\nb) Suppose we observe \\(n = 6\\) data points: \\(X_{1} = 5, X_{2} = 4.1, X_{3} = 3.9, X_{4} = 6, X_{5} = 5.5, X_{6} = 4.8\\).\nThe function posterior_kernel() below takes in a value theta as input, and should return the posterior evaluated at theta, up to proportionality. Fill out the rest of the function. In the code below, sum_of_squares is manually calculating \\(\\sum_{i=1}^{n} (x_{i} - \\theta)^2\\) by iterating over each observation \\(i\\).\nIn particular, lh should be calculated using sum_of_squares.\nThen use your function and integrate() to find the normalizing constant of the posterior distribution of \\(\\theta\\) given the data. Call this normalizing constant c_post, and report its value. Set eval = TRUE when finished.\n\nposterior_kernel <- function(theta){\n  sum_of_squares <- 0\n  dat <- c(5, 4.1, 3.9, 6, 5.5, 4.8)\n  for(i in 1:length(dat)){\n    square_i <- (dat[i] - theta)^2\n    sum_of_squares <- sum_of_squares + square_i\n  }\n  lh <- ___ # likelihood up to proportionality \n  to_return <- ___ # this should be (likelihood) x (un-normalized prior evaluated at theta)\n  return(to_return)\n}\n\n# integrate\n\n# store/save normalizing constant\n\nc): Graph the exact prior and posterior distributions of \\(\\theta\\) on the same graph for the provided values of \\(\\theta \\in [-3, 10]\\). Here, “exact” means including the normalizing constants such that the distributions are proper PDFs.\n\ntheta_vals <- seq(-3, 10, 0.1)\n\n## plot posterior \nplot(____, ____, type=\"l\",ylab=\"Probability\", xlab=\"p\", col=\"green\", lwd=2)\n\n# add prior\nlines(____, ____,lty=2,col=\"blue\", lwd=2)\nlegend(\"topright\", legend=c(\"posterior\", \"prior\"),lty=1:3 , col=c(\"green\",\"blue\"))\n\nd): Use the integrate() function to find the Bayes estimate for \\(\\theta\\) under squared loss (you will need to write a new R function). Compare the Bayes estimate to the observed sample mean. (Recall that we can find the mean value of a vector of values using the mean() function.)\n\n# write new R function\n\n# obtain Bayes estimate\n\n# obtain sample mean\n\nSolution:"
+  },
+  {
+    "objectID": "weeks/week-02.html",
+    "href": "weeks/week-02.html",
+    "title": "Week 02",
+    "section": "",
+    "text": "Tuesday (02/20)\n\nTopics\n\nMore with posterior distributions\n\nDaily assignment\n\nNone for today!\nPlease bring a laptop with R ready to go\n\nClass activity\n\nPrior and posterior practice problems\n\n\n\nThursday (02/22)\n\nTopics\n\nConjugate priors\nImproper priors\n\nDaily assignment\nTo be completed and submitted to Canvas by 8:45am\n\nDaily assignment\n\nClass activity\n\nComputing posteriors in R\n\n.Rmd template:  .Rmd \nFilled-in code: computing posteriors in R\n\nConjugate prior practice problem\n\n\n\nFriday (02/23)\n\nTopics\n\nBayes estimators\n\nDaily assignment\nTo be completed and submitted to Canvas by 8:45am\n\nDaily assignment\n\nClass activity\n\nBayes estimator under absolute loss proof\nBayes estimator practice problem"
+  },
+  {
+    "objectID": "weeks/week-03.html",
+    "href": "weeks/week-03.html",
+    "title": "Week 03",
+    "section": "",
+    "text": "Tuesday (02/27)\n\nTopics\n\nMethod of Maximum Likelihood\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nMLE practice problems\n\n\n\nThursday (02/29)\n\nTopics\n\nMLEs (cont.)\n\nDaily assignment\n\nNothing official, though I suggest re-reading Section 7.5 and digging out your multivariable calculus notes to remember what a Hessian matrix is!\n\nClass activity\n\nMore MLE practice problems\n\n\n\nFriday (03/01)\n\nTopics\n\nProperties of MLEs\nConsistency\n\nDaily assignment\nTo be completed and submitted to Canvas by 8:45am\n\nDaily assignment\n\nClass activity\n\nInvariance and consistency practice problems"
+  },
+  {
+    "objectID": "weeks/week-01.html",
+    "href": "weeks/week-01.html",
+    "title": "Week 01",
+    "section": "",
+    "text": "Tuesday (02/13)\n\nTopics\n\nWelcome!\nCourse logistics\n\nDaily assignment\n\nReview syllabus\nOpen (or re-download) RStudio and make sure everything is working\n\nClass activity\n\nIntroduction to inference\n\n\n\nThursday (02/15)\n\nTopics\n\nCore terminology\n\nDaily assignment\nTo be completed and submitted to Canvas by 8:45am\n\nDaily assignment\n\n\n\nFriday (02/16)\n\nTopics\n\nPrior distributions\nPosterior distributions\n\nDaily assignment\nTo be completed and submitted to Canvas by 8:45am\n\nDaily assignment"
+  },
+  {
+    "objectID": "weeks/class/posteriors_in_R_solns.html",
+    "href": "weeks/class/posteriors_in_R_solns.html",
+    "title": "Obtaining posteriors in R",
+    "section": "",
+    "text": "Suppose \\(X_{1},\\ldots, X_{5}\\) form a random sample from a \\(\\text{Geometric}(\\theta)\\) distribution, where \\(\\theta \\in (0,1)\\) is the unknown probability of success. We can use a Beta prior for \\(\\theta\\): \\(\\theta \\sim \\text{Beta}(a, b)\\)."
+  },
+  {
+    "objectID": "weeks/class/posteriors_in_R_solns.html#visualize-prior",
+    "href": "weeks/class/posteriors_in_R_solns.html#visualize-prior",
+    "title": "Obtaining posteriors in R",
+    "section": "Visualize prior",
+    "text": "Visualize prior\nSuppose I pick hyperparameter values \\(a = 1\\) and \\(b = 4\\). What does this particular distribution look like?\n\ntheta_vals <- seq(0.01, 0.99, by = 0.01)\na <- 1\nb <- 4\n\nprior_vals <- dbeta(theta_vals, shape1 = a, shape2 = b)\n\nplot(theta_vals, prior_vals, type = \"l\", main = \"Prior\")"
+  },
+  {
+    "objectID": "weeks/class/posteriors_in_R_solns.html#verify-prior-is-a-proper-pdf",
+    "href": "weeks/class/posteriors_in_R_solns.html#verify-prior-is-a-proper-pdf",
+    "title": "Obtaining posteriors in R",
+    "section": "Verify prior is a proper PDF",
+    "text": "Verify prior is a proper PDF\nWe know the prior is a valid PDF because the Beta distribution is a well known distribution. But let’s double check by using R to verify that that the PDF integrates to 1.\nWe will write a function called beta_prior that takes in an argument theta as input, and should return the Beta density evaluated at that value of theta and our choice of hyperparameters. Then, we will integrate() our function over its support to see if the PDF in fact integrates to 1.\n\nbeta_prior <- function(theta){\n  to_return <- dbeta(theta, a, b)\n  return(to_return)\n}\n\nintegrate(beta_prior, lower = 0, upper = 1)\n\n1 with absolute error < 1.1e-14\n\n# to obtain the number by itself\nintegrate(beta_prior, lower = 0, upper = 1)$value\n\n[1] 1"
+  },
+  {
+    "objectID": "weeks/class/posteriors_in_R_solns.html#obtain-and-plot-posterior",
+    "href": "weeks/class/posteriors_in_R_solns.html#obtain-and-plot-posterior",
+    "title": "Obtaining posteriors in R",
+    "section": "Obtain and plot posterior",
+    "text": "Obtain and plot posterior\nNow suppose we observe \\(X = (3, 7, 3, 5, 6)\\).\n\nx <- c(3,7,3,5,6)\nn <- length(x)\n\n\nFrom known results\nWhat is the posterior for \\(\\theta\\) under our \\(\\text{Beta}(1,4)\\) prior given the observed data? From class work, we know:\n\\[\\theta | \\mathbf{x} \\sim \\text{Beta}(1 + n, 4 + \\sum_{i=1}^{n} x_{i})\\]\n\npost_vals <- dbeta(theta_vals, a + n, b + sum(x))\nplot(theta_vals, post_vals, type = \"l\", main = \"Using Beta posterior\")\n\n\n\n\n\n\nBy obtaining normalizing constant\nSuppose we didn’t know that the posterior is Beta. However, we know that the posterior is always proportional to the likelihood times prior; all we lack is the normalizing constant. So let’s write a function that evaluates the kernel of the posterior (i.e. the posterior up to proportionality), then use it to find the normalizing constant.\n\npost_kernel <- function(theta){\n  # obtain likelihood for theta under Geometric (up to proportionality)\n  lh <- 1\n  for(i in 1:n){\n    lh <- lh * ((1-theta)^x[i]) * theta\n  }\n  # prior (up to proportionality)\n  prior <- theta^(a-1) * (1-theta)^(b-1)\n  to_return <- lh * prior\n  return(to_return)\n}\n\nval <- integrate(post_kernel, 0, 1)$val\nval\n\n[1] 1.504799e-07\n\n# We can even verify this, since we calculated the normalizing constant analytically!\n(gamma(a + n) * gamma(b + sum(x)))/gamma(a + b + n + sum(x))\n\n[1] 1.504799e-07\n\npost_vals2 <- post_kernel(theta_vals) / val\n\nWe can see that 1) the posterior obtained through normalization agrees with the analytic result, and 2) the unnormalized posterior has exactly the same shape as the normalized:\n\npar(mfrow = c(1,2))\nplot(theta_vals, post_vals2, type = \"l\", main = \"Using normalization\")\nplot(theta_vals, post_kernel(theta_vals), type = \"l\", main = \"Unnormalized\",\n     ylab = \"density\")\n\n\n\n\nLastly, we can visualize the prior and posterior on the same plot by first creating one plot, then using the lines() function to add additional lines to the original plot.\n\nplot(theta_vals, post_vals2, type = \"l\", main = \"Prior and posterior\",\n     ylab = \"density\")\nlines(theta_vals, prior_vals, type = \"l\", col = \"orange\")"
+  },
+  {
+    "objectID": "weeks/class/templates/posteriors_in_R.html",
+    "href": "weeks/class/templates/posteriors_in_R.html",
+    "title": "Obtaining posteriors in R",
+    "section": "",
+    "text": "Suppose \\(X_{1},\\ldots, X_{5}\\) form a random sample from a \\(\\text{Geometric}(\\theta)\\) distribution, where \\(\\theta \\in (0,1)\\) is the unknown probability of success. We can use a Beta prior for \\(\\theta\\): \\(\\theta \\sim \\text{Beta}(a, b)\\)."
+  },
+  {
+    "objectID": "weeks/class/templates/posteriors_in_R.html#visualize-prior",
+    "href": "weeks/class/templates/posteriors_in_R.html#visualize-prior",
+    "title": "Obtaining posteriors in R",
+    "section": "Visualize prior",
+    "text": "Visualize prior\nSuppose I pick hyperparameter values \\(a = 1\\) and \\(b = 4\\). What does this particular distribution look like?\n\n# create vector of possible theta values\ntheta_vals <- seq(0.01, 0.99, by = 0.01)\n\n# set prior hyperparameters\n\n\n# evaluate the prior at each of the elements of theta_vals\nprior_vals <- \n\n# plot prior dist"
+  },
+  {
+    "objectID": "weeks/class/templates/posteriors_in_R.html#verify-prior-is-a-proper-pdf",
+    "href": "weeks/class/templates/posteriors_in_R.html#verify-prior-is-a-proper-pdf",
+    "title": "Obtaining posteriors in R",
+    "section": "Verify prior is a proper PDF",
+    "text": "Verify prior is a proper PDF\nWe know the prior is a valid PDF because the Beta distribution is a well known distribution. But let’s double check by using R to verify that that the PDF integrates to 1.\nWe will write a function called beta_prior that takes in an argument theta as input, and should return the Beta density evaluated at that value of theta and our choice of hyperparameters. Then, we will integrate() our function over its support to see if the PDF in fact integrates to 1.\n\n# write function that evaluates our prior\nbeta_prior <- function(theta){\n  \n}\n\n# verify that our prior integrates to 1"
+  },
+  {
+    "objectID": "weeks/class/templates/posteriors_in_R.html#obtain-and-plot-posterior",
+    "href": "weeks/class/templates/posteriors_in_R.html#obtain-and-plot-posterior",
+    "title": "Obtaining posteriors in R",
+    "section": "Obtain and plot posterior",
+    "text": "Obtain and plot posterior\nNow suppose we observe \\(X = (3, 1, 2, 5, 6)\\).\n\ndat <- c(3,1,2,5,6)\nn <- length(dat)\n\n\nFrom known results\nWhat is the posterior for \\(\\theta\\) under our \\(\\text{Beta}(2,2)\\) prior given the observed data? From class work, we know:\n\\[\\theta | \\mathbf{x} \\sim\\]\n\n# create vector of posterior values\n\n# plot posterior\n\n\n\nBy obtaining normalizing constant\nSuppose we didn’t know that the posterior is a Beta. However, we know that the posterior is always proportional to the likelihood times prior! So all we lack is the normalizing constant. We can write a function that evaluates the kernel of the posterior (i.e. all the parts that include \\(\\theta\\)).\n\n# write function that evaluate the kernel of the posterior for a given theta value\n\n# integrate the function to obtain normalizing constant\n\n# obtain normalizing constant \n\n# plot posterior\n\nWe can see that the unnormalized posterior has exactly the same shape:\n\nplot(theta_vals, post_kernel(theta_vals), type = \"l\", main = \"Prior and posterior\",\n     ylab = \"density\")\n\nWe can visualize the prior and posterior on the same plot by first creating one plot, then using the lines() function to add additional lines to the original plot.\n\nplot(theta_vals, post_vals, type = \"l\", main = \"Prior and posterior\",\n     ylab = \"density\")\nlines(theta_vals, prior_vals, type = \"l\", col = \"orange\")"
+  },
+  {
+    "objectID": "weeks/class/proof_bayes_est.html#theorem",
+    "href": "weeks/class/proof_bayes_est.html#theorem",
+    "title": "Bayes estimator under absolute loss",
+    "section": "Theorem",
+    "text": "Theorem\nUnder absolute loss \\(L(\\theta, a) = |\\theta - a|\\), a Bayes estimator for \\(\\theta\\) is any posterior median of \\(\\theta\\).\n\nThat is, a Bayes estimator is a function \\(\\delta(\\mathbf{X}) \\equiv m\\) such that \\(\\text{Pr}(\\theta \\leq m | \\mathbf{x}) \\geq \\frac{1}{2}\\) and \\(\\text{Pr}(\\theta \\geq m | \\mathbf{x}) \\geq \\frac{1}{2}\\).\nNote that when \\(\\theta\\) is continuous, there exists a single median."
+  },
+  {
+    "objectID": "weeks/class/proof_bayes_est.html#proof-set-up",
+    "href": "weeks/class/proof_bayes_est.html#proof-set-up",
+    "title": "Bayes estimator under absolute loss",
+    "section": "Proof set-up",
+    "text": "Proof set-up\n\nNote that the absolute value function is not differentiable, so proving a maximum/minimum cannot rely on derivatives!\nAssume that \\(\\theta\\) is continuous, so that if \\(m\\) is the posterior median, then \\(\\text{Pr}(\\theta \\geq m | \\mathbf{x}) = \\frac{1}{2} = \\text{Pr}(\\theta \\leq m | \\mathbf{x})\\).\nLet \\(a\\) be any other estimator of \\(\\theta\\).\nWe will show that\n\\[\n\\mathbb{E}[L(\\theta , a) | \\mathbf{x}] - \\mathbb{E}[L(\\theta, m) | \\mathbf{x}]  \\geq 0\n\\]\nthus demonstrating that \\(m\\) minimizes the expected loss."
+  },
+  {
+    "objectID": "weeks/class/proof_bayes_est.html#proof",
+    "href": "weeks/class/proof_bayes_est.html#proof",
+    "title": "Bayes estimator under absolute loss",
+    "section": "Proof",
+    "text": "Proof\nLet \\(m\\) be the posterior median, and suppose \\(a < m\\) is any other estimator.\n\\[\n\\begin{align}\n\\mathbb{E}[L(\\theta , a) | \\mathbf{x}] & - \\mathbb{E}[L(\\theta, m) | \\mathbf{x}] = \\int_{\\Omega} |\\theta - a| p(\\theta | \\mathbf{x}) d\\theta - \\int_{\\Omega} |\\theta - m| p(\\theta | \\mathbf{x})d\\theta \\\\\n&\\class{fragment}{= \\int_{\\Omega} \\left(|\\theta - a| - |\\theta - m|\\right) p(\\theta | \\mathbf{x})d\\theta } \\\\\n&\\class{fragment}{= \\int_{-\\infty}^{a} \\left(|\\theta - a| - |\\theta - m|\\right) p(\\theta | \\mathbf{x})d\\theta + \\int_{a}^{m} \\left(|\\theta - a| - |\\theta - m|\\right) p(\\theta | \\mathbf{x})d\\theta + \\int_{m}^{\\infty} \\left(|\\theta - a| - |\\theta - m|\\right) p(\\theta | \\mathbf{x})d\\theta }\\\\\n& \\class{fragment}{= \\int_{-\\infty}^{a} ((a-\\theta) - ( m - \\theta)) p(\\theta | \\mathbf{x}) d\\theta + \\int_{a}^{m} ((\\theta - a) - (m- \\theta)) p(\\theta | \\mathbf{x}) d\\theta  +\n\\int_{m}^{\\infty} ((\\theta - a) - (\\theta - m)) p(\\theta | \\mathbf{x}) d\\theta} \\\\\n&\\class{fragment}{= \\int_{-\\infty}^{a} (a - m)  p(\\theta | \\mathbf{x}) d\\theta + \\int_{a}^{m} (2\\theta - a- m)  p(\\theta | \\mathbf{x}) d\\theta + \\int_{m}^{\\infty} (m-a) p(\\theta | \\mathbf{x}) d\\theta} \\\\\n&\\class{fragment}{\\color{orange}{\\geq}  \\int_{-\\infty}^{a} (a - m)  p(\\theta | \\mathbf{x}) d\\theta + \\int_{a}^{m} (2\\color{orange}{a} - a- m)  p(\\theta | \\mathbf{x}) d\\theta + \\int_{m}^{\\infty} (m-a) p(\\theta | \\mathbf{x}) d\\theta} \\\\\n&\\class{fragment}{= (a-m)\\text{Pr}(\\theta \\leq a | \\mathbf{x}) + \\color{purple}{(a-m)\\text{Pr}(a  < \\theta \\leq m | \\mathbf{x}) }+ (m-a) \\text{Pr}(\\theta \\geq m | \\mathbf{x})} \\\\\n&\\class{fragment}{ = (a-m)\\text{Pr}(\\theta \\leq a | \\mathbf{x}) + \\color{purple}{(a-m) \\text{Pr}(\\theta \\leq m | \\mathbf{x})  - (a-m) \\text{Pr}(\\theta \\leq a | \\mathbf{x})} + (m-a) \\text{Pr}(\\theta \\geq m | \\mathbf{x}) } \\\\\n&\\class{fragment}{= (a-m) \\text{Pr}(\\theta \\leq m | \\mathbf{x}) +  (m-a) \\text{Pr}(\\theta \\geq m | \\mathbf{x})} \\\\\n&\\class{fragment}{= (a-m)\\left(\\frac{1}{2}\\right) + (m-a)\\left(\\frac{1}{2}\\right)} \\\\\n&\\class{fragment}{= (a-m)\\left(\\frac{1}{2}\\right) - (a-m)\\left(\\frac{1}{2}\\right)}\\\\\n&\\class{fragment}{= 0 \\qquad \\tiny{\\square} }\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "homework.html",
+    "href": "homework.html",
+    "title": "Homework",
+    "section": "",
+    "text": "Note: problem sets will be updated with new questions following each class. Completed homework should be submitted to Canvas unless otherwise noted.\n\nHomework 1 (due Tuesday, 2/20 at 11:59pm)\n\nProblems assigned for Friday 2/16 technically cover material from Section 7.2, but we haven’t done examples in class yet. You are welcome to work on these problems now, or wait until after class 2/20.\n\nHomework 2 (due Tuesday, 2/29 at 11:59pm)\n\nNote: associated R problems can be found and completed in the following .Rmd template:  .Rmd \n\nA rendered version for easier reading can be viewed here: HW 2: R (rendered)\n\n\nHomework 3 (due Tuesday, 3/05 at 11:59pm)\n\nNote: I swapped the order of problems 3 and 5. The version as of Thursday, 2/29 is correct.\n\nHomework 4 (due Tuesday, 3/12 at 11:59pm)\n\nNote: associated R problems can be completed in the following .Rmd template:  .Rmd \n\nA rendered version for easier reading can be viewed here: HW 4: R (rendered)\n\n\nHomework 5 (due Tuesday, 3/29 at 11:59pm)\nExtra credit opportunity about EM algorithm (due Monday, 4/01 at 11:59pm)\n\nImplement using the following .Rmd template:  .Rmd \n\nA rendered version for easier reading can be viewed here\n\n\nHomework 6 (due Wednesday, 4/10 at 11:59pm)\n\nNote the atypical due date!\nNote: associated R problems can be completed in the following .Rmd template:  .Rmd \n\nA rendered version for easier reading can be viewed here: HW 6: R (rendered)\n\n\nHomework 7 (due Tuesday, 4/16 at 11:59pm)\n\nThis homework will be a bit shorter, but is R heavy\nNote: associated R problems can be completed in the following .Rmd template:  .Rmd \n\nA rendered version for easier reading can be viewed here: HW 7: R (rendered)\nClarification: for the parametric bootstrap, you may assume the distribution is Exponential but you don’t know the rate!\n\n\nHomework 8 (due Tuesday, 4/23 at 11:59pm)\nHomework 9 (due Tuesday, 4/30 at 11:59pm)\n\nNote that I’ve added a proof to Friday’s section which should be helpful for the last problem on this homework!"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Statistical Inference",
+    "section": "",
+    "text": "Welcome to the website for Middlebury College’s Spring 2024 STAT 311. On this website you will find the course syllabus, schedule, and assignments. The website is frequently updated during the semester, so please make a habit of refreshing the page. The icon at the top right will link to the course Canvas where assignments should be submitted."
+  },
+  {
+    "objectID": "index.html#major-announcements",
+    "href": "index.html#major-announcements",
+    "title": "Statistical Inference",
+    "section": "Major Announcements",
+    "text": "Major Announcements\n\nProject presentations on Saturday, May 18 starting at 9am in our usual classroom! Presentation order is on the Project tab.\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
+  },
+  {
+    "objectID": "index.html#course-details",
+    "href": "index.html#course-details",
+    "title": "Statistical Inference",
+    "section": "Course Details",
+    "text": "Course Details\nInstructor: Becky Tang\n\nOffice: WNS 214\nEmail: btang@middlebury.edu\n\nMeeting times: TRF 9:45-10:35am in WNS 011\nOffice hours: M 2:00-4:00pm, T 10:45am-12pm\nSyllabus (most recent update: 02/15/24 to reflect updated office hours)\nDistribution sheet (updated for Midterm II)"
+  },
+  {
+    "objectID": "exam.html",
+    "href": "exam.html",
+    "title": "Exams",
+    "section": "",
+    "text": "Midterm 2 will be two parts:\n\nIn-class portion on Friday, 5/03 from 2:30-4:30pm in WNS 105.\nTake-home portion will be made available on Canvas starting Sunday, 5/05 at 9:00am. Due in-person at the beginning of class at 9:45am on Tuesday, 5/07\n\nThe second midterm is lightly cumulative (in the sense that you might need to remember what likelihood, statistic, estimator, etc. are), but will mostly cover content from 03/26 in Week 6 through 04/26 in Week 10.\n\n\nThe midterm is composed to an in-person component and a take-home component that will require R. Your overall score for Midterm 2 will calculated as: (points on non-R + points on R)/(total possible points).\n\n\n\nYou will have two hours to complete the in-person component of Midterm 2. You may be asked to write some simple R code to demonstrate how to obtain random samples, quantiles, or probabilities from a given distribution with specified parameters.\nThe only resource you are allowed to bring in for the in-person component is one single-sided 8.5”x11” cheat sheet.\n\nYou may write definitions, theorems, properties, distributions, and other “factual” type of information. You are not allowed to write any worked out examples or problems.\nThe cheat sheet will be submitted alongside your midterm.\n\nYou will be provided a distribution sheet with PMFs/PDFs, expectation, variance, and support of the common distributions we have encountered. The distribution sheet can be found on the homepage so you wouldn’t be surprised when you take the exam.\n\nFormulas for MGFs or CDFs will not be provided on this distribution sheet. However, if one is required and is not easily obtainable given the PDF, the MGF or CDF will be provided to you on a per-question basis.\nYou are welcome to write the formulas for other distributions you have encountered in this course on your note sheet.\n\n\n\n\n\n\nThere is no time-limit for the take-home R component. You must submit a printed document at the beginning of class on Tuesday 5/07. You will not be provided a start .Rmd template, so please feel comfortable with creating a new markdown file.\nYou will be required to write or type the honor code statement: “I  have neither given nor received unauthorized aid on this assignment.” See the Resources subsection from Midterm 1 about what is considered unauthorized aid. Any submissions found in violation of this honor code will receive an automatic 0.\nIf you are unable to knit due to bugs in your code, set eval = FALSE in the R chunk headers so the document will knit. That way, I can still see your code.\n\n\n\n\n\n\nThe best preparation you can do for the exam is to organize your notes and/or homework to make finding information and examples as quick and efficient as possible. Beyond that, you should attempt to accurately assess what topics you have mastered and which you need to practice more. A good starting point is to review the list of objectives on each daily assignment. Another way to prepare is to create your own study guide with summaries of the important concepts, along with example problems you’ve designed and solved. As you study, it would be a good idea to compile lists of questions that you might have for Prof. Tang/the class.\nI encourage you to re-visit and re-do previous homework problems and practice problems.\nA possibly study strategy that has worked for Prof. Tang in the past:\n\nReview your notes\nCreate a first-draft cheat sheet\nUsing your cheat sheet, re-try some of the previous homework or practice problems that you’ve seen before (especially the ones that caused you trouble)\nMake a second-draft cheat sheet based on what you learned about your preparedness from previous step\nUsing your second-draft cheat sheet, try some of the new review problems\nMake your final cheat sheet based on what you learned about your preparedness from previous step\n\nExam problems will be comparable in difficulty to those assigned for homework. Some exam questions may be similar to problems you have seen before, while others will require you to synthesize your knowledge in new ways.\n\n\n\n\nFor extra practice, additional review problems have been made available below. These questions are not necessarily representative of the typical scope and difficulty of individual exam questions. This review is not comprehensive, nor does it represent the expected amount of time for it will take for you to complete the exam.\n\nMidterm 2 review problems"
+  },
+  {
+    "objectID": "schedule.html",
+    "href": "schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "A high-level overview of the semester’s topics are presented here. Please select a week for a specific day’s assignments and materials.\n\nWeek 01\n\nWelcome!\nPrior and posterior distributions\n\n\n\nWeek 02\n\nConjugate priors\nBayes estimators\n\n\n\nWeek 03\n\nMaximum likelihood estimation\n\n\n\nWeek 04\n\nMethod of moments\nBias, variance, MSE\n\n\n\nWeek 05\n\nFisher information\nCramer-Rao Lower Bound\n\n\n\nSPRING BREAK\n\n\nWeek 06\n\n\\(\\chi^2\\) and \\(t\\) distributions\nJoint distribution of sample mean and variance\n\n\n\nWeek 07\n\nConfidence intervals\n\n\n\nWeek 08\n\nBootstrapping\n\n\n\nWeek 09\n\nHypothesis testing\n\n\n\nWeek 10\n\np-values\nLikelihood ratio test\n\n\n\nWeek 11\n\n\\(t\\)-tests\n\n\n\nWeek 12\n\nSimple linear regression"
+  },
+  {
+    "objectID": "weeks/week-04.html",
+    "href": "weeks/week-04.html",
+    "title": "Week 04",
+    "section": "",
+    "text": "Tuesday (03/05)\n\nTopics\n\nMethod of Moments\n\nDaily assignment\n\nDaily assignment\nPlease bring a laptop to class tomorrow!\n\nClass activity\n\nMethod of Moments simulation\nMethod of Moments practice problems\n\n\n\nThursday (03/07)\n\nTopics\n\nMean squared error of an estimator\nBias of an estimator\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nBias practice problems\n\n\n\nFriday (03/08)\n\nTopics\n\nBias-variance trade-off\n\nDaily assignment\n\nNothing official, but review notes from yesterday.\n\nClass activity\n\nMSE practice problems"
+  },
+  {
+    "objectID": "weeks/week-05.html",
+    "href": "weeks/week-05.html",
+    "title": "Week 05",
+    "section": "",
+    "text": "Tuesday (03/12)\n\nTopics\n\nFisher information\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nFisher information practice problems\n\n\n\nThursday (03/14)\n\nMaterial through today is fair game for Midterm 1!\nTopics\n\nAsymptotic distribution of MLE\nCRLB\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nCRLB practice problems\n\n\n\nFriday (03/15)\n\nTopics\n\nEM algorithm\n\nDaily assignment\n\nNone!\n\nClass activity\n\nEM algorithm notes (not filled in) and (filled in)\nExample\n\nDownloadable .Rmd template  .Rmd  and data  .Rda \nImplemented example"
+  },
+  {
+    "objectID": "weeks/class/mark_recapture.html",
+    "href": "weeks/class/mark_recapture.html",
+    "title": "Method of Moments: Mark-Recapture Simulation",
+    "section": "",
+    "text": "Set-up\nRecall the following scenario: we would like estimate the number of individuals \\(N\\) of a species in a particular location. The mark-recapture sampling scheme proceeds as follows:\n\nSample \\(r\\) individuals from the population and mark/tag them all. Release the individuals and wait some time.\nAfter waiting, take a second sample of \\(m\\) individuals from the population. Count how many of the \\(m\\) are marked.\n\nDefining \\(X\\) as the number of individuals in the second sample who were tagged, we obtained the following method of moments estimator: \\(\\hat{N}_{MM} = \\frac{rm}{X}\\).\n\n\nSimulation\nLet’s simulate data to see how well this estimator performs. Note that in simulating data, I get to choose/know the true value of \\(N\\).\n\n# set true value\nN_true <- 2000\n\nNow, I will determine how many to take in the first sample. Then I create a vector of 1’s and 0’s called marked, where I have \\(r\\) 1’s representing all the tagged individuals, and the remaining \\(N-r\\) 0’s representing all the untagged.\n\n# number in first sample\nr <- 200\n\n# make vector of \"marked\" and \"unmarked\" individuals after initial sample\nmarked <- c(rep(1, r), rep(0, N_true -r))\n\nWe write a function that performs one iteration of the second sample: sampling \\(m\\) individuals without replacement from the population again, and counting how many were marked.\n\n# write function to simulate second sample\nmark_recapture <- function(marked, m){\n  samp2 <- sample(marked, size = m, replace = F)\n  x <- sum(samp2)\n  return(x)\n}\n\nNow we actually simulate! I can choose how many simulations to run. Then I use the replicate() function to repeatedly perform the simulations. The outcome all the replicates gets stored in a vector of length n_sims called R, which I use to obtain the method of moments estimates over repeated samples.\n\n# choose number of simulations\nn_sims <- 10000\n# number in second sample\nm <- 300\n\n# simulate!\nR <- replicate(n_sims, mark_recapture(marked, m))\n\n# calculate MoM estimate\nN_hat_vec <- r * m / R\n\n# plot\nlibrary(tidyverse)\ndata.frame(N_hat = N_hat_vec) %>%\n  ggplot(., aes(x = N_hat)) +\n  geom_histogram() +\n  geom_vline(xintercept = N_true, col = \"red\", linetype = \"dashed\")"
+  },
+  {
+    "objectID": "weeks/hw/templates/hw4_r.html",
+    "href": "weeks/hw/templates/hw4_r.html",
+    "title": "STAT 311: Problem Set 4 (R)",
+    "section": "",
+    "text": "BEFORE SUBMITTING, CHECK YOUR KNITTED FILE. Did you provide written answers where you see Solution? Are all the results showing? If not, be sure to set eval = TRUE in the chunk header. Submissions where the code is not evaluated will not receive full credit."
+  },
+  {
+    "objectID": "weeks/week-07.html",
+    "href": "weeks/week-07.html",
+    "title": "Week 07",
+    "section": "",
+    "text": "Tuesday (04/02)\n\nTopics\n\n\\(t\\) distribution (cont.)\nIntroduce final project\n\nDaily assignment\n\nNone\n\nClass activity\n\n\\(t\\) distribution practice problem\n\n\n\nThursday (04/04)\n\nTopics\n\nConfidence intervals\n\nDaily assignment\n\nDaily assignment\n\n\n\nFriday (04/05)\n\nTopics\n\nConfidence intervals (cont.)\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nConfidence interval practice problems"
+  },
+  {
+    "objectID": "weeks/week-06.html",
+    "href": "weeks/week-06.html",
+    "title": "Week 06",
+    "section": "",
+    "text": "No problem set this week to give space to study for the midterm! However, there are still daily assignments.\n\nTuesday (03/26)\n\nTopics\n\nSampling distribution of a statistic\nChi-squared distribution\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nMGF refresher practice problems\n\n\n\nThursday (03/28)\n\nTopics\n\nJoint dist. of sample mean and variance\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nCovariance and Normal distribution properties refresher\n\n\n\nFriday (03/29)\n\nTopics\n\nJoint dist. of sample mean and variance (cont.)\n\\(t\\) distribution\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nSampling dist. of Normal variance estimators practice problems\n\nMidterm 1 live at 5:00pm"
+  },
+  {
+    "objectID": "weeks/class/EM.html",
+    "href": "weeks/class/EM.html",
+    "title": "EM: Mixture of Normals",
+    "section": "",
+    "text": "library(tidyverse)\nx <- readRDS(\"~/Downloads/normal_mixture_data.Rda\")\ndata.frame(x = x) %>%\n  ggplot(., aes(x= x))+\n  geom_histogram(bins = 15)"
+  },
+  {
+    "objectID": "weeks/hw/templates/hw4_r.html#question-1",
+    "href": "weeks/hw/templates/hw4_r.html#question-1",
+    "title": "STAT 311: Problem Set 4 (R)",
+    "section": "Question 1",
+    "text": "Question 1\nWe will simulate some German Tank data, obtain estimates of the number of tanks, and compare the estimators. You may want to refer back to the Mark-Recapture code from 03/05.\n\nCreate three variables:\n\nn_sim for the number of simulations (set this to be at least 1000)\nN_true for the true number of tanks (make this 100); and\nn for the number of tanks captured (set this to 5)\n\n\n\n# code for part (a)\n\n\nWrite a function called sim_tanks that takes in two arguments: the true number of tanks and the number of tanks captured. The function should simulate the German tank scenario by randomly sampling the tanks without replacement. The function should return a vector of length three of the estimates under \\(\\hat{N}_{1}\\), \\(\\hat{N}_{2}\\), and \\(\\hat{N}_{3}\\), as defined on the homework.\n\n\n# code for part (b)\n\n\nUsing the replicate() function, simulate the German Tank data for n_sim iterations. Then use the t() function to take the transpose of the output such that you have an object that has 3 columns and n_sim rows. Be sure to store your output into a variable!\n\nIn the Console, take a look at the output. Make sure you understand what each row/column represents!\n\nset.seed(311)\n# code for part (c)\n\n\nUsing your simulations from (c), obtain the empirical mean, variance, and MSE of \\(\\hat{N}_{1}\\), \\(\\hat{N}_{2}\\), and \\(\\hat{N}_{3}\\). You can access a specific column \\(j\\) of matrix \\(M\\) using the following code: M[,j]. Similarly, to access a specific row \\(j\\): M[j,]. Comment on how the values compare across the estimates. Based on what you’ve found, which estimator(s) appear to be unbiased? Which estimator(s) appear to be “best”?\n\nNote: do not use the empirical mean and variances to obtain the empirical MSE. Approximate the MSE of an estimator \\(\\delta(X)\\) from its definition of \\(E[(\\delta(X) - \\theta)^2]\\).\n\n# means\n\n\n# variances\n\n\n# MSEs\n\nSolution:\n\nLastly, we will visualize the simulations of the estimates. Run the line code of code where we create df and then take a look at what df looks like by typing View(df) in the Console. Then fill in the remaining code and then set eval = TRUE before knitting. Briefly comment on what you notice.\n\nNote: if you have never installed tidyverse, you will have to do so now. In the CONSOLE at the bottom, paste in and run the the following code: install.packages(\"tidyverse\"). The installation may take a few minutes, but then you should be good to go!\n\nlibrary(tidyverse)\n\ndf <- data.frame(_____) %>% # variable name of your transposed output from (c)\n  rename(\"N1\" = 1, \"N2\" = 2, \"N3\" = 3) %>%\n  pivot_longer(cols = 1:3, names_to = \"estimator\", values_to = \"estimate\") \n\ndf %>%\n  ggplot(., aes(x = ______, # name of variable in df that represents the values of the estimates\n                fill = _____ ))+ # name of variable in df that represents which of the N_i\n  geom_histogram(alpha = 0.5, binwidth = 2) +\n  geom_vline(xintercept = ____ ) # variable representing the true total number of tanks\n\nSolution:"
+  },
+  {
+    "objectID": "weeks/class/EM.html#e-step",
+    "href": "weeks/class/EM.html#e-step",
+    "title": "EM: Mixture of Normals",
+    "section": "E-step",
+    "text": "E-step\nWe will write a function called e.step that will calculate \\(P(Y_{i} = j | x_{i}, \\boldsymbol{\\theta} = \\boldsymbol{\\theta}^{old})\\) for given values mu and p.\n\n# x = observed data\n# n = number of observations\n# m = number of mixture components\n# mu = m-vector of means mu\n# p = m-vector of component proportions\ne.step <- function(x, n, m, mu, p){\n  tau_mat <- matrix(NA, nrow = n, ncol = m)\n  for(i in 1:n){\n    p_yij <- dnorm(x[i], mu_old, 1) * p_old\n    tau_mat[i,] <- p_yij/sum(p_yij)\n  }\n  return(tau_mat)\n}"
+  },
+  {
+    "objectID": "weeks/class/EM.html#run-em-algorithm",
+    "href": "weeks/class/EM.html#run-em-algorithm",
+    "title": "EM: Mixture of Normals",
+    "section": "Run EM algorithm",
+    "text": "Run EM algorithm\n\n# set m and n\nn <- length(x)\nm <- 3\n\n# number of iterations until convergence; depends on the problem!\nn_sim <- 50\n\n# initialize\nmu_old <- c(0, 5, 10)\np_old <- rep(1/m, m)\n\n# create matrices for storing iterations\nmu_store <- matrix(NA, nrow = n_sim, ncol = m)\np_store <- matrix(NA, nrow = n_sim, ncol = m)\nmu_store[1,] <- mu_old\np_store[1,] <- p_old\n\n# run algorithm\nfor(s in 2:n_sim){\n  # E-step\n  tau_mat <- e.step(x, n, m, mu_old, p_old)\n  \n  # M-step and update in one go\n  for(j in 1:m){\n    mu_old[j] <- sum(x * tau_mat[,j])/sum(tau_mat[,j])\n    p_old[j] <- sum(tau_mat[,j])/n\n  }\n  \n  # just to keep track to monitor convergence\n  mu_store[s,] <- mu_old\n  p_store[s,] <- p_old\n}\n\n\nAssess convergence\nWe will look at the last few iterations to see if the algorithm as converged. If not, we need to increase the number of simulations!\n\n# tail() shows last six elements of a vector/matrix\ntail(mu_store)\n\n          [,1]     [,2]     [,3]\n[45,] 1.564003 4.764206 7.078663\n[46,] 1.563962 4.764083 7.078418\n[47,] 1.563926 4.763974 7.078202\n[48,] 1.563893 4.763878 7.078011\n[49,] 1.563865 4.763792 7.077841\n[50,] 1.563840 4.763717 7.077692\n\ntail(p_store)\n\n           [,1]      [,2]      [,3]\n[45,] 0.2609560 0.5555167 0.1835273\n[46,] 0.2609480 0.5554821 0.1835699\n[47,] 0.2609410 0.5554515 0.1836075\n[48,] 0.2609348 0.5554244 0.1836408\n[49,] 0.2609293 0.5554004 0.1836703\n[50,] 0.2609244 0.5553792 0.1836964\n\n\n\n\n\n\n\n\nExpand to see true values\n\n\n\n\n\nThe true parameter values are:\n\\(\\boldsymbol{\\mu}\\): (2, 5, 7)\n\\(\\mathbf{p}\\): (0.3, 0.5, 0.2)"
+  },
+  {
+    "objectID": "weeks/class/EM_solns.html",
+    "href": "weeks/class/EM_solns.html",
+    "title": "EM: Mixture of Normals",
+    "section": "",
+    "text": "library(tidyverse)\n# change the file path if needed\nx <- readRDS(\"~/Downloads/normal_mixture_data.Rda\")\ndata.frame(x = x) %>%\n  ggplot(., aes(x= x))+\n  geom_histogram(bins = 15)"
+  },
+  {
+    "objectID": "weeks/class/EM_solns.html#e-step",
+    "href": "weeks/class/EM_solns.html#e-step",
+    "title": "EM: Mixture of Normals",
+    "section": "E-step",
+    "text": "E-step\nWe will write a function called e.step that will calculate \\(P(Y_{i} = j | x_{i}, \\boldsymbol{\\theta} = \\boldsymbol{\\theta}^{old})\\) for given values mu and p. When we call this function, we will pass in \\(\\boldsymbol{\\mu}^{old}\\) and \\(\\mathbf{p}^{old}\\) for mu and p.\n\n# x = observed data\n# n = number of observations\n# m = number of mixture components\n# mu = m-vector of means mu\n# p = m-vector of component proportions\ne.step <- function(x, n, m, mu, p){\n  tau_mat <- matrix(NA, nrow = n, ncol = m)\n  for(i in 1:n){\n    p_yij <- dnorm(x[i], mu, 1) * p\n    tau_mat[i,] <- p_yij/sum(p_yij)\n  }\n  return(tau_mat)\n}"
+  },
+  {
+    "objectID": "weeks/class/EM_solns.html#run-em-algorithm",
+    "href": "weeks/class/EM_solns.html#run-em-algorithm",
+    "title": "EM: Mixture of Normals",
+    "section": "Run EM algorithm",
+    "text": "Run EM algorithm\n\n# set m and n\nn <- length(x)\nm <- 3\n\n# number of iterations until convergence; depends on the problem!\nn_sim <- 108\n\n# initialize\nmu_old <- c(0, 5, 10)\np_old <- rep(1/m, m)\n\n# create matrices for storing iterations\nmu_store <- matrix(NA, nrow = n_sim, ncol = m)\np_store <- matrix(NA, nrow = n_sim, ncol = m)\nmu_store[1,] <- mu_old\np_store[1,] <- p_old\n\n# run algorithm\nfor(s in 2:n_sim){\n  # E-step\n  tau_mat <- e.step(x, n, m, mu_old, p_old)\n  \n  # M-step and update in one go\n  for(j in 1:m){\n    mu_old[j] <- sum(x * tau_mat[,j])/sum(tau_mat[,j])\n    p_old[j] <- sum(tau_mat[,j])/n\n  }\n  \n  # just to keep track to monitor convergence\n  mu_store[s,] <- mu_old\n  p_store[s,] <- p_old\n}\n\n\nAssess convergence\nWe will look at the last few iterations to see if the algorithm as converged. If not, we need to increase the number of simulations!\n\n# tail() shows last six elements of a vector/matrix\ntail(mu_store)\n\n           [,1]     [,2]     [,3]\n[103,] 1.563647 4.763139 7.076542\n[104,] 1.563647 4.763138 7.076542\n[105,] 1.563647 4.763138 7.076541\n[106,] 1.563647 4.763138 7.076541\n[107,] 1.563647 4.763138 7.076541\n[108,] 1.563647 4.763138 7.076541\n\ntail(p_store)\n\n           [,1]      [,2]      [,3]\n[103,] 0.260887 0.5552163 0.1838967\n[104,] 0.260887 0.5552163 0.1838967\n[105,] 0.260887 0.5552162 0.1838967\n[106,] 0.260887 0.5552162 0.1838968\n[107,] 0.260887 0.5552162 0.1838968\n[108,] 0.260887 0.5552162 0.1838968\n\n\nIt seems like we hit convergence after 106 iterations. Depending on the problem, we may need fewer or more iterations.\nOur MLEs are \\(\\hat{\\boldsymbol{\\mu}}_{MLE} =\\) (1.5636468, 4.7631381, 7.076541) and \\(\\hat{\\mathbf{p}}_{MLE} =\\) (0.260887, 0.5552162, 0.1838968). How did we do?\n\n\n\n\n\n\nExpand to see true values\n\n\n\n\n\nThe true parameter values are:\n\\(\\boldsymbol{\\mu}\\): (2, 5, 7)\n\\(\\mathbf{p}\\): (0.3, 0.5, 0.2)"
+  },
+  {
+    "objectID": "weeks/class/templates/EM_normal_mixture.html",
+    "href": "weeks/class/templates/EM_normal_mixture.html",
+    "title": "EM: Mixture of Normals",
+    "section": "",
+    "text": "library(tidyverse)\n# change the file path if needed\nx <- readRDS(\"~/Downloads/normal_mixture_data.Rda\")\ndata.frame(x = x) %>%\n  ggplot(., aes(x= x))+\n  geom_histogram(bins = 15)"
+  },
+  {
+    "objectID": "weeks/class/templates/EM_normal_mixture.html#create-function-for-e-step",
+    "href": "weeks/class/templates/EM_normal_mixture.html#create-function-for-e-step",
+    "title": "EM: Mixture of Normals",
+    "section": "Create function for E-Step",
+    "text": "Create function for E-Step\n\n# x = observed data\n# n = number of observations\n# m = number of mixture components\n# mu = m-vector of means mu\n# p = m-vector of component proportions\ne.step <- function(x, n, m, mu, p){\n \n}"
+  },
+  {
+    "objectID": "weeks/class/templates/EM_normal_mixture.html#em-algorithm",
+    "href": "weeks/class/templates/EM_normal_mixture.html#em-algorithm",
+    "title": "EM: Mixture of Normals",
+    "section": "EM algorithm",
+    "text": "EM algorithm\n\n# set m and n\n\n\n# number of iterations until convergence; depends on the problem!\n\n# initialize\n\n\n# create matrices for storing iterations\n\n# Run algorithm\n\nfor(s in 2:___){\n  # E-step\n  \n  # M-step and update in one go\n\n  \n  # store to monitor convergence\n\n  \n}\n\n\nAsses convergence\n\n# assess convergence by looking at the last few iterations"
+  },
+  {
+    "objectID": "weeks/hw/templates/EM_multinom.html",
+    "href": "weeks/hw/templates/EM_multinom.html",
+    "title": "EM algorithm: Extra Credit",
+    "section": "",
+    "text": "Be sure to set eval = TRUE before submitting!"
+  },
+  {
+    "objectID": "weeks/hw/templates/EM_multinom.html#e-step-function",
+    "href": "weeks/hw/templates/EM_multinom.html#e-step-function",
+    "title": "EM algorithm: Extra Credit",
+    "section": "E-step function",
+    "text": "E-step function\nFill in the remainder of the e_step function which takes in the observed phenotype counts x (vector of length 3) and allele frequencies p (vector of length 3). Using x and p, the function should return a vector of length six of the expected genotype count for each of the six genotypes.\n\n# x = observed phenotype counts (carbonaria, insularia, typica)\n# p = allele probabilities (carbonaria, insularia, typica)\n\ne_step <- function(x, p){\n  n_cc <- \n  n_ci <- \n  n_ct <- \n  n_ii <-\n  n_it <- \n  n_tt <-\n  return()\n}"
+  },
+  {
+    "objectID": "weeks/hw/templates/EM_multinom.html#m-step-function",
+    "href": "weeks/hw/templates/EM_multinom.html#m-step-function",
+    "title": "EM algorithm: Extra Credit",
+    "section": "M-step function",
+    "text": "M-step function\nFill in the remainder of the m_step function which takes in the observed phenotype counts x (vector of length 3) and expected genotype counts n (vector of length 6). This function should return a vector of length three of the new estimate of \\(\\boldsymbol{\\theta}\\).\n\n# x = observed phenotype counts (carbonaria, insularia, typica)\n# n = expected genotype counts (CC, CI, CT, II, IT, TT)\nm_step <- function(x, n){\n  p_c <- \n  p_i <- \n  p_t <- \n  return()\n}"
+  },
+  {
+    "objectID": "weeks/hw/templates/EM_multinom.html#implementation",
+    "href": "weeks/hw/templates/EM_multinom.html#implementation",
+    "title": "EM algorithm: Extra Credit",
+    "section": "Implementation",
+    "text": "Implementation\nWe have the following observed counts/data of the three phenotypes for the peppered moths: \\(X = (N_{C} = 85, N_{I} = 196, N_{T} = 341)\\).\n\nx <- c(85, 196, 341)\n\nNow to implement the algorithm, complete the following:\n\nCreate a vector p_old of length three that initializes the algorithm with the three alleles being equal in frequency.\nCreate a variable n_sim that sets the number of iterations you’d like to run the algorithm for. I recommend you start with something relatively small just to test your code. You can always modify this value later on!\nCreate a matrix p_mat that will hold/store the \\(\\hat{\\mathbf{p}}\\) estimates from each iteration of the algorithm. Use the matrix() function to do this (think about what dimensions you’ll need p_mat to have). You can fill the matrix with NA or 0 values.\nReplace the first row of p_mat with your initial value/guess for \\(\\mathbf{p}\\).\nComplete the for loop where you iterate between the E and M steps by calling the appropriate functions and passing in the appropriate arguments. You may need to create an additional variable or two.\n\nThen go ahead and run this code chunk (make sure you’ve run all of the previous chunks first).\n\n# 1. Initialize\n\n# 2. Set number of iterations\n\n# 3. Create p_mat\n\n# 4. Replace first row of p_mat\n\n# 5. for loop to run algorithm\n\nfor(i in 2:n_sim){\n  # e_step\n  \n  # m_step\n  \n  # store estimate in p_mat\n\n}\n\n\nAssess convergence and state results.\n\nRun your algorithm until convergence. Roughly how many iterations did we need until we hit convergence?\n\nSolution:\n\nWhat are your maximum likelihood estimates for the frequencies of the three alleles \\(C\\), \\(I\\), and \\(T\\) under the assumption of Hardy-Weinberg?\n\nSolution:\n\nOptional: what are the maximum likelihood estimate for the frequencies of the three alleles \\(C\\), \\(I\\), and \\(T\\) if we don’t assume Hardy-Weinberg?\n\nSolution:"
+  },
+  {
+    "objectID": "weeks/week-08.html",
+    "href": "weeks/week-08.html",
+    "title": "Week 08",
+    "section": "",
+    "text": "Tuesday (04/09)\n\nNote: Homework 6 due tomorrow 4/10!\nTopics\n\nFinish up CIs\nEmpirical CDF\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\n\nThursday (04/11)\n\nBring your laptops!\nTopics\n\nBootstrap distribution\nBootstrap confidence intervals\n\nDaily assignment\n\nNone!\n\nClass activity\n\nCode from bootstrap distribution demo\n\n\n\nFriday (04/12)\n\nBring your laptops!\nTopics\n\nBootstrap confidence intervals (cont.)\n\nDaily assignment\n\nNone!\n\nClass activity\n\nCode from bootstrap CI demo"
+  },
+  {
+    "objectID": "project.html",
+    "href": "project.html",
+    "title": "Final project",
+    "section": "",
+    "text": "Downloadable PDF with final project description here (last updated 05/14) .\nKey dates:\nEvery group is required to give a presentation during our course’s exam period on Saturday, May 18 from 9:00am-12:00pm.\nThe majority of the details for the final draft can be found on Section 3.2 of the project description PDF. A few extra details that have been added are:\nRemember that only one final paper needs to be submitted per group!"
+  },
+  {
+    "objectID": "weeks/hw/templates/hw6_r.html",
+    "href": "weeks/hw/templates/hw6_r.html",
+    "title": "STAT 311: Homework 6 (R)",
+    "section": "",
+    "text": "General note: the functions sd() and var() in R calculate the values \\(s\\) and \\(s^2\\) as we’ve seen in class. That is, var(x) calculates \\(s^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (x_{i} - \\bar{x})^2\\), and sd(x) calculates the square root of this quantity."
+  },
+  {
+    "objectID": "weeks/hw/templates/hw6_r.html#problem-1",
+    "href": "weeks/hw/templates/hw6_r.html#problem-1",
+    "title": "STAT 311: Homework 6 (R)",
+    "section": "Problem 1",
+    "text": "Problem 1\nIn a 2007 paper, researchers studied whether or not a new drug, K11777, works to treat schistosomiasis. Schistosomiasis is a disease caused by parasitic flatworms so K11777 helps to stop the worms from growing. In the study, 20 mice were infected with schistosomiasis and then half were randomly selected to receive the K11777 treatment. At the end of the treatment, the number of worms in the liver of each rat was counted. We want to construct interval estimates that can answer the question: is the drug helping treat the disease, on average? The data on the number of worms in each of 20 rats is given below.\n\n# rats that received K11777\ntreat <- c(1,2,2,10,7,3,5,9,10,6)\n\n# rats that did not receive K11777\ncontrol <- c(16, 10,10,7, 17, 31, 26, 28, 13, 47)\n\n\nConstruct histograms of the data, one for each group. Do the data appear Normally distributed? Briefly justify your answer.\n\n\n\n\n**Solution:** \n\nNo matter how you answered in (a), we will make the assumption that the data are Normal. (You’ll find that statisticians often default to Normality in the first analysis…) Write a function that takes in two arguments: a vector of data and a coefficient level. The function should return a vector of length two: the lower and upper bounds of the symmetric \\(\\gamma\\)-coefficient confidence interval that is appropriate for this data. Using your function, report a 90% confidence interval for the true average number of parasitic worms in the treatment group.\n\n\n\n\n\nUsing your same function, construct and report a 90% confidence interval for the true average number of parasitic worms in the control group.\n\n\n\n\n\nBased on your intervals in (b) and (c), do you think the drug is helping? Briefly explain why or why not. (It might help to interpret the intervals first)\nSolution:"
+  },
+  {
+    "objectID": "weeks/hw/templates/hw6_r.html#problem-2",
+    "href": "weeks/hw/templates/hw6_r.html#problem-2",
+    "title": "STAT 311: Homework 6 (R)",
+    "section": "Problem 2",
+    "text": "Problem 2\nWe saw in class that the coverage probability of a random interval \\((A(\\mathbf{X}), B(\\mathbf{X}))\\) is the probability that the interval contains \\(\\theta\\). In order for \\((A(\\mathbf{X}), B(\\mathbf{X}))\\) to be a \\(100\\times \\gamma\\) % confidence interval for \\(\\theta\\), it must have coverage probability of at least \\(\\gamma\\) for all \\(\\theta \\in \\Omega\\). We will investigate coverage rates for a variety of random intervals in this problem.\n\nSuppose \\(X_{1},\\ldots, X_{n}\\) are an IID random sample for \\(N(0,1)\\). Use R to simulate nsim = 10000 sample data sets (consider making this a variable), each of size \\(n=5\\). Make it such that your resulting matrix has 10000 rows and 5 columns moving forward.\n\n\n\n\n\nFor each sample from (a), find and store the bounds of a symmetric 95% confidence interval for \\(\\mu\\). Can you make use of a function from a previous problem? DO NOT REPORT/PRINT/DISPLAY ALL 10000 INTERVALS IN YOUR FINAL SUBMISSION.\nNote: while you used the true values of \\(\\mu\\) and \\(\\sigma^2\\) to simulate the datasets in (a), you should treat \\(\\mu\\) and \\(\\sigma^2\\) as unknown for this part.\n\n\n\n\n\nEstimate and report the coverage rate of this confidence interval procedure by computing the proportion of samples which produced a 95% confidence interval that contained the true population mean \\(\\mu\\).\n\n\n\n\n\nNow suppose we compute quantiles for our confidence interval for \\(\\mu\\) using the Normal distribution. This would correspond to incorrectly treating the observed sample standard deviation \\(s\\) as the true value of the population standard deviation \\(\\sigma\\). If we make this assumption, the confidence interval looks almost exactly like the one in Exercise 8.5.1 (and also seen in Friday’s class), where we’ve simply replaced \\(\\sigma\\) with \\(s\\): \\[\\left(\\bar{X} - \\Phi^{-1}\\left(\\frac{1+\\gamma}{2}\\right) \\frac{s}{\\sqrt{n}}, \\bar{X} + \\Phi^{-1}\\left(\\frac{1+\\gamma}{2}\\right) \\frac{s}{\\sqrt{n}} \\right)\\] where \\(\\Phi^{-1}\\) is the quantile function for the standard Normal.\nNow repeat part (b), but this time using the confidence interval formula above.\n\n\n\n\n\nEstimate and report the coverage rate of the confidence interval procedure in (d) by computing the proportion of samples which produced a 95% confidence intervals that contained the true population mean \\(\\mu\\). How do the coverage rates from the procedures in (b) and (d) compare?\n\n\n\n\n**Solution:**"
+  },
+  {
+    "objectID": "weeks/week-09.html",
+    "href": "weeks/week-09.html",
+    "title": "Week 09",
+    "section": "",
+    "text": "Tuesday (04/16)\n\nClass observed by department colleague!\nTopics\n\nIntroduction to Hypothesis tests\nPower\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nPower function example from class\nHypothesis test power and error practice problems\n\n\n\nThursday (04/18)\n\nTopics\n\nLevel and size of test\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nHypothesis test power and error practice problems\n\n\n\nFriday (04/19)\n\nTopics\n\nNO CLASS: Spring symposium\n\nDaily assignment\n\nNone! But it’s an EXCELLENT idea to skim over readings and notes from this week, and to think about your final project"
+  },
+  {
+    "objectID": "weeks/week-10.html",
+    "href": "weeks/week-10.html",
+    "title": "Week 10",
+    "section": "",
+    "text": "Tuesday (04/23)\n\nClass observed by department colleague!\nTopics\n\np-values\n\nDaily assignment\n\nNone!\n\nClass activity\n\np-value practice problems\n\n\n\nThursday (04/25)\n\nTopics\n\nLikelihood ratio test\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nBinomial LRT example\n\nFilled-in solutions\n\n\n\n\nFriday (04/26)\n\nProject proposals due tomorrow at 12:00pm to Canvas!\nMaterial through today is fair game for Midterm II! (Though next week’s material is a lot of practice applying hypothesis testing ideas to a specific set of data.)\nTopics\n\nLRT asymptotics\nEquivalence of Confidence Sets and Hypothesis Tests\n\nDaily assignment\n\nNothing official, but be prepared to answer the following:\n\nSuppose \\(X_{1},\\ldots, X_{n} \\sim N(\\mu, \\sigma^2)\\) where \\(\\mu\\) and \\(\\sigma^2\\) are both unknown. Letting \\(\\alpha_{0} \\in (0,1)\\), find the bounds of an equal-tailed \\((1-\\alpha_{0})\\) coefficient confidence interval for \\(\\mu\\). You should be able to look through your notes to answer this one!\n\n\nClass activity\n\nBinomial LRT asymptotic example\nDonuts and duality\nProof of one of the duality theorems"
+  },
+  {
+    "objectID": "weeks/week-11.html",
+    "href": "weeks/week-11.html",
+    "title": "Week 11",
+    "section": "",
+    "text": "Tuesday (04/30)\n\nTopics\n\n\\(t\\)-test\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\n\\(t\\)-test practice problems\n\n\n\nThursday (05/02)\n\nTopics\n\nTwo-sample \\(t\\)-test\n\nDaily assignment\n\nNone\n\n\n\nFriday (05/03)\n\nMidterm 2 today!\nTopics\n\nReview day\n\nDaily assignment\n\nNone!"
+  },
+  {
+    "objectID": "weeks/week-12.html",
+    "href": "weeks/week-12.html",
+    "title": "Week 12",
+    "section": "",
+    "text": "Tuesday (05/07)\n\nTopics\n\nMethod of least squares\n\nDaily assignment\n\nNone!\n\n\n\nThursday (05/09)\n\nTopics\n\nSLR\n\nDaily assignment\n\nDaily assignment\n\n\n\nFriday (05/11)\n\nTopics\n\nInference for SLR (cont.)\n\nDaily assignment\n\nNone!\n\nClass activity\n\nSimple linear regression code"
+  },
+  {
+    "objectID": "weeks/class/bootstrap_dist.html",
+    "href": "weeks/class/bootstrap_dist.html",
+    "title": "Empirical Bootstrap Distribution",
+    "section": "",
+    "text": "Consider the following sample of eruption times (in seconds) of the Old Faithful geyser:\n\n# obtain data\ndata(\"faithful\")\nx <- faithful$eruptions * 60\nhist(x)\n\n\n\n\nThis data is certainly not Normal!\nPerhaps we’d like to obtain a bootstrap distribution for the median eruption time.\n\nn <- length(x)\nB <- 5000\ndelta_star <- rep(NA, B)\nfor(i in 1:B){\n  xstar <- sample(x, size = n, replace = T)\n  delta_star[i] <- median(xstar) \n}\n\n# bootstrap distribution of medians\nhist(delta_star)\n\n\n\n# observed sample median\nmedian(x)\n\n[1] 240\n\n\nNote that the bootstrap distribution of sample median is centered around the observed sample median.\nWhat can we do with this bootstrap distribution? We can approximate the bias of the sample median for the true median, because now we have a (boostrap) distribution for the sample median to obtain an estimate for the mean of the sample median:\n\n# bootstrap estimate of bias of sample median for true median\nmean(delta_star) - median(x)\n\n[1] -1.098114"
+  },
+  {
+    "objectID": "weeks/class/bootstrap_dist.html#example-2-bootstrapping-for-mse",
+    "href": "weeks/class/bootstrap_dist.html#example-2-bootstrapping-for-mse",
+    "title": "Empirical Bootstrap Distribution",
+    "section": "Example 2: bootstrapping for MSE",
+    "text": "Example 2: bootstrapping for MSE\nThe coefficient of variation of a distribution is the quantity \\(\\frac{\\sigma}{\\mu}\\), where \\(\\sigma\\) and \\(\\mu\\) are the standard deviation and mean of the distribution, respectively. Let us generate some Poisson data and obtain estimates of the mean squared error (MSE) of the estimator \\(\\frac{s}{\\bar{x}}\\) where \\(s\\) is the sample standard deviation and \\(\\bar{x}\\) is the sample mean.\nNotice that in the following, I am setting a seed using the set.seed() function. The input doesn’t really matter. What this function does is ensure that the random generator in R generates the same sequence of random values. That way when we knit or run the same code that involves random sampling on different laptops, we will get the same result.\n\n# generate some Poisson data\nset.seed(309)\nlambda_true <- 1\nn <- 20\nx <- rpois(n, lambda_true)\n\n\nBootstrap estimate\n\nB <- 5000\ndelta_star <- rep(NA, B)\nfor(i in 1:B){\n  # if size isn't specified in sample(), defaults to length of x!\n  xstar <- sample(x, replace = T)\n  delta_star[i] <- sd(xstar)/mean(xstar)\n}\nhist(delta_star)\n\n\n\n\nWe can once again obtain a bootstrap estimate of the bias of this estimate \\(\\frac{\\hat{\\sigma}_{MLE}}{\\hat{\\mu}_{MLE}}\\) for the true coefficient of variation.\n\n# observed estimate for coefficient of variation \ncv_hat <- sd(x)/mean(x)\ncv_hat\n\n[1] 1.00006\n\n# approximate bias of estimate for true coefficient of variation\nmean(delta_star) - cv_hat\n\n[1] 0.005089808\n\n\nWe can also approximate the mean squared error of this estimate for the true quantity:\n\n# bootstrap estimate of MSE\nmean((delta_star - cv_hat)^2)\n\n[1] 0.03948413"
+  },
+  {
+    "objectID": "weeks/class/bootstrap_ci.html",
+    "href": "weeks/class/bootstrap_ci.html",
+    "title": "Bootstrap confidence intervals",
+    "section": "",
+    "text": "Suppose we want a symmetric 95% confidence interval for the median eruption time of Old Faithful. Define \\(\\delta = m - M\\) where \\(m\\) is the sample median and \\(M\\) is the true median. Then we want quantiles \\(a, b\\) of \\(\\delta\\) such that \\(0.95 = P(a \\leq \\delta \\leq b)\\). Why? Re-arranging, we have \\(0.95 = P(m -a \\geq M \\geq m - b)\\)! Unfortunately, we don’t know the distribution of \\(\\delta\\), so we approximate it and its quantiles via bootstrapping. We will assume \\(\\hat{F} = \\hat{F}_{n}\\).\n\nset.seed(1)\ndata(\"faithful\")\nx <- faithful$eruptions * 60\nn <- length(x)\nsamp_med <- median(x)\nB <- 5000\ndelta_star <- rep(NA, B)\nfor(i in 1:B){\n  # nonparametric\n  xstar <- sample(x, size = n, replace = T)\n  delta_star[i] <- median(xstar) - samp_med\n}\n\n# bootstrap distribution of delta\nhist(delta_star)\n\n\n\n# (approximate) bootstrap CI\na_star <- quantile(delta_star, 0.025)\nb_star <- quantile(delta_star, 0.975)\nci <- samp_med - c(b_star, a_star)\nnames(ci) <- c(\"2.5\", \"97.5\")\nci\n\n    2.5    97.5 \n233.478 250.020 \n\n\nThe approximate 95% bootstrap CI for the median eruption time of Old Faithul is [233.478, 250.02].\n\n\n\nRecall from Homework 3: in a sample from the Chinese population of Hong Kong in 1937, blood types occurred wit the following frequencies:\n\nAA: 342\nAa: 500\naa: 187\n\nAssuming Hardy-Weinberg, the MLE estimate of the true frequency \\(\\theta\\) of A is \\(\\hat{\\theta} = \\frac{2n_{AA} + n_{Aa}}{n} \\approx 0.575\\) . Can we get a 90% confidence interval for \\(\\theta\\)?\n\nx <- c(rep(\"AA\", 342), rep(\"Aa\", 500), rep(\"aa\", 187))\nn <- length(x)\nB <- 1000\ntheta_hat <- (2*sum(x == \"AA\" ) + sum(x == \"Aa\"))/(2*n)\n\ndelta_star <- rep(NA, B)\nfor(i in 1:B){\n  x_star <- sample(x, size = n, replace = T)\n  delta_star[i] <- (2*sum(x_star == \"AA\" ) + sum(x_star == \"Aa\"))/(2*n) - theta_hat\n}\n\n\n# (approximate) bootstrap CI\na_star <- quantile(delta_star, 0.05)\nb_star <- quantile(delta_star, 0.95)\nci <- theta_hat - c(b_star, a_star)\nnames(ci) <- c(\"0.05\", \"0.95\")\nci\n\n     0.05      0.95 \n0.5578231 0.5942663"
+  },
+  {
+    "objectID": "weeks/class/bootstrap_ci.html#parametric",
+    "href": "weeks/class/bootstrap_ci.html#parametric",
+    "title": "Bootstrap confidence intervals",
+    "section": "Parametric",
+    "text": "Parametric\nReturning to the Old Faithful example: suppose we assume that the eruption times are Normal (even though the data clearly show that they are not…). For a parametric bootstrap, we will take repeated samples from a Normal distribution with mean and variance estimated from the observed data, then proceed as we did in the nonparametric bootstrap:\n\nx <- faithful$eruptions * 60\nn <- length(x)\nxbar <- mean(x)\ns <- sd(x)\nsamp_med <- median(x)\nB <- 5000\ndelta_star <- rep(NA, B)\nfor(i in 1:B){\n  # parametric distribution\n  xstar <- rnorm(n, xbar, s)\n  delta_star[i] <- median(xstar) - samp_med\n}\nhist(delta_star)\n\n\n\n# (approximate) bootstrap CI\na_star <- quantile(delta_star, 0.025)\nb_star <- quantile(delta_star, 0.975)\nci <- samp_med - c(b_star, a_star)\nnames(ci) <- c(\"2.5\", \"97.5\")\nci\n\n     2.5     97.5 \n260.8621 280.8380"
+  },
+  {
+    "objectID": "weeks/hw/templates/hw7_r.html#problem-3",
+    "href": "weeks/hw/templates/hw7_r.html#problem-3",
+    "title": "MATH 311: Homework 7 (R)",
+    "section": "Problem 3",
+    "text": "Problem 3\n\nPart a\nCompute the estimate \\(\\hat{e}\\) for this sample.\n\n# you can optionally do this part on paper\n\n\n\nPart b\nEither answer on paper or type your solution here!\n\n\nPart c\nUse the rbinom function to generate 10000 bootstrap estimates for \\((\\hat{p}_{c}^{*}, \\hat{p}_{v}^{*})\\). Then compute bootstrap estimates \\(\\hat{e}^{*}\\) based on each of these pairs of bootstrap estimates.\n\n\n\n\n\nPart d\nCreate a histogram of the bootstrap distribution of \\(\\hat{e}^{*}\\) and describe the shape, center, and spread of the distribution.\n\n\n\nSolution:\n\n\nPart e\nCreate a 95% bootstrap confidence interval for \\(e\\).\n\n\n\nSolution:"
+  },
+  {
+    "objectID": "weeks/hw/templates/hw7_r.html#problem-4",
+    "href": "weeks/hw/templates/hw7_r.html#problem-4",
+    "title": "MATH 311: Homework 7 (R)",
+    "section": "Problem 4",
+    "text": "Problem 4\n\nPart a\n\n\n\nNotice the cache = T in the chunk headers below. Because this code will take a long time to run, it would be extremely annoying to have to wait a minute for your document to knit every time. We can avoid this by caching our results. First we name the chunk (e.g. prob-4a). Then when we knit, the executed code from this chunk gets saved in a file. Every time you knit the document again, R simply uses the saved output, if the code in the chunk prob-4a is unchanged. Anytime you change the code in the code chunk, upon knitting, R will re-run that code chunk and overwrite the saved output.\n\n\n\nSolution:\n\n\nPart b\n\n\n\nSolution:"
+  },
+  {
+    "objectID": "weeks/hw/templates/hw7_r.html",
+    "href": "weeks/hw/templates/hw7_r.html",
+    "title": "MATH 311: Homework 7 (R)",
+    "section": "",
+    "text": "Write a function in R which will take a vector \\(\\mathbf{x}\\) as input and outputs the value of the skewness \\(M_{3}(\\mathbf{x})\\) for this vector.\n\n\n\n\n\n\nA sample of size 20 was generated from a skewed distribution with unknown CDF \\(F\\). Generate 5000 bootstrap samples from x. Obtain approximations of the bias and standard deviation of the sample skewness estimator \\(M_{3}\\) using your bootstrapped statistics.\n\n\n\nSolution:"
+  },
+  {
+    "objectID": "weeks/class/power_fns.html",
+    "href": "weeks/class/power_fns.html",
+    "title": "Power functions",
+    "section": "",
+    "text": "Recall the following statistical model and hypotheses:\n\\[X_{1},\\ldots, X_{10} |\\theta \\sim \\text{Bern}(\\theta), \\qquad \\theta \\in [0,1]\\] \\[H_{0}: \\theta = \\frac{1}{2} \\qquad \\text{vs.} \\qquad H_{1}: \\theta \\neq \\frac{1}{2}\\] We have the following testing procedure \\(\\delta_{1}\\): \\(r(\\mathbf{X}) = |\\sum_{i=1}^{10} X_{i} - 5|, \\text{ with rejection region } R = \\{r(\\mathbf{X}) = 5 \\}\\)\nSo the power function is \\(\\pi(\\theta | \\delta_{1}) = P( \\sum_{i=1}^{10} X_{i} \\in \\{0, 10\\}|\\theta)\\).\n\npower_fn <- function(theta, n, r_vals){\n  # theta is possible vector of theta_vals\n  # n = number of trials\n  # r_vals = values in rejection region\n  n_theta <- length(theta)\n  ret <- rep(NA, n_theta)\n  for(i in 1:n_theta){\n    ret[i] <- sum(dbinom(r_vals, n, theta[i]))\n  }\n  return(ret)\n}\n\n\n# create sequence of theta values for plotting purposes\ntheta_vals <- seq(0, 1, 0.01)\nn <- 10\ndelta1 <- power_fn(theta_vals, n, c(0, 10))\n\n\nlibrary(tidyverse)\ndata.frame(theta = theta_vals, power = delta1) %>%\n  ggplot(., aes(x = theta, y = power)) +\n  geom_line()+\n  xlab(expression(theta)) +\n  theme(text = element_text(size = 14))\n\n\n\n\nWe can use the plot of this power function to talk about the probability of Type I and II error under \\(\\delta_{1}\\)."
+  },
+  {
+    "objectID": "weeks/class/power_fns.html#comparing-power",
+    "href": "weeks/class/power_fns.html#comparing-power",
+    "title": "Power functions",
+    "section": "Comparing power",
+    "text": "Comparing power\nConsider the second testing procedure \\(\\delta_{2}\\): \\(r(\\mathbf{X}) = |\\sum_{i=1}^{10} X_{i} - 5| \\text{ with rejection region } R = \\{r(\\mathbf{X}) \\geq 4 \\}\\).\nSo the power function is \\(\\pi(\\theta | \\delta_{1}) = P( \\sum_{i=1}^{10} X_{i} \\in \\{0, 1, 9, 10\\}|\\theta)\\).\n\ndelta2 <- power_fn(theta_vals, n, c(0, 1, 9, 10))\ndata.frame(theta = theta_vals, delta1, delta2) %>%\n  pivot_longer(cols = 2:3, names_to = \"procedure\", values_to = \"power\") %>%\n  ggplot(.,aes(x = theta, y = power, col = procedure)) +\n  geom_line() + \n  scale_color_manual(values = c(\"black\", \"purple\"))+\n  xlab(expression(theta)) +\n  theme(text = element_text(size = 14))\n\n\n\n\nHow do the two testing procedures \\(\\delta_{1}\\) and \\(\\delta_{2}\\) compare with respect to the probabilities of committing a Type I vs. Type II error?"
+  },
+  {
+    "objectID": "exam.html#sec-midterm1",
+    "href": "exam.html#sec-midterm1",
+    "title": "Exams",
+    "section": "Midterm 1",
+    "text": "Midterm 1\nMidterm 1 will be take-home. The midterm will be created as a Quiz in Canvas, and will be available/live starting at 5:00pm on Friday, March 29 through 11:59pm on Monday, April 1. You must upload your completed midterm to Canvas.\nThe first midterm will cover content up to material on 03/14 in Week 5. There will be some questions that ask you to use R.\nIf applicable, please send me a Letter of Accommodation before Spring Break!\n\nFormat\nThe exam will be broken down into two components: a component that requires R, and a component that does not require R (beyond using it as a calculator). These will appear as separate quizzes on Canvas. This format is intended to allow you to take a break between components if you’d like one. Your overall score for Midterm 1 will calculated as: (points on non-R + points on R)/(total possible points).\n\nNon-R\n\nYou will have 3 hours starting at the time that you open the non-R portion of the midterm to complete it. You must upload your solutions to Canvas by the end of those 3 hours. It is your responsibility to ensure that your Midterm is uploaded correctly to Canvas. Please double-check that you have indeed submitted your midterm.\nYour solutions should be neatly written or typed. If you scan your handwritten solutions, please be sure to review the legibility of your scan before uploading to Canvas.\n\n\n\nR\n\nYou will have 1 hour starting at the time that you open the R portion of the midterm to complete it. You must upload your solutions to Canvas by the end of the hour. You must submit a knitted PDF/HTML document, and not the original .Rmd file. It is your responsibility to ensure that your Midterm is uploaded correctly to Canvas. Please double-check that you have indeed submitted your midterm.\nIf you are unable to knit due to bugs in your code, set eval = FALSE in the R chunk headers so the document will knit. That way, I can still see your code.\n\n\n\nHonor code statement\nIn both parts of the midterm, you will be required to write and/or type the honor code statement: “I  have neither given nor received unauthorized aid on this assignment.” See the following Resources subsection about what is considered unauthorized aid. Any submissions found in violation of this honor code will receive an automatic 0.\n\n\n\nResources\n\nThis midterm is open-book with respect to material shared/distributed in this MATH/STAT 311 course, but not open-people. The only person you are allowed to talk to about the midterm while it is “live” (available to the class) is Prof. Tang. This means that you should not ask someone if they’ve taken the midterm, how it went, etc. until after the official due date.\nYou may use any notes you’ve taken for this class and your MATH/STAT 310 course, your work on previous assignments/practice problems and its associated feedback, my recorded videos, and DeGroot and Schervish’s textbook. For problems asking you to use R, remember that you may reference any of R help file by typing ?functionname.\nYou may also use WolframAlpha, Maple, Mathematica, Desmos, or Symbolab to assist with calculating integrals, derivatives, or algebraic simplification. If you use technology to assist calculating, please clearly reference the site you used to assist you, and write down the explicit expression/code you input.\nYou may not use any other resources other than those listed above. That means no open internet/Google search or ChatGPT. If you have questions about whether a resource can be used, you are welcome to e-mail me.\nI will be regularly checking my e-mail from 8am-8pm while the midterm is live, but there might be delays of up to an hour in my responses.\n\n\n\nPreparation\n\nThe best preparation you can do for the exam is to organize your notes and/or homework to make finding information and examples as quick and efficient as possible. Beyond that, you should attempt to accurately assess what topics you have mastered and which you need to practice more. A good starting point is to review the list of objectives on each daily assignment. Another way to prepare is to create your own study guide with summaries of the important concepts, along with example problems you’ve designed and solved. As you study, it would be a good idea to compile lists of questions that you might have for Prof. Tang/the class.\nI encourage you to re-visit and re-do previous homework problems and practice problems. There are many practice problems that we did not have time to get to. Solutions to selected problems will be made available via Canvas over Spring Break.\nMake sure you feel comfortable creating new code chunks in an .Rmd file. You will be provided a starter template for this midterm, but I might not explicitly create code chunks for you ahead of time.\nExam problems will be comparable in difficulty to those assigned for homework. Some exam questions may be similar to problems you have seen before, while others will require you to synthesize your knowledge in new ways.\n\n\n\nReview Problems\nFor extra practice, additional review problems will be made available below towards the end of Spring Break. While these questions are representative of the typical scope and difficulty of individual exam questions, this review is not comprehensive, nor does it necessarily represent the expected amount of time for it will take for you to complete the exam.\n\nMidterm 1 review problems"
+  },
+  {
+    "objectID": "weeks/class/lrt.html",
+    "href": "weeks/class/lrt.html",
+    "title": "Likelihood ratio test",
+    "section": "",
+    "text": "Recall the coin-flipping scenario again! We have \\(X_{1},\\ldots, X_{n}\\) are a random sample from a \\(\\text{Bern}(\\theta)\\) distribution, where \\(\\theta\\) is the probability of Heads. We have the hypotheses\n\\[H_{0}: \\theta = \\theta_{0} \\qquad \\text{vs.} \\qquad H_{1}: \\theta \\neq \\theta_{0}\\] We can conduct a LRT of these hypotheses. We found the likelihood ratio statistic to be:\n\\[\\Lambda(\\mathbf{X}) = \\left(\\frac{n\\theta_{0}}{\\sum X_i}\\right)^{\\sum X_{i}} \\left( \\frac{n(1-\\theta_{0})}{n - \\sum X_i}\\right)^{n - \\sum X_i}\\] The LRT says reject when \\(\\Lambda(\\mathbf{x}) \\leq k\\) for some \\(k \\in [0,1]\\). Notice that \\(\\Lambda(\\mathbf{x})\\) depends on how many heads we see!"
+  },
+  {
+    "objectID": "weeks/class/lrt.html#specific-case",
+    "href": "weeks/class/lrt.html#specific-case",
+    "title": "Likelihood ratio test",
+    "section": "Specific case",
+    "text": "Specific case\nSuppose we have \\(n=6\\) coin flips and \\(\\theta_{0} = 0.6\\). That is,\n\\[H_{0}: \\theta = 0.6 \\qquad \\text{vs.} \\qquad H_{1}: \\theta \\neq 0.6\\]\nAlso suppose we want a level \\(0.08\\) LRT of these hypotheses, which means we need to find the value of \\(k\\) such that\n\\[\\text{Pr}(\\Lambda(\\mathbf{x}) \\leq k | \\theta =  0.6) \\leq 0.08\\] We can evaluate the test statistic for these specific values of \\(n, \\theta_{0}\\), and each possible value of \\(\\sum_{i=1}^{6} X_i = y \\in \\{0,1,\\ldots, 6\\}\\):\n\nn <- 6\ntheta0 <- 0.6\ny <- 0:n\nLambda <- ((n*theta0/y)^y) * (n*(1-theta0)/(n - y))^(n - y)\nLambda\n\n[1] 0.00409600 0.09172943 0.41990400 0.88473600 0.94478400 0.46438023 0.04665600\n\n\nSince \\(\\Lambda(\\mathbf{x})\\) is a function of \\(\\sum X_i\\), \\(\\text{Pr}(\\Lambda(\\mathbf{x}) = k | \\theta = 0.6)\\) can be obtained from \\(\\text{Pr}(\\sum X_i = y |\\theta = 0.6)\\). For example, \\(\\text{Pr}(\\Lambda(\\mathbf{x}) = 0.004096) = \\text{Pr}(\\sum X_i = 0 | \\theta = 0.6)\\).\nWe display the possible values of \\(\\Lambda(\\mathbf{x})\\) below, along with their associated probabilities (which are obtained from \\(\\text{Pr}(\\sum X_i = y |\\theta = 0.6)\\)):\n\n\n\n\n \n  \n     \n    y = 0 \n    y = 1 \n    y = 2 \n    y = 3 \n    y = 4 \n    y = 5 \n    y = 6 \n  \n \n\n  \n    \\(Pr(\\sum X_i = y \\mid \\theta_0)\\) \n    0.004096 \n    0.0368640 \n    0.138240 \n    0.276480 \n    0.311040 \n    0.1866240 \n    0.046656 \n  \n  \n    \\(\\Lambda(\\mathbf{x})\\) \n    0.004096 \n    0.0917294 \n    0.419904 \n    0.884736 \n    0.944784 \n    0.4643802 \n    0.046656 \n  \n\n\n\n\n\nNow we can find the value \\(k\\) such that \\(\\text{Pr}(\\Lambda(\\mathbf{x}) \\leq k | \\theta = 0.6) \\leq 0.08\\)!\n\n\\(\\text{Pr}(\\Lambda(\\mathbf{x}) \\leq 0.0041 | \\theta = 0.6) = \\text{Pr}(\\sum X_i = 0 | \\theta = 0.6) = 0.004 \\leq 0.08\\) 😄\n\\(\\text{Pr}(\\Lambda(\\mathbf{x}) \\leq 0.0467 | \\theta = 0.6) = \\text{Pr}(\\sum X_i = \\{0, 6\\} | \\theta = 0.6) = 0.0041 + 0.0467 = 0.051 \\leq 0.08\\) 😄\n\\(\\text{Pr}(\\Lambda(\\mathbf{x}) \\leq 0.0917 | \\theta = 0.6) = \\text{Pr}(\\sum X_i = \\{0, 6,1 \\} | \\theta = 0.6) = 0.0041 + 0.0467+ 0.0369 = 0.088 > 0.08\\) 😭\n\nSo rejecting \\(H_{0}\\) when \\(\\Lambda(\\mathbf{x}) \\leq k\\) for any \\(k \\in [0, 0.0917)\\) yields a level-0.08 test.\nIn particular, the test that rejects \\(H_{0}\\) when \\(k = 0.0467\\) has size 0.051.\nThe test that rejects \\(H_{0}\\) when \\(k = 0.0041\\) has size 0.004."
+  },
+  {
+    "objectID": "weeks/class/18_lrt.html",
+    "href": "weeks/class/18_lrt.html",
+    "title": "Likelihood ratio test",
+    "section": "",
+    "text": "Recall the coin-flipping scenario again! We have \\(X_{1},\\ldots, X_{n}\\) are a random sample from a \\(\\text{Bern}(\\theta)\\) distribution, where \\(\\theta\\) is the probability of Heads. We have the hypotheses\n\\[H_{0}: \\theta = \\theta_{0} \\qquad \\text{vs.} \\qquad H_{1}: \\theta \\neq \\theta_{0}\\] We can conduct a LRT of these hypotheses. We found the likelihood ratio statistic to be:\n\\[\\Lambda(\\mathbf{X}) = \\left(\\frac{n\\theta_{0}}{\\sum X_i}\\right)^{\\sum X_{i}} \\left( \\frac{n(1-\\theta_{0})}{n - \\sum X_i}\\right)^{n - \\sum X_i}\\] The LRT says reject when \\(\\Lambda(\\mathbf{x}) \\leq k\\) for some \\(k \\in [0,1]\\). Notice that \\(\\Lambda(\\mathbf{x})\\) depends on how many heads we see!"
+  },
+  {
+    "objectID": "weeks/class/18_lrt.html#specific-case",
+    "href": "weeks/class/18_lrt.html#specific-case",
+    "title": "Likelihood ratio test",
+    "section": "Specific case",
+    "text": "Specific case\nSuppose we have \\(n=6\\) coin flips and \\(\\theta_{0} = 0.6\\). That is,\n\\[H_{0}: \\theta = 0.6 \\qquad \\text{vs.} \\qquad H_{1}: \\theta \\neq 0.6\\]\nAlso suppose we want a level \\(0.08\\) LRT of these hypotheses, which means we need to find the value of \\(k\\) such that\n\\[\\text{Pr}(\\Lambda(\\mathbf{x}) \\leq k | \\theta =  0.6) \\leq 0.08\\] We can evaluate the test statistic for these specific values of \\(n, \\theta_{0}\\), and each possible value of \\(\\sum_{i=1}^{6} X_i = y \\in \\{0,1,\\ldots, 6\\}\\):\n\nn <- 6\ntheta0 <- 0.6\ny <- 0:n\nLambda <- ((n*theta0/y)^y) * (n*(1-theta0)/(n - y))^(n - y)\nLambda\n\n[1] 0.00409600 0.09172943 0.41990400 0.88473600 0.94478400 0.46438023 0.04665600\n\n\nSince \\(\\Lambda(\\mathbf{x})\\) is a function of \\(\\sum X_i\\), \\(\\text{Pr}(\\Lambda(\\mathbf{x}) = k | \\theta = 0.6)\\) can be obtained from \\(\\text{Pr}(\\sum X_i = y |\\theta = 0.6)\\). For example, \\(\\text{Pr}(\\Lambda(\\mathbf{x}) = 0.004096) = \\text{Pr}(\\sum X_i = 0 | \\theta = 0.6)\\).\nWe display the possible values of \\(\\Lambda(\\mathbf{x})\\) below, along with their associated probabilities (which are obtained from \\(\\text{Pr}(\\sum X_i = y |\\theta = 0.6)\\)):\n\n\n\n\n \n  \n     \n    y = 0 \n    y = 1 \n    y = 2 \n    y = 3 \n    y = 4 \n    y = 5 \n    y = 6 \n  \n \n\n  \n    \\(Pr(\\sum X_i = y \\mid \\theta_0)\\) \n    0.004096 \n    0.0368640 \n    0.138240 \n    0.276480 \n    0.311040 \n    0.1866240 \n    0.046656 \n  \n  \n    \\(\\Lambda(\\mathbf{x})\\) \n    0.004096 \n    0.0917294 \n    0.419904 \n    0.884736 \n    0.944784 \n    0.4643802 \n    0.046656 \n  \n\n\n\n\n\nNow we can find the value \\(k\\) such that \\(\\text{Pr}(\\Lambda(\\mathbf{x}) \\leq k | \\theta = 0.6) \\leq 0.08\\)! Fill out the remaining components:\n\n\\(\\text{Pr}(\\Lambda(\\mathbf{x}) \\leq 0.0041 | \\theta = 0.6) = \\text{Pr}(\\sum X_i = \\qquad \\qquad | \\theta = 0.6) = \\qquad\\)\n\\(\\text{Pr}(\\Lambda(\\mathbf{x}) \\leq \\qquad \\qquad | \\theta = 0.6) = \\text{Pr}(\\sum X_i = \\qquad \\qquad | \\theta = 0.6) = \\qquad \\qquad\\)`\n\\(\\text{Pr}(\\Lambda(\\mathbf{x}) \\leq \\qquad \\qquad | \\theta = 0.6) = \\text{Pr}(\\sum X_i = \\qquad \\qquad| \\theta = 0.6) = \\qquad \\qquad\\)\n\nSo rejecting \\(H_{0}\\) when \\(\\Lambda(\\mathbf{x}) \\leq k\\) for any \\(k \\in \\qquad \\qquad \\qquad\\) yields a level-0.08 test.\nIn particular, the test that rejects \\(H_{0}\\) when \\(k = 0.0467\\) has size:\nThe test that rejects \\(H_{0}\\) when \\(k = 0.0041\\) has size:"
+  },
+  {
+    "objectID": "weeks/class/18_lrt_solns.html",
+    "href": "weeks/class/18_lrt_solns.html",
+    "title": "Likelihood ratio test",
+    "section": "",
+    "text": "Recall the coin-flipping scenario again! We have \\(X_{1},\\ldots, X_{n}\\) are a random sample from a \\(\\text{Bern}(\\theta)\\) distribution, where \\(\\theta\\) is the probability of Heads. We have the hypotheses\n\\[H_{0}: \\theta = \\theta_{0} \\qquad \\text{vs.} \\qquad H_{1}: \\theta \\neq \\theta_{0}\\] We can conduct a LRT of these hypotheses. We found the likelihood ratio statistic to be:\n\\[\\Lambda(\\mathbf{X}) = \\left(\\frac{n\\theta_{0}}{\\sum X_i}\\right)^{\\sum X_{i}} \\left( \\frac{n(1-\\theta_{0})}{n - \\sum X_i}\\right)^{n - \\sum X_i}\\] The LRT says reject when \\(\\Lambda(\\mathbf{x}) \\leq k\\) for some \\(k \\in [0,1]\\). Notice that \\(\\Lambda(\\mathbf{x})\\) depends on how many heads we see!"
+  },
+  {
+    "objectID": "weeks/class/18_lrt_solns.html#specific-case",
+    "href": "weeks/class/18_lrt_solns.html#specific-case",
+    "title": "Likelihood ratio test",
+    "section": "Specific case",
+    "text": "Specific case\nSuppose we have \\(n=6\\) coin flips and \\(\\theta_{0} = 0.6\\). That is,\n\\[H_{0}: \\theta = 0.6 \\qquad \\text{vs.} \\qquad H_{1}: \\theta \\neq 0.6\\]\nAlso suppose we want a level \\(0.08\\) LRT of these hypotheses, which means we need to find the value of \\(k\\) such that\n\\[\\text{Pr}(\\Lambda(\\mathbf{x}) \\leq k | \\theta =  0.6) \\leq 0.08\\] We can evaluate the test statistic for these specific values of \\(n, \\theta_{0}\\), and each possible value of \\(\\sum_{i=1}^{6} X_i = y \\in \\{0,1,\\ldots, 6\\}\\):\n\nn <- 6\ntheta0 <- 0.6\ny <- 0:n\nLambda <- ((n*theta0/y)^y) * (n*(1-theta0)/(n - y))^(n - y)\nLambda\n\n[1] 0.00409600 0.09172943 0.41990400 0.88473600 0.94478400 0.46438023 0.04665600\n\n\nSince \\(\\Lambda(\\mathbf{x})\\) is a function of \\(\\sum X_i\\), \\(\\text{Pr}(\\Lambda(\\mathbf{x}) = k | \\theta = 0.6)\\) can be obtained from \\(\\text{Pr}(\\sum X_i = y |\\theta = 0.6)\\). For example, \\(\\text{Pr}(\\Lambda(\\mathbf{x}) = 0.004096) = \\text{Pr}(\\sum X_i = 0 | \\theta = 0.6)\\).\nWe display the possible values of \\(\\Lambda(\\mathbf{x})\\) below, along with their associated probabilities (which are obtained from \\(\\text{Pr}(\\sum X_i = y |\\theta = 0.6)\\)):\n\n\n\n\n \n  \n     \n    y = 0 \n    y = 1 \n    y = 2 \n    y = 3 \n    y = 4 \n    y = 5 \n    y = 6 \n  \n \n\n  \n    \\(Pr(\\sum X_i = y \\mid \\theta_0)\\) \n    0.004096 \n    0.0368640 \n    0.138240 \n    0.276480 \n    0.311040 \n    0.1866240 \n    0.046656 \n  \n  \n    \\(\\Lambda(\\mathbf{x})\\) \n    0.004096 \n    0.0917294 \n    0.419904 \n    0.884736 \n    0.944784 \n    0.4643802 \n    0.046656 \n  \n\n\n\n\n\nNow we can find the value \\(k\\) such that \\(\\text{Pr}(\\Lambda(\\mathbf{x}) \\leq k | \\theta = 0.6) \\leq 0.08\\)!\n\n\\(\\text{Pr}(\\Lambda(\\mathbf{x}) \\leq 0.0041 | \\theta = 0.6) = \\text{Pr}(\\sum X_i = 0 | \\theta = 0.6) = 0.004 \\leq 0.08\\)\n\\(\\text{Pr}(\\Lambda(\\mathbf{x}) \\leq 0.0467 | \\theta = 0.6) = \\text{Pr}(\\sum X_i = \\{0, 6\\} | \\theta = 0.6) = 0.0041 + 0.0467 = 0.051 \\leq 0.08\\)\n\\(\\text{Pr}(\\Lambda(\\mathbf{x}) \\leq 0.0917 | \\theta = 0.6) = \\text{Pr}(\\sum X_i = \\{0, 6,1 \\} | \\theta = 0.6) = 0.0041 + 0.0467+ 0.0369 = 0.088 > 0.08\\)\n\nSo rejecting \\(H_{0}\\) when \\(\\Lambda(\\mathbf{x}) \\leq k\\) for any \\(k \\in [0, 0.0917)\\) yields a level-0.08 test.\nIn particular, the test that rejects \\(H_{0}\\) when \\(k = 0.0467\\) has size 0.051.\nThe test that rejects \\(H_{0}\\) when \\(k = 0.0041\\) has size 0.004."
+  },
+  {
+    "objectID": "weeks/class/lrt_asymptotics.html",
+    "href": "weeks/class/lrt_asymptotics.html",
+    "title": "LRT asymptotics",
+    "section": "",
+    "text": "Recall the coin-flipping scenario again! We have \\(X_{1},\\ldots, X_{n}\\) are a random sample from a \\(\\text{Bern}(\\theta)\\) distribution, where \\(\\theta\\) is the probability of Heads. We have the hypotheses\n\\[H_{0}: \\theta = \\theta_{0} \\qquad \\text{vs.} \\qquad H_{1}: \\theta \\neq \\theta_{0}\\] We can conduct a LRT of these hypotheses. We found the likelihood ratio statistic to be:\n\\[\\Lambda(\\mathbf{X}) = \\left(\\frac{n\\theta_{0}}{\\sum X_i}\\right)^{\\sum X_{i}} \\left( \\frac{n(1-\\theta_{0})}{n - \\sum X_i}\\right)^{n - \\sum X_i}\\]The LRT says reject when \\(\\Lambda(\\mathbf{x}) \\leq k\\) for some \\(k \\in [0,1]\\). Notice that \\(\\Lambda(\\mathbf{x})\\) depends on how many heads we see!"
+  },
+  {
+    "objectID": "weeks/class/lrt_asymptotics.html#small-n",
+    "href": "weeks/class/lrt_asymptotics.html#small-n",
+    "title": "LRT asymptotics",
+    "section": "Small \\(n\\)",
+    "text": "Small \\(n\\)\nSuppose we have the following hypotheses:\n\\[H_{0}: \\theta = 0.6 \\qquad \\text{vs.} \\qquad H_{1}: \\theta \\neq 0.6\\]\nSuppose we have \\(n=6\\) coin flips and observe \\(\\sum X_i = 1\\) heads. What is the \\(p\\) value for the observed data?\n\nExact \\(p\\)-value\n\nn <- 6\ntheta0 <- 0.6\ny <- 1\nLambda_obs <- ((n*theta0/y)^y) * (n*(1-theta0)/(n - y))^(n - y)\nLambda_obs\n\n[1] 0.09172943\n\n\n\\[\\begin{align*}\n\\text{p-value} &= \\sup_{\\theta \\in \\Omega_{0}} \\text{Pr}(\\Lambda(\\mathbf{X}) \\leq \\Lambda(\\mathbf{x})\\mid \\theta) \\\\\n&= \\text{Pr}\\left(\\Lambda(\\mathbf{X}) \\leq 0.0917 \\mid \\theta = 0.6\\right)  \\\\\n&=\\text{Pr}\\left(\\sum X_i \\in \\{0, 1, 6\\} \\mid \\theta = 0.6\\right)\n\\end{align*}\\]\n(Return to previous class’ code for a refresher!)\nThus the \\(p\\) value is\n\ndbinom(0, n, theta0) + dbinom(1, n, theta0) + dbinom(6, n, theta0)\n\n[1] 0.087616\n\n\n\n\nApproximate \\(p\\)-value\n\n1 - pchisq(-2*log(Lambda_obs), 1)\n\n[1] 0.02882853\n\n\nNotice how different this is from the exact \\(p\\) value! This is because \\(n=6\\) observations is not large enough for asymptotics to kick in!"
+  },
+  {
+    "objectID": "weeks/class/lrt_asymptotics.html#larger-n",
+    "href": "weeks/class/lrt_asymptotics.html#larger-n",
+    "title": "LRT asymptotics",
+    "section": "Larger \\(n\\)",
+    "text": "Larger \\(n\\)\nSuppose we have the same hypotheses, but now consider \\(n = 18\\) coin flips, of which we observed \\(\\sum X_i = 3\\) heads. So we have the same proportion of heads as in the above case, but more samples overall.\n\n\n\nThe exact \\(p\\) value for this data is (I challenge you to try obtaining this on your own):\n\np_val\n\n[1] 0.0003163942\n\n\nThe approximate \\(p\\) value using the asymptotic approximation is:\n\nn <- 18\ntheta0 <- 0.6\ny <- 3\nLambda_obs <- ((n*theta0/y)^y) * (n*(1-theta0)/(n - y))^(n - y)\n1 - pchisq(-2*log(Lambda_obs), 1)\n\n[1] 0.000153118\n\n\nNotice how similar these values are now!"
+  },
+  {
+    "objectID": "weeks/class/duality.html",
+    "href": "weeks/class/duality.html",
+    "title": "Equivalence of CI and HT",
+    "section": "",
+    "text": "Recall our donuts! I read online somewhere that a Boston creme donut weights 100 g. Let’s see how Middlebury Bagel’s donuts compare. Let \\(X_1,\\ldots, X_n \\sim N(\\mu ,\\sigma^2)\\) represent the weight in grams of each donut. I have no idea what \\(\\mu\\) nor \\(\\sigma^2\\) are!\nI have the following hypotheses: \\[H_{0}: \\mu = 100 \\qquad \\text{ vs. } \\qquad H_{1}: \\mu \\neq 100\\]\nSuppose I want a level 0.05 test of these hypotheses. There are infinitely many tests out there that could test these hypotheses, so how do I pick one? One way is to use the duality of CI and HT!\nFor this data, we know that a 95% CI for \\(\\mu\\) is of the form \\[[A(\\mathbf{X}),B(\\mathbf{X})]= \\left[\\bar{X} - T_{n-1}^{-1}\\left(\\frac{1+\\gamma}{2}\\right)\\frac{s}{\\sqrt{n}}, \\bar{X} + T_{n-1}^{-1}\\left(\\frac{1+\\gamma}{2}\\right)\\frac{s}{\\sqrt{n}}\\right]\\]\nBy Duality Theorem 2, a test \\(\\delta\\) that defines an acceptance region of \\(R^c : \\{r(\\mathbf{x}): \\mu_{0} \\in [A(\\mathbf{X}),B(\\mathbf{X})]\\}\\) for the null \\(H_{0}: \\mu = \\mu_{0}\\) yields a level \\(1-\\gamma\\) test.\nWe (only) observed \\(n=4\\) data points: \\(\\mathbf{X} = (113, 110, 112, 106)\\). A 95% CI for \\(\\mu\\) is thus:\n\nx <- c(113, 110, 112, 106)\nn <- length(x)\n\nxbar <- mean(x)\ns <- sd(x)\nc <- qt((1 + 0.95)/2, n-1)\n\nc(xbar - c * s/sqrt(n), xbar + c * s/sqrt(n))\n\n[1] 105.3241 115.1759\n\n\nSuppose we use the testing procedure defined above. Then since \\(\\mu_{0} = 100\\) does not fall into this interval, this level \\(0.05 = 1 - 0.95\\) test rejects \\(H_{0}\\). So we conclude that the average weight of Middlebury Bagel’s boston creme donuts are not 100g."
+  },
+  {
+    "objectID": "project.html#rough-draft",
+    "href": "project.html#rough-draft",
+    "title": "Final project",
+    "section": "Rough draft",
+    "text": "Rough draft"
+  },
+  {
+    "objectID": "weeks/class/slr.html",
+    "href": "weeks/class/slr.html",
+    "title": "Simple linear regression",
+    "section": "",
+    "text": "library(openintro)\nlibrary(tidyverse)\n\nElections for the U.S. House of Representatives take place every two years. Half coincide with presidential elections, and the other half take place in the middle of a Presidential term. These are called the midterm elections. The data midterms_house from the openintro package contains data from the 29 midterm elections between 1899-2019.\nOne political theory suggests that high unemployment rate corresponds to worse performance by the President’s party in midterm elections. Let’s examine that here! The two variables we will consider in the following data are:\n\nunemp: the unemployment rate in the year of the midterm election\nhouse_change: percent change in the House seats for the sitting president’s party\n\n\ndat <- midterms_house %>%\n  filter(!year %in% c(1935, 1939)) # filter out Depression Era"
+  },
+  {
+    "objectID": "weeks/class/slr.html#point-estimates",
+    "href": "weeks/class/slr.html#point-estimates",
+    "title": "Simple linear regression",
+    "section": "Point estimates",
+    "text": "Point estimates\n\nn <- nrow(dat)\ny <- dat$house_change\nybar <- mean(y)\nx <- dat$unemp\nxbar <- mean(x)\ns_x2 <- sum((x - xbar)^2)\nb1_hat <- sum((y - ybar)*(x - xbar))/s_x2\nb0_hat <- ybar - b1_hat * xbar\ns2_hat <- (1/n)*sum((y - (b0_hat + b1_hat*x))^2)\nb0_hat\n\n[1] -7.364406\n\nb1_hat\n\n[1] -0.8897261\n\ns2_hat\n\n[1] 73.95685"
+  },
+  {
+    "objectID": "weeks/class/slr.html#inference",
+    "href": "weeks/class/slr.html#inference",
+    "title": "Simple linear regression",
+    "section": "Inference",
+    "text": "Inference\n\nHypothesis test\nWe might want to better understand if unemployment rate really is associated with changes in composition of the House seats. Consider the hypotheses\n\\[H_{0}: \\beta_{1} = 0 \\qquad \\text{vs.} \\qquad H_{1}: \\beta_{1} \\neq 0\\] Let \\(U = s_{x}\\left(\\frac{\\hat{\\beta}_{1} - 0}{\\sigma'}\\right)\\). Recall our rejection rule for a level \\(\\alpha_{0}\\) test of these hypotheses is to reject \\(H_{0}\\) if \\(|U| \\geq c = T^{-1}_{n-2}(1 - \\frac{\\alpha_{0}}{2})\\). In particular, consider \\(\\alpha_{0} = 0.05\\):\n\ns_tilde <- sqrt(n*s2_hat/(n-2))\nu <- sqrt(s_x2)*(b1_hat - 0)/s_tilde\nu\n\n[1] -1.065546\n\n# level-05 test rejection rule\nalpha0 <- 0.05\nc <- qt(1 - alpha0/2, n-2)\nc\n\n[1] 2.051831\n\n\nSince \\(|U| = |u| = 1.066\\) is less than \\(c = 2.052\\), we fail to reject \\(H_{0}\\). So we cannot conclude that there is a linear association between unemployment rate and the percent change in house representatives from the president’s party during midterm elections.\n\n\np-value\nWe can also obtain the p-value and compare its value to \\(0.05\\)\n\n# p-value\npt(-abs(u), n-2) + pt(abs(u), n-2, lower.tail = F)\n\n[1] 0.2960654\n\n\nSince the p-value is greater than \\(0.05\\), we fail to reject \\(H_{0}\\) at the 0.05 level.\n\n\nlm() function\nWe can easily obtain these results using the lm() function below. Notice how the outputs from this function compare to the values we obtained by hand!\n\nmod <- lm(house_change ~ unemp, data = dat)\nsummary(mod)\n\n\nCall:\nlm(formula = house_change ~ unemp, data = dat)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-14.0124  -7.6989   0.0913   7.2974  16.1447 \n\nCoefficients:\n            Estimate Std. Error t value Pr(>|t|)\n(Intercept)  -7.3644     5.1553  -1.429    0.165\nunemp        -0.8897     0.8350  -1.066    0.296\n\nResidual standard error: 8.913 on 27 degrees of freedom\nMultiple R-squared:  0.04035,   Adjusted R-squared:  0.004812 \nF-statistic: 1.135 on 1 and 27 DF,  p-value: 0.2961"
+  },
+  {
+    "objectID": "project.html#presentation",
+    "href": "project.html#presentation",
+    "title": "Final project",
+    "section": "Presentation",
+    "text": "Presentation"
+  },
+  {
+    "objectID": "project.html#sec-reflection",
+    "href": "project.html#sec-reflection",
+    "title": "Final project",
+    "section": "Reflection",
+    "text": "Reflection\nIn addition to your final paper, please submit a roughly one page reflection that addresses the following questions. The reflections should be submitted individually.\n\nWhat were some of the most interesting discoveries you made while working on this project? These could be discoveries related to the topic or yourself while working on the project.\nWhat aspect of your project are you most proud of?\nWhat aspects of your project do you wish you could have improved or done better on?\nWhat aspects of the peer review were most helpful to you? Additionally, provide a specific example of some feedback that you incorporated into your final paper.\nHow do you think you grew/developed your statistical expertise through this project, or perhaps through this class as a whole?\nOptionally: what suggestions/feedback do you have for the final project when Becky teaches this class again? Is there anything else that you’d like to reflect on, whether it’s about the project or the class as a whole?"
+  },
+  {
+    "objectID": "project.html#final-draft",
+    "href": "project.html#final-draft",
+    "title": "Final project",
+    "section": "Final draft",
+    "text": "Final draft"
+  }
+]

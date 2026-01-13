@@ -1,0 +1,60 @@
+---
+title: "Week 04"
+---
+
+::: {style="color: #6284a2"}
+### Tuesday (03/05)
+:::
+
+**Topics**
+
+-   Method of Moments
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_07.pdf)
+-   Please bring a laptop to class tomorrow!
+
+**Class activity**
+
+-   Method of Moments [simulation](class/mark_recapture.Rmd)
+
+-   Method of Moments [practice problems](class/07_MM.pdf)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Thursday (03/07)
+:::
+
+**Topics**
+
+-   Mean squared error of an estimator
+
+-   Bias of an estimator
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_08.pdf)
+
+**Class activity**
+
+-   Bias [practice problems](class/08_bias.pdf)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Friday (03/08)
+:::
+
+**Topics**
+
+-   Bias-variance trade-off
+
+**Daily assignment**
+
+-   Nothing official, but review notes from yesterday.
+
+**Class activity**
+
+-   MSE [practice problems](class/09_MSE.pdf)

@@ -1,0 +1,55 @@
+---
+title: "Bayes estimator under absolute loss"
+format: 
+  revealjs:
+    incremental: true 
+    height: 1000
+    width: 2000
+    include-before: [ '<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {enableAssistiveMml: false}});</script>']
+---
+
+## Theorem
+
+Under absolute loss $L(\theta, a) = |\theta - a|$, a Bayes estimator for $\theta$ is any posterior median of $\theta$.
+
+-   That is, a Bayes estimator is a function $\delta(\mathbf{X}) \equiv m$ such that $\text{Pr}(\theta \leq m | \mathbf{x}) \geq \frac{1}{2}$ and $\text{Pr}(\theta \geq m | \mathbf{x}) \geq \frac{1}{2}$.
+
+-   Note that when $\theta$ is continuous, there exists a single median.
+
+## Proof set-up
+
+-   Note that the absolute value function is not differentiable, so proving a maximum/minimum cannot rely on derivatives!
+
+-   Assume that $\theta$ is continuous, so that if $m$ is the posterior median, then $\text{Pr}(\theta \geq m | \mathbf{x}) = \frac{1}{2} = \text{Pr}(\theta \leq m | \mathbf{x})$.
+
+-   Let $a$ be any other estimator of $\theta$. 
+
+-   We will show that
+
+    $$
+    \mathbb{E}[L(\theta , a) | \mathbf{x}] - \mathbb{E}[L(\theta, m) | \mathbf{x}]  \geq 0
+    $$
+
+    thus demonstrating that $m$ minimizes the expected loss.
+
+## Proof {.scrollable style="font-size: 90%;"}
+
+Let $m$ be the posterior median, and suppose $a < m$ is any other estimator.
+
+$$
+\begin{align}
+\mathbb{E}[L(\theta , a) | \mathbf{x}] & - \mathbb{E}[L(\theta, m) | \mathbf{x}] = \int_{\Omega} |\theta - a| p(\theta | \mathbf{x}) d\theta - \int_{\Omega} |\theta - m| p(\theta | \mathbf{x})d\theta \\ 
+&\class{fragment}{= \int_{\Omega} \left(|\theta - a| - |\theta - m|\right) p(\theta | \mathbf{x})d\theta } \\
+&\class{fragment}{= \int_{-\infty}^{a} \left(|\theta - a| - |\theta - m|\right) p(\theta | \mathbf{x})d\theta + \int_{a}^{m} \left(|\theta - a| - |\theta - m|\right) p(\theta | \mathbf{x})d\theta + \int_{m}^{\infty} \left(|\theta - a| - |\theta - m|\right) p(\theta | \mathbf{x})d\theta }\\
+& \class{fragment}{= \int_{-\infty}^{a} ((a-\theta) - ( m - \theta)) p(\theta | \mathbf{x}) d\theta + \int_{a}^{m} ((\theta - a) - (m- \theta)) p(\theta | \mathbf{x}) d\theta  +
+\int_{m}^{\infty} ((\theta - a) - (\theta - m)) p(\theta | \mathbf{x}) d\theta} \\
+&\class{fragment}{= \int_{-\infty}^{a} (a - m)  p(\theta | \mathbf{x}) d\theta + \int_{a}^{m} (2\theta - a- m)  p(\theta | \mathbf{x}) d\theta + \int_{m}^{\infty} (m-a) p(\theta | \mathbf{x}) d\theta} \\
+&\class{fragment}{\color{orange}{\geq}  \int_{-\infty}^{a} (a - m)  p(\theta | \mathbf{x}) d\theta + \int_{a}^{m} (2\color{orange}{a} - a- m)  p(\theta | \mathbf{x}) d\theta + \int_{m}^{\infty} (m-a) p(\theta | \mathbf{x}) d\theta} \\
+&\class{fragment}{= (a-m)\text{Pr}(\theta \leq a | \mathbf{x}) + \color{purple}{(a-m)\text{Pr}(a  < \theta \leq m | \mathbf{x}) }+ (m-a) \text{Pr}(\theta \geq m | \mathbf{x})} \\
+&\class{fragment}{ = (a-m)\text{Pr}(\theta \leq a | \mathbf{x}) + \color{purple}{(a-m) \text{Pr}(\theta \leq m | \mathbf{x})  - (a-m) \text{Pr}(\theta \leq a | \mathbf{x})} + (m-a) \text{Pr}(\theta \geq m | \mathbf{x}) } \\
+&\class{fragment}{= (a-m) \text{Pr}(\theta \leq m | \mathbf{x}) +  (m-a) \text{Pr}(\theta \geq m | \mathbf{x})} \\
+&\class{fragment}{= (a-m)\left(\frac{1}{2}\right) + (m-a)\left(\frac{1}{2}\right)} \\
+&\class{fragment}{= (a-m)\left(\frac{1}{2}\right) - (a-m)\left(\frac{1}{2}\right)}\\
+&\class{fragment}{= 0 \qquad \tiny{\square} }
+\end{align}
+$$

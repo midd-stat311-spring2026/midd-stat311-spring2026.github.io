@@ -1,0 +1,106 @@
+---
+title: "Simple linear regression"
+author: "Becky Tang"
+date: "2024-05-10"
+editor_options: 
+  chunk_output_type: console
+---
+
+# Data
+
+```{r warning = F, message = F}
+library(openintro)
+library(tidyverse)
+```
+
+Elections for the U.S. House of Representatives take place every two years. Half coincide with presidential elections, and the other half take place in the middle of a Presidential term. These are called the midterm elections. The data `midterms_house` from the `openintro` package contains data from the 29 midterm elections between 1899-2019.
+
+One political theory suggests that high unemployment rate corresponds to worse performance by the President’s party in midterm elections. Let's examine that here! The two variables we will consider in the following data are:
+
+-   `unemp`: the unemployment rate in the year of the midterm election
+
+-   `house_change`: percent change in the House seats for the sitting president's party
+
+```{r}
+dat <- midterms_house %>%
+  filter(!year %in% c(1935, 1939)) # filter out Depression Era
+
+
+```
+
+# Simple Linear Regression
+
+If we're interested in understanding how `house_change` is related to `unemp`, we might consider a simple linear regression model of the form:
+
+$$\text{housechange} = \beta_{0} + \beta_{1} \text{unemp} + \epsilon$$
+One big assumption is that the response variable is Normal:
+
+```{r}
+hist(dat$house_change, xlab = "Percent change", main = "Histogram of midterm election changeover")
+```
+
+Do this look Normal? Not so sure... But we will proceed anyway! 
+
+## Point estimates 
+
+```{r}
+n <- nrow(dat)
+y <- dat$house_change
+ybar <- mean(y)
+x <- dat$unemp
+xbar <- mean(x)
+s_x2 <- sum((x - xbar)^2)
+b1_hat <- sum((y - ybar)*(x - xbar))/s_x2
+b0_hat <- ybar - b1_hat * xbar
+s2_hat <- (1/n)*sum((y - (b0_hat + b1_hat*x))^2)
+b0_hat
+b1_hat
+s2_hat
+```
+
+## Inference
+
+### Hypothesis test
+
+We might want to better understand if unemployment rate really is associated with changes in composition of the House seats. Consider the hypotheses
+
+$$H_{0}: \beta_{1} = 0 \qquad \text{vs.} \qquad H_{1}: \beta_{1} \neq 0$$
+Let $U = s_{x}\left(\frac{\hat{\beta}_{1} - 0}{\sigma'}\right)$. Recall our rejection rule for a level $\alpha_{0}$ test of these hypotheses is to reject $H_{0}$ if $|U| \geq c = T^{-1}_{n-2}(1 - \frac{\alpha_{0}}{2})$. In particular, consider $\alpha_{0} = 0.05$:
+
+```{r}
+s_tilde <- sqrt(n*s2_hat/(n-2))
+u <- sqrt(s_x2)*(b1_hat - 0)/s_tilde
+u
+
+# level-05 test rejection rule
+alpha0 <- 0.05
+c <- qt(1 - alpha0/2, n-2)
+c
+```
+
+Since $|U| = |u| = `r abs(round(u, 3))`$ is less than $c = `r round(c, 3)`$, we fail to reject $H_{0}$. So we cannot conclude that there is a linear association between unemployment rate and the percent change in house representatives from the president's party during midterm elections.
+
+### p-value
+
+We can also obtain the p-value and compare its value to $0.05$
+
+```{r}
+# p-value
+pt(-abs(u), n-2) + pt(abs(u), n-2, lower.tail = F)
+```
+
+Since the p-value is greater than $0.05$, we fail to reject $H_{0}$ at the 0.05 level.
+
+
+### `lm()` function
+
+We can easily obtain these results using the `lm()` function below. Notice how the outputs from this function compare to the values we obtained by hand!
+
+```{r}
+mod <- lm(house_change ~ unemp, data = dat)
+summary(mod)
+```
+
+
+
+

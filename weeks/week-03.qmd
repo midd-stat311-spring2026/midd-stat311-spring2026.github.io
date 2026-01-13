@@ -1,0 +1,58 @@
+---
+title: "Week 03"
+---
+
+::: {style="color: #6284a2"}
+### Tuesday (02/27)
+:::
+
+**Topics**
+
+-   Method of Maximum Likelihood
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_05.pdf)
+
+**Class activity**
+
+-   [MLE](class/04_MLE_1.pdf) practice problems
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Thursday (02/29)
+:::
+
+**Topics**
+
+-   MLEs (cont.)
+
+**Daily assignment**
+
+-   Nothing official, though I suggest re-reading Section 7.5 and digging out your multivariable calculus notes to remember what a Hessian matrix is!
+
+**Class activity**
+
+-   [More MLE](class/05_MLE_2.pdf) practice problems
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Friday (03/01)
+:::
+
+**Topics**
+
+-   Properties of MLEs
+-   Consistency
+
+**Daily assignment**
+
+To be completed and submitted to Canvas by 8:45am
+
+-   [Daily assignment](daily/DA_06.pdf)
+
+**Class activity**
+
+-   [Invariance and consistency](class/06_MLE_properties.pdf) practice problems

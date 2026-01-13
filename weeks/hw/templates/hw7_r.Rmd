@@ -1,0 +1,97 @@
+---
+title: "MATH 311: Homework 7 (R)"
+author: "Your name here"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problem 2
+
+### Part b
+
+Write a function in R which will take a vector $\mathbf{x}$ as input and outputs the value of the skewness $M_{3}(\mathbf{x})$ for this vector.
+
+```{r prob-2b}
+
+```
+
+### Part c
+
+A sample of size 20 was generated from a skewed distribution with unknown CDF $F$. Generate 5000 bootstrap samples from `x`. Obtain approximations of the bias and standard deviation of the sample skewness estimator $M_{3}$ using your bootstrapped statistics.
+
+```{r prob-2c}
+
+```
+
+**Solution:**
+
+## Problem 3
+
+### Part a
+
+Compute the estimate $\hat{e}$ for this sample.
+
+```{r prob-3a}
+# you can optionally do this part on paper
+```
+
+### Part b
+
+Either answer on paper or type your solution here!
+
+### Part c
+
+Use the `rbinom` function to generate 10000 bootstrap estimates for $(\hat{p}_{c}^{*}, \hat{p}_{v}^{*})$. Then compute bootstrap estimates $\hat{e}^{*}$ based on each of these pairs of bootstrap estimates. 
+
+```{r prob-3c}
+
+```
+
+### Part d
+
+Create a histogram of the bootstrap distribution of $\hat{e}^{*}$ and describe the shape, center, and spread of the distribution.
+
+```{r prob-3d}
+
+```
+
+**Solution:** 
+
+### Part e
+
+Create a 95% bootstrap confidence interval for $e$.
+
+```{r prob-3e}
+
+```
+
+**Solution:** 
+
+## Problem 4
+
+### Part a
+
+
+```{r prob-4a-fns}
+
+```
+
+Notice the `cache = T` in the chunk headers below. Because this code will take a long time to run, it would be extremely annoying to have to wait a minute for your document to knit every time. We can avoid this by *caching* our results. First we name the chunk (e.g. `prob-4a`). Then when we knit, the executed code from this chunk gets saved in a file. Every time you knit the document again, R simply uses the saved output, if the code in the chunk `prob-4a` is unchanged. Anytime you change the code in the code chunk, upon knitting, R will re-run that code chunk and overwrite the saved output.
+
+```{r prob-4a, cache = T}
+
+```
+
+**Solution:**
+
+
+### Part b
+
+```{r prob-4b, cache = T}
+
+```
+
+**Solution:** 

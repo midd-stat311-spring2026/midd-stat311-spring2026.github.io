@@ -1,0 +1,47 @@
+---
+title: "Week 12"
+---
+
+::: {style="color: #6284a2"}
+### Tuesday (05/07)
+:::
+
+**Topics**
+
+-   Method of least squares
+
+**Daily assignment**
+
+-   None!
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Thursday (05/09)
+:::
+
+**Topics**
+
+-   SLR
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_21.pdf)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Friday (05/11)
+:::
+
+**Topics**
+
+-   Inference for SLR (cont.)
+
+**Daily assignment**
+
+-   None!
+
+**Class activity**
+
+-   [Simple linear regression code](class/slr.qmd)

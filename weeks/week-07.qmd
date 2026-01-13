@@ -1,0 +1,52 @@
+---
+title: "Week 07"
+---
+
+::: {style="color: #6284a2"}
+### Tuesday (04/02)
+:::
+
+**Topics**
+
+-   $t$ distribution (cont.)
+-   Introduce final project
+
+**Daily assignment**
+
+-   None
+
+**Class activity**
+
+-   $t$ distribution [practice problem](daily/14_t_dist.pdf)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Thursday (04/04)
+:::
+
+**Topics**
+
+-   Confidence intervals
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_14.pdf)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Friday (04/05)
+:::
+
+**Topics**
+
+-   Confidence intervals (cont.)
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_15.pdf)
+
+**Class activity**
+
+-   Confidence interval [practice problems](class/15_ci.pdf)

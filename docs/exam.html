@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>STAT 311: Statistical Inference - Exams</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./img/chi2.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/chi2.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">STAT 311: Statistical Inference</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./schedule.html">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./homework.html">
+ <span class="menu-text">Homework</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./exam.html" aria-current="page">
+ <span class="menu-text">Exams</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./project.html">
+ <span class="menu-text">Final project</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://middlebury.instructure.com/"><i class="bi bi-bar-chart-fill" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sec-midterm2" id="toc-sec-midterm2" class="nav-link active" data-scroll-target="#sec-midterm2">Midterm 2</a>
+  <ul class="collapse">
+  <li><a href="#format" id="toc-format" class="nav-link" data-scroll-target="#format">Format</a></li>
+  <li><a href="#preparation" id="toc-preparation" class="nav-link" data-scroll-target="#preparation">Preparation</a></li>
+  <li><a href="#sec-midterm1-review" id="toc-sec-midterm1-review" class="nav-link" data-scroll-target="#sec-midterm1-review">Review Problems</a></li>
+  </ul></li>
+  <li><a href="#sec-midterm1" id="toc-sec-midterm1" class="nav-link" data-scroll-target="#sec-midterm1">Midterm 1</a>
+  <ul class="collapse">
+  <li><a href="#format-1" id="toc-format-1" class="nav-link" data-scroll-target="#format-1">Format</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  <li><a href="#preparation-1" id="toc-preparation-1" class="nav-link" data-scroll-target="#preparation-1">Preparation</a></li>
+  <li><a href="#review-problems" id="toc-review-problems" class="nav-link" data-scroll-target="#review-problems">Review Problems</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Exams</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="sec-midterm2" class="level2">
+<h2 class="anchored" data-anchor-id="sec-midterm2">Midterm 2</h2>
+<p>Midterm 2 will be two parts:</p>
+<ul>
+<li><p>In-class portion on <strong>Friday, 5/03 from 2:30-4:30pm in WNS 105</strong>.</p></li>
+<li><p>Take-home portion will be made available on Canvas starting <strong>Sunday, 5/05 at 9:00am</strong>. <strong>Due in-person at the beginning of class at 9:45am on Tuesday, 5/07</strong></p></li>
+</ul>
+<p>The second midterm is lightly cumulative (in the sense that you might need to remember what likelihood, statistic, estimator, etc. are), but will mostly cover content from 03/26 in Week 6 through 04/26 in Week 10.</p>
+<section id="format" class="level3">
+<h3 class="anchored" data-anchor-id="format">Format</h3>
+<p>The midterm is composed to an in-person component and a take-home component that will require <code>R</code>. Your overall score for Midterm 2 will calculated as: (points on non-R + points on R)/(total possible points).</p>
+<section id="in-person" class="level4">
+<h4 class="anchored" data-anchor-id="in-person">In-person</h4>
+<ul>
+<li><p>You will have two hours to complete the in-person component of Midterm 2. You may be asked to write some simple <code>R</code> code to demonstrate how to obtain random samples, quantiles, or probabilities from a given distribution with specified parameters.</p></li>
+<li><p>The only resource you are allowed to bring in for the in-person component is <strong>one single-sided 8.5”x11” cheat sheet.</strong></p>
+<ul>
+<li><p>You may write definitions, theorems, properties, distributions, and other “factual” type of information. You are not allowed to write any worked out examples or problems.</p></li>
+<li><p>The cheat sheet will be submitted alongside your midterm.</p></li>
+</ul></li>
+<li><p>You will be provided a distribution sheet with PMFs/PDFs, expectation, variance, and support of the common distributions we have encountered. The distribution sheet can be found on the homepage so you wouldn’t be surprised when you take the exam.</p>
+<ul>
+<li><p>Formulas for MGFs or CDFs will not be provided on this distribution sheet. However, if one is required and is not easily obtainable given the PDF, the MGF or CDF will be provided to you on a per-question basis.</p></li>
+<li><p>You are welcome to write the formulas for other distributions you have encountered in this course on your note sheet.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="take-home" class="level4">
+<h4 class="anchored" data-anchor-id="take-home">Take-home</h4>
+<ul>
+<li><p>There is no time-limit for the take-home <code>R</code> component. You must submit a printed document at the <strong>beginning</strong> of class on Tuesday 5/07. You will <em>not</em> be provided a start <code>.Rmd</code> template, so please feel comfortable with creating a new markdown file.</p></li>
+<li><p>You will be required to write or type the honor code statement: “I <your name=""> have neither given nor received unauthorized aid on this assignment.” See the <a href="#sec-midterm1-resources">Resources</a> subsection from Midterm 1 about what is considered unauthorized aid. Any submissions found in violation of this honor code will receive an automatic 0.</your></p></li>
+<li><p>If you are unable to knit due to bugs in your code, set <code>eval = FALSE</code> in the R chunk headers so the document will knit. That way, I can still see your code.</p></li>
+</ul>
+</section>
+</section>
+<section id="preparation" class="level3">
+<h3 class="anchored" data-anchor-id="preparation">Preparation</h3>
+<ul>
+<li><p>The best preparation you can do for the exam is to organize your notes and/or homework to make finding information and examples as quick and efficient as possible. Beyond that, you should attempt to accurately assess what topics you have mastered and which you need to practice more. A good starting point is to review the list of objectives on each daily assignment. Another way to prepare is to create your own study guide with summaries of the important concepts, along with example problems you’ve designed and solved. As you study, it would be a good idea to compile lists of questions that you might have for Prof.&nbsp;Tang/the class.</p></li>
+<li><p>I encourage you to re-visit and re-do previous homework problems and practice problems.</p></li>
+<li><p>A possibly study strategy that has worked for Prof.&nbsp;Tang in the past:</p>
+<ol type="1">
+<li><p>Review your notes</p></li>
+<li><p>Create a first-draft cheat sheet</p></li>
+<li><p>Using your cheat sheet, re-try some of the previous homework or practice problems that you’ve seen before (especially the ones that caused you trouble)</p></li>
+<li><p>Make a second-draft cheat sheet based on what you learned about your preparedness from previous step</p></li>
+<li><p>Using your second-draft cheat sheet, try some of the new review problems</p></li>
+<li><p>Make your final cheat sheet based on what you learned about your preparedness from previous step</p></li>
+</ol></li>
+<li><p>Exam problems will be comparable in difficulty to those assigned for homework. Some exam questions may be similar to problems you have seen before, while others will require you to synthesize your knowledge in new ways.</p></li>
+</ul>
+</section>
+<section id="sec-midterm1-review" class="level3">
+<h3 class="anchored" data-anchor-id="sec-midterm1-review">Review Problems</h3>
+<p>For extra practice, additional review problems have been made available below. These questions are not necessarily representative of the typical scope and difficulty of individual exam questions. This review is not comprehensive, nor does it represent the expected amount of time for it will take for you to complete the exam.</p>
+<ul>
+<li>Midterm 2 <a href="weeks/exam/midterm2_review.pdf">review problems</a></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="sec-midterm1" class="level2">
+<h2 class="anchored" data-anchor-id="sec-midterm1">Midterm 1</h2>
+<p>Midterm 1 will be take-home. The midterm will be created as a Quiz in Canvas, and will be available/live starting at 5:00pm on Friday, March 29 through 11:59pm on Monday, April 1. You must upload your completed midterm to Canvas.</p>
+<p>The first midterm will cover content up to material on 03/14 in Week 5. There will be some questions that ask you to use R.</p>
+<p>If applicable, please send me a Letter of Accommodation before Spring Break!</p>
+<section id="format-1" class="level3">
+<h3 class="anchored" data-anchor-id="format-1">Format</h3>
+<p>The exam will be broken down into two components: a component that requires <code>R</code>, and a component that does not require <code>R</code> (beyond using it as a calculator). These will appear as separate quizzes on Canvas. This format is intended to allow you to take a break between components if you’d like one. Your overall score for Midterm 1 will calculated as: (points on non-R + points on R)/(total possible points).</p>
+<section id="non-r" class="level4">
+<h4 class="anchored" data-anchor-id="non-r">Non-R</h4>
+<ul>
+<li><p>You will have 3 hours starting at the time that you open the non-R portion of the midterm to complete it. You must upload your solutions to Canvas by the end of those 3 hours. It is your responsibility to ensure that your Midterm is uploaded correctly to Canvas. Please double-check that you have indeed submitted your midterm.</p></li>
+<li><p>Your solutions should be neatly written or typed. If you scan your handwritten solutions, please be sure to review the legibility of your scan before uploading to Canvas.</p></li>
+</ul>
+</section>
+<section id="r" class="level4">
+<h4 class="anchored" data-anchor-id="r">R</h4>
+<ul>
+<li><p>You will have 1 hour starting at the time that you open the R portion of the midterm to complete it. You must upload your solutions to Canvas by the end of the hour. You must submit a knitted PDF/HTML document, and not the original .Rmd file. It is your responsibility to ensure that your Midterm is uploaded correctly to Canvas. Please double-check that you have indeed submitted your midterm.</p></li>
+<li><p>If you are unable to knit due to bugs in your code, set <code>eval = FALSE</code> in the R chunk headers so the document will knit. That way, I can still see your code.</p></li>
+</ul>
+</section>
+<section id="honor-code-statement" class="level4">
+<h4 class="anchored" data-anchor-id="honor-code-statement">Honor code statement</h4>
+<p>In both parts of the midterm, you will be required to write and/or type the honor code statement: “I <your name=""> have neither given nor received unauthorized aid on this assignment.” See the following <a href="#sec-midterm1-resources">Resources</a> subsection about what is considered unauthorized aid. Any submissions found in violation of this honor code will receive an automatic 0.</your></p>
+</section>
+</section>
+<section id="resources" class="level3">
+<h3 class="anchored" data-anchor-id="resources">Resources</h3>
+<ul>
+<li><p>This midterm is open-book with respect to material shared/distributed in this MATH/STAT 311 course, but not open-people. The only person you are allowed to talk to about the midterm while it is “live” (available to the class) is Prof.&nbsp;Tang. This means that you should not ask someone if they’ve taken the midterm, how it went, etc. until after the official due date.</p></li>
+<li><p>You may use any notes you’ve taken for this class and your MATH/STAT 310 course, your work on previous assignments/practice problems and its associated feedback, my recorded videos, and DeGroot and Schervish’s textbook. For problems asking you to use R, remember that you may reference any of R help file by typing <code>?functionname</code>.</p></li>
+<li><p>You may also use WolframAlpha, Maple, Mathematica, Desmos, or Symbolab to assist with calculating integrals, derivatives, or algebraic simplification. If you use technology to assist calculating, please clearly reference the site you used to assist you, and write down the explicit expression/code you input.</p></li>
+<li><p><strong>You may not use any other resources other than those listed above.</strong> That means no open internet/Google search or ChatGPT. If you have questions about whether a resource can be used, you are welcome to e-mail me.</p></li>
+<li><p>I will be regularly checking my e-mail from 8am-8pm while the midterm is live, but there might be delays of up to an hour in my responses.</p></li>
+</ul>
+</section>
+<section id="preparation-1" class="level3">
+<h3 class="anchored" data-anchor-id="preparation-1">Preparation</h3>
+<ul>
+<li><p>The best preparation you can do for the exam is to organize your notes and/or homework to make finding information and examples as quick and efficient as possible. Beyond that, you should attempt to accurately assess what topics you have mastered and which you need to practice more. A good starting point is to review the list of objectives on each daily assignment. Another way to prepare is to create your own study guide with summaries of the important concepts, along with example problems you’ve designed and solved. As you study, it would be a good idea to compile lists of questions that you might have for Prof.&nbsp;Tang/the class.</p></li>
+<li><p>I encourage you to re-visit and re-do previous homework problems and practice problems. There are many practice problems that we did not have time to get to. Solutions to selected problems will be made available via Canvas over Spring Break.</p></li>
+<li><p>Make sure you feel comfortable creating new code chunks in an .Rmd file. You will be provided a starter template for this midterm, but I might not explicitly create code chunks for you ahead of time.</p></li>
+<li><p>Exam problems will be comparable in difficulty to those assigned for homework. Some exam questions may be similar to problems you have seen before, while others will require you to synthesize your knowledge in new ways.</p></li>
+</ul>
+</section>
+<section id="review-problems" class="level3">
+<h3 class="anchored" data-anchor-id="review-problems">Review Problems</h3>
+<p>For extra practice, additional review problems will be made available below towards the end of Spring Break. While these questions are representative of the typical scope and difficulty of individual exam questions, this review is not comprehensive, nor does it necessarily represent the expected amount of time for it will take for you to complete the exam.</p>
+<ul>
+<li>Midterm 1 <a href="weeks/exam/midterm1_review_problems.pdf">review problems</a></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">- <img src="./img/middlebury.png" class="img-fluid" style="width:10.0%" alt="Logo image"></div>
+  </div>
+</footer>
+
+
+
+</body></html>

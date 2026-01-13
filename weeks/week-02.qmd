@@ -1,0 +1,70 @@
+---
+title: "Week 02"
+---
+
+::: {style="color: #6284a2"}
+### Tuesday (02/20)
+:::
+
+**Topics**
+
+-   More with posterior distributions
+
+**Daily assignment**
+
+-   None for today!
+
+-   Please bring a laptop with R ready to go
+
+**Class activity**
+
+-   Prior and posterior [practice problems](class/01_prior_post.pdf)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Thursday (02/22)
+:::
+
+**Topics**
+
+-   Conjugate priors
+-   Improper priors
+
+**Daily assignment**
+
+To be completed and submitted to Canvas by 8:45am
+
+-   [Daily assignment](daily/DA_03.pdf)
+
+**Class activity**
+
+-   Computing posteriors in `R`
+
+    -   `.Rmd` template: {{< downloadthis class/templates/posteriors_in_R.Rmd dname="posteriors_in_R.Rmd" label=".Rmd" icon="arrow-down-short" class=styled id=btn1 >}}
+
+    -   Filled-in code: [computing posteriors in R](class/posteriors_in_R_solns.Rmd)
+
+-   Conjugate prior [practice problem](class/02_conjugate.pdf)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Friday (02/23)
+:::
+
+**Topics**
+
+-   Bayes estimators
+
+**Daily assignment**
+
+To be completed and submitted to Canvas by 8:45am
+
+-   [Daily assignment](daily/DA_04.pdf)
+
+**Class activity**
+
+-   Bayes estimator under absolute loss [proof](class/proof_bayes_est.qmd)
+
+-   Bayes estimator [practice problem](class/03_bayes_estimators.pdf)

@@ -1,0 +1,68 @@
+---
+title: "Week 10"
+---
+
+::: {style="color: #6284a2"}
+### Tuesday (04/23)
+:::
+
+Class observed by department colleague!
+
+**Topics**
+
+-   p-values
+
+**Daily assignment**
+
+-   None!
+
+**Class activity**
+
+-   p-value [practice problems](class/17_power_pvals.pdf)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Thursday (04/25)
+:::
+
+**Topics**
+
+-   Likelihood ratio test
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_19.pdf)
+
+**Class activity**
+
+-   [Binomial LRT example](class/18_lrt.Rmd)
+    -   Filled-in [solutions](class/lrt.qmd)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Friday (04/26)
+:::
+
+**Project proposals due tomorrow at 12:00pm to Canvas!**
+
+**Material through today is fair game for Midterm II! (**Though next week's material is a lot of practice applying hypothesis testing ideas to a specific set of data.)
+
+**Topics**
+
+-   LRT asymptotics
+-   Equivalence of Confidence Sets and Hypothesis Tests
+
+**Daily assignment**
+
+-   Nothing official, but be prepared to answer the following:
+    -   Suppose $X_{1},\ldots, X_{n} \sim N(\mu, \sigma^2)$ where $\mu$ and $\sigma^2$ are both unknown. Letting $\alpha_{0} \in (0,1)$, find the bounds of an equal-tailed $(1-\alpha_{0})$ coefficient confidence interval for $\mu$. *You should be able to look through your notes to answer this one!*
+
+**Class activity**
+
+-   [Binomial LRT asymptotic example](class/lrt_asymptotics.Rmd)
+
+-   [Donuts and duality](class/duality.qmd)
+
+-   [Proof](files/duality_proof.pdf) of one of the duality theorems

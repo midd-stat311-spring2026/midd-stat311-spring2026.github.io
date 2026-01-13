@@ -1,0 +1,61 @@
+---
+title: "Week 06"
+---
+
+No problem set this week to give space to study for the midterm! However, there are still daily assignments.
+
+::: {style="color: #6284a2"}
+### Tuesday (03/26)
+:::
+
+**Topics**
+
+-   Sampling distribution of a statistic
+-   Chi-squared distribution
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_11.pdf)
+
+**Class activity**
+
+-   MGF refresher [practice problems](class/12_MGF.pdf)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Thursday (03/28)
+:::
+
+**Topics**
+
+-   Joint dist. of sample mean and variance
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_12.pdf)
+
+**Class activity**
+
+-   Covariance and Normal distribution [properties refresher](files/cov_normal_properties.pdf)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Friday (03/29)
+:::
+
+**Topics**
+
+-   Joint dist. of sample mean and variance (cont.)
+-   $t$ distribution
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_13.pdf)
+
+**Class activity**
+
+-   Sampling dist. of Normal variance estimators [practice problems](class/13_joint_dist.pdf)
+
+**Midterm 1 live at 5:00pm**

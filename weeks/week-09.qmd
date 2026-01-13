@@ -1,0 +1,56 @@
+---
+title: "Week 09"
+---
+
+::: {style="color: #6284a2"}
+### Tuesday (04/16)
+:::
+
+Class observed by department colleague!
+
+**Topics**
+
+-   Introduction to Hypothesis tests
+-   Power
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_17.pdf)
+
+**Class activity**
+
+-   [Power function example](class/power_fns.Rmd) from class
+
+-   Hypothesis test power and error [practice problems](class/16_ht_1.pdf)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Thursday (04/18)
+:::
+
+**Topics**
+
+-   Level and size of test
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_18.pdf)
+
+**Class activity**
+
+-   Hypothesis test power and error [practice problems](class/16_ht_1.pdf)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Friday (04/19)
+:::
+
+**Topics**
+
+-   NO CLASS: Spring symposium
+
+**Daily assignment**
+
+-   None! But it's an EXCELLENT idea to skim over readings and notes from this week, and to think about your final project

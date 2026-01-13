@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>STAT 311: Statistical Inference - Final project</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./img/chi2.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./img/chi2.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">STAT 311: Statistical Inference</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./schedule.html" aria-current="page">
+ <span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./homework.html">
+ <span class="menu-text">Homework</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./exam.html">
+ <span class="menu-text">Exams</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./project.html">
+ <span class="menu-text">Final project</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://middlebury.instructure.com/"><i class="bi bi-bar-chart-fill" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Final project</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schedule.html" class="sidebar-item-text sidebar-link">Schedule</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-01.html" class="sidebar-item-text sidebar-link">Week 01</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-02.html" class="sidebar-item-text sidebar-link">Week 02</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-03.html" class="sidebar-item-text sidebar-link">Week 03</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-04.html" class="sidebar-item-text sidebar-link">Week 04</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-05.html" class="sidebar-item-text sidebar-link">Week 05</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-06.html" class="sidebar-item-text sidebar-link">Week 06</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-07.html" class="sidebar-item-text sidebar-link">Week 07</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-08.html" class="sidebar-item-text sidebar-link">Week 08</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-09.html" class="sidebar-item-text sidebar-link">Week 09</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-10.html" class="sidebar-item-text sidebar-link">Week 10</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-11.html" class="sidebar-item-text sidebar-link">Week 11</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./weeks/week-12.html" class="sidebar-item-text sidebar-link">Week 12</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Final project</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Downloadable PDF with final project description <a href="weeks/project/project_description.pdf">here</a> (last updated 05/14) .</p>
+<p><strong>Key dates:</strong></p>
+<ul>
+<li><p>Saturday 04/27 at 12:00pm: project proposal due</p></li>
+<li><p>Saturday 05/11 at 12:00pm: <a href="#sec-draft">rough draft</a> due</p></li>
+<li><p>Saturday 05/18 at 9:00am: <a href="#sec-presentation">project presentations</a> during exam period</p></li>
+<li><p>Monday 05/20 at 11:59pm: <a href="#sec-final">final draft</a> and <a href="#sec-reflection">reflection</a> due to Canvas</p></li>
+</ul>
+<hr>
+<div id="sec-draft">
+<section id="rough-draft" class="level2">
+<h2 class="anchored" data-anchor-id="rough-draft">Rough draft</h2>
+</section>
+</div>
+<section id="draft-expectations" class="level3">
+<h3 class="anchored" data-anchor-id="draft-expectations">Draft expectations</h3>
+<p>The purpose of the rough draft is to receive constructive feedback from your peers. Remember, the final paper should be understandable by someone who has taken the course. So what better way to test that than by having a peer actually read your paper?</p>
+<p>It is not my expectation that you/your group has written all that you’d like to put into the final paper. However, you can only receive quality and useful feedback if you share a draft that has enough content to work with! Therefore, <strong>I expect that your rough draft has addressed at least Objectives 1-5 on the final project description.</strong> If you have made further progress, that’s great! These components do not have to be fully polished, but there has to be a narrative arc that flows through your paper such that the reader is not confused or discombobulated as they jump from paragraph to paragraph. Once again, the more work you put it at an early stage will mean less work later!</p>
+<p>A potential sectioning that could be useful (though is by no means required) is below. This might help you frame your narrative arc.</p>
+<ul>
+<li><p>Introduction</p></li>
+<li><p>Description of specific topic</p></li>
+<li><p>Methods and theory</p></li>
+<li><p>Application</p></li>
+<li><p>Conclusion</p></li>
+</ul>
+<p>Recall that this draft is due to Canvas at noon on Saturday, 05/11.</p>
+</section>
+<section id="peer-review-process" class="level3">
+<h3 class="anchored" data-anchor-id="peer-review-process">Peer review process</h3>
+<p>After the rough drafts are submitted, you will be assigned a few rough drafts to read and provide feedback on. <strong>You should read these drafts before class on Monday, 05/13</strong> <strong>and be prepared to share feedback on that day of class.</strong> I am aware that there is only a little over one day to read through these drafts, but hopefully that shouldn’t take more than an hour.</p>
+<p>I cannot emphasize enough how important peer review is! As someone giving comments, it is a great opportunity to learn how to give constructive, actionable feedback. As someone receiving comments, you receive the benefit of learning if your paper makes sense to someone who isn’t familiar with the topic and receive helpful suggestions on how to improve the draft. Because this process is so important, it is my expectation that you really do work to generate helpful feedback.</p>
+<div style="color: purple">
+<p>I will soon share some guiding questions to help you synthesize your comments for the drafts and facilitate discussion in class. <strong>Your responses to these guiding questions will be collected in class on Monday, 05/13 and will count towards your final project grade.</strong> They will be graded for evidence of depth, and not just completion.</p>
+</div>
+<ul>
+<li>Peer review <a href="weeks/project/peer_review_guide.pdf">guiding questions</a></li>
+</ul>
+<hr>
+</section>
+<div id="sec-presentation">
+<section id="presentation" class="level2">
+<h2 class="anchored" data-anchor-id="presentation">Presentation</h2>
+</section>
+</div>
+<p>Every group is required to give a presentation during our course’s exam period on Saturday, May 18 from 9:00am-12:00pm.</p>
+<section id="logistics" class="level3">
+<h3 class="anchored" data-anchor-id="logistics">Logistics</h3>
+<ul>
+<li><p>Presentation length:</p>
+<ul>
+<li><p>Single-person groups: a 6 minute presentation, followed by 2 minutes of questions from your peers</p></li>
+<li><p>Two-person groups: an 8 minute presentation, followed by 2 minutes of questions from your peers</p></li>
+<li><p>Three-person groups: a 10 minute presentation, followed by 2 minutes of questions from your peers</p></li>
+</ul></li>
+<li><p>The presentation order will be randomly assigned, to be shared here on Friday, May 17</p>
+<ol type="1">
+<li>Alec</li>
+<li>Duncan</li>
+<li>Megan</li>
+<li>Henry</li>
+<li>Xiuyuan</li>
+<li>Abby and Claire</li>
+<li>Justin, Xander, and Jackson</li>
+<li>Zach and Jiaan</li>
+<li>Cody</li>
+<li>Violet</li>
+<li>Alex</li>
+</ol></li>
+</ul>
+</section>
+<section id="requirements" class="level3">
+<h3 class="anchored" data-anchor-id="requirements">Requirements</h3>
+<p>As a presenter:</p>
+<ul>
+<li><p>Your presentation should cover Objectives 1-6, however the amount of time dedicated to each objective varies both by objective and by your selected topic.</p></li>
+<li><p>In addition to speaking, you should use at least one of the following modes of sharing information: slides or chalkboard work. You are welcome to use both, though the method(s) of delivery that you choose should add purpose to the talk.</p></li>
+<li><p>All members of the group should talk for roughly equal amounts of time.</p></li>
+<li><p>Your presentation should appear well-practiced with a logical flow/narrative.</p></li>
+<li><p>Ensure that your content (both oral and written) is technically correct with clear and consistent statistical notation</p></li>
+</ul>
+<p>As an audience member:</p>
+<ul>
+<li><p>Listen attentively to the speaker(s).</p></li>
+<li><p>Ask questions related to the content, both for clarity and additional insights.</p></li>
+</ul>
+</section>
+<section id="suggested-outline" class="level3">
+<h3 class="anchored" data-anchor-id="suggested-outline">Suggested outline</h3>
+<p>In academic talks, you should always plan to “invite the audience” to want to listen to your presentation. That often means that you shouldn’t dive right into the methodology from the onset. In Statistics, the following outline/format is commonly used as it provides an easy way to invite the audience in, as well as craft a narrative and logical flow. Your presentation should generally follow the steps below. However, the time that is spent each part will vary depending on your topic and application.</p>
+<ol type="1">
+<li><p>Describe the motivating data/problem/research question</p></li>
+<li><p>Dive into the methodology at a level that is appropriate for the majority of the audience*</p></li>
+<li><p>Return to the motivating research question in an application where the methodology is applied to data in order to <strong>gain some insight and/or demonstrate proof of concept.</strong></p>
+<ul>
+<li>The presenter should always explain for the audience what the application is showing. It is not just a demonstration that the presenter knows how to apply a technique. Rather, it is an opportunity for the presenter to elaborate on the method, confirm the theory or depart from it, talk about where it shines/fails, etc.</li>
+</ul></li>
+</ol>
+<p>Note that for your presentation, the order in which you choose to cover Objectives 1-6 need not match the order as listed. Additionally, you should not explicitly reference the Objectives/Objective numbers in your talk.</p>
+</section>
+<section id="tips-and-reminders" class="level3">
+<h3 class="anchored" data-anchor-id="tips-and-reminders">Tips and Reminders</h3>
+<ul>
+<li><p>*Note that Objective 7 (Discuss and provide proof or derivation of one significant theorem or result related to your topic) need not be included in your presentation. This is because the audience wants to hear you talk about your topic and why it is interesting/important; they can always read your proof on their own.</p></li>
+<li><p>Remember who your audience is and what they know. In this case, all you may assume is that the audience has taken MATH/STAT 310 and 311, Calculus, and Linear Algebra. If your topic or application is related to another discipline in some way, make sure to give the necessary background for people to understand what you’re talking about!</p></li>
+<li><p>Be intentional about what you include in your presentation. Every bullet point, equation, figure, sentence, etc. that you include should serve a purpose</p></li>
+<li><p>I often have two approaches for creating a talk:</p>
+<ul>
+<li><p>Work backwards: start with the application, and think about what methodological content the audience needs to know to understand the application and, in particular, <em>why</em> the methodology is appropriate for the data.</p></li>
+<li><p>Jumping between steps 1 and 2 until I’m satisfied, then work on step 3: because every bullet point needs to be purposeful, I will often create a couples introductory slides, and then go to the methodological content to make sure that I do in fact address everything I said I would. But then working on the methodological content reminds me that I need to add some motivation for the audience, so I return to the introductory content.</p></li>
+</ul></li>
+<li><p>Practice, practice, practice!</p></li>
+</ul>
+</section>
+<section id="grading" class="level3">
+<h3 class="anchored" data-anchor-id="grading">Grading</h3>
+<p>Your presentation will be assessed based on the following categories: Content, Understanding, Organization/Technical content, and Delivery.</p>
+<table class="table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 31%">
+<col style="width: 32%">
+<col style="width: 27%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>2 points</th>
+<th>1 point</th>
+<th>0 points</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Content</strong></td>
+<td>Effecitvely addresses all of Objectives 1-6.</td>
+<td>Effectively addresses five of Objectives 1-6.</td>
+<td>Effectively addresses less than five of Objectives 1-6.</td>
+</tr>
+<tr class="even">
+<td><strong>Understanding</strong></td>
+<td><p>Demonstrates full knowledge of the topic through a combination of prepared delivery and successfully answering questions with explanations and elaborations.</p>
+<p>Provides interesting, thoughtful insights from the perspective of the presenter, both in the method and the application.</p></td>
+<td><p>Demonstrates satisfactory knowledge of the topic through a combination of prepared delivery and answering some questions with explanations and elaborations.</p>
+<p>Provides insights into the topic in either the method or the application, but not both. Or, insights may not be unique to the presenter.</p></td>
+<td><p>Does not demonstrate satisfactory knowledge of the topic. Is unable to answer questions from the audience.</p>
+<p>Does not provide insight into the topic.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>Organization and Technical content</strong></td>
+<td><p>Has a logical flow in the presentation with transitions that help guide audience members.</p>
+<p>All statistical content is technically correct. All statistical notation is defined clearly and used consistently.</p>
+<p>Does not run over/under time by more than 20 seconds.</p></td>
+<td><p>Has a flow that is not fully logical, or presentation lacks guiding transitions.</p>
+<p>Statistical content is mostly correct. Most but not all of the statistical notation is defined clearly and used consistently.</p>
+<p>Runs over/under time by 20-30 seconds.</p></td>
+<td><p>Does not have a logical flow. Order of the content leaves the audience confused.</p>
+<p>Majority of statistical content is not correct. Most of the statistical notation is either unclear or not used consistently.</p>
+<p>Runs over/under time by more than 30 seconds.</p></td>
+</tr>
+<tr class="even">
+<td><strong>Delivery</strong></td>
+<td><p>Uses slides and/or chalkboard to effectively enhance the presentation without distractions. All written content adds to understanding.</p>
+<p>Does not read off of slides and does not use notes when presenting slides (if applicable). Seldom use of prepared notes when at chalkboard (if applicable).</p>
+<p>Faces and makes eye contact with the audience during entire presentation.</p>
+<p>Demonstrates strong enthusiasm for the topic during entire presentation.</p></td>
+<td><p>Uses slides and/or chalkboard to enhance the presentation, but some content is distracting. Most, but not all, of written content adds to understanding.</p>
+<p>Sometimes reads off of slides and/or sometimes use notes when presenting slides (if applicable). Frequent use of prepared notes when at chalkboard (if applicable)</p>
+<p>Faces and makes eye contact with the audience for parts of the presentation, though not all.</p>
+<p>Demonstrates enthusiasm for the topic during parts of presentation, but not all.</p></td>
+<td><p>Does not use slides and/or chalkboard to enhance the presentation. Written content is either distracting or does not add to understanding.</p>
+<p>Often reads off of slides and/or prepared notes.</p>
+<p>Does not face and/or makes eye contact with the audience for majority of presentation.</p>
+<p>Does not demonstrate enthusiasm for the topic during majority of presentation.</p></td>
+</tr>
+</tbody>
+</table>
+<p>Your grade for the presentation will be based on points earned in each category:</p>
+<ul>
+<li>8 pts: 100%</li>
+<li>7 pts: 90%</li>
+<li>6 pts: 80%</li>
+<li>5 pts: 70%</li>
+<li>4 pts: 60%</li>
+<li>3 pts: 50%</li>
+<li>2 pts: 40%</li>
+<li>1 pts: 20%</li>
+<li>0 pts: 0%</li>
+</ul>
+<hr>
+</section>
+<div id="sec-final">
+<section id="final-draft" class="level2">
+<h2 class="anchored" data-anchor-id="final-draft">Final draft</h2>
+</section>
+</div>
+<p>The majority of the details for the final draft can be found on Section 3.2 of the <a href="weeks/project/project_description.pdf">project description PDF</a>. A few extra details that have been added are:</p>
+<ul>
+<li><p>Please have margins between 0.75 inches and 1.25 inches. 1 inch margins are ideal!</p></li>
+<li><p>The page lengths listed on the description are <em>minimum</em> page lengths. If your paper is going over, that’s totally fine!</p></li>
+<li><p>Make sure that you define your statistical notation clearly and use it consistently throughout the paper.</p></li>
+<li><p>Include an Appendix at the end of your paper with the code you used for your Application. This can be done easily by knitting your .Rmd file to PDF and using some software to combine your final paper with the Appendix.</p>
+<ul>
+<li>When discussing results for your application (Objective 6), you may simply state results and reference/point the reader to the code in the Appendix!</li>
+</ul></li>
+</ul>
+<p>Remember that only one final paper needs to be submitted per group!</p>
+<hr>
+<section id="sec-reflection" class="level2">
+<h2 class="anchored" data-anchor-id="sec-reflection">Reflection</h2>
+<p>In addition to your final paper, please submit a roughly one page reflection that addresses the following questions. The reflections should be submitted individually.</p>
+<ul>
+<li><p>What were some of the most interesting discoveries you made while working on this project? These could be discoveries related to the topic or yourself while working on the project.</p></li>
+<li><p>What aspect of your project are you most proud of?</p></li>
+<li><p>What aspects of your project do you wish you could have improved or done better on?</p></li>
+<li><p>What aspects of the peer review were most helpful to you? Additionally, provide a specific example of some feedback that you incorporated into your final paper.</p></li>
+<li><p>How do you think you grew/developed your statistical expertise through this project, or perhaps through this class as a whole?</p></li>
+<li><p>Optionally: what suggestions/feedback do you have for the final project when Becky teaches this class again? Is there anything else that you’d like to reflect on, whether it’s about the project or the class as a whole?</p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+      <div class="nav-footer-center">- <img src="./img/middlebury.png" class="img-fluid" style="width:10.0%" alt="Logo image"></div>
+  </div>
+</footer>
+
+
+
+</body></html>

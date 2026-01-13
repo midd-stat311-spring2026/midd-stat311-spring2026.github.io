@@ -1,0 +1,62 @@
+---
+title: "Week 08"
+---
+
+::: {style="color: #6284a2"}
+### Tuesday (04/09)
+:::
+
+Note: Homework 6 due tomorrow 4/10!
+
+**Topics**
+
+-   Finish up CIs
+
+-   Empirical CDF
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_16.pdf)
+
+**Class activity**
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Thursday (04/11)
+:::
+
+Bring your laptops!
+
+**Topics**
+
+-   Bootstrap distribution
+-   Bootstrap confidence intervals
+
+**Daily assignment**
+
+-   None!
+
+**Class activity**
+
+-   Code from [bootstrap distribution demo](class/bootstrap_dist.Rmd)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Friday (04/12)
+:::
+
+Bring your laptops!
+
+**Topics**
+
+-   Bootstrap confidence intervals (cont.)
+
+**Daily assignment**
+
+-   None!
+
+**Class activity**
+
+-   Code from [bootstrap CI demo](class/bootstrap_ci.Rmd)

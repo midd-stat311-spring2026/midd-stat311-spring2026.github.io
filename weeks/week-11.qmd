@@ -1,0 +1,49 @@
+---
+title: "Week 11"
+---
+
+::: {style="color: #6284a2"}
+### Tuesday (04/30)
+:::
+
+**Topics**
+
+-   $t$-test
+
+**Daily assignment**
+
+-   [Daily assignment](daily/DA_20.pdf)
+
+**Class activity**
+
+-   $t$-test [practice problems](class/19_t_test.pdf)
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Thursday (05/02)
+:::
+
+**Topics**
+
+-   Two-sample $t$-test
+
+**Daily assignment**
+
+-   None
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Friday (05/03)
+:::
+
+**Midterm 2 today!**
+
+**Topics**
+
+-   Review day
+
+**Daily assignment**
+
+-   None!

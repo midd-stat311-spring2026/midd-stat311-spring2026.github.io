@@ -1,0 +1,129 @@
+---
+title: "Exams"
+sidebar: false
+toc: true
+---
+
+## Midterm 2 {#sec-midterm2}
+
+Midterm 2 will be two parts:
+
+-   In-class portion on **Friday, 5/03 from 2:30-4:30pm in WNS 105**.
+
+-   Take-home portion will be made available on Canvas starting **Sunday, 5/05 at 9:00am**. **Due in-person at the beginning of class at 9:45am on Tuesday, 5/07**
+
+The second midterm is lightly cumulative (in the sense that you might need to remember what likelihood, statistic, estimator, etc. are), but will mostly cover content from 03/26 in Week 6 through 04/26 in Week 10.
+
+### Format
+
+The midterm is composed to an in-person component and a take-home component that will require `R`. Your overall score for Midterm 2 will calculated as: (points on non-R + points on R)/(total possible points).
+
+#### In-person
+
+-   You will have two hours to complete the in-person component of Midterm 2. You may be asked to write some simple `R` code to demonstrate how to obtain random samples, quantiles, or probabilities from a given distribution with specified parameters.
+
+-   The only resource you are allowed to bring in for the in-person component is **one single-sided 8.5"x11" cheat sheet.**
+
+    -   You may write definitions, theorems, properties, distributions, and other “factual” type of information. You are not allowed to write any worked out examples or problems.
+
+    -   The cheat sheet will be submitted alongside your midterm.
+
+-   You will be provided a distribution sheet with PMFs/PDFs, expectation, variance, and support of the common distributions we have encountered. The distribution sheet can be found on the homepage so you wouldn't be surprised when you take the exam.
+
+    -   Formulas for MGFs or CDFs will not be provided on this distribution sheet. However, if one is required and is not easily obtainable given the PDF, the MGF or CDF will be provided to you on a per-question basis.
+
+    -   You are welcome to write the formulas for other distributions you have encountered in this course on your note sheet.
+
+#### Take-home
+
+-   There is no time-limit for the take-home `R` component. You must submit a printed document at the **beginning** of class on Tuesday 5/07. You will *not* be provided a start `.Rmd` template, so please feel comfortable with creating a new markdown file.
+
+-   You will be required to write or type the honor code statement: "I <your name> have neither given nor received unauthorized aid on this assignment." See the [Resources](#sec-midterm1-resources) subsection from Midterm 1 about what is considered unauthorized aid. Any submissions found in violation of this honor code will receive an automatic 0.
+
+-   If you are unable to knit due to bugs in your code, set `eval = FALSE` in the R chunk headers so the document will knit. That way, I can still see your code.
+
+### Preparation
+
+-   The best preparation you can do for the exam is to organize your notes and/or homework to make finding information and examples as quick and efficient as possible. Beyond that, you should attempt to accurately assess what topics you have mastered and which you need to practice more. A good starting point is to review the list of objectives on each daily assignment. Another way to prepare is to create your own study guide with summaries of the important concepts, along with example problems you’ve designed and solved. As you study, it would be a good idea to compile lists of questions that you might have for Prof. Tang/the class.
+
+-   I encourage you to re-visit and re-do previous homework problems and practice problems.
+
+-   A possibly study strategy that has worked for Prof. Tang in the past:
+
+    1.  Review your notes
+
+    2.  Create a first-draft cheat sheet
+
+    3.  Using your cheat sheet, re-try some of the previous homework or practice problems that you've seen before (especially the ones that caused you trouble)
+
+    4.  Make a second-draft cheat sheet based on what you learned about your preparedness from previous step
+
+    5.  Using your second-draft cheat sheet, try some of the new review problems
+
+    6.  Make your final cheat sheet based on what you learned about your preparedness from previous step
+
+-   Exam problems will be comparable in difficulty to those assigned for homework. Some exam questions may be similar to problems you have seen before, while others will require you to synthesize your knowledge in new ways.
+
+### Review Problems {#sec-midterm1-review}
+
+For extra practice, additional review problems have been made available below. These questions are not necessarily representative of the typical scope and difficulty of individual exam questions. This review is not comprehensive, nor does it represent the expected amount of time for it will take for you to complete the exam.
+
+-   Midterm 2 [review problems](weeks/exam/midterm2_review.pdf)
+
+------------------------------------------------------------------------
+
+## Midterm 1 {#sec-midterm1}
+
+Midterm 1 will be take-home. The midterm will be created as a Quiz in Canvas, and will be available/live starting at 5:00pm on Friday, March 29 through 11:59pm on Monday, April 1. You must upload your completed midterm to Canvas.
+
+The first midterm will cover content up to material on 03/14 in Week 5. There will be some questions that ask you to use R.
+
+If applicable, please send me a Letter of Accommodation before Spring Break!
+
+### Format
+
+The exam will be broken down into two components: a component that requires `R`, and a component that does not require `R` (beyond using it as a calculator). These will appear as separate quizzes on Canvas. This format is intended to allow you to take a break between components if you'd like one. Your overall score for Midterm 1 will calculated as: (points on non-R + points on R)/(total possible points).
+
+#### Non-R
+
+-   You will have 3 hours starting at the time that you open the non-R portion of the midterm to complete it. You must upload your solutions to Canvas by the end of those 3 hours. It is your responsibility to ensure that your Midterm is uploaded correctly to Canvas. Please double-check that you have indeed submitted your midterm.
+
+-   Your solutions should be neatly written or typed. If you scan your handwritten solutions, please be sure to review the legibility of your scan before uploading to Canvas.
+
+#### R
+
+-   You will have 1 hour starting at the time that you open the R portion of the midterm to complete it. You must upload your solutions to Canvas by the end of the hour. You must submit a knitted PDF/HTML document, and not the original .Rmd file. It is your responsibility to ensure that your Midterm is uploaded correctly to Canvas. Please double-check that you have indeed submitted your midterm.
+
+-   If you are unable to knit due to bugs in your code, set `eval = FALSE` in the R chunk headers so the document will knit. That way, I can still see your code.
+
+#### Honor code statement
+
+In both parts of the midterm, you will be required to write and/or type the honor code statement: "I <your name> have neither given nor received unauthorized aid on this assignment." See the following [Resources](#sec-midterm1-resources) subsection about what is considered unauthorized aid. Any submissions found in violation of this honor code will receive an automatic 0.
+
+### Resources
+
+-   This midterm is open-book with respect to material shared/distributed in this MATH/STAT 311 course, but not open-people. The only person you are allowed to talk to about the midterm while it is "live" (available to the class) is Prof. Tang. This means that you should not ask someone if they've taken the midterm, how it went, etc. until after the official due date.
+
+-   You may use any notes you've taken for this class and your MATH/STAT 310 course, your work on previous assignments/practice problems and its associated feedback, my recorded videos, and DeGroot and Schervish’s textbook. For problems asking you to use R, remember that you may reference any of R help file by typing `?functionname`.
+
+-   You may also use WolframAlpha, Maple, Mathematica, Desmos, or Symbolab to assist with calculating integrals, derivatives, or algebraic simplification. If you use technology to assist calculating, please clearly reference the site you used to assist you, and write down the explicit expression/code you input.
+
+-   **You may not use any other resources other than those listed above.** That means no open internet/Google search or ChatGPT. If you have questions about whether a resource can be used, you are welcome to e-mail me.
+
+-   I will be regularly checking my e-mail from 8am-8pm while the midterm is live, but there might be delays of up to an hour in my responses.
+
+### Preparation
+
+-   The best preparation you can do for the exam is to organize your notes and/or homework to make finding information and examples as quick and efficient as possible. Beyond that, you should attempt to accurately assess what topics you have mastered and which you need to practice more. A good starting point is to review the list of objectives on each daily assignment. Another way to prepare is to create your own study guide with summaries of the important concepts, along with example problems you’ve designed and solved. As you study, it would be a good idea to compile lists of questions that you might have for Prof. Tang/the class.
+
+-   I encourage you to re-visit and re-do previous homework problems and practice problems. There are many practice problems that we did not have time to get to. Solutions to selected problems will be made available via Canvas over Spring Break.
+
+-   Make sure you feel comfortable creating new code chunks in an .Rmd file. You will be provided a starter template for this midterm, but I might not explicitly create code chunks for you ahead of time.
+
+-   Exam problems will be comparable in difficulty to those assigned for homework. Some exam questions may be similar to problems you have seen before, while others will require you to synthesize your knowledge in new ways.
+
+### Review Problems
+
+For extra practice, additional review problems will be made available below towards the end of Spring Break. While these questions are representative of the typical scope and difficulty of individual exam questions, this review is not comprehensive, nor does it necessarily represent the expected amount of time for it will take for you to complete the exam.
+
+-   Midterm 1 [review problems](weeks/exam/midterm1_review_problems.pdf)

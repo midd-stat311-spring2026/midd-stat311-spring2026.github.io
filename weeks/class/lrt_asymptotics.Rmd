@@ -1,0 +1,92 @@
+---
+title: "LRT asymptotics"
+author: "Becky Tang"
+date: "2024-04-26"
+output: html_document
+---
+
+## LRT set-up
+
+Recall the coin-flipping scenario again! We have $X_{1},\ldots, X_{n}$ are a random sample from a $\text{Bern}(\theta)$ distribution, where $\theta$ is the probability of Heads. We have the hypotheses
+
+$$H_{0}: \theta = \theta_{0} \qquad \text{vs.} \qquad H_{1}: \theta \neq \theta_{0}$$ We can conduct a LRT of these hypotheses. We found the likelihood ratio statistic to be:
+
+$$\Lambda(\mathbf{X}) = \left(\frac{n\theta_{0}}{\sum X_i}\right)^{\sum X_{i}} \left( \frac{n(1-\theta_{0})}{n - \sum X_i}\right)^{n - \sum X_i}$$The LRT says reject when $\Lambda(\mathbf{x}) \leq k$ for some $k \in [0,1]$. Notice that $\Lambda(\mathbf{x})$ depends on how many heads we see!
+
+## Small $n$
+
+Suppose we have the following hypotheses:
+
+$$H_{0}: \theta = 0.6 \qquad \text{vs.} \qquad H_{1}: \theta \neq 0.6$$
+
+Suppose we have $n=6$ coin flips and observe $\sum X_i = 1$ heads. What is the $p$ value for the observed data?
+
+### Exact $p$-value
+
+```{r}
+n <- 6
+theta0 <- 0.6
+y <- 1
+Lambda_obs <- ((n*theta0/y)^y) * (n*(1-theta0)/(n - y))^(n - y)
+Lambda_obs
+```
+
+```{=tex}
+\begin{align*}
+\text{p-value} &= \sup_{\theta \in \Omega_{0}} \text{Pr}(\Lambda(\mathbf{X}) \leq \Lambda(\mathbf{x})\mid \theta) \\
+&= \text{Pr}\left(\Lambda(\mathbf{X}) \leq `r round(Lambda_obs,4)` \mid \theta = 0.6\right)  \\
+&=\text{Pr}\left(\sum X_i \in \{0, 1, 6\} \mid \theta = 0.6\right) 
+\end{align*}
+```
+(Return to previous class' code for a refresher!)
+
+Thus the $p$ value is
+
+```{r}
+dbinom(0, n, theta0) + dbinom(1, n, theta0) + dbinom(6, n, theta0)
+```
+
+### Approximate $p$-value
+
+```{r}
+1 - pchisq(-2*log(Lambda_obs), 1)
+```
+
+Notice how different this is from the exact $p$ value! This is because $n=6$ observations is not large enough for asymptotics to kick in!
+
+## Larger $n$
+
+Suppose we have the same hypotheses, but now consider $n = 18$ coin flips, of which we observed $\sum X_i = 3$ heads. So we have the same proportion of heads as in the above case, but more samples overall.
+
+```{r echo = F}
+n <- 18
+theta0 <- 0.6
+y <- 0:n
+prob_y <- dbinom(0:n, n, theta0)
+Lambda <- ((n*theta0/y)^y) * (n*(1-theta0)/(n - y))^(n - y)
+Lambda_sort <- sort(Lambda)
+prob_y_sort <- prob_y[sort(Lambda, index.return = T)$ix]
+y_sort <- (0:n)[sort(Lambda, index.return = T)$ix]
+y <- 3
+Lambda_obs <- ((n*theta0/y)^y) * (n*(1-theta0)/(n - y))^(n - y)
+p_val <- sum(prob_y_sort[which(Lambda_sort <= Lambda_obs)])
+# y_sort[which(Lambda_sort <= Lambda_obs)]
+```
+
+The exact $p$ value for this data is (I challenge you to try obtaining this on your own):
+
+```{r}
+p_val
+```
+
+The approximate $p$ value using the asymptotic approximation is:
+
+```{r}
+n <- 18
+theta0 <- 0.6
+y <- 3
+Lambda_obs <- ((n*theta0/y)^y) * (n*(1-theta0)/(n - y))^(n - y)
+1 - pchisq(-2*log(Lambda_obs), 1)
+```
+
+Notice how similar these values are now!

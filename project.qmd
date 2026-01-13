@@ -1,0 +1,214 @@
+---
+title: "Final project"
+---
+
+Downloadable PDF with final project description [here](weeks/project/project_description.pdf) (last updated 05/14) .
+
+**Key dates:**
+
+-   Saturday 04/27 at 12:00pm: project proposal due
+
+-   Saturday 05/11 at 12:00pm: [rough draft](#sec-draft) due
+
+-   Saturday 05/18 at 9:00am: [project presentations](#sec-presentation) during exam period
+
+-   Monday 05/20 at 11:59pm: [final draft](#sec-final) and [reflection](#sec-reflection) due to Canvas
+
+------------------------------------------------------------------------
+
+::: {#sec-draft}
+## Rough draft
+:::
+
+### Draft expectations
+
+The purpose of the rough draft is to receive constructive feedback from your peers. Remember, the final paper should be understandable by someone who has taken the course. So what better way to test that than by having a peer actually read your paper?
+
+It is not my expectation that you/your group has written all that you'd like to put into the final paper. However, you can only receive quality and useful feedback if you share a draft that has enough content to work with! Therefore, **I expect that your rough draft has addressed at least Objectives 1-5 on the final project description.** If you have made further progress, that's great! These components do not have to be fully polished, but there has to be a narrative arc that flows through your paper such that the reader is not confused or discombobulated as they jump from paragraph to paragraph. Once again, the more work you put it at an early stage will mean less work later!
+
+A potential sectioning that could be useful (though is by no means required) is below. This might help you frame your narrative arc.
+
+-   Introduction
+
+-   Description of specific topic
+
+-   Methods and theory
+
+-   Application
+
+-   Conclusion
+
+Recall that this draft is due to Canvas at noon on Saturday, 05/11.
+
+### Peer review process
+
+After the rough drafts are submitted, you will be assigned a few rough drafts to read and provide feedback on. **You should read these drafts before class on Monday, 05/13** **and be prepared to share feedback on that day of class.** I am aware that there is only a little over one day to read through these drafts, but hopefully that shouldn't take more than an hour.
+
+I cannot emphasize enough how important peer review is! As someone giving comments, it is a great opportunity to learn how to give constructive, actionable feedback. As someone receiving comments, you receive the benefit of learning if your paper makes sense to someone who isn't familiar with the topic and receive helpful suggestions on how to improve the draft. Because this process is so important, it is my expectation that you really do work to generate helpful feedback.
+
+::: {style="color: purple"}
+I will soon share some guiding questions to help you synthesize your comments for the drafts and facilitate discussion in class. **Your responses to these guiding questions will be collected in class on Monday, 05/13 and will count towards your final project grade.** They will be graded for evidence of depth, and not just completion.
+:::
+
+-   Peer review [guiding questions](weeks/project/peer_review_guide.pdf)
+
+------------------------------------------------------------------------
+
+::: {#sec-presentation}
+## Presentation
+:::
+
+Every group is required to give a presentation during our course's exam period on Saturday, May 18 from 9:00am-12:00pm.
+
+### Logistics
+
+-   Presentation length:
+
+    -   Single-person groups: a 6 minute presentation, followed by 2 minutes of questions from your peers
+
+    -   Two-person groups: an 8 minute presentation, followed by 2 minutes of questions from your peers
+
+    -   Three-person groups: a 10 minute presentation, followed by 2 minutes of questions from your peers
+
+-   The presentation order will be randomly assigned, to be shared here on Friday, May 17
+
+    1.  Alec
+    2.  Duncan
+    3.  Megan
+    4.  Henry
+    5.  Xiuyuan
+    6.  Abby and Claire
+    7.  Justin, Xander, and Jackson
+    8.  Zach and Jiaan
+    9.  Cody
+    10. Violet
+    11. Alex
+
+### Requirements
+
+As a presenter:
+
+-   Your presentation should cover Objectives 1-6, however the amount of time dedicated to each objective varies both by objective and by your selected topic.
+
+-   In addition to speaking, you should use at least one of the following modes of sharing information: slides or chalkboard work. You are welcome to use both, though the method(s) of delivery that you choose should add purpose to the talk.
+
+-   All members of the group should talk for roughly equal amounts of time.
+
+-   Your presentation should appear well-practiced with a logical flow/narrative.
+
+-   Ensure that your content (both oral and written) is technically correct with clear and consistent statistical notation
+
+As an audience member:
+
+-   Listen attentively to the speaker(s).
+
+-   Ask questions related to the content, both for clarity and additional insights.
+
+### Suggested outline
+
+In academic talks, you should always plan to "invite the audience" to want to listen to your presentation. That often means that you shouldn't dive right into the methodology from the onset. In Statistics, the following outline/format is commonly used as it provides an easy way to invite the audience in, as well as craft a narrative and logical flow. Your presentation should generally follow the steps below. However, the time that is spent each part will vary depending on your topic and application.
+
+1.  Describe the motivating data/problem/research question
+
+2.  Dive into the methodology at a level that is appropriate for the majority of the audience\*
+
+3.  Return to the motivating research question in an application where the methodology is applied to data in order to **gain some insight and/or demonstrate proof of concept.**
+
+    -   The presenter should always explain for the audience what the application is showing. It is not just a demonstration that the presenter knows how to apply a technique. Rather, it is an opportunity for the presenter to elaborate on the method, confirm the theory or depart from it, talk about where it shines/fails, etc.
+
+Note that for your presentation, the order in which you choose to cover Objectives 1-6 need not match the order as listed. Additionally, you should not explicitly reference the Objectives/Objective numbers in your talk.
+
+### Tips and Reminders
+
+-   \*Note that Objective 7 (Discuss and provide proof or derivation of one significant theorem or result related to
+    your topic) need not be included in your presentation. This is because the audience wants to hear you talk about your topic and why it is interesting/important; they can always read your proof on their own.
+
+-   Remember who your audience is and what they know. In this case, all you may assume is that the audience has taken MATH/STAT 310 and 311, Calculus, and Linear Algebra. If your topic or application is related to another discipline in some way, make sure to give the necessary background for people to understand what you're talking about!
+
+-   Be intentional about what you include in your presentation. Every bullet point, equation, figure, sentence, etc. that you include should serve a purpose
+
+-   I often have two approaches for creating a talk:
+
+    -   Work backwards: start with the application, and think about what methodological content the audience needs to know to understand the application and, in particular, *why* the methodology is appropriate for the data.
+
+    -   Jumping between steps 1 and 2 until I'm satisfied, then work on step 3: because every bullet point needs to be purposeful, I will often create a couples introductory slides, and then go to the methodological content to make sure that I do in fact address everything I said I would. But then working on the methodological content reminds me that I need to add some motivation for the audience, so I return to the introductory content.
+
+-   Practice, practice, practice!
+
+### Grading
+
+Your presentation will be assessed based on the following categories: Content, Understanding, Organization/Technical content, and Delivery.
+
++----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+|                                        | 2 points                                                                                                                                                     | 1 point                                                                                                                                                            | 0 points                                                                                                                                   |
++========================================+==============================================================================================================================================================+====================================================================================================================================================================+============================================================================================================================================+
+| **Content**                            | Effecitvely addresses all of Objectives 1-6.                                                                                                                 | Effectively addresses five of Objectives 1-6.                                                                                                                      | Effectively addresses less than five of Objectives 1-6.                                                                                    |
++----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| **Understanding**                      | Demonstrates full knowledge of the topic through a combination of prepared delivery and successfully answering questions with explanations and elaborations. | Demonstrates satisfactory knowledge of the topic through a combination of prepared delivery and answering some questions with explanations and elaborations.       | Does not demonstrate satisfactory knowledge of the topic. Is unable to answer questions from the audience.                                 |
+|                                        |                                                                                                                                                              |                                                                                                                                                                    |                                                                                                                                            |
+|                                        | Provides interesting, thoughtful insights from the perspective of the presenter, both in the method and the application.                                     | Provides insights into the topic in either the method or the application, but not both. Or, insights may not be unique to the presenter.                           | Does not provide insight into the topic.                                                                                                   |
++----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| **Organization and Technical content** | Has a logical flow in the presentation with transitions that help guide audience members.                                                                    | Has a flow that is not fully logical, or presentation lacks guiding transitions.                                                                                   | Does not have a logical flow. Order of the content leaves the audience confused.                                                           |
+|                                        |                                                                                                                                                              |                                                                                                                                                                    |                                                                                                                                            |
+|                                        | All statistical content is technically correct. All statistical notation is defined clearly and used consistently.                                           | Statistical content is mostly correct. Most but not all of the statistical notation is defined clearly and used consistently.                                      | Majority of statistical content is not correct. Most of the statistical notation is either unclear or not used consistently.               |
+|                                        |                                                                                                                                                              |                                                                                                                                                                    |                                                                                                                                            |
+|                                        | Does not run over/under time by more than 20 seconds.                                                                                                        | Runs over/under time by 20-30 seconds.                                                                                                                             | Runs over/under time by more than 30 seconds.                                                                                              |
++----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| **Delivery**                           | Uses slides and/or chalkboard to effectively enhance the presentation without distractions. All written content adds to understanding.                       | Uses slides and/or chalkboard to enhance the presentation, but some content is distracting. Most, but not all, of written content adds to understanding.           | Does not use slides and/or chalkboard to enhance the presentation. Written content is either distracting or does not add to understanding. |
+|                                        |                                                                                                                                                              |                                                                                                                                                                    |                                                                                                                                            |
+|                                        | Does not read off of slides and does not use notes when presenting slides (if applicable). Seldom use of prepared notes when at chalkboard (if applicable).  | Sometimes reads off of slides and/or sometimes use notes when presenting slides (if applicable). Frequent use of prepared notes when at chalkboard (if applicable) | Often reads off of slides and/or prepared notes.                                                                                           |
+|                                        |                                                                                                                                                              |                                                                                                                                                                    |                                                                                                                                            |
+|                                        | Faces and makes eye contact with the audience during entire presentation.                                                                                    | Faces and makes eye contact with the audience for parts of the presentation, though not all.                                                                       | Does not face and/or makes eye contact with the audience for majority of presentation.                                                     |
+|                                        |                                                                                                                                                              |                                                                                                                                                                    |                                                                                                                                            |
+|                                        | Demonstrates strong enthusiasm for the topic during entire presentation.                                                                                     | Demonstrates enthusiasm for the topic during parts of presentation, but not all.                                                                                   | Does not demonstrate enthusiasm for the topic during majority of presentation.                                                             |
++----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------+
+
+Your grade for the presentation will be based on points earned in each category:
+
+-   8 pts: 100%
+-   7 pts: 90%
+-   6 pts: 80%
+-   5 pts: 70%
+-   4 pts: 60%
+-   3 pts: 50%
+-   2 pts: 40%
+-   1 pts: 20%
+-   0 pts: 0%
+
+------------------------------------------------------------------------
+
+::: {#sec-final}
+## Final draft
+:::
+
+The majority of the details for the final draft can be found on Section 3.2 of the [project description PDF](weeks/project/project_description.pdf). A few extra details that have been added are:
+
+-   Please have margins between 0.75 inches and 1.25 inches. 1 inch margins are ideal!
+
+-   The page lengths listed on the description are *minimum* page lengths. If your paper is going over, that's totally fine!
+
+-   Make sure that you define your statistical notation clearly and use it consistently throughout the paper.
+
+-   Include an Appendix at the end of your paper with the code you used for your Application. This can be done easily by knitting your .Rmd file to PDF and using some software to combine your final paper with the Appendix.
+
+    -   When discussing results for your application (Objective 6), you may simply state results and reference/point the reader to the code in the Appendix!
+
+Remember that only one final paper needs to be submitted per group!
+
+------------------------------------------------------------------------
+
+## Reflection {#sec-reflection}
+
+In addition to your final paper, please submit a roughly one page reflection that addresses the following questions. The reflections should be submitted individually.
+
+-   What were some of the most interesting discoveries you made while working on this project? These could be discoveries related to the topic or yourself while working on the project.
+
+-   What aspect of your project are you most proud of?
+
+-   What aspects of your project do you wish you could have improved or done better on?
+
+-   What aspects of the peer review were most helpful to you? Additionally, provide a specific example of some feedback that you incorporated into your final paper.
+
+-   How do you think you grew/developed your statistical expertise through this project, or perhaps through this class as a whole?
+
+-   Optionally: what suggestions/feedback do you have for the final project when Becky teaches this class again? Is there anything else that you'd like to reflect on, whether it's about the project or the class as a whole?

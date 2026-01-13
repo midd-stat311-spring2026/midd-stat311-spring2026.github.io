@@ -1,0 +1,102 @@
+---
+title: "Obtaining posteriors in R"
+author: "Your name"
+date: "2024-02-20"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.height = 3, fig.width = 5)
+```
+
+Suppose $X_{1},\ldots, X_{5}$ form a random sample from a $\text{Geometric}(\theta)$ distribution, where $\theta \in (0,1)$ is the unknown probability of success. We can use a Beta prior for $\theta$: $\theta \sim \text{Beta}(a, b)$. 
+
+## Visualize prior
+
+Suppose I pick hyperparameter values $a = 1$ and $b = 4$. What does this particular distribution look like?
+
+```{r eval = FALSE}
+# create vector of possible theta values
+theta_vals <- seq(0.01, 0.99, by = 0.01)
+
+# set prior hyperparameters
+
+
+# evaluate the prior at each of the elements of theta_vals
+prior_vals <- 
+
+# plot prior dist
+  
+```
+
+## Verify prior is a proper PDF
+
+We know the prior is a valid PDF because the Beta distribution is a well known distribution. But let's double check by using R to verify that that the PDF integrates to 1. 
+
+We will write a function called `beta_prior` that takes in an argument `theta` as input, and should return the Beta density evaluated at that value of `theta` and our choice of hyperparameters. Then, we will `integrate()` our function over its support to see if the PDF in fact integrates to 1.
+
+```{r eval = FALSE}
+# write function that evaluates our prior
+beta_prior <- function(theta){
+  
+}
+
+# verify that our prior integrates to 1
+```
+
+
+## Obtain and plot posterior
+
+Now suppose we observe $X = (3, 1, 2, 5, 6)$. 
+
+```{r}
+dat <- c(3,1,2,5,6)
+n <- length(dat)
+```
+
+### From known results
+
+What is the posterior for $\theta$ under our $\text{Beta}(2,2)$ prior given the observed data? From class work, we know:
+
+$$\theta | \mathbf{x} \sim$$
+
+
+```{r}
+# create vector of posterior values
+
+# plot posterior
+
+```
+
+### By obtaining normalizing constant
+
+Suppose we didn't know that the posterior is a Beta. However, we know that the posterior is always proportional to the likelihood times prior! So all we lack is the normalizing constant. We can write a function that evaluates the *kernel* of the posterior (i.e. all the parts that include $\theta$).
+
+```{r}
+# write function that evaluate the kernel of the posterior for a given theta value
+
+# integrate the function to obtain normalizing constant
+
+# obtain normalizing constant 
+
+# plot posterior
+
+```
+
+We can see that the unnormalized posterior has exactly the same shape:
+
+```{r eval = F}
+plot(theta_vals, post_kernel(theta_vals), type = "l", main = "Prior and posterior",
+     ylab = "density")
+```
+
+
+We can visualize the prior and posterior on the same plot by first creating one plot, then using the `lines()` function to add additional lines to the original plot.
+
+```{r eval = FALSE}
+plot(theta_vals, post_vals, type = "l", main = "Prior and posterior",
+     ylab = "density")
+lines(theta_vals, prior_vals, type = "l", col = "orange")
+```
