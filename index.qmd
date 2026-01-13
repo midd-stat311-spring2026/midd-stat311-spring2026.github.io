@@ -3,13 +3,13 @@ title: "Statistical Inference"
 sidebar: false
 ---
 
-Welcome to the website for Middlebury College's Spring 2024 STAT 311. On this website you will find the course syllabus, schedule, and assignments. The website is frequently updated during the semester, so please make a habit of refreshing the page. The icon at the top right will link to the course Canvas where assignments should be submitted.
+Welcome to the website for Middlebury College's Spring 2026 STAT 311. On this website you will find the course syllabus, schedule, and assignments. The website is frequently updated during the semester, so please make a habit of refreshing the page. The icon at the top right will link to the course Canvas where assignments should be submitted.
 
 ![](img/chi2.png){fig-align="center" width="280"}
 
 ## Major Announcements
 
--   Project presentations on Saturday, May 18 starting at 9am in our usual classroom! Presentation order is on the Project tab.
+-   Welcome!
 
 ------------------------------------------------------------------------
 
@@ -22,12 +22,12 @@ Instructor: Becky Tang
 -   Office: WNS 214
 -   Email: btang\@middlebury.edu
 
-Meeting times: TRF 9:45-10:35am in WNS 011
+Meeting times: MWF 11:15am-12:05pm in WNS 011
 
-Office hours: M 2:00-4:00pm, T 10:45am-12pm
+Office hours: TBD
 
-[Syllabus](Stat311_Syllabus.pdf) (most recent update: 02/15/24 to reflect updated office hours)
+Syllabus (most recent update: 02/15/24 to reflect updated office hours)
 
-[Distribution sheet](weeks/exam/distributions_311_midterm2.pdf) (updated for Midterm II)
+Distribution sheet
 
 ## 
