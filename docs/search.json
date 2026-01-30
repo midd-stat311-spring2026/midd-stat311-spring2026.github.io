@@ -40,7 +40,7 @@
     "href": "weeks/week-01.html",
     "title": "Week 01",
     "section": "",
-    "text": "Tuesday (02/13)\n\nTopics\n\nWelcome!\nCourse logistics\n\nDaily assignment\n\nReview syllabus\nOpen (or re-download) RStudio and make sure everything is working\n\nClass activity\n\nIntroduction to inference\n\n\n\nThursday (02/15)\n\nTopics\n\nCore terminology\n\nDaily assignment\nTo be completed and submitted to Canvas by 8:45am\n\nDaily assignment\n\n\n\nFriday (02/16)\n\nTopics\n\nPrior distributions\nPosterior distributions\n\nDaily assignment\nTo be completed and submitted to Canvas by 8:45am\n\nDaily assignment",
+    "text": "Monday (02/09)\n\nTopics\n\nWelcome!\nCourse logistics\n\nDaily assignment\n\nReview syllabus\nOpen (or re-download) RStudio and make sure everything is working\n\nClass activity\n\nIntroduction to inference\n\n\n\nWednesday (02/11)\n\nTopics\n\nProbability review\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00am\n\nDaily assignment\nReview distribution sheet\n\n\n\nFriday (02/13)\n\nTopics\n\nCore terminology\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00am\n\nDaily assignment",
     "crumbs": [
       "Schedule",
       "Week 01"
@@ -149,7 +149,7 @@
     "href": "index.html#course-details",
     "title": "Statistical Inference",
     "section": "Course Details",
-    "text": "Course Details\nInstructor: Becky Tang\n\nOffice: WNS 214\nEmail: btang@middlebury.edu\n\nMeeting times: MWF 11:15am-12:05pm in WNS 011\nOffice hours: TBD\nSyllabus (most recent update: 02/15/26 to reflect updated office hours)\nDistribution sheet"
+    "text": "Course Details\nInstructor: Becky Tang\n\nOffice: WNS 214\nEmail: btang@middlebury.edu\n\nMeeting times: MWF 11:15am-12:05pm in WNS 011\nOffice hours: TBD\nSyllabus (most recent update: 02/09/26 to reflect updated office hours)\nDistribution sheet"
   },
   {
     "objectID": "exam.html",
@@ -163,7 +163,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "A high-level overview of the semester’s topics are presented here. Please select a week for a specific day’s assignments and materials.\n\nWeek 01\n\nWelcome!\nPrior and posterior distributions\n\n\n\nWeek 02\n\nConjugate priors\nBayes estimators\n\n\n\nWeek 03\n\nMaximum likelihood estimation\n\n\n\nWeek 04\n\nMethod of moments\nBias, variance, MSE\n\n\n\nWeek 05\n\nFisher information\nCramer-Rao Lower Bound\n\n\n\nSPRING BREAK\n\n\nWeek 06\n\n\\(\\chi^2\\) and \\(t\\) distributions\nJoint distribution of sample mean and variance\n\n\n\nWeek 07\n\nConfidence intervals\n\n\n\nWeek 08\n\nBootstrapping\n\n\n\nWeek 09\n\nHypothesis testing\n\n\n\nWeek 10\n\np-values\nLikelihood ratio test\n\n\n\nWeek 11\n\n\\(t\\)-tests\n\n\n\nWeek 12\n\nSimple linear regression",
+    "text": "A high-level overview of the semester’s topics are presented here. Please select a week for a specific day’s assignments and materials.\n\nWeek 01\n\nWelcome!\nProbability and R review\nTerminology\n\n\n\nWeek 02\n\nData reduction\nMaximum likelihood estimation\n\n\n\nWeek 03\n\nProperties of MLEs\nMethod of moments\nProperties of estimators\n\n\n\nWeek 04\n\nFisher Information\nComparing estimators\n\n\n\nWeek 05\n\nSufficiency, Cramer-Rao Lower Bound\nNumerical methods\n\n\n\nWeek 06\n\n\\(\\chi^2\\) and \\(t\\) distributions\nJoint distribution of sample mean and variance\n\n\n\nSPRING BREAK\n\n\nWeek 07\n\nConfidence intervals!\n\n\n\nWeek 08\n\nHypothesis testing\n\n\n\nWeek 09\n\np-values\nLikelihood ratio test\n\n\n\nWeek 10\n\nNeyman-Pearson Lemma\n\\(t\\)-tests\n\n\n\nWeek 11\n\n\\(F\\)-test\nSimple linear regression\n\n\n\nWeek 12\n\nBayesian methods",
     "crumbs": [
       "Schedule"
     ]

@@ -3,7 +3,7 @@ title: "Week 01"
 ---
 
 ::: {style="color: #6284a2"}
-### Tuesday (02/13)
+### Monday (02/09)
 :::
 
 **Topics**
@@ -24,7 +24,24 @@ title: "Week 01"
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Thursday (02/15)
+### Wednesday (02/11)
+:::
+
+**Topics**
+
+-   Probability review
+
+**Daily assignment**
+
+To be completed and submitted to Canvas by 9:00am
+
+-   Daily assignment
+-   Review distribution sheet
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Friday (02/13)
 :::
 
 **Topics**
@@ -33,24 +50,6 @@ title: "Week 01"
 
 **Daily assignment**
 
-To be completed and submitted to Canvas by 8:45am
+To be completed and submitted to Canvas by 9:00am
 
--   [Daily assignment](daily/DA_01.pdf)
-
-------------------------------------------------------------------------
-
-::: {style="color: #6284a2"}
-### Friday (02/16)
-:::
-
-**Topics**
-
--   Prior distributions
-
--   Posterior distributions
-
-**Daily assignment**
-
-To be completed and submitted to Canvas by 8:45am
-
--   [Daily assignment](daily/DA_02.pdf)
+-   Daily assignment

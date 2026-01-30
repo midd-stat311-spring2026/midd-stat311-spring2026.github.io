@@ -10,56 +10,62 @@ A high-level overview of the semester's topics are presented here. Please select
 ### [Week 01](weeks/week-01.qmd)
 
 -   Welcome!
--   Prior and posterior distributions
+-   Probability and R review
+-   Terminology
 
-### [Week 02](weeks/week-02.qmd)
+### Week 02
 
--   Conjugate priors
-
--   Bayes estimators
-
-### [Week 03](weeks/week-03.qmd)
+-   Data reduction
 
 -   Maximum likelihood estimation
 
-### [Week 04](weeks/week-04.qmd)
+### Week 03
 
+-   Properties of MLEs
 -   Method of moments
--   Bias, variance, MSE
+-   Properties of estimators
 
-### [Week 05](weeks/week-05.qmd)
+### Week 04
 
--   Fisher information
--   Cramer-Rao Lower Bound
+-   Fisher Information
+-   Comparing estimators
 
-### SPRING BREAK
+### Week 05
 
-### [Week 06](weeks/week-06.qmd)
+-   Sufficiency, Cramer-Rao Lower Bound
+-   Numerical methods
+
+### Week 06
 
 -   $\chi^2$ and $t$ distributions
 -   Joint distribution of sample mean and variance
 
-### [Week 07](weeks/week-07.qmd)
+### SPRING BREAK
 
--   Confidence intervals
+### Week 07
 
-### [Week 08](weeks/week-08.qmd)
+-   Confidence intervals!
 
--   Bootstrapping
-
-### [Week 09](weeks/week-09.qmd)
+### Week 08
 
 -   Hypothesis testing
 
-### [Week 10](weeks/week-10.qmd)
+### Week 09
 
 -   p-values
 -   Likelihood ratio test
 
-### [Week 11](weeks/week-11.qmd)
+### Week 10
+
+-   Neyman-Pearson Lemma
 
 -   $t$-tests
 
-### [Week 12](weeks/week-12.qmd)
+### Week 11
 
+-   $F$-test
 -   Simple linear regression
+
+### Week 12
+
+-   Bayesian methods

@@ -14,10 +14,7 @@ website:
         text: "Schedule"
       - file: homework.qmd
         text: "Homework"
-      - file: exam.qmd
-        text: "Exams"
-      - file: project.qmd
-        text: "Final project"
+
     right:
       - icon: bar-chart-fill
         href: https://middlebury.instructure.com/
@@ -29,19 +26,7 @@ website:
       contents:
         - schedule.qmd
         - weeks/week-01.qmd
-        - weeks/week-02.qmd
-        - weeks/week-03.qmd
-        - weeks/week-04.qmd
-        - weeks/week-05.qmd
-        - weeks/week-06.qmd
-        - weeks/week-07.qmd
-        - weeks/week-08.qmd
-        - weeks/week-09.qmd
-        - weeks/week-10.qmd
-        - weeks/week-11.qmd
-        - weeks/week-12.qmd
 
-        
   page-footer:
     center: |
       - ![Logo image](/img/middlebury.png){width=10%}

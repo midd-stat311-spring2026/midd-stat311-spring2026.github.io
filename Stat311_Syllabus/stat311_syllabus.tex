@@ -1,0 +1,368 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+\documentclass[11pt, a4paper]{article}
+\usepackage{longtable}
+\usepackage{multirow}
+% The title of the current document to be produced.
+\newcommand{\doctitle}{Syllabus}
+\newcommand{\labactivities}{\bluetext{\textbf{Lab:} activities covering discussed topics.}}
+\newcommand{\finaldate}{5/14}
+%
+\setlength{\unitlength}{1in}
+\renewcommand{\arraystretch}{2}
+
+%------------------------------------------------------------
+% Import commands for both teacher and course information.  | 
+% NOTE: Change your teacher and course info in these files. |
+%------>------>------>------>------>------>------>------>-->|
+\input{includes/teacher-info}                              %|
+\input{includes/course-info}                               %|   
+% 
+%------------------------------------------------------------
+%-- Import packages and custom command definitons.          |
+%------>------>------>------>------>------>------>------>-->|
+\input{includes/packages-imports}                          %|  
+\input{includes/custom-commands}   
+%
+%---> Genereate & inject metadata                           |
+%------------------------------------------------------------
+
+\topmargin -50pt
+\begin{document} 
+
+%-------------------------------------------------------------
+%-- Make the header of the document                          |
+%------>------>------>------>------>------>------>------>--> |
+\input{includes/document-header}
+  
+%-------------------------------------------------------------
+%-- Insert the course & teacher info                         |
+%------>------>------>------>------>------>------>------>--> |
+\hrule     
+\vspace{.5cm}
+\begin{multicols}{1}
+    \begin{description}[labelindent=0.02in,leftmargin=1.25in,style=nextline]
+        %--> First column:      
+        \item[\textsc{Section}:] \csection
+        %\item[\textsc{Ponderation}:] \raggedright\ponderation
+        \item[\textsc{Class hours}:] \classhours
+        \item[\textsc{Room}:] \room
+        \item[\textsc{Prereqs}:] \prereqs
+        \item[]
+        \item[]
+        %--> Second column:         
+         \item[\textsc{Professor}:] \instructor
+        \item[\textsc{Office}:]  \office
+        % \item[\textsc{Phone}:]\phone
+        \item[\textsc{E-mail}:] \email
+        \item[\textsc{Office Hours}:] \hours
+        \item[]
+    \end{description}
+\end{multicols}
+\hrule        
+\vspace{.1cm}
+
+%\Huge{I MISS YOU}
+\normalsize
+ %--------  Course Description  ------------------------------
+ 
+ 
+\customsection{Course Description}  
+\noindent 
+An introduction to the mathematical methods and applications of statistical inference focused mainly on classical methods. Several statistical concepts and methods will be developed in a mathematical framework. The course is broken largely into three parts: parameter estimation, interval estimation and hypothesis tests, and linear least squares. Topics for parameter estimation include Bayes estimators, methods of maximum likelihood and moments, sufficiency, and efficiency. Classical tests within the normal theory such as F-test, t-test, and chi-square test will also be considered. Methods of linear least squares are used for the study of analysis of variance and regression. There will be some emphasis on applications to other disciplines. This course is taught using R. 
+
+\vspace{0.25cm} 
+
+\customsection{Key Learning Outcomes} 
+
+\begin{borderedsquare}
+     \setlength\itemsep{0.3em}        
+	\item Obtain, compare, critique, and optimize different estimators from both frequentist and Bayesian perspectives.
+	\item Understand how to conduct hypothesis tests and construct confidence intervals within the frequentist framework.
+ \item Determine which statistical inference procedure is most appropriate for a given task, implement the procedure effectively, and interpret the results accurately.
+	\item Build confidence in deriving results using probability theory and statistical assumptions.
+    \item Continue to develop proficiency in coding in R by implementing and analyzing simulations for estimation and inference using R.
+
+
+\end{borderedsquare}
+        
+\vspace{0.25cm} 
+
+
+
+\customsection{Textbooks and Course Materials}  
+%---------------------------------
+%--> List of recommended textbooks. 
+\begin{itemize}[itemsep=4pt,parsep=0pt,topsep=1pt,partopsep=1pt]
+	\item[\color{darkblue}\faBook] \textbf{\textsc{textbook:}} Morris H. DeGroot and Mark J. Schervish, \emph{Probability and Statistics}, 4th edition.
+\emph{Note: A copy is on reserve at the Davis library (2 hour loan period).} 
+ \item[] \textbf{\textsc{Optional resources}}:
+	\begin{itemize}
+	   \item John A. Rice, \emph{Mathematical Statistics and Data Analysis}, 3rd edition.
+    \item George Casella and Roger L. Berger, \emph{Statistical Inference}, 2nd edition.
+	\end{itemize}
+\item[{ \color{darkblue} \faBookmark}] \textbf{Course website}: Most of our course content will be housed on the course website: \url{https://midd-stat311-spring2026.github.io/}. Please bookmark this page for easy navigation.
+ 
+\item[{ \color{darkblue} \faLaptop}] \textbf{R}: Please make sure you have access to R (and RStudio) prior to the end of the first week of courses. If possible (or when prompted), update RStudio to the most recent version.
+\end{itemize}
+
+%\noindent {\color{darkred} \bfseries\Large\scshape Course Policies} 
+\customsection{Course Structure}  
+
+\noindent A typical class day involves the following:
+\begin{enumerate}
+    \item Daily assignment: Every class meeting time will have an assigned reading from the textbook or recorded video. You are expected to do the reading/watch the video before class. By 9:00am on the day of class where we cover the assigned material, you will answer a set of brief reflection questions on the topics covered. You are also encouraged to submit any questions or clarifications from the assigned material.
+    \item Class session: Our 50-minute meetings will largely consist of lecture. Depending on the day, there will be time for practice problems either individually or in small groups. The lecture is intended to deepen and/or supplement your understanding of the material covered in the daily assignment, and the practice problems are intended for you to explore the topics more deeply.
+    \item Homework problems: After each class session, a few homework problems will be assigned to the weekly problem set. Some these problems will require the use of R.
+\end{enumerate}
+
+\noindent A prepared student will attend the 50-minute class, and spend roughly two-four hours per day of class on work outside the classroom (reading, watching videos, doing homework, studying, etc.). As this course meets three days a week, this represents a minimum 9-15 hour weekly commitment. 
+
+\customsection{Class Expectations} 
+\begin{itemize}[itemsep=2.5pt,parsep=0pt,topsep=8pt,partopsep=4pt]
+    \item[{\color{darkblue} \faFemale}] \textbf{You are expected to physically show up to class and actively participate}, conditional on classes being in-person. You are an integral part of the class community! Exceptions include previously-communicated illness or planned absence. I encourage discussion amongst yourselves, and you \emph{must} actively contribute to group problem-solving! 
+    
+    \item[{\color{darkblue} \faClock}]
+    \textbf{Please arrive on time.} I expect everyone, myself included, to arrive on time and dedicate full attention during the class. In turn, I will do my best to always end class at the designated time. 
+    
+	\item[{ \color{darkblue} \faLaptop}] \textbf{Laptops.} The use of laptops will often be necessary and I will let you know in advance when you should bring in a laptop. In these cases, ensure that your laptop has sufficient battery for the duration of the class. 
+	
+	\item[{\color{darkblue} \faMobile}] 
+	\textbf{Cell phones should be turned to silent}. I don't mind cell phones in class, but please silence them so as to not disrupt the class. 
+    
+
+    
+    \item[{\color{darkblue} \faQuestion}] 
+    \textbf{Please ask questions!} 
+  	
+
+     \item[{\color{darkblue} \faUniversalAccess}]   I  expect all members of the class to make participation a harassment-free experience for everyone, regardless of race, creed, color, place of birth, ancestry, ethnicity, national origin, religion, sex, sexual orientation, gender identity or expression, age, marital status, service in the armed forces of the United States, positive HIV-related blood test results, genetic information, or against qualified individuals with disabilities on the basis of disability and/or any other status or characteristic as defined and to the extent protected by applicable law. We will not tolerate the use of violence against any individual.
+\end{itemize}
+
+\vspace{0.25cm}
+\customsection{Resources}
+\begin{borderedsquare}
+   \item \textbf{Office hours}. This time is meant for you! Please come by to ask questions, chat with me, or work on homework. You should never worry about disturbing me during this time. 
+    
+    \item \textbf{One-on-one meetings}. If you would like to meet with me one-on-one, please send me an e-mail or approach me after class so we can schedule a time. 
+    
+    \item \textbf{Your peers}. Unless otherwise noted, I encourage students to work together and discuss material! However, unless the assignment explicitly states that it is to be completed as group work, the submitted material must be your own. 
+\end{borderedsquare}
+
+\vspace{0.25cm}
+\customsection{Tips on how to succeed}
+\begin{itemize}
+    \item Come to every class and attend office hours.
+ \item Attempt some problems individually before working with others.
+    \item Complete the pre-class assignment in a timely fashion. A lot of the concepts in this class take time to sink in.
+    \item The assigned readings are not lengthy, but they convey a lot of information.
+        \begin{itemize}
+            \item Read through the material at least twice. Once without taking notes for an overall overview, then a second time to take notes.
+            \item Do not skim past the Examples in the readings. Make sure you understand the solutions presented in the Example problems.
+        \end{itemize}
+    \item Do not try to find answers on the internet or ChatGPT. Struggling through problems is how you learn!
+    \item \textbf{Brush up on your probability (Math/Stat 310) skills.} Or at least find your notes from that class!
+        \item Review your notes for ten minutes within 24 hours of taking them!
+
+\end{itemize}
+
+\customheader{College policies and resources}
+\customsection{Academic Integrity}
+\noindent As an academic community devoted to the life of the mind, Middlebury requires every student to reflect complete intellectual honesty in the preparation and submission of all academic work. Details of our Academic Honesty, Honor Code, and Related Disciplinary Policies are available in Middlebury’s handbook.\\
+
+\textbf{Using AI tools (e.g., ChatGPT, Gemini) is heavily discouraged in this class.} You should not use them to assist in any part of your homework or other assignments. I promise you, you will find office hours more useful to your overall learning than AI. \textbf{Unless otherwise stated, any use of generative AI tools for your midterms or final project will be treated as a violation of Middlebury’s Honor Code.}
+
+\vspace{1cm}
+\customsection{Honor Code Pledge}
+\noindent The Honor Code pledge reads as follows: “I have neither given nor received unauthorized aid on this assignment.” It is the responsibility of the student to write out in full, adhere to, and sign the Honor Code pledge on all examinations, research papers, and laboratory reports. Faculty members reserve the right to require the signed Honor Code pledge on other kinds of academic work.
+
+
+\vspace{1cm}
+\customsection{Disability Access and Accommodation}
+\noindent Students who have Letters of Accommodation in this class are encouraged to contact me as early in the semester as possible to ensure that such accommodations are implemented in a timely fashion.  For those without Letters of Accommodation, assistance is available to eligible students through the Disability Resource Center (DRC). \url{https://www.middlebury.edu/office/disability-resource-center}. The DRC provides support for students with disabilities and facilitates the accommodations process by helping students understand the resources and options available and by helping faculty understand how to increase access and full participation in courses. DRC services are free to all students.    Please contact ADA Coordinators Jodi Litchfield and Peter Ploegman of the DRC at \url{ada@middlebury.edu} for more information.  All discussions will remain confidential.
+
+\vspace{1cm}
+\customsection{Center for Teaching, Learning, and Research (CTLR)}
+\noindent The CTLR provides academic support for students in many specific content areas and in writing across the curriculum through both professional and peer tutors. The Center is also the place where students can find assistance in time management and study skills. These services are free to all students. \url{go.middlebury.edu/connect}
+
+\clearpage
+
+
+\customsection{Types of assignments}
+\begin{filledstarlist}
+\item \textbf{Daily assignments}. Assigned before each class session and turned in individually on Canvas. These small assignments include readings from the textbook plus a few assessment questions that are designed to help you reflect on your understanding of the readings. I will review all the assignments prior to each class period. These assignments are graded on good-faith effort so you can receive feedback quickly.  \orangetext{Daily assignments are due on Canvas by 9:00am the day of each class (to give me time to review them before class). For example, the daily assignment for Wednesday 2/11 should be completed by 9:00am on Wednesday 2/11.} 
+    \begin{itemize}
+        \item No extensions on daily assignments will be given, but up to two assignments may be missed without penalty. Even if you miss the deadline, you should still complete the reading associated with the daily assignment within a timely fashion.
+        \item It is not my intention or desire for you to stay up late or wake up early to complete the daily assignment. Daily assignments will be released at least three days in advance so you can plan ahead.
+    \end{itemize}
+
+\item \textbf{Problem sets}. Assigned weekly and turned in individually (though feel free to work with your peers). In the problem sets, you will apply what you have learned during lecture to dive deeper into the material and explore more interesting problems. Most weeks, the problem sets will require R. \orangetext{Problems will be assigned after every class, but each week's problem set is due the following Wednesday in class.}
+
+%\item \textbf{Computational assignments}. As computational power increases, many inference tasks can leverage simulation-based techniques. During the semester, I will assign one or two  computational assignments in R where you will apply the theory learned in class to a specific set of data. 
+
+
+%\item \textbf{Participation}. Because of the collaborative nature of this course, it is essential that you strive to attend class every day, and that you complete the assigned reading prior to the start of class. Additionally, in order to foster a positive and inclusive classroom environment, you are expected to follow our class code of conduct. Frequent absences, as well as non-constructive in-class participation, will be reflected in your final course grade. If you unable to attend class for any reason, please notify me before the start of class so that I can make appropriate group arrangements. Typically, you may miss up to two classes without penalty. However, prolonged or recurring illness, as well as other emergencies, may require individual adjustment, in which case you should contact me to make appropriate arrangements.
+
+
+\item \textbf{Midterm exams}. Two midterm exams are designed as an opportunity to assess the knowledge you’ve learned. The 
+\emph{tentative} dates for the exams are:
+\begin{itemize}
+    \item \orangetext{Midterm 1: Thursday 3/19} 
+    \item \orangetext{Midterm 2: Thursday 4/30}
+\end{itemize}
+
+\emph{Except in the cases of extreme illness or family emergency, students must take the in-person portion (if applicable) of the midterms on the scheduled date and time.}
+
+\item \textbf{Final project}. A final project presents the opportunity to demonstrate your learning from the entire semester. You will be asked to 1) write a brief paper about a topic and 2) present your findings to the rest of the class. More details will be given after Spring Break. \orangetext{The presentations will take place on the college-assigned final exam date for this course, which is to be determined. Please do not book travel until the final exam date has been confirmed.} 
+
+\end{filledstarlist}
+
+
+\clearpage
+\customsection{Grading}  
+
+\begin{filledstarlist}
+\item Late work will always be considered within one week of the original due date. Unless otherwise stated, the late policy is as follows: for every 24-hour period the assignment is late, 10\% from the maximum possible grade will be deducted.
+
+\item I will do my best to return assignments within one week of submission.
+
+\item Regrade requests: I do allow regrade requests, which must be submitted to be in-person within one week of when the assignment is returned. Keep in mind that regrade requests do not guarantee points back.
+
+\item \textbf{You must take each midterm and present the final project in order to pass the course.}
+
+\end{filledstarlist}
+
+
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{|c|c|}
+    \hline 
+        Component & Percentage  \\
+        \hline 
+        Daily assignments & 5\% \\
+        Problem sets & 20\% \\
+        Midterm I & 20\% \\
+        Midterm II & 25\% \\
+        Final Project & 25\% \\
+       Participation & 5\% \\
+         \hline
+    \end{tabular}
+\end{table}
+
+\begin{filledstarlist}
+    \item Letter grades will be assigned based on the following course percentages, with the upper 3\% and lower 3\% of each category corresponding to $+$ and $-$, respectively:
+    \begin{itemize}
+        \item A: 90-100\%
+        \item B: 80-89\%
+        \item C: 70-79\%
+        \item D: 60-69\%
+        \item F: <60\%
+    \end{itemize}
+These percentages reflect lower bound guarantees. For example, if you earn a 90\% in the course, you are guaranteed an A-. Grades will typically not be rounded up in the case of decimal points, although I can adjust upwards if I have reason based on my assessment of student learning.   
+   
+\end{filledstarlist}
+
+    
+
+
+
+\clearpage
+
+
+\customsection{Tentative Course Content}
+
+ \noindent \emph{(Last updated: 02/12/23)}
+
+\noindent \textcolor{lightblue}{\textbf{\underline{NOTE:}}} The following dates and content may be modified due to the requirements of the class may be moved backward or forward depending on class progress and my conference travel. \textbf{Midterm dates are tentative.}
+
+\vspace{0.2cm}
+
+%TODO: split implementation into 3 builds.
+\renewcommand{\arraystretch}{1.5} % this reduces the vertical spacing between rows
+\centering
+\noindent\begin{longtable}{|c|c|l|}
+	\hline 
+\textbf{Week} & \textbf{Date} & \textbf{Topic}\\
+	\hline
+	%---s Load the table body: dynamic table content. 
+\textbf{1} & 2/09 & M -  Welcome! Course logistics, Intro to Inference \\
+	 & & W - Probability review, \texttt{R} review \\
+     %& & F -  Prior and Posterior Distributions, Likelihood function\\
+     & & F -  Core terminology \\
+     && \quad \ - Problem Set 00 due\\
+	\hline   
+	\textbf{2} & 2/16 & M - Data reduction,  statistics  \\
+%&& \quad \ - Problem Set 01 due\\
+	&& W -   Maximum Likelihood Estimators (MLEs), 1-D   \\
+	&& \quad \ - Problem Set 01 due\\
+ && F -  MLEs cont. \\
+%\textbf{2} & 2/16 & M - Computing posteriors  \\
+	%&& W -   Conjugate Prior Distributions  \\
+% && F - Bayes estimators  \\
+	\hline   
+\textbf{3} 	& 2/23 & M   - Properties of MLEs    \\
+        & & W - Method of Moments    \\
+         && \quad  \ - Problem Set 02 due \\ 
+        & & F -  Properties of estimators: consistency, bias, variance   \\
+	\hline   
+	\textbf{4} & 3/02 & M -  MSE \\
+        && W -   Fisher Information, Comparing estimators  \\
+                && \quad  \ - Problem Set 03 due \\
+        && F -   Comparing estimators (cont.)  \\
+	\hline   
+	\textbf{5}& 3/09  & M -  Sufficiency, Rao-Blackwell   \\
+% && W - \orangetext{Review} \\
+	 && W -  Newton Raphson       \\
+ && \quad  \ - Problem Set 04 due \\
+  &  & F - EM Algorithm  \\
+  	\hline   
+	 \textbf{6} & 3/16 &  M  -   Sampling distribution of an estimator    \\
+	 	 & & W - $\chi^2$ distribution, Joint dist. of sample mean and variance   \\
+          && \quad  \ - Problem Set 05 due (shorter) \\
+		  && \orangetext{R - Midterm I} \\
+	 	 & & F -  $t$ distribution \\
+	\hline   
+	    & 3/23 & \orangetext{Spring Break} \\
+	    \hline
+	\textbf{7} & 3/30 & M  -  Confidence Intervals (CIs)  \\
+	&& W - CIs (cont.) \\
+	&& F - Delta Method \\
+	\hline   
+	\textbf{8} & 4/06 & M  - Intro to Hypothesis Tests  \\
+	&& W - HT essentials: significance level, power, p-values  \\
+      && \quad  \ - Problem Set 06 due \\
+        && F -  HT essentials (cont.)  \\
+        && \quad  - \orangetext{Last day to drop classes} \\
+&& \quad  - \orangetext{Introduce final project} \\
+	\hline 
+	\textbf{9} & 04/13 & M -  Equivalence of confidence sets and HT     \\
+ & & W  -     Likelihood ratio test \\
+       && \quad  - Problem Set 07 due \\
+	%&& \quad \ - HW 6 assigned \\
+	&& F - \orangetext{Spring symposium: no class}  \\
+	\hline 
+	\textbf{10} & 4/20 & M - Neyman-Pearson lemma  \\
+	&& W - $t$-test  \\
+          && \quad - Problem set 08 due \\
+        &&  F -  Two-sample $t$-test  \\
+	\hline 
+\textbf{11} & 4/27 & M - $F$-distribution, $F$-test for variance \\
+	         && \quad - Problem set 09 due (shorter) \\
+	&& W - Method of least squares, Simple Linear regression (SLR) \\
+         && \orangetext{R - Midterm II} \\
+        && F - Inference for SLR  \\
+	\hline 
+\textbf{12} & 5/04 & M -  Inference for SLR (cont.) \\
+	&& W - Intro to Bayes \\
+        && F - Bayes (cont.)  \\
+	\hline 
+	& \orangetext{5/11} & \orangetext{M} - Peer review \\
+ \hline
+ 	& \orangetext{\finaldate} & \orangetext{R -  Final exam period (project presentations)} \\
+\hline  
+\end{longtable}    
+
+
+
+\end{document} 
