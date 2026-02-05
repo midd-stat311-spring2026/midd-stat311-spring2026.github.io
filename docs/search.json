@@ -40,7 +40,7 @@
     "href": "weeks/week-01.html",
     "title": "Week 01",
     "section": "",
-    "text": "Monday (02/09)\n\nTopics\n\nWelcome!\nCourse logistics\n\nDaily assignment\n\nReview syllabus\nOpen (or re-download) RStudio and make sure everything is working\n\nClass activity\n\nIntroduction to inference\n\n\n\nWednesday (02/11)\n\nTopics\n\nProbability review\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00am\n\nDaily assignment\nReview distribution sheet\n\n\n\nFriday (02/13)\n\nTopics\n\nCore terminology\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00am\n\nDaily assignment",
+    "text": "Monday (02/09)\n\nTopics\n\nWelcome!\nCourse logistics\n\nDaily assignment\n\nReview syllabus\nOpen (or download) RStudio and make sure everything is working\n\nClass activity\n\nIntroduction to inference activity\nSome probability practice problems\n\n\n\nWednesday (02/11)\n\nTopics\n\nMATH/STAT 310 review\nConditional expectation\nR review\n\nDaily assignment\nReview distribution sheet and your 310 notes.\nTo be completed and submitted to Canvas by 9:00am:\n\nDaily assignment\n\nClass activity\n\nTBD\n\n\n\nFriday (02/13)\n\nProblem Set 0 due in class!\nTopics\n\nCore terminology\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00am\n\nDaily assignment",
     "crumbs": [
       "Schedule",
       "Week 01"
@@ -128,7 +128,7 @@
     "href": "homework.html",
     "title": "Homework",
     "section": "",
-    "text": "Note: problem sets will be updated with new questions following each class. Completed homework should be submitted to Canvas unless otherwise noted.\n\nHomework 1 (due Tuesday, 2/20 at 11:59pm)\n\nProblems assigned for Friday 2/16 technically cover material from Section 7.2, but we haven’t done examples in class yet. You are welcome to work on these problems now, or wait until after class 2/20.\n\nHomework 2 (due Tuesday, 2/29 at 11:59pm)\n\nNote: associated R problems can be found and completed in the following .Rmd template:  .Rmd \n\nA rendered version for easier reading can be viewed here: HW 2: R (rendered)\n\n\nHomework 3 (due Tuesday, 3/05 at 11:59pm)\n\nNote: I swapped the order of problems 3 and 5. The version as of Thursday, 2/29 is correct.\n\nHomework 4 (due Tuesday, 3/12 at 11:59pm)\n\nNote: associated R problems can be completed in the following .Rmd template:  .Rmd \n\nA rendered version for easier reading can be viewed here: HW 4: R (rendered)\n\n\nHomework 5 (due Tuesday, 3/29 at 11:59pm)\nExtra credit opportunity about EM algorithm (due Monday, 4/01 at 11:59pm)\n\nImplement using the following .Rmd template:  .Rmd \n\nA rendered version for easier reading can be viewed here\n\n\nHomework 6 (due Wednesday, 4/10 at 11:59pm)\n\nNote the atypical due date!\nNote: associated R problems can be completed in the following .Rmd template:  .Rmd \n\nA rendered version for easier reading can be viewed here: HW 6: R (rendered)\n\n\nHomework 7 (due Tuesday, 4/16 at 11:59pm)\n\nThis homework will be a bit shorter, but is R heavy\nNote: associated R problems can be completed in the following .Rmd template:  .Rmd \n\nA rendered version for easier reading can be viewed here: HW 7: R (rendered)\nClarification: for the parametric bootstrap, you may assume the distribution is Exponential but you don’t know the rate!\n\n\nHomework 8 (due Tuesday, 4/23 at 11:59pm)\nHomework 9 (due Tuesday, 4/30 at 11:59pm)\n\nNote that I’ve added a proof to Friday’s section which should be helpful for the last problem on this homework!"
+    "text": "Note: problem sets will be updated with new questions following each class. Completed homework should be submitted in-person unless otherwise noted.\n\nProblem Set 0 (due 2/13/26) – graded for participation!"
   },
   {
     "objectID": "index.html",
@@ -149,7 +149,7 @@
     "href": "index.html#course-details",
     "title": "Statistical Inference",
     "section": "Course Details",
-    "text": "Course Details\nInstructor: Becky Tang\n\nOffice: WNS 214\nEmail: btang@middlebury.edu\n\nMeeting times: MWF 11:15am-12:05pm in WNS 011\nOffice hours: TBD\nSyllabus (most recent update: 02/09/26 to reflect updated office hours)\nDistribution sheet"
+    "text": "Course Details\nInstructor: Becky Tang\n\nOffice: WNS 214\nEmail: btang@middlebury.edu\n\nMeeting times: MWF 11:15am-12:05pm in WNS 011\nOffice hours: M 2:30-4:00pm, T 3:30-4:30pm, R 11:00am-12:00pm\nSyllabus (most recent update: 02/02/26\nDistribution sheet"
   },
   {
     "objectID": "exam.html",

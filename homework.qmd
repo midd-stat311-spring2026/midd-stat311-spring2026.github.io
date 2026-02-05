@@ -3,31 +3,6 @@ title: "Homework"
 sidebar: false
 ---
 
-Note: problem sets will be updated with new questions following each class. Completed homework should be submitted to Canvas unless otherwise noted.
+Note: problem sets will be updated with new questions following each class. Completed homework should be submitted in-person unless otherwise noted.
 
--   [Homework 1](weeks/hw/hw1.pdf) (due Tuesday, 2/20 at 11:59pm)
-    -   Problems assigned for Friday 2/16 technically cover material from Section 7.2, but we haven't done examples in class yet. You are welcome to work on these problems now, or wait until after class 2/20.
--   [Homework 2](weeks/hw/hw2.pdf) (due Tuesday, 2/29 at 11:59pm)
-    -   **Note**: associated `R` problems can be found and completed in the following `.Rmd` template: {{< downloadthis weeks/hw/templates/hw2_r.Rmd dname="hw2_r.Rmd" label=".Rmd" icon="arrow-down-short" class=styled id=btn1 >}}
-        -   A rendered version for easier reading can be viewed here: [HW 2: R (rendered)](weeks/hw/templates/hw2_r.Rmd)
--   [Homework 3](weeks/hw/hw3.pdf) (due Tuesday, 3/05 at 11:59pm)
-    -   **Note**: I swapped the order of problems 3 and 5. The version as of Thursday, 2/29 is correct.
--   [Homework 4](weeks/hw/hw4.pdf) (due Tuesday, 3/12 at 11:59pm)
-    -   **Note**: associated `R` problems can be completed in the following `.Rmd` template: {{< downloadthis weeks/hw/templates/hw4_r.Rmd dname="hw4_r" label=".Rmd" icon="arrow-down-short" class=styled id=btn1 >}}
-        -   A rendered version for easier reading can be viewed here: [HW 4: R (rendered)](weeks/hw/templates/hw4_r.Rmd)
--   [Homework 5](weeks/hw/hw5.pdf) (due Tuesday, 3/29 at 11:59pm)
--   [Extra credit opportunity](weeks/hw/EM_multinom_description.pdf) about EM algorithm (due Monday, 4/01 at 11:59pm)
-    -   Implement using the following `.Rmd` template: {{< downloadthis weeks/hw/templates/EM_multinom.Rmd dname="EM_multinom" label=".Rmd" icon="arrow-down-short" class=styled id=btn1 >}}
-        -   A rendered version for easier reading can be viewed [here](weeks/hw/templates/EM_multinom.Rmd)
--   [Homework 6](weeks/hw/hw6.pdf) (due Wednesday, 4/10 at 11:59pm)
-    -   **Note** the atypical due date!
-    -   **Note**: associated `R` problems can be completed in the following `.Rmd` template: {{< downloadthis weeks/hw/templates/hw6_r.Rmd dname="hw6_r" label=".Rmd" icon="arrow-down-short" class=styled id=btn1 >}}
-        -   A rendered version for easier reading can be viewed here: [HW 6: R (rendered)](weeks/hw/templates/hw6_r.Rmd)
--   [Homework 7](weeks/hw/hw7.pdf) (due Tuesday, 4/16 at 11:59pm)
-    -   This homework will be a bit shorter, but is `R` heavy
-    -   **Note**: associated `R` problems can be completed in the following `.Rmd` template: {{< downloadthis weeks/hw/templates/hw7_r.Rmd dname="hw7_r" label=".Rmd" icon="arrow-down-short" class=styled id=btn1 >}}
-        -   A rendered version for easier reading can be viewed here: [HW 7: R (rendered)](weeks/hw/templates/hw7_r.Rmd)
-        -   Clarification: for the parametric bootstrap, you may assume the distribution is Exponential but you don't know the rate!
--   [Homework 8](weeks/hw/hw8.pdf) (due Tuesday, 4/23 at 11:59pm)
--   [Homework 9](weeks/hw/hw9.pdf) (due Tuesday, 4/30 at 11:59pm)
-    -   Note that I've added a proof to Friday's section which should be helpful for the last problem on this homework!
+-   Problem Set 0 (due 2/13/26) – graded for participation!

@@ -15,11 +15,12 @@ title: "Week 01"
 
 -   Review syllabus
 
--   Open (or re-download) RStudio and make sure everything is working
+-   Open (or download) RStudio and make sure everything is working
 
 **Class activity**
 
--   Introduction to inference
+-   Introduction to inference [activity](class/00_mystery_box.pdf)
+-   Some probability [practice problems](class/00_prob_review1.pdf)
 
 ------------------------------------------------------------------------
 
@@ -29,20 +30,29 @@ title: "Week 01"
 
 **Topics**
 
--   Probability review
+-   MATH/STAT 310 review
+-   Conditional expectation
+-   R review
 
 **Daily assignment**
 
-To be completed and submitted to Canvas by 9:00am
+Review distribution sheet and your 310 notes.
 
--   Daily assignment
--   Review distribution sheet
+To be completed and submitted to Canvas by 9:00am:
+
+-   [Daily assignment](daily/DA_01.pdf)
+
+**Class activity**
+
+-   TBD
 
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
 ### Friday (02/13)
 :::
+
+Problem Set 0 due in class!
 
 **Topics**
 
