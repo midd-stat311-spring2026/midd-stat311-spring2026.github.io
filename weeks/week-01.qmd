@@ -20,7 +20,7 @@ title: "Week 01"
 **Class activity**
 
 -   Introduction to inference [activity](class/00_mystery_box.pdf)
--   Some probability [practice problems](class/00_prob_review1.pdf)
+-   Some probability [practice problems](class/00_prob_review1.pdf) (one of which will be on next Daily Assignment)
 
 ------------------------------------------------------------------------
 
@@ -40,7 +40,7 @@ Review distribution sheet and your 310 notes.
 
 To be completed and submitted to Canvas by 9:00am:
 
--   [Daily assignment](daily/DA_01.pdf)
+-   [Daily assignment](daily/DA_01.pdf). Access the video by clicking on the name of the video (in this case, "Probability review").
 
 **Class activity**
 
