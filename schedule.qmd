@@ -11,17 +11,15 @@ A high-level overview of the semester's topics are presented here. Please select
 
 -   Welcome!
 -   Probability and R review
--   Terminology
+-   Core terminology
 
 ### Week 02
 
--   Data reduction
-
 -   Maximum likelihood estimation
+-   Properties of MLEs
 
 ### Week 03
 
--   Properties of MLEs
 -   Method of moments
 -   Properties of estimators
 

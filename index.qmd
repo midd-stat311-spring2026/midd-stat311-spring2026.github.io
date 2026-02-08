@@ -3,13 +3,13 @@ title: "Statistical Inference"
 sidebar: false
 ---
 
-Welcome to the website for Middlebury College's Spring 2026 STAT 311. On this website you will find the course syllabus, schedule, and assignments. The website is frequently updated during the semester, so please make a habit of refreshing the page. The icon at the top right will link to the course Canvas where assignments should be submitted.
+Welcome to the website for Middlebury College's Spring 2026 STAT 311. On this website you will find the course syllabus, schedule, and assignments. The website is frequently updated during the semester, so please make a habit of refreshing the page. The icon at the top right will link to the course Canvas where daily assignments should be submitted.
 
 ![](img/chi2.png){fig-align="center" width="280"}
 
 ## Major Announcements
 
--   Welcome!
+-   Welcome! Please complete this brief [pre-course survey](https://forms.gle/ywZrVfjXkJCKMEAz6) by end of day Monday, 2/09!
 
 ------------------------------------------------------------------------
 

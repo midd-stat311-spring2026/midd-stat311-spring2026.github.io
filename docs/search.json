@@ -18,11 +18,7 @@
     "href": "weeks/week-02.html",
     "title": "Week 02",
     "section": "",
-    "text": "Tuesday (02/20)\n\nTopics\n\nMore with posterior distributions\n\nDaily assignment\n\nNone for today!\nPlease bring a laptop with R ready to go\n\nClass activity\n\nPrior and posterior practice problems\n\n\n\nThursday (02/22)\n\nTopics\n\nConjugate priors\nImproper priors\n\nDaily assignment\nTo be completed and submitted to Canvas by 8:45am\n\nDaily assignment\n\nClass activity\n\nComputing posteriors in R\n\n.Rmd template:  .Rmd \nFilled-in code: computing posteriors in R\n\nConjugate prior practice problem\n\n\n\nFriday (02/23)\n\nTopics\n\nBayes estimators\n\nDaily assignment\nTo be completed and submitted to Canvas by 8:45am\n\nDaily assignment\n\nClass activity\n\nBayes estimator under absolute loss proof\nBayes estimator practice problem",
-    "crumbs": [
-      "Schedule",
-      "Week 02"
-    ]
+    "text": "Monday (02/16)\n\nTopics\n\nMaximum Likelihood Estimation\n\nDaily assignment\n\nTo be completed and submitted to Canvas by 9:00am\n\nDaily assignment\n\n\nClass activity\n\nMLE practice problems\n\n\n\nWednesdays (02/18)\n\nTopics\n\nMLEs (cont.)\n\nDaily assignment\n\nNothing official, though I suggest re-reading Section 7.5 and digging out your multivariable calculus notes to remember what a Hessian matrix is!\n\nClass activity\n\nMore MLE practice problems\n\n\n\nFriday (02/20)\n\nTopics\n\nProperties of MLEs\nConsistency\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00am\n\nDaily assignment\n\nClass activity\n\nInvariance and consistency practice problems"
   },
   {
     "objectID": "weeks/week-03.html",
@@ -40,7 +36,7 @@
     "href": "weeks/week-01.html",
     "title": "Week 01",
     "section": "",
-    "text": "Monday (02/09)\n\nTopics\n\nWelcome!\nCourse logistics\n\nDaily assignment\n\nReview syllabus\nOpen (or download) RStudio and make sure everything is working\n\nClass activity\n\nIntroduction to inference activity\nSome probability practice problems\n\n\n\nWednesday (02/11)\n\nTopics\n\nMATH/STAT 310 review\nConditional expectation\nR review\n\nDaily assignment\nReview distribution sheet and your 310 notes.\nTo be completed and submitted to Canvas by 9:00am:\n\nDaily assignment\n\nClass activity\n\nTBD\n\n\n\nFriday (02/13)\n\nProblem Set 0 due in class!\nTopics\n\nCore terminology\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00am\n\nDaily assignment",
+    "text": "Monday (02/09)\n\nTopics\n\nWelcome!\nCourse logistics\n\nDaily assignment\n\nReview syllabus\nComplete pre-course survey\nOpen (or download) RStudio and make sure everything is working\n\nClass activity\n\nIntroduction to inference activity\nSome probability practice problems\n\n\n\nWednesday (02/11)\n\nTopics\n\nMATH/STAT 310 review\nConditional expectation\nR review\n\nDaily assignment\nReview distribution sheet and your 310 notes.\nTo be completed and submitted to Canvas by 9:00am:\n\nDaily assignment\n\nClass activity\n\nTBD\n\n\n\nFriday (02/13)\n\nProblem Set 0 due in class!\nTopics\n\nCore terminology\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00am\n\nDaily assignment",
     "crumbs": [
       "Schedule",
       "Week 01"
@@ -135,14 +131,14 @@
     "href": "index.html",
     "title": "Statistical Inference",
     "section": "",
-    "text": "Welcome to the website for Middlebury College’s Spring 2026 STAT 311. On this website you will find the course syllabus, schedule, and assignments. The website is frequently updated during the semester, so please make a habit of refreshing the page. The icon at the top right will link to the course Canvas where assignments should be submitted."
+    "text": "Welcome to the website for Middlebury College’s Spring 2026 STAT 311. On this website you will find the course syllabus, schedule, and assignments. The website is frequently updated during the semester, so please make a habit of refreshing the page. The icon at the top right will link to the course Canvas where daily assignments should be submitted."
   },
   {
     "objectID": "index.html#major-announcements",
     "href": "index.html#major-announcements",
     "title": "Statistical Inference",
     "section": "Major Announcements",
-    "text": "Major Announcements\n\nWelcome!\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
+    "text": "Major Announcements\n\nWelcome! Please complete this brief pre-course survey by end of day Monday, 2/09!\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
   },
   {
     "objectID": "index.html#course-details",
@@ -163,7 +159,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "A high-level overview of the semester’s topics are presented here. Please select a week for a specific day’s assignments and materials.\n\nWeek 01\n\nWelcome!\nProbability and R review\nTerminology\n\n\n\nWeek 02\n\nData reduction\nMaximum likelihood estimation\n\n\n\nWeek 03\n\nProperties of MLEs\nMethod of moments\nProperties of estimators\n\n\n\nWeek 04\n\nFisher Information\nComparing estimators\n\n\n\nWeek 05\n\nSufficiency, Cramer-Rao Lower Bound\nNumerical methods\n\n\n\nWeek 06\n\n\\(\\chi^2\\) and \\(t\\) distributions\nJoint distribution of sample mean and variance\n\n\n\nSPRING BREAK\n\n\nWeek 07\n\nConfidence intervals!\n\n\n\nWeek 08\n\nHypothesis testing\n\n\n\nWeek 09\n\np-values\nLikelihood ratio test\n\n\n\nWeek 10\n\nNeyman-Pearson Lemma\n\\(t\\)-tests\n\n\n\nWeek 11\n\n\\(F\\)-test\nSimple linear regression\n\n\n\nWeek 12\n\nBayesian methods",
+    "text": "A high-level overview of the semester’s topics are presented here. Please select a week for a specific day’s assignments and materials.\n\nWeek 01\n\nWelcome!\nProbability and R review\nCore terminology\n\n\n\nWeek 02\n\nMaximum likelihood estimation\nProperties of MLEs\n\n\n\nWeek 03\n\nMethod of moments\nProperties of estimators\n\n\n\nWeek 04\n\nFisher Information\nComparing estimators\n\n\n\nWeek 05\n\nSufficiency, Cramer-Rao Lower Bound\nNumerical methods\n\n\n\nWeek 06\n\n\\(\\chi^2\\) and \\(t\\) distributions\nJoint distribution of sample mean and variance\n\n\n\nSPRING BREAK\n\n\nWeek 07\n\nConfidence intervals!\n\n\n\nWeek 08\n\nHypothesis testing\n\n\n\nWeek 09\n\np-values\nLikelihood ratio test\n\n\n\nWeek 10\n\nNeyman-Pearson Lemma\n\\(t\\)-tests\n\n\n\nWeek 11\n\n\\(F\\)-test\nSimple linear regression\n\n\n\nWeek 12\n\nBayesian methods",
     "crumbs": [
       "Schedule"
     ]

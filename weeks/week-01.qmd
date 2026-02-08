@@ -14,7 +14,7 @@ title: "Week 01"
 **Daily assignment**
 
 -   Review syllabus
-
+-   Complete [pre-course survey](https://forms.gle/ywZrVfjXkJCKMEAz6)
 -   Open (or download) RStudio and make sure everything is working
 
 **Class activity**
