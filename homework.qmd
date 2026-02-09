@@ -5,4 +5,4 @@ sidebar: false
 
 Note: problem sets will be updated with new questions following each class. Completed homework should be submitted in-person unless otherwise noted.
 
--   Problem Set 0 (due 2/13/26) – graded for participation!
+-   [Problem Set 0](weeks/hw/hw0.pdf) (due 2/13/26) – graded for participation!
