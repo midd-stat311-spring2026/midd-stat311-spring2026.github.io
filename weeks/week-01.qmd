@@ -56,10 +56,10 @@ Problem Set 0 due in class!
 
 **Topics**
 
--   Core terminology
+-   Core terminology: statistical model, statistic, estimator/estimate
 
 **Daily assignment**
 
 To be completed and submitted to Canvas by 9:00am
 
--   Daily assignment
+-   [Daily assignment](daily/DA_02.pdf)
