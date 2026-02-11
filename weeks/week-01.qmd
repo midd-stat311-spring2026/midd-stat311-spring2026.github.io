@@ -44,7 +44,7 @@ To be completed and submitted to Canvas by 9:00am:
 
 **Class activity**
 
--   TBD
+-   [R review](class/01_R_Review.pdf)
 
 ------------------------------------------------------------------------
 

@@ -36,7 +36,7 @@
     "href": "weeks/week-01.html",
     "title": "Week 01",
     "section": "",
-    "text": "Monday (02/09)\n\nTopics\n\nWelcome!\nCourse logistics\n\nDaily assignment\n\nReview syllabus\nComplete pre-course survey\nOpen (or download) RStudio and make sure everything is working\n\nClass activity\n\nIntroduction to inference activity\nSome probability practice problems (one of which will be on next Daily Assignment)\n\n\n\nWednesday (02/11)\n\nTopics\n\nMATH/STAT 310 review\nConditional expectation\nR review\n\nDaily assignment\nReview distribution sheet and your 310 notes.\nTo be completed and submitted to Canvas by 9:00am:\n\nDaily assignment. Access the video by clicking on the name of the video (in this case, “Probability review”).\n\nClass activity\n\nTBD\n\n\n\nFriday (02/13)\n\nProblem Set 0 due in class!\nTopics\n\nCore terminology: statistical model, statistic, estimator/estimate\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00am\n\nDaily assignment",
+    "text": "Monday (02/09)\n\nTopics\n\nWelcome!\nCourse logistics\n\nDaily assignment\n\nReview syllabus\nComplete pre-course survey\nOpen (or download) RStudio and make sure everything is working\n\nClass activity\n\nIntroduction to inference activity\nSome probability practice problems (one of which will be on next Daily Assignment)\n\n\n\nWednesday (02/11)\n\nTopics\n\nMATH/STAT 310 review\nConditional expectation\nR review\n\nDaily assignment\nReview distribution sheet and your 310 notes.\nTo be completed and submitted to Canvas by 9:00am:\n\nDaily assignment. Access the video by clicking on the name of the video (in this case, “Probability review”).\n\nClass activity\n\nR review\n\n\n\nFriday (02/13)\n\nProblem Set 0 due in class!\nTopics\n\nCore terminology: statistical model, statistic, estimator/estimate\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00am\n\nDaily assignment",
     "crumbs": [
       "Schedule",
       "Week 01"
@@ -138,7 +138,7 @@
     "href": "index.html#major-announcements",
     "title": "Statistical Inference",
     "section": "Major Announcements",
-    "text": "Major Announcements\n\nWelcome! Please complete this brief pre-course survey by end of day Monday, 2/09!\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
+    "text": "Major Announcements\n\nReminder that Problem Set 0 is due in class this Friday, 2/13!\nWelcome! Please complete this brief pre-course survey by end of day Monday, 2/09!\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
   },
   {
     "objectID": "index.html#course-details",
