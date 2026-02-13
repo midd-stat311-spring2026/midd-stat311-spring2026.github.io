@@ -44,7 +44,7 @@ To be completed and submitted to Canvas by 9:00am:
 
 **Class activity**
 
--   [R review](class/01_R_Review.pdf)
+-   None
 
 ------------------------------------------------------------------------
 
@@ -63,3 +63,7 @@ Problem Set 0 due in class!
 To be completed and submitted to Canvas by 9:00am
 
 -   [Daily assignment](daily/DA_02.pdf)
+
+**Class activity**
+
+-   [R review](class/01_R_Review.pdf)
