@@ -13,7 +13,7 @@ A high-level overview of the semester's topics are presented here. Please select
 -   Probability and R review
 -   Core terminology
 
-### Week 02
+### [Week 02](weeks/week-02.qmd)
 
 -   Maximum likelihood estimation
 -   Properties of MLEs
