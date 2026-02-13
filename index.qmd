@@ -9,7 +9,6 @@ Welcome to the website for Middlebury College's Spring 2026 STAT 311. On this we
 
 ## Major Announcements
 
--   Reminder that Problem Set 0 is due in class this Friday, 2/13!
 -   Welcome! Please complete this brief [pre-course survey](https://forms.gle/ywZrVfjXkJCKMEAz6) by end of day Monday, 2/09!
 
 ------------------------------------------------------------------------
