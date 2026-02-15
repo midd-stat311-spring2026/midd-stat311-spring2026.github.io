@@ -19,7 +19,7 @@ title: "Week 02"
 
 **Class activity**
 
--   MLE practice problems
+-   MLE [practice problems](class/03_MLE_1.pdf)
 
 ------------------------------------------------------------------------
 
@@ -33,7 +33,7 @@ title: "Week 02"
 
 **Daily assignment**
 
--   Nothing official, though I suggest re-reading Section 7.5 and digging out your multivariable calculus notes to remember what a Hessian matrix is!
+-   Nothing official, though I suggest digging out your multivariable calculus notes to remember what a Hessian matrix is!
 
 **Class activity**
 
