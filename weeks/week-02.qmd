@@ -47,14 +47,13 @@ title: "Week 02"
 
 **Topics**
 
--   Properties of MLEs
--   Consistency
+-   Properties of MLEs: Invariance and Consistency
 
 **Daily assignment**
 
 To be completed and submitted to Canvas by 9:00am
 
--   Daily assignment
+-   [Daily assignment](daily/DA_05.pdf)
 
 **Class activity**
 
