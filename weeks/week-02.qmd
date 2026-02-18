@@ -37,7 +37,7 @@ title: "Week 02"
 
 **Class activity**
 
--   More MLE practice problems
+-   More MLE [practice problems](class/04_MLE_2.pdf)
 
 ------------------------------------------------------------------------
 
