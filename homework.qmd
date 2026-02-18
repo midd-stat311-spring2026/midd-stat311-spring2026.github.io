@@ -8,3 +8,4 @@ Note: problem sets will be updated with new questions following each class. Comp
 -   [Problem Set 0](weeks/hw/hw0.pdf) (due 2/13/26) – graded for participation!
 -   [Problem Set 1](weeks/hw/hw1.pdf) (due 2/18/26)
 -   [Problem Set 2](weeks/hw/hw2.pdf) (due 2/25/26)
+    -   Note: problem 3(b)-(c) was edited as of Wednesday, 2/18 at 1:00pm.
