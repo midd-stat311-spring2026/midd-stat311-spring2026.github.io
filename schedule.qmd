@@ -18,7 +18,7 @@ A high-level overview of the semester's topics are presented here. Please select
 -   Maximum likelihood estimation
 -   Properties of MLEs
 
-### Week 03
+### [Week 03](weeks/week-03.qmd)
 
 -   Method of moments
 -   Properties of estimators

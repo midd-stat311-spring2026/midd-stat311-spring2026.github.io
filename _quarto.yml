@@ -27,6 +27,7 @@ website:
         - schedule.qmd
         - weeks/week-01.qmd
         - weeks/week-02.qmd
+        - weeks/week-03.qmd
 
   page-footer:
     center: |
