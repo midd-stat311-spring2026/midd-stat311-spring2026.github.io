@@ -1,0 +1,36 @@
+---
+title: "Consistency of MLE"
+---
+
+Let $X_{1}, X_{2},\ldots | \theta \overset{iid}{\sim} \text{Bernoulli}(\theta)$.
+We have found $\hat{\theta}_{MLE} = \bar{X}$.
+
+Let's see the consistency property in action:
+
+```{r message = F}
+set.seed(2)
+B <- 5000
+theta_true <- 0.6
+x <- sample(0:1, size = B, replace = T, prob = c(1-theta_true, theta_true))
+mle_vec <- rep(NA, B)
+for(i in 1:B){
+  mle_vec[i] <- mean(x[1:i])
+}
+
+library(tidyverse)
+data.frame(n = 1:B, y = mle_vec) |>
+  ggplot(aes(x = n, y = y)) +
+  geom_line() +
+  labs(x = "Number of observations",
+       y = "Maximum likelihood estimate",
+       title = "Consistency") +
+  geom_hline(yintercept = theta_true, col = "orange")
+```
+
+```{r}
+# base R code
+
+plot(1:B, mle_vec, type = "l", xlab = "Number of observations (n)",
+     ylab = "Maximum Likelihood Estimate", main = "Consistency")
+abline(h = theta_true, col = "orange")
+```

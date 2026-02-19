@@ -18,7 +18,7 @@
     "href": "weeks/week-02.html",
     "title": "Week 02",
     "section": "",
-    "text": "Monday (02/16)\n\nTopics\n\nLikelihood function\nMaximum Likelihood Estimation\n\nDaily assignment\n\nTo be completed and submitted to Canvas by 9:00am\n\nDaily assignment\n\n\nClass activity\n\nMLE practice problems\n\n\n\nWednesdays (02/18)\n\nTopics\n\nMLEs (cont.)\n\nDaily assignment\n\nNothing official, though I suggest digging out your multivariable calculus notes to remember what a Hessian matrix is!\n\nClass activity\n\nMore MLE practice problems\n\n\n\nFriday (02/20)\n\nTopics\n\nProperties of MLEs: Invariance and Consistency\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00am\n\nDaily assignment\n\nClass activity\n\nInvariance and consistency practice problems",
+    "text": "Monday (02/16)\n\nTopics\n\nLikelihood function\nMaximum Likelihood Estimation\n\nDaily assignment\n\nTo be completed and submitted to Canvas by 9:00am\n\nDaily assignment\n\n\nClass activity\n\nMLE practice problems\n\n\n\nWednesdays (02/18)\n\nTopics\n\nMLEs (cont.)\n\nDaily assignment\n\nNothing official, though I suggest digging out your multivariable calculus notes to remember what a Hessian matrix is!\n\nClass activity\n\nMore MLE practice problems\n\n\n\nFriday (02/20)\n\nTopics\n\nProperties of MLEs: Invariance and Consistency\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00am\n\nDaily assignment\n\nClass activity\n\nConsistency visualization\nInvariance and consistency practice problems",
     "crumbs": [
       "Schedule",
       "Week 02"
@@ -679,5 +679,12 @@
     "title": "Power functions",
     "section": "",
     "text": "Recall the following statistical model and hypotheses:\n\\[X_{1},\\ldots, X_{10} |\\theta \\sim \\text{Bern}(\\theta), \\qquad \\theta \\in [0,1]\\] \\[H_{0}: \\theta = \\frac{1}{2} \\qquad \\text{vs.} \\qquad H_{1}: \\theta \\neq \\frac{1}{2}\\] We have the following testing procedure \\(\\delta_{1}\\): \\(r(\\mathbf{X}) = |\\sum_{i=1}^{10} X_{i} - 5|, \\text{ with rejection region } R = \\{r(\\mathbf{X}) = 5 \\}\\)\nSo the power function is \\(\\pi(\\theta | \\delta_{1}) = P( \\sum_{i=1}^{10} X_{i} \\in \\{0, 10\\}|\\theta)\\).\n\npower_fn &lt;- function(theta, n, r_vals){\n  # theta is possible vector of theta_vals\n  # n = number of trials\n  # r_vals = values in rejection region\n  n_theta &lt;- length(theta)\n  ret &lt;- rep(NA, n_theta)\n  for(i in 1:n_theta){\n    ret[i] &lt;- sum(dbinom(r_vals, n, theta[i]))\n  }\n  return(ret)\n}\n\n\n# create sequence of theta values for plotting purposes\ntheta_vals &lt;- seq(0, 1, 0.01)\nn &lt;- 10\ndelta1 &lt;- power_fn(theta_vals, n, c(0, 10))\n\n\nlibrary(tidyverse)\ndata.frame(theta = theta_vals, power = delta1) %&gt;%\n  ggplot(., aes(x = theta, y = power)) +\n  geom_line()+\n  xlab(expression(theta)) +\n  theme(text = element_text(size = 14))\n\n\n\n\n\n\n\n\nWe can use the plot of this power function to talk about the probability of Type I and II error under \\(\\delta_{1}\\)."
+  },
+  {
+    "objectID": "weeks/class/05_mle_consistency.html",
+    "href": "weeks/class/05_mle_consistency.html",
+    "title": "Consistency of MLE",
+    "section": "",
+    "text": "Let \\(X_{1}, X_{2},\\ldots | \\theta \\overset{iid}{\\sim} \\text{Bernoulli}(\\theta)\\). We have found \\(\\hat{\\theta}_{MLE} = \\bar{X}\\).\nLet’s see the consistency property in action:\n\nset.seed(2)\nB &lt;- 5000\ntheta_true &lt;- 0.6\nx &lt;- sample(0:1, size = B, replace = T, prob = c(1-theta_true, theta_true))\nmle_vec &lt;- rep(NA, B)\nfor(i in 1:B){\n  mle_vec[i] &lt;- mean(x[1:i])\n}\n\nlibrary(tidyverse)\ndata.frame(n = 1:B, y = mle_vec) |&gt;\n  ggplot(aes(x = n, y = y)) +\n  geom_line() +\n  labs(x = \"Number of observations\",\n       y = \"Maximum likelihood estimate\",\n       title = \"Consistency\") +\n  geom_hline(yintercept = theta_true, col = \"orange\")\n\n\n\n\n\n\n\n\n\n# base R code\n\nplot(1:B, mle_vec, type = \"l\", xlab = \"Number of observations (n)\",\n     ylab = \"Maximum Likelihood Estimate\", main = \"Consistency\")\nabline(h = theta_true, col = \"orange\")"
   }
 ]

@@ -57,4 +57,5 @@ To be completed and submitted to Canvas by 9:00am
 
 **Class activity**
 
+-   [Consistency visualization](class/05_mle_consistency.qmd)
 -   Invariance and consistency practice problems
