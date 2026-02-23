@@ -19,7 +19,7 @@ To be completed and submitted to Canvas by **10:00am**
 
 **Class activity**
 
--   Method of Moments practice problems
+-   Method of Moments [practice problems](class/06_MM.pdf)
 
 ------------------------------------------------------------------------
 
