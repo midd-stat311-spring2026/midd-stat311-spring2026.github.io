@@ -1,0 +1,45 @@
+---
+title: "MSE for competing estimators"
+editor_options: 
+  chunk_output_type: console
+---
+
+Let $X_{1},\ldots, X_{n} | \theta \overset{iid}{\sim} \text{Bern}(\theta)$. We have two competing estimators:
+$$\hat{\theta}_{MLE} = \bar{X} \qquad \text{versus}  \qquad \tilde{\theta} = w\bar{X} + (1-w)\frac{1}{2}$$
+where $w = \frac{n}{n+2}$.
+
+We've demonstrated that $\hat{\theta}_{MLE}$ is unbiased for $\theta$, and $\tilde{\theta}$ is almost always biased for $\theta$. But let's compare their mean squared errors.
+
+In the following, we visualize the MSEs of the two estimators for $n=10$ data points:
+
+```{r, message = F}
+library(tidyverse)
+n <- 10
+theta_vec <- seq(0, 1, 0.01)
+
+mle_mse <- theta_vec * (1-theta_vec)/n
+w <- n/(n+2)
+theta_tilde_mse  <- w^2 * theta_vec * (1-theta_vec)/n + ((1-w)*(0.5-theta_vec))^2
+data.frame(theta = theta_vec, mle = mle_mse, theta_tilde = theta_tilde_mse) |>
+  pivot_longer(cols = 2:3, names_to = "estimator", values_to = "MSE") |>
+  ggplot(aes(x = theta, y = MSE, col = estimator)) + 
+  geom_line() +
+  labs(title = "MSE for two estimators", subtitle = paste0("n = ", n), x = expression(theta))+
+  theme(text = element_text(size = 16))
+```
+
+
+What happens when we increase the sample size to $n=100$?
+
+```{r}
+n <- 100
+w <- n/(n+2)
+mle_mse <- theta_vec * (1-theta_vec)/n
+theta_tilde_mse  <- w^2 * theta_vec * (1-theta_vec)/n + ((1-w)*(0.5-theta_vec))^2
+data.frame(theta = theta_vec, mle = mle_mse, theta_tilde = theta_tilde_mse) |>
+  pivot_longer(cols = 2:3, names_to = "estimator", values_to = "MSE") |>
+  ggplot(aes(x = theta, y = MSE, col = estimator)) + 
+  geom_line() +
+  labs(title = "MSE for two estimators", subtitle = paste0("n = ", n), x = expression(theta)) +
+  theme(text = element_text(size = 16))
+```

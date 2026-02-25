@@ -26,11 +26,13 @@ A high-level overview of the semester's topics are presented here. Please select
 ### Week 04
 
 -   Fisher Information
--   Comparing estimators
+-   MLE asymptotics
+-   Cramer-Rao Lower Bound, Efficiency
 
 ### Week 05
 
--   Sufficiency, Cramer-Rao Lower Bound
+-   Sufficiency
+-   Rao-Blackwellization
 -   Numerical methods
 
 ### Week 06

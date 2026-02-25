@@ -29,7 +29,7 @@
     "href": "weeks/week-03.html",
     "title": "Week 03",
     "section": "",
-    "text": "Monday (02/23)\n\nTopics\n\nMethod of Moments\nBias of an estimator\n\nDaily assignment\nTo be completed and submitted to Canvas by 10:00am\n\nDaily assignment\n\nClass activity\n\nMethod of Moments practice problems\n\n\n\nWednesday (02/25)\n\nTopics\n\nBias (cont.)\nMean squared error of an estimator\n\nDaily assignment\nNone!\nClass activity\n\nBias practice problems\n\n\n\nFriday (02/27)\n\nTopics\n\nBias-variance tradeoff\n\nDaily assignment\nNothing official. Just review your notes from last class!\nClass activity\n\nMSE practice problems",
+    "text": "Monday (02/23)\n\nTopics\n\nMethod of Moments\nBias of an estimator\n\nDaily assignment\nTo be completed and submitted to Canvas by 10:00am\n\nDaily assignment\n\nClass activity\n\nMethod of Moments practice problems\n\n\n\nWednesday (02/25)\n\nTopics\n\nBias (cont.)\nMean squared error of an estimator\n\nDaily assignment\nNone!\nClass activity\n\nBias practice problems\nMSE visualization\n\n\n\nFriday (02/27)\n\nTopics\n\nBias-variance tradeoff\n\nDaily assignment\nNothing official. Just review your notes from last class!\nClass activity\n\nMSE practice problems",
     "crumbs": [
       "Schedule",
       "Week 03"
@@ -163,7 +163,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "A high-level overview of the semester’s topics are presented here. Please select a week for a specific day’s assignments and materials.\n\nWeek 01\n\nWelcome!\nProbability and R review\nCore terminology\n\n\n\nWeek 02\n\nMaximum likelihood estimation\nProperties of MLEs\n\n\n\nWeek 03\n\nMethod of moments\nProperties of estimators\n\n\n\nWeek 04\n\nFisher Information\nComparing estimators\n\n\n\nWeek 05\n\nSufficiency, Cramer-Rao Lower Bound\nNumerical methods\n\n\n\nWeek 06\n\n\\(\\chi^2\\) and \\(t\\) distributions\nJoint distribution of sample mean and variance\n\n\n\nSPRING BREAK\n\n\nWeek 07\n\nConfidence intervals!\n\n\n\nWeek 08\n\nHypothesis testing\n\n\n\nWeek 09\n\np-values\nLikelihood ratio test\n\n\n\nWeek 10\n\nNeyman-Pearson Lemma\n\\(t\\)-tests\n\n\n\nWeek 11\n\n\\(F\\)-test\nSimple linear regression\n\n\n\nWeek 12\n\nBayesian methods",
+    "text": "A high-level overview of the semester’s topics are presented here. Please select a week for a specific day’s assignments and materials.\n\nWeek 01\n\nWelcome!\nProbability and R review\nCore terminology\n\n\n\nWeek 02\n\nMaximum likelihood estimation\nProperties of MLEs\n\n\n\nWeek 03\n\nMethod of moments\nProperties of estimators\n\n\n\nWeek 04\n\nFisher Information\nMLE asymptotics\nCramer-Rao Lower Bound, Efficiency\n\n\n\nWeek 05\n\nSufficiency\nRao-Blackwellization\nNumerical methods\n\n\n\nWeek 06\n\n\\(\\chi^2\\) and \\(t\\) distributions\nJoint distribution of sample mean and variance\n\n\n\nSPRING BREAK\n\n\nWeek 07\n\nConfidence intervals!\n\n\n\nWeek 08\n\nHypothesis testing\n\n\n\nWeek 09\n\np-values\nLikelihood ratio test\n\n\n\nWeek 10\n\nNeyman-Pearson Lemma\n\\(t\\)-tests\n\n\n\nWeek 11\n\n\\(F\\)-test\nSimple linear regression\n\n\n\nWeek 12\n\nBayesian methods",
     "crumbs": [
       "Schedule"
     ]
@@ -686,5 +686,12 @@
     "title": "Consistency of MLE",
     "section": "",
     "text": "Let \\(X_{1}, X_{2},\\ldots | \\theta \\overset{iid}{\\sim} \\text{Bernoulli}(\\theta)\\). We have found \\(\\hat{\\theta}_{MLE} = \\bar{X}\\).\nLet’s see the consistency property in action:\n\nset.seed(2)\nB &lt;- 5000\ntheta_true &lt;- 0.6\nx &lt;- sample(0:1, size = B, replace = T, prob = c(1-theta_true, theta_true))\nmle_vec &lt;- rep(NA, B)\nfor(i in 1:B){\n  mle_vec[i] &lt;- mean(x[1:i])\n}\n\nlibrary(tidyverse)\ndata.frame(n = 1:B, y = mle_vec) |&gt;\n  ggplot(aes(x = n, y = y)) +\n  geom_line() +\n  labs(x = \"Number of observations\",\n       y = \"Maximum likelihood estimate\",\n       title = \"Consistency\") +\n  geom_hline(yintercept = theta_true, col = \"orange\")\n\n\n\n\n\n\n\n\n\n# base R code\n\nplot(1:B, mle_vec, type = \"l\", xlab = \"Number of observations (n)\",\n     ylab = \"Maximum Likelihood Estimate\", main = \"Consistency\")\nabline(h = theta_true, col = \"orange\")"
+  },
+  {
+    "objectID": "weeks/class/mse_viz.html",
+    "href": "weeks/class/mse_viz.html",
+    "title": "MSE for competing estimators",
+    "section": "",
+    "text": "Let \\(X_{1},\\ldots, X_{n} | \\theta \\overset{iid}{\\sim} \\text{Bern}(\\theta)\\). We have two competing estimators: \\[\\hat{\\theta}_{MLE} = \\bar{X} \\qquad \\text{versus}  \\qquad \\tilde{\\theta} = w\\bar{X} + (1-w)\\frac{1}{2}\\] where \\(w = \\frac{n}{n+2}\\).\nWe’ve demonstrated that \\(\\hat{\\theta}_{MLE}\\) is unbiased for \\(\\theta\\), and \\(\\tilde{\\theta}\\) is almost always biased for \\(\\theta\\). But let’s compare their mean squared errors.\nIn the following, we visualize the MSEs of the two estimators for \\(n=10\\) data points:\n\nlibrary(tidyverse)\nn &lt;- 10\ntheta_vec &lt;- seq(0, 1, 0.01)\n\nmle_mse &lt;- theta_vec * (1-theta_vec)/n\nw &lt;- n/(n+2)\ntheta_tilde_mse  &lt;- w^2 * theta_vec * (1-theta_vec)/n + ((1-w)*(0.5-theta_vec))^2\ndata.frame(theta = theta_vec, mle = mle_mse, theta_tilde = theta_tilde_mse) |&gt;\n  pivot_longer(cols = 2:3, names_to = \"estimator\", values_to = \"MSE\") |&gt;\n  ggplot(aes(x = theta, y = MSE, col = estimator)) + \n  geom_line() +\n  labs(title = \"MSE for two estimators\", subtitle = paste0(\"n = \", n), x = expression(theta))+\n  theme(text = element_text(size = 16))\n\n\n\n\n\n\n\n\nWhat happens when we increase the sample size to \\(n=100\\)?\n\nn &lt;- 100\nw &lt;- n/(n+2)\nmle_mse &lt;- theta_vec * (1-theta_vec)/n\ntheta_tilde_mse  &lt;- w^2 * theta_vec * (1-theta_vec)/n + ((1-w)*(0.5-theta_vec))^2\ndata.frame(theta = theta_vec, mle = mle_mse, theta_tilde = theta_tilde_mse) |&gt;\n  pivot_longer(cols = 2:3, names_to = \"estimator\", values_to = \"MSE\") |&gt;\n  ggplot(aes(x = theta, y = MSE, col = estimator)) + \n  geom_line() +\n  labs(title = \"MSE for two estimators\", subtitle = paste0(\"n = \", n), x = expression(theta)) +\n  theme(text = element_text(size = 16))"
   }
 ]
