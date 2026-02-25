@@ -49,7 +49,7 @@ None!
 
 **Topics**
 
--   Bias-variance tradeoff
+-   Mean squared error (cont.)
 
 **Daily assignment**
 
