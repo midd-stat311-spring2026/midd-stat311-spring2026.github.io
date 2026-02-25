@@ -38,7 +38,7 @@ None!
 
 **Class activity**
 
--   Bias practice problems
+-   Bias [practice problems](class/08_bias.pdf)
 
 ------------------------------------------------------------------------
 
