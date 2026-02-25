@@ -21,7 +21,7 @@ A high-level overview of the semester's topics are presented here. Please select
 ### [Week 03](weeks/week-03.qmd)
 
 -   Method of moments
--   Properties of estimators
+-   Bias, MSE
 
 ### Week 04
 
