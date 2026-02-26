@@ -29,7 +29,7 @@
     "href": "weeks/week-03.html",
     "title": "Week 03",
     "section": "",
-    "text": "Monday (02/23)\n\nTopics\n\nMethod of Moments\nBias of an estimator\n\nDaily assignment\nTo be completed and submitted to Canvas by 10:00am\n\nDaily assignment\n\nClass activity\n\nMethod of Moments practice problems\n\n\n\nWednesday (02/25)\n\nTopics\n\nBias (cont.)\nMean squared error of an estimator\n\nDaily assignment\nNone!\nClass activity\n\nBias practice problems\nMSE visualization\n\n\n\nFriday (02/27)\n\nTopics\n\nMean squared error (cont.)\n\nDaily assignment\nNothing official. Just review your notes from last class!\nClass activity\n\nMSE practice problems",
+    "text": "Monday (02/23)\n\nTopics\n\nMethod of Moments\nBias of an estimator\n\nDaily assignment\nTo be completed and submitted to Canvas by 10:00am\n\nDaily assignment\n\nClass activity\n\nMethod of Moments practice problems\n\n\n\nWednesday (02/25)\n\nTopics\n\nBias (cont.)\nMean squared error of an estimator\n\nDaily assignment\nNone!\nClass activity\n\nBias practice problems\n\n\n\nFriday (02/27)\n\nTopics\n\nMean squared error (cont.)\n\nDaily assignment\nNothing official. Just review your notes from last class!\nClass activity\n\nMSE visualization\nMSE practice problems",
     "crumbs": [
       "Schedule",
       "Week 03"
@@ -173,11 +173,7 @@
     "href": "weeks/week-04.html",
     "title": "Week 04",
     "section": "",
-    "text": "Tuesday (03/05)\n\nTopics\n\nMethod of Moments\n\nDaily assignment\n\nDaily assignment\nPlease bring a laptop to class tomorrow!\n\nClass activity\n\nMethod of Moments simulation\nMethod of Moments practice problems\n\n\n\nThursday (03/07)\n\nTopics\n\nMean squared error of an estimator\nBias of an estimator\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nBias practice problems\n\n\n\nFriday (03/08)\n\nTopics\n\nBias-variance trade-off\n\nDaily assignment\n\nNothing official, but review notes from yesterday.\n\nClass activity\n\nMSE practice problems",
-    "crumbs": [
-      "Schedule",
-      "Week 04"
-    ]
+    "text": "Monday (03/02)\n\nTopics\n\nFisher Information\n\nDaily assignment\n\nDaily assignment (very short!)\n\nClass activity\n\nTBD\n\n\n\nWednesday (03/04)\n\nTopics\n\nMLE asymptotics\nCramer-Rao Lower Bound\n\nDaily assignment\n\nNone!\n\nClass activity\n\nTBD\n\n\n\nFriday (03/06)\n\nTopics\n\nEfficiency\n\nDaily assignment\n\nTBD\n\nClass activity\n\nTBD"
   },
   {
     "objectID": "weeks/week-05.html",

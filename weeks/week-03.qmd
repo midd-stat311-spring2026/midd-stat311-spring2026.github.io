@@ -39,7 +39,6 @@ None!
 **Class activity**
 
 -   Bias [practice problems](class/08_bias.pdf)
--   MSE [visualization](class/mse_viz.qmd)
 
 ------------------------------------------------------------------------
 
@@ -57,4 +56,5 @@ Nothing official. Just review your notes from last class!
 
 **Class activity**
 
--   MSE practice problems
+-   MSE [visualization](class/mse_viz.qmd)
+-   MSE [practice problems](class/08_MSE.pdf)

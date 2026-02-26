@@ -3,58 +3,55 @@ title: "Week 04"
 ---
 
 ::: {style="color: #6284a2"}
-### Tuesday (03/05)
+### Monday (03/02)
 :::
 
 **Topics**
 
--   Method of Moments
+-   Fisher Information
 
 **Daily assignment**
 
--   [Daily assignment](daily/DA_07.pdf)
--   Please bring a laptop to class tomorrow!
+-   [Daily assignment](daily/DA_09.pdf) (very short!)
 
 **Class activity**
 
--   Method of Moments [simulation](class/mark_recapture.Rmd)
-
--   Method of Moments [practice problems](class/07_MM.pdf)
+-   TBD
 
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Thursday (03/07)
+### Wednesday (03/04)
 :::
 
 **Topics**
 
--   Mean squared error of an estimator
+-   MLE asymptotics
 
--   Bias of an estimator
+-   Cramer-Rao Lower Bound
 
 **Daily assignment**
 
--   [Daily assignment](daily/DA_08.pdf)
+-   None!
 
 **Class activity**
 
--   Bias [practice problems](class/08_bias.pdf)
+-   TBD
 
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Friday (03/08)
+### Friday (03/06)
 :::
 
 **Topics**
 
--   Bias-variance trade-off
+-   Efficiency
 
 **Daily assignment**
 
--   Nothing official, but review notes from yesterday.
+-   TBD
 
 **Class activity**
 
--   MSE [practice problems](class/09_MSE.pdf)
+-   TBD
