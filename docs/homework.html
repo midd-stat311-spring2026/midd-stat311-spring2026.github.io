@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -155,7 +184,10 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Note: problem 3(b)-(c) was edited as of Wednesday, 2/18 at 1:00pm.</li>
 </ul></li>
-<li><a href="weeks/hw/hw3.pdf">Problem Set 3</a> (due 3/04/26)</li>
+<li><a href="weeks/hw/hw3.pdf">Problem Set 3</a> (due 3/04/26)
+<ul>
+<li><strong>NOTE</strong>: problem 1d had a typo; the variance should be <span class="math inline">\(1+16\theta(1-\theta)\)</span>. This has been updated as of 2/26 at 1:45pm</li>
+</ul></li>
 </ul>
 
 
