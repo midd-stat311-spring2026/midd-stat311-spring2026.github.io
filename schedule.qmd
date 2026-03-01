@@ -23,7 +23,7 @@ A high-level overview of the semester's topics are presented here. Please select
 -   Method of moments
 -   Bias, MSE
 
-### Week 04
+### [Week 04](weeks/week-04.qmd)
 
 -   Fisher Information
 -   MLE asymptotics

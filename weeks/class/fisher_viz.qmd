@@ -1,0 +1,29 @@
+---
+title: "Fisher Information"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(tidyverse)
+set.seed(311)
+theta_true <- 1/2
+n_vec <- c(5, 20, 100, 500)
+B <- 1000
+plot_ls <- list()
+for(l in 1:length(n_vec)) {
+  mle_mean <- theta_true
+  mle_var <- theta_true^2 / n_vec[l]
+  mle_sd <- sqrt(mle_var)
+  mle_vec <- replicate(1000, 1/mean(rexp(n_vec[l], theta_true)))
+  plot_ls[[l]] <- data.frame(mle = mle_vec, n = n_vec[l]) |>
+    ggplot(aes(x = mle))+
+    geom_histogram(aes(y = after_stat(density)))  +
+    stat_function(fun = dnorm, args = list(mean = mle_mean, sd = mle_sd), col = "orange") +
+    xlim(c(mle_mean - 3 * mle_sd,mle_mean + 3 * mle_sd)) +
+    labs(title = paste0("n = ", n_vec[l]))
+}
+gridExtra::grid.arrange(grobs = plot_ls)
+
+
+```
