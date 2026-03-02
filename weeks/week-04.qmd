@@ -27,7 +27,6 @@ title: "Week 04"
 **Topics**
 
 -   MLE asymptotics
-
 -   Cramer-Rao Lower Bound
 
 **Daily assignment**
@@ -46,6 +45,7 @@ title: "Week 04"
 
 **Topics**
 
+-   CRLB cont.
 -   Efficiency
 
 **Daily assignment**
