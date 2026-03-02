@@ -11,3 +11,4 @@ Note: problem sets will be updated with new questions following each class. Comp
     -   Note: problem 3(b)-(c) was edited as of Wednesday, 2/18 at 1:00pm.
 -   [Problem Set 3](weeks/hw/hw3.pdf) (due 3/04/26)
     -   **NOTE**: problem 1d had a typo; the variance should be $1+16\theta(1-\theta)$. This has been updated as of 2/26 at 1:45pm
+-   [Problem Set 4](weeks/hw/hw4.pdf) (due 3/11/26)

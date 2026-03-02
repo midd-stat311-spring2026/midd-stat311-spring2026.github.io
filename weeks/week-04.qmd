@@ -16,7 +16,7 @@ title: "Week 04"
 
 **Class activity**
 
--   TBD
+-   None
 
 ------------------------------------------------------------------------
 
@@ -35,7 +35,7 @@ title: "Week 04"
 
 **Class activity**
 
--   TBD
+-   Asymptotic dist of MLE [visualization](class/fisher_viz.qmd)
 
 ------------------------------------------------------------------------
 

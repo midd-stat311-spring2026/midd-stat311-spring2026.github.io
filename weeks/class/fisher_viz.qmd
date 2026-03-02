@@ -1,27 +1,37 @@
 ---
-title: "Fisher Information"
+title: "Asymptotic Dist. of MLE"
 editor_options: 
   chunk_output_type: console
+format: html
 ---
 
-```{r}
+Let $X_{1},\ldots,X_{n} | \theta \overset{iid}{\sim} \text{Geom}(\theta)$. It can be shown that $\hat{\theta}_{MLE} = \frac{1}{\bar{X} + 1}$.
+
+We found in class that $I_{n}(\theta) = n I(\theta) = \frac{n}{\theta^2 (1-\theta)}$. Thus, 
+$$\hat{\theta}_{MLE} \overset{\cdot}{\sim} N \left(\theta, \frac{1}{I_{n}(\theta) } = \frac{\theta^2 (1-\theta)}{n} \right)$$
+
+Let's see this in action!
+
+```{r message = F, warning = F}
 library(tidyverse)
 set.seed(311)
-theta_true <- 1/2
-n_vec <- c(5, 20, 100, 500)
+theta_true <- 0.5
+fisher_info <- 1/(theta_true^2 * (1-theta_true))
+n_vec <- c(5, 10, 100, 1000)
 B <- 1000
 plot_ls <- list()
 for(l in 1:length(n_vec)) {
   mle_mean <- theta_true
-  mle_var <- theta_true^2 / n_vec[l]
+  mle_var <- 1/ ( n_vec[l]*fisher_info)
   mle_sd <- sqrt(mle_var)
-  mle_vec <- replicate(1000, 1/mean(rexp(n_vec[l], theta_true)))
+  mle_vec <- replicate(1000, 1/(mean(rgeom(n_vec[l], theta_true)) + 1 ))
   plot_ls[[l]] <- data.frame(mle = mle_vec, n = n_vec[l]) |>
     ggplot(aes(x = mle))+
     geom_histogram(aes(y = after_stat(density)))  +
     stat_function(fun = dnorm, args = list(mean = mle_mean, sd = mle_sd), col = "orange") +
-    xlim(c(mle_mean - 3 * mle_sd,mle_mean + 3 * mle_sd)) +
-    labs(title = paste0("n = ", n_vec[l]))
+    xlim(c(mle_mean - 4 * mle_sd,mle_mean + 4 * mle_sd)) +
+    labs(title = paste0("n = ", n_vec[l])) +
+    theme(text = element_text(size = 16))
 }
 gridExtra::grid.arrange(grobs = plot_ls)
 
