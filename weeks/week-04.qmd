@@ -36,6 +36,7 @@ title: "Week 04"
 **Class activity**
 
 -   Asymptotic dist of MLE [visualization](class/fisher_viz.qmd)
+-   [CRLB practice problems](class/11_CRLB.pdf)
 
 ------------------------------------------------------------------------
 
@@ -50,7 +51,7 @@ title: "Week 04"
 
 **Daily assignment**
 
--   TBD
+-   None!
 
 **Class activity**
 

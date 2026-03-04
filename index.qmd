@@ -9,8 +9,11 @@ Welcome to the website for Middlebury College's Spring 2026 STAT 311. On this we
 
 ## Major Announcements
 
--   Extra office hour on Friday 2/27 from 2-3pm
--   Monday 3/02 office hours modified to 3:00-4:30pm
+-   Statistics talk: *Feel the noise: A statistical journey through the resolution of a low frequency noise issue* by Richard Single (UVM)
+    -   Monday 3/9 at 3:30pm in WNS 104
+    -   More information [here](https://www.middlebury.edu/events/event/feel-noise-statistical-journey-through-resolution-low-frequency-noise-issue)
+-   Modified office hours
+    -   Monday 3/9 from 2:00-3:30pm (then go to the talk!)
 
 ------------------------------------------------------------------------
 

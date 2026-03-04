@@ -142,7 +142,7 @@
     "href": "index.html#major-announcements",
     "title": "Statistical Inference",
     "section": "Major Announcements",
-    "text": "Major Announcements\n\nExtra office hour on Friday 2/27 from 2-3pm\nMonday 3/02 office hours modified to 3:00-4:30pm\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
+    "text": "Major Announcements\n\nStatistics talk: Feel the noise: A statistical journey through the resolution of a low frequency noise issue by Richard Single (UVM)\n\nMonday 3/9 at 3:30pm in WNS 104\nMore information here\n\nModified office hours\n\nMonday 3/9 from 2:00-3:30pm (then go to the talk!)\n\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
   },
   {
     "objectID": "index.html#course-details",
@@ -173,7 +173,7 @@
     "href": "weeks/week-04.html",
     "title": "Week 04",
     "section": "",
-    "text": "Monday (03/02)\n\nTopics\n\nFisher Information\n\nDaily assignment\n\nDaily assignment (very short!)\n\nClass activity\n\nNone\n\n\n\nWednesday (03/04)\n\nTopics\n\nMLE asymptotics\nCramer-Rao Lower Bound\n\nDaily assignment\n\nNone!\n\nClass activity\n\nAsymptotic dist of MLE visualization\n\n\n\nFriday (03/06)\n\nTopics\n\nCRLB cont.\nEfficiency\n\nDaily assignment\n\nTBD\n\nClass activity\n\nTBD",
+    "text": "Monday (03/02)\n\nTopics\n\nFisher Information\n\nDaily assignment\n\nDaily assignment (very short!)\n\nClass activity\n\nNone\n\n\n\nWednesday (03/04)\n\nTopics\n\nMLE asymptotics\nCramer-Rao Lower Bound\n\nDaily assignment\n\nNone!\n\nClass activity\n\nAsymptotic dist of MLE visualization\nCRLB practice problems\n\n\n\nFriday (03/06)\n\nTopics\n\nCRLB cont.\nEfficiency\n\nDaily assignment\n\nNone!\n\nClass activity\n\nTBD",
     "crumbs": [
       "Schedule",
       "Week 04"
