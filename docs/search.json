@@ -173,7 +173,7 @@
     "href": "weeks/week-04.html",
     "title": "Week 04",
     "section": "",
-    "text": "Monday (03/02)\n\nTopics\n\nFisher Information\n\nDaily assignment\n\nDaily assignment (very short!)\n\nClass activity\n\nNone\n\n\n\nWednesday (03/04)\n\nTopics\n\nMLE asymptotics\nCramer-Rao Lower Bound\n\nDaily assignment\n\nNone!\n\nClass activity\n\nAsymptotic dist of MLE visualization\nCRLB practice problems\n\n\n\nFriday (03/06)\n\nTopics\n\nCRLB cont.\nEfficiency\n\nDaily assignment\n\nNone!\n\nClass activity\n\nTBD",
+    "text": "Monday (03/02)\n\nTopics\n\nFisher Information\n\nDaily assignment\n\nDaily assignment (very short!)\n\nClass activity\n\nNone\n\n\n\nWednesday (03/04)\n\nTopics\n\nMLE asymptotics\nCramer-Rao Lower Bound\n\nDaily assignment\n\nNone!\n\nClass activity\n\nAsymptotic dist of MLE visualization\nCRLB practice problems\n\n\n\nFriday (03/06)\n\nTopics\n\nCRLB cont.\nEfficiency\n\nDaily assignment\n\nNone!\n\nClass activity\n\nEfficiency visualization",
     "crumbs": [
       "Schedule",
       "Week 04"
@@ -700,5 +700,12 @@
     "title": "Asymptotic Dist. of MLE",
     "section": "",
     "text": "Let \\(X_{1},\\ldots,X_{n} | \\theta \\overset{iid}{\\sim} \\text{Geom}(\\theta)\\). It can be shown that \\(\\hat{\\theta}_{MLE} = \\frac{1}{\\bar{X} + 1}\\).\nWe found in class that \\(I_{n}(\\theta) = n I(\\theta) = \\frac{n}{\\theta^2 (1-\\theta)}\\). Thus, \\[\\hat{\\theta}_{MLE} \\overset{\\cdot}{\\sim} N \\left(\\theta, \\frac{1}{I_{n}(\\theta) } = \\frac{\\theta^2 (1-\\theta)}{n} \\right)\\]\nLet’s see this in action!\n\nlibrary(tidyverse)\nset.seed(311)\ntheta_true &lt;- 0.5\nfisher_info &lt;- 1/(theta_true^2 * (1-theta_true))\nn_vec &lt;- c(5, 10, 100, 1000)\nB &lt;- 1000\nplot_ls &lt;- list()\nfor(l in 1:length(n_vec)) {\n  mle_mean &lt;- theta_true\n  mle_var &lt;- 1/ ( n_vec[l]*fisher_info)\n  mle_sd &lt;- sqrt(mle_var)\n  mle_vec &lt;- replicate(1000, 1/(mean(rgeom(n_vec[l], theta_true)) + 1 ))\n  plot_ls[[l]] &lt;- data.frame(mle = mle_vec, n = n_vec[l]) |&gt;\n    ggplot(aes(x = mle))+\n    geom_histogram(aes(y = after_stat(density)))  +\n    stat_function(fun = dnorm, args = list(mean = mle_mean, sd = mle_sd), col = \"orange\") +\n    xlim(c(mle_mean - 4 * mle_sd,mle_mean + 4 * mle_sd)) +\n    labs(title = paste0(\"n = \", n_vec[l])) +\n    theme(text = element_text(size = 16))\n}\ngridExtra::grid.arrange(grobs = plot_ls)"
+  },
+  {
+    "objectID": "weeks/class/efficiency_viz.html",
+    "href": "weeks/class/efficiency_viz.html",
+    "title": "(Asymptotic) efficiency",
+    "section": "",
+    "text": "Let \\(X_{1},\\ldots, X_{n} | \\theta \\overset{iid}{\\sim} N(\\theta, \\sigma^2)\\) where \\(\\sigma^2\\) known. We want to estimate \\(g(\\theta) = \\theta^2 + \\sigma^2\\). We have two candidate estimators:\n\\[\\delta_{u}(\\vec{X}) = \\bar{X}^2 + \\sigma^2(1 - 1/n) \\qquad \\text{ and }\\quad \\delta_{MLE}(\\vec{X}) = \\bar{X}^2 + \\sigma^2\\] where \\(\\delta_{u}\\) is unbiased for \\(g(\\theta)\\) but the MLE is not so CRLB won’t apply. We found that at small \\(n\\), the unbiased \\(\\delta_{u}\\) does not attain the CRLB. What happens as \\(n\\rightarrow \\infty\\)?\nHere, \\(\\theta = 1\\) and \\(\\sigma^2 = 25\\). We will visualize the MSE for both estimators at various values of \\(n\\), and provide the CRLB for an unbiased estimator of \\(g(\\theta)\\).\n\n\n\n\n\n\n\n\n\nWhat happens when we lower \\(\\sigma^2\\)? Why?"
   }
 ]

@@ -1,0 +1,84 @@
+---
+title: "(Asymptotic) efficiency"
+editor_options: 
+  chunk_output_type: console
+---
+
+Let $X_{1},\ldots, X_{n} | \theta \overset{iid}{\sim} N(\theta, \sigma^2)$ where $\sigma^2$ known. We want to estimate $g(\theta) = \theta^2 + \sigma^2$. We have two candidate estimators:
+
+$$\delta_{u}(\vec{X}) = \bar{X}^2 + \sigma^2(1 - 1/n) \qquad \text{ and }\quad \delta_{MLE}(\vec{X}) = \bar{X}^2 + \sigma^2$$
+where $\delta_{u}$ is unbiased for $g(\theta)$ but the MLE is not so CRLB won't apply. We found that at small $n$, the unbiased  $\delta_{u}$ does not attain the CRLB. What happens as $n\rightarrow \infty$? 
+
+
+```{r echo = F}
+theta <- 1
+s2 <- 25
+```
+
+Here, $\theta = `r theta`$ and $\sigma^2 = `r s2`$. We will visualize the MSE for both estimators at various values of $n$, and provide the CRLB for an unbiased estimator of $g(\theta)$.
+
+```{r message = F, echo = F}
+library(tidyverse)
+n_vec <- 2:200
+mse_mat <- matrix(NA, nrow = length(n_vec), ncol = 4)
+for(i in 1:length(n_vec)){
+  n <- n_vec[i]
+
+  g_theta <- theta^2 + s2
+  
+  delta_u_var <- 4 * theta^2 * s2 / n + 2 * s2^2 / n^2
+  delta_u_mse <- delta_u_var + 0
+  
+  mle_bias <- theta^2  + s2 * (1 + 1/n) - g_theta
+  mle_var <- 4 * theta^2 * s2 / n + 2 * s2^2 / n^2
+  mle_mse <- mle_var + mle_bias^2
+  
+  crlb <- 4 * theta^2 * s2 / n
+  mse_mat[i,] <- c(delta_u_mse, mle_mse, crlb, n)
+}
+colnames(mse_mat) <- c("delta_u", "mle", "crlb", "n")
+data.frame(mse_mat) |>
+  pivot_longer(cols = c(1:2), names_to = "estimator", values_to = "mse") |>
+  ggplot(aes(x = n, y = mse, col = estimator)) +
+  geom_line(linewidth = 1) +
+  geom_point(aes(x = n, y = crlb), size = 0.25, col = "#C77CFF") +
+  scale_y_log10(n.breaks = 6) +
+  labs(y = "MSE (log scale)",
+       caption = "Dotted purple line represent CRLB at each n",
+       subtitle = bquote(sigma^2 == .(s2))) +
+  theme(text =element_text(size = 16))
+```
+
+
+What happens when we lower $\sigma^2$? Why?
+
+```{r echo = F}
+s2 <- 1
+mse_mat <- matrix(NA, nrow = length(n_vec), ncol = 4)
+for(i in 1:length(n_vec)){
+  n <- n_vec[i]
+
+  g_theta <- theta^2 + s2
+  
+  delta_u_var <- 4 * theta^2 * s2 / n + 2 * s2^2 / n^2
+  delta_u_mse <- delta_u_var + 0
+  
+  mle_bias <- theta^2  + s2 * (1 + 1/n) - g_theta
+  mle_var <- 4 * theta^2 * s2 / n + 2 * s2^2 / n^2
+  mle_mse <- mle_var + mle_bias^2
+  
+  crlb <- 4 * theta^2 * s2 / n
+  mse_mat[i,] <- c(delta_u_mse, mle_mse, crlb, n)
+}
+colnames(mse_mat) <- c("delta_u", "mle", "crlb", "n")
+data.frame(mse_mat) |>
+  pivot_longer(cols = c(1:2), names_to = "estimator", values_to = "mse") |>
+  ggplot(aes(x = n, y = mse, col = estimator)) +
+  geom_line(linewidth = 1) +
+  geom_point(aes(x = n, y = crlb), size = 0.25, col = "#C77CFF") +
+  scale_y_log10(n.breaks = 6) +
+  labs(y = "MSE (log scale)",
+       caption = "Dotted purple line represent CRLB at each n",
+       subtitle = bquote(sigma^2 == .(s2)))+
+  theme(text =element_text(size = 16))
+```

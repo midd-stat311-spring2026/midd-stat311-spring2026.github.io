@@ -55,4 +55,4 @@ title: "Week 04"
 
 **Class activity**
 
--   TBD
+-   Efficiency [visualization](class/efficiency_viz.qmd)
