@@ -29,6 +29,7 @@ website:
         - weeks/week-02.qmd
         - weeks/week-03.qmd
         - weeks/week-04.qmd
+        - weeks/week-05.qmd
 
   page-footer:
     center: |

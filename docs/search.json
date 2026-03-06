@@ -142,7 +142,7 @@
     "href": "index.html#major-announcements",
     "title": "Statistical Inference",
     "section": "Major Announcements",
-    "text": "Major Announcements\n\nStatistics talk: Feel the noise: A statistical journey through the resolution of a low frequency noise issue by Richard Single (UVM)\n\nMonday 3/9 at 3:30pm in WNS 104\nMore information here\n\nModified office hours\n\nMonday 3/9 from 2:00-3:30pm (then go to the talk!)\n\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
+    "text": "Major Announcements\n\nMidterm 1 details shared in Week 5!\nStatistics talk: Feel the noise: A statistical journey through the resolution of a low frequency noise issue by Richard Single (UVM)\n\nMonday 3/9 at 3:30pm in WNS 104\nMore information here\n\nModified office hours\n\nFriday 3/6 from 2:00-3:00pm\nMonday 3/9 from 2:00-3:30pm (then go to the talk!)\n\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
   },
   {
     "objectID": "index.html#course-details",
@@ -184,7 +184,7 @@
     "href": "weeks/week-05.html",
     "title": "Week 05",
     "section": "",
-    "text": "Tuesday (03/12)\n\nTopics\n\nFisher information\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nFisher information practice problems\n\n\n\nThursday (03/14)\n\nMaterial through today is fair game for Midterm 1!\nTopics\n\nAsymptotic distribution of MLE\nCRLB\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nCRLB practice problems\n\n\n\nFriday (03/15)\n\nTopics\n\nEM algorithm\n\nDaily assignment\n\nNone!\n\nClass activity\n\nEM algorithm notes (not filled in) and (filled in)\nExample\n\nDownloadable .Rmd template  .Rmd  and data  .Rda \nImplemented example",
+    "text": "Monday (03/09)\n\nTopics\n\nSufficiency\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nSufficiency practice problems\n\n\n\nWednesday (03/11)\n\nTopics\n\nRao-Blackwell\n\nDaily assignment\n\nNone!\n\nClass activity\n\nTBD\n\n\n\nFriday (03/13)\n\nMaterial through today is fair game for Midterm 1!\nTopics\n\nNewton-Raphson or EM algorithm\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nTBD",
     "crumbs": [
       "Schedule",
       "Week 05"

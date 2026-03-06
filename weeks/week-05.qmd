@@ -3,51 +3,30 @@ title: "Week 05"
 ---
 
 ::: {style="color: #6284a2"}
-### Tuesday (03/12)
+### Monday (03/09)
 :::
 
 **Topics**
 
--   Fisher information
+-   Sufficiency
 
 **Daily assignment**
 
--   [Daily assignment](daily/DA_09.pdf)
+-   Daily assignment
 
 **Class activity**
 
--   Fisher information [practice problems](class/10_fisher.pdf)
+-   Sufficiency practice problems
 
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Thursday (03/14)
-:::
-
-**Material through today is fair game for Midterm 1!**
-
-**Topics**
-
--   Asymptotic distribution of MLE
--   CRLB
-
-**Daily assignment**
-
--   [Daily assignment](daily/DA_10.pdf)
-
-**Class activity**
-
--   CRLB [practice problems](class/11_crlb.pdf)
-
-------------------------------------------------------------------------
-
-::: {style="color: #6284a2"}
-### Friday (03/15)
+### Wednesday (03/11)
 :::
 
 **Topics**
 
--   EM algorithm
+-   Rao-Blackwell
 
 **Daily assignment**
 
@@ -55,13 +34,27 @@ title: "Week 05"
 
 **Class activity**
 
--   EM algorithm notes ([not filled in](class/EM.pdf)) and ([filled in](class/EM_filled.pdf))
+-   TBD
 
--   Example
+------------------------------------------------------------------------
 
-    -   Downloadable `.Rmd` template {{< downloadthis class/templates/EM_normal_mixture.Rmd dname="EM_normal_mixture" label=".Rmd" icon="arrow-down-short" class=styled id=btn1 >}} and data {{< downloadthis class/data/normal_mixture_data.Rda dname="normal_mixture_data" label=".Rda" icon="arrow-down-short" class=styled id=btn1 >}}
-    
-    - [Implemented example](class/EM_solns.qmd)
+::: {style="color: #6284a2"}
+### Friday (03/13)
+:::
+
+**Material through today is fair game for Midterm 1!**
+
+**Topics**
+
+-   Newton-Raphson or EM algorithm
+
+**Daily assignment**
+
+-   Daily assignment
+
+**Class activity**
+
+-   TBD
 
 ```{=html}
 <!--

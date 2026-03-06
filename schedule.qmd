@@ -29,7 +29,7 @@ A high-level overview of the semester's topics are presented here. Please select
 -   MLE asymptotics
 -   Cramer-Rao Lower Bound, Efficiency
 
-### Week 05
+### [Week 05](weeks/week-05.qmd)
 
 -   Sufficiency
 -   Rao-Blackwellization
