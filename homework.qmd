@@ -12,3 +12,5 @@ Note: problem sets will be updated with new questions following each class. Comp
 -   [Problem Set 3](weeks/hw/hw3.pdf) (due 3/04/26)
     -   **NOTE**: problem 1d had a typo; the variance should be $1+16\theta(1-\theta)$. This has been updated as of 2/26 at 1:45pm
 -   [Problem Set 4](weeks/hw/hw4.pdf) (due 3/11/26)
+-   [Problem Set 5](weeks/hw/hw5.pdf) (due 3/16/26 at 11:59pm to Canvas)
+    -   **NOTE**: earlier due date to give feedback in time before midterm, but a shorter problem set!
