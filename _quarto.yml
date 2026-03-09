@@ -14,6 +14,8 @@ website:
         text: "Schedule"
       - file: homework.qmd
         text: "Homework"
+      - file: exam.qmd
+        text: "Exams"
 
     right:
       - icon: bar-chart-fill
