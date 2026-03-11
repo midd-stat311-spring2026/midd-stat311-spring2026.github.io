@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Homework – STAT 311: Statistical Inference</title>
+<title>STAT 311: Problem Set 5 (R) – STAT 311: Statistical Inference</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,29 +20,63 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./img/chi2.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea1d7ac60288e0f1efdbc993fd8432ae.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bd23f0ec503227c97f97a7e65fd108cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/downloadthis-1.9.1/downloadthis.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/chi2.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea1d7ac60288e0f1efdbc993fd8432ae.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bd23f0ec503227c97f97a7e65fd108cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -110,11 +144,11 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./img/chi2.png" alt="" class="navbar-logo light-content">
-    <img src="./img/chi2.png" alt="" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../img/chi2.png" alt="" class="navbar-logo light-content">
+    <img src="../../img/chi2.png" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">STAT 311: Statistical Inference</span>
     </a>
   </div>
@@ -125,19 +159,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./schedule.html"> 
+    <a class="nav-link" href="../../schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./homework.html" aria-current="page"> 
+    <a class="nav-link" href="../../homework.html"> 
 <span class="menu-text">Homework</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./exam.html"> 
+    <a class="nav-link" href="../../exam.html"> 
 <span class="menu-text">Exams</span></a>
   </li>  
 </ul>
@@ -164,7 +198,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Homework</h1>
+<h1 class="title">STAT 311: Problem Set 5 (R)</h1>
 </div>
 
 
@@ -181,33 +215,57 @@ window.Quarto = {
 </header>
 
 
-<p>Note: problem sets will be updated with new questions following each class. Completed homework should be submitted in-person unless otherwise noted.</p>
+<p>We will now simulate some German Tank data, obtain estimates of the number of tanks, and compare the estimators.</p>
+<ol type="a">
+<li>Create three variables:
 <ul>
-<li><a href="weeks/hw/hw0.pdf">Problem Set 0</a> (due 2/13/26) – graded for participation!</li>
-<li><a href="weeks/hw/hw1.pdf">Problem Set 1</a> (due 2/18/26)</li>
-<li><a href="weeks/hw/hw2.pdf">Problem Set 2</a> (due 2/25/26)
-<ul>
-<li>Note: problem 3(b)-(c) was edited as of Wednesday, 2/18 at 1:00pm.</li>
+<li><p><code>n_sim</code> for the number of simulations (set this to be at least 1000)</p></li>
+<li><p><code>N_true</code> for the true number of tanks (make this 100); and</p></li>
+<li><p><code>n</code> for the number of tanks captured (set this to 5)</p></li>
 </ul></li>
-<li><a href="weeks/hw/hw3.pdf">Problem Set 3</a> (due 3/04/26)
-<ul>
-<li><strong>NOTE</strong>: problem 1d had a typo; the variance should be <span class="math inline">\(1+16\theta(1-\theta)\)</span>. This has been updated as of 2/26 at 1:45pm</li>
-</ul></li>
-<li><a href="weeks/hw/hw4.pdf">Problem Set 4</a> (due 3/11/26)</li>
-<li><a href="weeks/hw/hw5.pdf">Problem Set 5</a> (due 3/16/26 at 11:59pm to <strong>Canvas</strong>)
-<ul>
-<li><strong>NOTE</strong>: earlier due date to give feedback in time before midterm, but a shorter problem set!</li>
-<li><code>.Rmd</code> file for assignment: <a href="#mtcars-btn" onclick="fetch('data:text/plain;base64,LS0tCnRpdGxlOiAiU1RBVCAzMTE6IFByb2JsZW0gU2V0IDUgKFIpIgphdXRob3I6ICJZb3VyIG5hbWUgaGVyZSIKZGF0ZTogIjAzLzE2LzIwMjYiCmVkaXRvcl9vcHRpb25zOiAKICBjaHVua19vdXRwdXRfdHlwZTogY29uc29sZQotLS0KCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFLCBtZXNzYWdlID0gRn0KIyBOb3RlOiBpZiB5b3UgaGF2ZSBuZXZlciBpbnN0YWxsZWQgdGlkeXZlcnNlLCB5b3Ugd2lsbCBoYXZlIHRvIGRvIHNvIG5vdy4gSW4gdGhlIENPTlNPTEUgYXQgdGhlIGJvdHRvbSwgcGFzdGUgaW4gYW5kIHJ1biB0aGUgdGhlIGZvbGxvd2luZyBjb2RlICh3aXRob3V0IHRoZSAjKToKIyBpbnN0YWxsLnBhY2thZ2VzKCJ0aWR5dmVyc2UiKQoKIyBZb3Ugd2lsbCBzZWUgc29tZSB0ZXh0IHJ1bm5pbmcgZm9yIGEgYml0LCBidXQgZXZlbnR1YWxseSBldmVyeXRoaW5nIHNob3VsZCBiZSBzdWNjZXNzZnVsISBUaGVuIHJ1biB0aGlzIGNodW5rIGFnYWluLgpsaWJyYXJ5KHRpZHl2ZXJzZSkKYGBgCgpXZSB3aWxsIG5vdyBzaW11bGF0ZSBzb21lIEdlcm1hbiBUYW5rIGRhdGEsIG9idGFpbiBlc3RpbWF0ZXMgb2YgdGhlIG51bWJlciBvZiB0YW5rcywgYW5kIGNvbXBhcmUgdGhlIGVzdGltYXRvcnMuCgphKSAgQ3JlYXRlIHRocmVlIHZhcmlhYmxlczoKICAgIC0gICBgbl9zaW1gIGZvciB0aGUgbnVtYmVyIG9mIHNpbXVsYXRpb25zIChzZXQgdGhpcyB0byBiZSBhdCBsZWFzdCAxMDAwKQoKICAgIC0gICBgTl90cnVlYCBmb3IgdGhlIHRydWUgbnVtYmVyIG9mIHRhbmtzIChtYWtlIHRoaXMgMTAwKTsgYW5kCgogICAgLSAgIGBuYCBmb3IgdGhlIG51bWJlciBvZiB0YW5rcyBjYXB0dXJlZCAoc2V0IHRoaXMgdG8gNSkKCmBgYHtyfQojIGNvZGUgZm9yIHBhcnQgKGEpCgpgYGAKCmIpICBXcml0ZSBhIGZ1bmN0aW9uIGNhbGxlZCBgc2ltX3RhbmtzYCB0aGF0IHRha2VzIGluIHR3byBhcmd1bWVudHM6IHRoZSB0cnVlIG51bWJlciBvZiB0YW5rcyBhbmQgdGhlIG51bWJlciBvZiB0YW5rcyBjYXB0dXJlZC4gVGhlIGZ1bmN0aW9uIHNob3VsZCBzaW11bGF0ZSB0aGUgR2VybWFuIHRhbmsgc2NlbmFyaW8gYnkgcmFuZG9tbHkgc2FtcGxpbmcgdGhlIHRhbmtzIHdpdGhvdXQgcmVwbGFjZW1lbnQgZnJvbSB0aGUgZGlzY3JldGUgdW5pZm9ybSAodXNlIHRoZSBgc2FtcGxlKClgLiBmdW5jdGlvbikuIAoKVGhlIGZ1bmN0aW9uIHNob3VsZCByZXR1cm4gYSAqKnZlY3RvcioqIG9mIGxlbmd0aCB0aHJlZSBvZiB0aGUgZXN0aW1hdGVzICB1bmRlciAkXGhhdHtOfV97MH0kLCAkXGhhdHtOfV97UkJ9JCwgYW5kICRcaGF0e059X3tVUkJ9JCwgYXMgZGVmaW5lZCBvbiB0aGUgaG9tZXdvcmsuCgpgYGB7cn0KIyBjb2RlIGZvciBwYXJ0IChiKQoKYGBgCgpjKSAgVXNpbmcgdGhlIGByZXBsaWNhdGUoKWAgZnVuY3Rpb24sIHNpbXVsYXRlIHRoaXMgcHJvYmxlbSBmb3IgYG5fc2ltYCBpdGVyYXRpb25zLiBUaGVuIHVzZSB0aGUgYHQoKWAgZnVuY3Rpb24gdG8gdGFrZSB0aGUgKnRyYW5zcG9zZSogb2YgdGhlIG91dHB1dCBzdWNoIHRoYXQgeW91IGhhdmUgMyBjb2x1bW5zIGFuZCBgbl9zaW1gIHJvd3MuIEJlIHN1cmUgdG8gc3RvcmUgeW91ciBvdXRwdXQgaW50byBhIHZhcmlhYmxlIQoKKkluIHRoZSBDb25zb2xlLCB0YWtlIGEgbG9vayBhdCB0aGUgb3V0cHV0LiBNYWtlIHN1cmUgeW91IHVuZGVyc3RhbmQgd2hhdCBlYWNoIHJvdy9jb2x1bW4gcmVwcmVzZW50cyEqCgpgYGB7cn0Kc2V0LnNlZWQoMzExKQojIGNvZGUgZm9yIHBhcnQgKGMpCgpgYGAKCmQpICBVc2luZyB5b3VyIHNpbXVsYXRpb25zIGZyb20gKGMpLCBvYnRhaW4gdGhlIGVtcGlyaWNhbCBNU0Ugb2YgJFxoYXR7Tn1fezB9JCwgJFxoYXR7Tn1fe1JCfSQsIGFuZCAkXGhhdHtOfV97VVJCfSQuIFlvdSBjYW4gYWNjZXNzIGEgc3BlY2lmaWMgY29sdW1uICRqJCBvZiBtYXRyaXggJE0kIHVzaW5nIHRoZSBmb2xsb3dpbmcgY29kZTogYE1bLGpdYC4gU2ltaWxhcmx5LCB0byBhY2Nlc3MgYSBzcGVjaWZpYyByb3c6IGBNW2osXWAuIERvZXMgd2hhdCB5b3UgZmluZCBtYWtlIHNlbnNlPyBCcmllZmx5IGV4cGxhaW4uCgoqKk5vdGUqKjogZG8gbm90IHVzZSB0aGUgZW1waXJpY2FsIG1lYW4gYW5kIHZhcmlhbmNlcyB0byBvYnRhaW4gdGhlIGVtcGlyaWNhbCBNU0UuIEFwcHJveGltYXRlIHRoZSBNU0Ugb2YgYW4gZXN0aW1hdG9yICRcZGVsdGEoWCkkIGZyb20gaXRzIGRlZmluaXRpb24gb2YgJEVbKFxkZWx0YShYKSAtIFx0aGV0YSleMl0kLiBZb3Ugc2hvdWxkIHVzZSB0aGUgYG1lYW4oKWAgZnVuY3Rpb24gb25jZSBwZXIgZXN0aW1hdG9yLgoKYGBge3J9CiMgdGhyZWUgbGluZXMgb2YgY29kZSB0byBhcHByb3hpbWF0ZSBNU0VzCgpgYGAKCioqQW5zd2VyOiBSZXBsYWNlIHdpdGggeW91ciBhbnN3ZXIuKioKCmUpICBMYXN0bHksIHdlIHdpbGwgdmlzdWFsaXplIHRoZSBzaW11bGF0aW9ucyBvZiB0aGUgZXN0aW1hdGVzLiBSdW4gdGhlIGZpcnN0IGxpbmUgb2YgY29kZSBiZWxvdyBhbmQgdGhlbiB0YWtlIGEgbG9vayBhdCB3aGF0IGBkZmAgbG9va3MgbGlrZSBieSB0eXBpbmcgYFZpZXcoZGYpYCBpbiB0aGUgQ29uc29sZS4KClRoZW4gZmlsbCBpbiB0aGUgcmVtYWluaW5nIGNvZGUgYW5kIHRoZW4gc2V0IGBldmFsID0gVFJVRWAgYmVmb3JlIGtuaXR0aW5nLiBCcmllZmx5IGNvbW1lbnQgb24gd2hhdCB5b3Ugbm90aWNlLgoKYGBge3IgZXZhbCA9IEZBTFNFfQpkZiA8LSBkYXRhLmZyYW1lKF9fXykgfD4gIyB2YXJpYWJsZSBmb3IgeW91ciBtYXRyaXggaG9sZGluZyBlc3RpbWF0ZXMKICByZW5hbWUoIlgxIiA9IDEsICJSQiIgPSAyLCAiUkJfdW5iaWFzZWQiID0gMykgfD4KICBwaXZvdF9sb25nZXIoY29scyA9IGFsbF9vZigxOjMpLCBuYW1lc190byA9ICJlc3RpbWF0b3IiLCB2YWx1ZXNfdG8gPSAiZXN0aW1hdGUiKSAKCmRmIHw+CiAgZ2dwbG90KGFlcyh4ID0gX19fX19fLCAjIG5hbWUgb2YgdmFyaWFibGUgaW4gZGYgcmVwcmVzZW50aW5nIGVzdGltYXRlcwogICAgICAgICAgICAgICAgZmlsbCA9IF9fX19fICkpKyAjIG5hbWUgb2YgdmFyaWFibGUgaW4gZGYgcmVwcmVzZW50aW5nIGVzdGltYXRvcgogIGdlb21faGlzdG9ncmFtKGFscGhhID0gMC4zLCBiaW53aWR0aCA9IDIpICsKICBnZW9tX3ZsaW5lKHhpbnRlcmNlcHQgPSBfX19fICkgIyB2YXJpYWJsZSByZXByZXNlbnRpbmcgdHJ1ZSB0b3RhbCBudW1iZXIgb2YgdGFua3MKYGBgCgoqKkFuc3dlcjogUmVwbGFjZSB3aXRoIHlvdXIgYW5zd2VyLioqCg==').then(res => res.blob()).then(blob => {
-      const downloadURL = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      document.body.appendChild(a);
-      a.href = downloadURL;
-      a.download = 'hw5_R.Rmd'; a.click();
-      window.URL.revokeObjectURL(downloadURL);
-      document.body.removeChild(a);
-        });"><button class="btn btn-default downloadthis  " id="mtcars-btn"><i class="bi bi-download"></i> hw5_R </button></a>. Rendered version <a href="./weeks/hw/hw5_r_template.html">here</a> for easier viewing</li>
-</ul></li>
-</ul>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code for part (a)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="2" type="a">
+<li>Write a function called <code>sim_tanks</code> that takes in two arguments: the true number of tanks and the number of tanks captured. The function should simulate the German tank scenario by randomly sampling the tanks without replacement from the discrete uniform (use the <code>sample()</code>. function).</li>
+</ol>
+<p>The function should return a <strong>vector</strong> of length three of the estimates under <span class="math inline">\(\hat{N}_{0}\)</span>, <span class="math inline">\(\hat{N}_{RB}\)</span>, and <span class="math inline">\(\hat{N}_{URB}\)</span>, as defined on the homework.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code for part (b)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="3" type="a">
+<li>Using the <code>replicate()</code> function, simulate this problem for <code>n_sim</code> iterations. Then use the <code>t()</code> function to take the <em>transpose</em> of the output such that you have 3 columns and <code>n_sim</code> rows. Be sure to store your output into a variable!</li>
+</ol>
+<p><em>In the Console, take a look at the output. Make sure you understand what each row/column represents!</em></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">311</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># code for part (c)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="4" type="a">
+<li>Using your simulations from (c), obtain the empirical MSE of <span class="math inline">\(\hat{N}_{0}\)</span>, <span class="math inline">\(\hat{N}_{RB}\)</span>, and <span class="math inline">\(\hat{N}_{URB}\)</span>. You can access a specific column <span class="math inline">\(j\)</span> of matrix <span class="math inline">\(M\)</span> using the following code: <code>M[,j]</code>. Similarly, to access a specific row: <code>M[j,]</code>. Does what you find make sense? Briefly explain.</li>
+</ol>
+<p><strong>Note</strong>: do not use the empirical mean and variances to obtain the empirical MSE. Approximate the MSE of an estimator <span class="math inline">\(\delta(X)\)</span> from its definition of <span class="math inline">\(E[(\delta(X) - \theta)^2]\)</span>. You should use the <code>mean()</code> function once per estimator.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># three lines of code to approximate MSEs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Answer: Replace with your answer.</strong></p>
+<ol start="5" type="a">
+<li>Lastly, we will visualize the simulations of the estimates. Run the first line of code below and then take a look at what <code>df</code> looks like by typing <code>View(df)</code> in the Console.</li>
+</ol>
+<p>Then fill in the remaining code and then set <code>eval = TRUE</code> before knitting. Briefly comment on what you notice.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(___) <span class="sc">|&gt;</span> <span class="co"># variable for your matrix holding estimates</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="st">"X1"</span> <span class="ot">=</span> <span class="dv">1</span>, <span class="st">"RB"</span> <span class="ot">=</span> <span class="dv">2</span>, <span class="st">"RB_unbiased"</span> <span class="ot">=</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">all_of</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>), <span class="at">names_to =</span> <span class="st">"estimator"</span>, <span class="at">values_to =</span> <span class="st">"estimate"</span>) </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> ______, <span class="co"># name of variable in df representing estimates</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">fill =</span> _____ ))<span class="sc">+</span> <span class="co"># name of variable in df representing estimator</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>, <span class="at">binwidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> ____ ) <span class="co"># variable representing true total number of tanks</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Answer: Replace with your answer.</strong></p>
 
 
 
@@ -619,7 +677,7 @@ window.Quarto = {
     </div>   
     <div class="nav-footer-center">
 <ul>
-<li><img src="./img/middlebury.png" class="img-fluid" style="width:20.0%"></li>
+<li><img src="../../img/middlebury.png" class="img-fluid" style="width:20.0%"></li>
 </ul>
 </div>
     <div class="nav-footer-right">
