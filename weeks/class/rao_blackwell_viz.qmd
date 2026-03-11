@@ -1,0 +1,55 @@
+---
+title: "Rao-Blackwell Simulation"
+editor_options: 
+  chunk_output_type: console
+---
+
+Recall the mushroom hunting example! Let $X_i$ represent the number of mushrooms I encounter in a one-hour long foraging excursion. Then I might choose the model $X_{1},\ldots, X_{n} | \theta \overset{iid}{\sim} \text{Poisson}(\theta)$.
+
+I want to know: if I go foraging for one hour, what's the probability $p$ that I found exactly one mushroom?
+
+Define $\mathbf{1}_{i}$ as the indicator for the event $X_{i} = 1$. Thus, $\mathbf{1}_{i}|\theta \overset{iid}{\sim} \text{Bern}(p = e^{-\theta} \theta)$.
+
+The goal is estimate $p$. We started with an initial estimator, $\delta(\mathbf{X}) = \frac{1}{n} \sum_{i=1}^{n} \mathbf{1}_{i}$, and used Rao-Blackwell to improve the estimator using the sufficient statistic $T(\mathbf{X}) = \sum_{i=1}^{n} X_{i}$.
+
+The improved Rao-Blackwellized estimator is $\delta^*(\mathbf{X}) \equiv \delta^*({T})= \frac{T}{n}\left(1 - \frac{1}{n}\right)^{T-1}$ .
+
+Let's see this in action. I will repeat the following 5000 times:
+
+1.  Simulate mushroom counts using $\theta = 3$ for some fixed number of observations $n$.
+2.  Calculate the observed value of the both estimators of $p$
+
+Then, using the 1000 values, I will approximate the MSE for both estimators.
+
+```{r message = F, echo = F}
+library(tidyverse)
+set.seed(311)
+theta <- 3
+p_true <- exp(-theta) * theta
+n_vec <- 2:20
+B <- 5000
+df_ls <- list()
+for(l in 1:length(n_vec)){
+  n <- n_vec[l]
+  p_hat_naive_vec <- p_hat_rb_vec <- rep(NA,B)
+  for(i in 1:B){
+    samps <- rpois(n, theta)
+    t <- sum(samps)
+    p_hat_naive_vec[i] <- sum(samps == 1) / n
+    p_hat_rb_vec[i] <-  t/n * (1-1/n)^(t - 1)
+    
+  }
+  mse_naive <- mean( (p_hat_naive_vec -p_true)^2)
+  mse_rb <- mean( (p_hat_rb_vec -p_true)^2)
+  df_ls[[l]] <- data.frame(n, naive= mse_naive, RB = mse_rb)
+}
+
+do.call(rbind, df_ls) |>
+  pivot_longer(cols = c(2:3), names_to = "estimator", values_to = "MSE") |>
+  ggplot(aes(x = n, y = MSE, col = estimator)) +
+  geom_line() +
+  labs(y = "MSE (empirical)", title = "Mushroom hunt") +
+  theme(text = element_text(size = 16)) 
+```
+
+What do we notice?

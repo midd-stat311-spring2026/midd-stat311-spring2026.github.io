@@ -1,0 +1,114 @@
+---
+title: "Newton-Raphson"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+library(tidyverse)
+set.seed(311)
+theta_true <- 4
+n <- 20
+x <- rpois(n, theta_true)
+
+# initial guess
+theta_curr <- x[1]
+theta_vec <- c(theta_curr)
+
+flag <- TRUE
+eps <- 0.00000001
+
+while(flag){
+  # evaluate derivative(s)
+  score <- -n + sum(x)/theta_curr
+  score_prime <- -sum(x)/theta_curr
+  # update parameter
+  theta_new <- theta_curr - score/score_prime
+  
+  # store parameter
+  theta_vec <- c(theta_vec, theta_new)
+  
+  # set flag to FALSE if we have converged
+  if(abs(theta_new - theta_curr) < eps){
+    flag <- FALSE
+  }
+  # set "new" parameter to be the previous parameter
+  theta_curr <- theta_new
+}
+
+theta_mle <- mean(x)
+data.frame(theta_est = theta_vec) |>
+  mutate(iteration = row_number()) |>
+  ggplot(aes(x = iteration, y = theta_est)) +
+  geom_point() +
+  geom_hline(yintercept = theta_mle, linetype = "dashed")
+
+```
+
+
+```{r}
+count <- 1
+n <- 50
+theta_true <- -0.25
+x <- c()
+while(count <= n){
+  u <- runif(1)
+  a <- theta_true / 4
+  b <- 1/2
+  c <- 1/2 - theta_true/4 - u
+  root <- (-b + c(-1, 1) * sqrt(b^2 - 4 * a * c))/(2*a)
+  x <- c(x, root[which(root > -1 & root < 1)])
+  count <- count + 1
+}
+# hist(x, prob = TRUE)
+# curve((1 + theta_true*x)/2, add = TRUE, col = "red")
+
+
+# visualize MLE
+theta_grid <- seq(-0.99,0.99,length=500)
+loglik <- sapply(theta_grid,function(t){
+  sum(log(1 + t*x))
+})
+
+plot(theta_grid,loglik,type="l")
+abline(v=theta_true,col="red")
+
+
+# initial guess
+theta_curr <- 3 * mean(x)
+theta_vec <- c(theta_curr)
+
+flag <- TRUE
+eps <- 0.0000000001
+
+while(flag){
+  # evaluate derivative(s)
+  score <- sum(x / (1 + theta_curr * x))
+  score_prime <- -sum(x^2 / (1 + theta_curr * x)^2)
+  # update parameter
+  
+  theta_new <- theta_curr - score/score_prime
+  # enforce parameter bounds??
+  theta_new <- max(min(theta_new, 0.999), -0.999)
+  
+  # store parameter
+  theta_vec <- c(theta_vec, theta_new)
+  
+  # set flag to FALSE if we have converged
+  if(abs(theta_new - theta_curr) < eps){
+    flag <- FALSE
+  }
+  # set "new" parameter to be the previous parameter
+  theta_curr <- theta_new
+}
+
+# possible issues: jumping outside bounds!
+
+theta_mom <- 3 * mean(x)
+data.frame(theta_est = theta_vec) |>
+  mutate(iteration = row_number()) |>
+  ggplot(aes(x = iteration, y = theta_est)) +
+  geom_point()
+
+
+```

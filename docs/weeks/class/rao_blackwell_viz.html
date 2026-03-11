@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 05 – STAT 311: Statistical Inference</title>
+<title>Rao-Blackwell Simulation – STAT 311: Statistical Inference</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../img/chi2.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ea1d7ac60288e0f1efdbc993fd8432ae.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bd23f0ec503227c97f97a7e65fd108cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/quarto-contrib/downloadthis-1.9.1/downloadthis.css" rel="stylesheet">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../img/chi2.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ea1d7ac60288e0f1efdbc993fd8432ae.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-bd23f0ec503227c97f97a7e65fd108cb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,21 +70,50 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
-<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../img/chi2.png" alt="" class="navbar-logo light-content">
-    <img src="../img/chi2.png" alt="" class="navbar-logo dark-content">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../img/chi2.png" alt="" class="navbar-logo light-content">
+    <img src="../../img/chi2.png" alt="" class="navbar-logo dark-content">
     </a>
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">STAT 311: Statistical Inference</span>
     </a>
   </div>
@@ -96,19 +124,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../schedule.html"> 
+    <a class="nav-link" href="../../schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../homework.html"> 
+    <a class="nav-link" href="../../homework.html"> 
 <span class="menu-text">Homework</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../exam.html"> 
+    <a class="nav-link" href="../../exam.html"> 
 <span class="menu-text">Exams</span></a>
   </li>  
 </ul>
@@ -124,67 +152,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../weeks/week-05.html">Week 05</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
-      </div>
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Schedule</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 01</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 02</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 03</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-04.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Week 04</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../weeks/week-05.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Week 05</span></a>
-  </div>
-</li>
-    </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     
 <!-- main -->
@@ -192,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 05</h1>
+<h1 class="title">Rao-Blackwell Simulation</h1>
 </div>
 
 
@@ -209,60 +180,27 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="monday-0309" class="level3" style="color: #6284a2">
-<h3 class="anchored" data-anchor-id="monday-0309">Monday (03/09)</h3>
-</section>
-<p><strong>Topics</strong></p>
-<ul>
-<li>Sufficiency</li>
-</ul>
-<p><strong>Daily assignment</strong></p>
-<p>To be completed and submitted to Canvas by 9:00am</p>
-<ul>
-<li><a href="daily/DA_12.pdf">Daily assignment</a></li>
-</ul>
-<p><strong>Class activity</strong></p>
-<ul>
-<li>Sufficiency <a href="class/12_sufficiency.pdf">practice problems</a></li>
-</ul>
-<hr>
-<section id="wednesday-0311" class="level3" style="color: #6284a2">
-<h3 class="anchored" data-anchor-id="wednesday-0311">Wednesday (03/11)</h3>
-</section>
-<p><strong>Topics</strong></p>
-<ul>
-<li>Rao-Blackwell</li>
-</ul>
-<p><strong>Daily assignment</strong></p>
-<ul>
-<li>None!</li>
-</ul>
-<p><strong>Class activity</strong></p>
-<ul>
-<li>Rao-Blackwell <a href="../weeks/class/rao_blackwell_viz.html">visualization</a></li>
-</ul>
-<hr>
-<section id="friday-0313" class="level3" style="color: #6284a2">
-<h3 class="anchored" data-anchor-id="friday-0313">Friday (03/13)</h3>
-</section>
-<p><strong>Material through today is fair game for Midterm 1!</strong></p>
-<p><strong>Topics</strong></p>
-<ul>
-<li>Newton-Raphson</li>
-</ul>
-<p><strong>Daily assignment</strong></p>
-<ul>
-<li>Daily assignment</li>
-</ul>
-<p><strong>Class activity</strong></p>
-<ul>
-<li>TBD</li>
-</ul>
-<!--
--   Example [implementation](class/EM_solns.qmd)
-
-    -   Downloadable `.Rmd` template  and data 
--->
+<p>Recall the mushroom hunting example! Let <span class="math inline">\(X_i\)</span> represent the number of mushrooms I encounter in a one-hour long foraging excursion. Then I might choose the model <span class="math inline">\(X_{1},\ldots, X_{n} | \theta \overset{iid}{\sim} \text{Poisson}(\theta)\)</span>.</p>
+<p>I want to know: if I go foraging for one hour, what’s the probability <span class="math inline">\(p\)</span> that I found exactly one mushroom?</p>
+<p>Define <span class="math inline">\(\mathbf{1}_{i}\)</span> as the indicator for the event <span class="math inline">\(X_{i} = 1\)</span>. Thus, <span class="math inline">\(\mathbf{1}_{i}|\theta \overset{iid}{\sim} \text{Bern}(p = e^{-\theta} \theta)\)</span>.</p>
+<p>The goal is estimate <span class="math inline">\(p\)</span>. We started with an initial estimator, <span class="math inline">\(\delta(\mathbf{X}) = \frac{1}{n} \sum_{i=1}^{n} \mathbf{1}_{i}\)</span>, and used Rao-Blackwell to improve the estimator using the sufficient statistic <span class="math inline">\(T(\mathbf{X}) = \sum_{i=1}^{n} X_{i}\)</span>.</p>
+<p>The improved Rao-Blackwellized estimator is <span class="math inline">\(\delta^*(\mathbf{X}) \equiv \delta^*({T})= \frac{T}{n}\left(1 - \frac{1}{n}\right)^{T-1}\)</span> .</p>
+<p>Let’s see this in action. I will repeat the following 5000 times:</p>
+<ol type="1">
+<li>Simulate mushroom counts using <span class="math inline">\(\theta = 3\)</span> for some fixed number of observations <span class="math inline">\(n\)</span>.</li>
+<li>Calculate the observed value of the both estimators of <span class="math inline">\(p\)</span></li>
+</ol>
+<p>Then, using the 1000 values, I will approximate the MSE for both estimators.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rao_blackwell_viz_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>What do we notice?</p>
 
 
 
@@ -674,7 +612,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <ul>
-<li><img src="../img/middlebury.png" class="img-fluid" style="width:20.0%"></li>
+<li><img src="../../img/middlebury.png" class="img-fluid" style="width:20.0%"></li>
 </ul>
 </div>
     <div class="nav-footer-right">
