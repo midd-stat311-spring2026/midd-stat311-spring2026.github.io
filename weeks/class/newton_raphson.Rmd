@@ -1,0 +1,31 @@
+---
+title: "Newton Raphson"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r message = F}
+library(tidyverse)
+set.seed(311)
+
+# simulate data
+theta_true <- 4
+n <- 20
+x <- rpois(n, theta_true)
+
+# mechanism for assessing convergence
+flag <- TRUE
+eps <- 0.00000001
+```
+
+```{r eval = F}
+# visualize
+theta_mle <- ____ # replace with mle
+data.frame(theta_est = ____) |> # replace with vector of approx
+  mutate(iteration = row_number()) |>
+  ggplot(aes(x = iteration, y = theta_est)) +
+  geom_point() +
+  geom_hline(yintercept = theta_mle, linetype = "dashed")
+
+```

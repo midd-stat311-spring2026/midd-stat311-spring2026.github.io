@@ -254,7 +254,15 @@ ul.task-list li input[type="checkbox"] {
 <p>None!</p>
 <p><strong>Class activity</strong></p>
 <ul>
-<li>TBD</li>
+<li>R template for Newton Raphson: <a href="#mtcars-btn" onclick="fetch('data:text/plain;base64,LS0tCnRpdGxlOiAiTmV3dG9uIFJhcGhzb24iCm91dHB1dDogaHRtbF9kb2N1bWVudAplZGl0b3Jfb3B0aW9uczogCiAgY2h1bmtfb3V0cHV0X3R5cGU6IGNvbnNvbGUKLS0tCgpgYGB7ciBtZXNzYWdlID0gRn0KbGlicmFyeSh0aWR5dmVyc2UpCnNldC5zZWVkKDMxMSkKCiMgc2ltdWxhdGUgZGF0YQp0aGV0YV90cnVlIDwtIDQKbiA8LSAyMAp4IDwtIHJwb2lzKG4sIHRoZXRhX3RydWUpCgojIG1lY2hhbmlzbSBmb3IgYXNzZXNzaW5nIGNvbnZlcmdlbmNlCmZsYWcgPC0gVFJVRQplcHMgPC0gMC4wMDAwMDAwMQoKIyBpbml0aWFsIGd1ZXNzCnRoZXRhX2N1cnIgPC0geFsxXQp0aGV0YV92ZWMgPC0gYyh0aGV0YV9jdXJyKQpgYGAKCmBgYHtyIGV2YWwgPSBGfQojIHZpc3VhbGl6ZQp0aGV0YV9tbGUgPC0gX19fXyAjIHJlcGxhY2Ugd2l0aCBtbGUKZGF0YS5mcmFtZSh0aGV0YV9lc3QgPSBfX19fKSB8PiAjIHJlcGxhY2Ugd2l0aCB2ZWN0b3Igb2YgYXBwcm94CiAgbXV0YXRlKGl0ZXJhdGlvbiA9IHJvd19udW1iZXIoKSkgfD4KICBnZ3Bsb3QoYWVzKHggPSBpdGVyYXRpb24sIHkgPSB0aGV0YV9lc3QpKSArCiAgZ2VvbV9wb2ludCgpICsKICBnZW9tX2hsaW5lKHlpbnRlcmNlcHQgPSB0aGV0YV9tbGUsIGxpbmV0eXBlID0gImRhc2hlZCIpCgpgYGAK').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'newton_raphson.Rmd'; a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+        });"><button class="btn btn-default downloadthis  " id="mtcars-btn"><i class="bi bi-download"></i> .Rmd </button></a></li>
 </ul>
 <!--
 -   Example [implementation](class/EM_solns.qmd)

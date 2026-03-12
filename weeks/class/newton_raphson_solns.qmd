@@ -4,19 +4,20 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r}
+```{r message= F}
 library(tidyverse)
 set.seed(311)
+# simulate data
 theta_true <- 4
 n <- 20
 x <- rpois(n, theta_true)
 
+flag <- TRUE
+eps <- 0.00000001
+
 # initial guess
 theta_curr <- x[1]
 theta_vec <- c(theta_curr)
-
-flag <- TRUE
-eps <- 0.00000001
 
 while(flag){
   # evaluate derivative(s)
@@ -45,10 +46,12 @@ data.frame(theta_est = theta_vec) |>
 
 ```
 
-
-```{r}
+```{r echo = F, eval = F}
+# muon decay example
+set.seed(100)
+# simulate data via inverse CDF
 count <- 1
-n <- 50
+n <- 20
 theta_true <- -0.25
 x <- c()
 while(count <= n){
@@ -60,11 +63,8 @@ while(count <= n){
   x <- c(x, root[which(root > -1 & root < 1)])
   count <- count + 1
 }
-# hist(x, prob = TRUE)
-# curve((1 + theta_true*x)/2, add = TRUE, col = "red")
 
-
-# visualize MLE
+# visualize log likelihood to see where MLE is in relation to true theta
 theta_grid <- seq(-0.99,0.99,length=500)
 loglik <- sapply(theta_grid,function(t){
   sum(log(1 + t*x))
@@ -72,10 +72,12 @@ loglik <- sapply(theta_grid,function(t){
 
 plot(theta_grid,loglik,type="l")
 abline(v=theta_true,col="red")
+abline(v=theta_grid[which.max(loglik)],col="blue")
+theta_grid[which.max(loglik)]
 
-
-# initial guess
-theta_curr <- 3 * mean(x)
+# initial guess: MoM
+theta_mom <- 3 * mean(x)
+theta_curr <- theta_mom
 theta_vec <- c(theta_curr)
 
 flag <- TRUE
@@ -102,9 +104,7 @@ while(flag){
   theta_curr <- theta_new
 }
 
-# possible issues: jumping outside bounds!
 
-theta_mom <- 3 * mean(x)
 data.frame(theta_est = theta_vec) |>
   mutate(iteration = row_number()) |>
   ggplot(aes(x = iteration, y = theta_est)) +
