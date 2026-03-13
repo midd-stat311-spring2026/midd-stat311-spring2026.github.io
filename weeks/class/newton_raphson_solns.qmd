@@ -4,6 +4,8 @@ editor_options:
   chunk_output_type: console
 ---
 
+## Poisson example
+
 ```{r message= F}
 library(tidyverse)
 set.seed(311)
@@ -22,7 +24,7 @@ theta_vec <- c(theta_curr)
 while(flag){
   # evaluate derivative(s)
   score <- -n + sum(x)/theta_curr
-  score_prime <- -sum(x)/theta_curr
+  score_prime <- -sum(x)/theta_curr^2
   # update parameter
   theta_new <- theta_curr - score/score_prime
   
@@ -46,13 +48,15 @@ data.frame(theta_est = theta_vec) |>
 
 ```
 
-```{r echo = F, eval = F}
+## Muon decay example
+
+```{r}
 # muon decay example
-set.seed(100)
+set.seed(10)
 # simulate data via inverse CDF
 count <- 1
-n <- 20
-theta_true <- -0.25
+n <- 25
+theta_true <- 0.5
 x <- c()
 while(count <= n){
   u <- runif(1)
@@ -69,11 +73,11 @@ theta_grid <- seq(-0.99,0.99,length=500)
 loglik <- sapply(theta_grid,function(t){
   sum(log(1 + t*x))
 })
-
-plot(theta_grid,loglik,type="l")
-abline(v=theta_true,col="red")
-abline(v=theta_grid[which.max(loglik)],col="blue")
-theta_grid[which.max(loglik)]
+(mle <- theta_grid[which.max(loglik)])
+data.frame(theta = theta_grid, log_like = loglik) |>
+  ggplot(aes(x = theta, y = log_like)) +
+  geom_line() +
+  geom_vline(xintercept = mle, linetype = "dashed", col = "orange")
 
 # initial guess: MoM
 theta_mom <- 3 * mean(x)
@@ -88,7 +92,6 @@ while(flag){
   score <- sum(x / (1 + theta_curr * x))
   score_prime <- -sum(x^2 / (1 + theta_curr * x)^2)
   # update parameter
-  
   theta_new <- theta_curr - score/score_prime
   # enforce parameter bounds??
   theta_new <- max(min(theta_new, 0.999), -0.999)
@@ -108,7 +111,8 @@ while(flag){
 data.frame(theta_est = theta_vec) |>
   mutate(iteration = row_number()) |>
   ggplot(aes(x = iteration, y = theta_est)) +
-  geom_point()
-
+  geom_point() +
+  geom_hline(yintercept = mle, linetype = "dashed", col = "orange") +
+  labs(caption = "Dashed line is observed MLE")
 
 ```

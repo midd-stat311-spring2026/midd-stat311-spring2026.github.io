@@ -57,6 +57,7 @@ None!
 **Class activity**
 
 -   R template for Newton Raphson: {{< downloadthis class/newton_raphson.Rmd dname="newton_raphson" label=".Rmd" id=mtcars-btn >}}
+    -   [My code](class/newton_raphson_solns.qmd)
 
 ```{=html}
 <!--
