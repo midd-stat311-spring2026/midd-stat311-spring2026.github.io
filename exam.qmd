@@ -26,4 +26,4 @@ You are allowed a single-sided note sheet. This note sheet may have definitions,
 
 ### Review Problems
 
-For extra practice, additional review problems will be made available below towards the end of Week 5. While these questions are representative of the typical scope and difficulty of individual exam questions, this review is not comprehensive, nor does it necessarily represent the expected amount of time for it will take for you to complete the exam.
+For extra practice, additional review problems are made available [here](weeks/exam/midterm1_review_problems.pdf). While these questions are *generally* representative of the typical scope and difficulty of individual exam questions, this review is not comprehensive, nor does it necessarily represent the expected amount of time for it will take for you to complete the exam.
