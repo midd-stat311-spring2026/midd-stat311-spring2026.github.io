@@ -142,7 +142,7 @@
     "href": "index.html#major-announcements",
     "title": "Statistical Inference",
     "section": "Major Announcements",
-    "text": "Major Announcements\n\nMidterm 1 details shared in Week 5!\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
+    "text": "Major Announcements\n\nReminder: problem set 5 due Monday at 11:59pm to Canvas!\nMidterm 1 details shared in Week 5!\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
   },
   {
     "objectID": "index.html#course-details",
@@ -720,7 +720,7 @@
     "href": "weeks/class/newton_raphson.html",
     "title": "Newton Raphson",
     "section": "",
-    "text": "library(tidyverse)\nset.seed(311)\n\n# simulate data\ntheta_true &lt;- 4\nn &lt;- 20\nx &lt;- rpois(n, theta_true)\n\n# mechanism for assessing convergence\nflag &lt;- TRUE\neps &lt;- 0.00000001\n\n# initial guess\ntheta_curr &lt;- x[1]\ntheta_vec &lt;- c(theta_curr)\n\n\n# visualize\ntheta_mle &lt;- ____ # replace with mle\ndata.frame(theta_est = ____) |&gt; # replace with vector of approx\n  mutate(iteration = row_number()) |&gt;\n  ggplot(aes(x = iteration, y = theta_est)) +\n  geom_point() +\n  geom_hline(yintercept = theta_mle, linetype = \"dashed\")"
+    "text": "library(tidyverse)\nset.seed(311)\n\n# simulate data\ntheta_true &lt;- 4\nn &lt;- 20\nx &lt;- rpois(n, theta_true)\n\n# mechanism for assessing convergence\nflag &lt;- TRUE\neps &lt;- 0.00000001\n\n\n# visualize\ntheta_mle &lt;- ____ # replace with mle\ndata.frame(theta_est = ____) |&gt; # replace with vector of approx\n  mutate(iteration = row_number()) |&gt;\n  ggplot(aes(x = iteration, y = theta_est)) +\n  geom_point() +\n  geom_hline(yintercept = theta_mle, linetype = \"dashed\")"
   },
   {
     "objectID": "weeks/hw/hw5_r_template.html",
