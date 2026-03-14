@@ -5,7 +5,7 @@ title: "Week 06"
 No problem set this week to give space to study for the midterm! However, there are still daily assignments.
 
 ::: {style="color: #6284a2"}
-### Tuesday (03/26)
+### Tuesday (03/16)
 :::
 
 **Topics**
@@ -15,16 +15,17 @@ No problem set this week to give space to study for the midterm! However, there 
 
 **Daily assignment**
 
--   [Daily assignment](daily/DA_11.pdf)
+-   [Daily assignment](daily/DA_15.pdf)
+    -   [PDF](daily/sampling_dists.pdf) for sampling distibutions
 
 **Class activity**
 
--   MGF refresher [practice problems](class/12_MGF.pdf)
+-   MGF refresher practice problems
 
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Thursday (03/28)
+### Thursday (03/18)
 :::
 
 **Topics**
@@ -33,16 +34,16 @@ No problem set this week to give space to study for the midterm! However, there 
 
 **Daily assignment**
 
--   [Daily assignment](daily/DA_12.pdf)
+-   Daily assignment
 
 **Class activity**
 
--   Covariance and Normal distribution [properties refresher](files/cov_normal_properties.pdf)
+-   Covariance and Normal distribution properties refresher
 
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Friday (03/29)
+### Friday (03/20)
 :::
 
 **Topics**
@@ -52,10 +53,8 @@ No problem set this week to give space to study for the midterm! However, there 
 
 **Daily assignment**
 
--   [Daily assignment](daily/DA_13.pdf)
+-   Daily assignment
 
 **Class activity**
 
--   Sampling dist. of Normal variance estimators [practice problems](class/13_joint_dist.pdf)
-
-**Midterm 1 live at 5:00pm**
+-   Sampling dist. of Normal variance estimators practice problems
