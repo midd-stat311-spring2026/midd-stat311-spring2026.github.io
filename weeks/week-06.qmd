@@ -20,7 +20,7 @@ No problem set this week to give space to study for the midterm! However, there 
 
 **Class activity**
 
--   MGF refresher practice problems
+-   MGF refresher [practice problems](class/15_MGF.pdf)
 
 ------------------------------------------------------------------------
 
