@@ -5,7 +5,7 @@ title: "Week 06"
 No problem set this week to give space to study for the midterm! However, there are still daily assignments.
 
 ::: {style="color: #6284a2"}
-### Tuesday (03/16)
+### Monday (03/16)
 :::
 
 **Topics**
@@ -25,7 +25,7 @@ No problem set this week to give space to study for the midterm! However, there 
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Thursday (03/18)
+### Wednesday (03/18)
 :::
 
 **Topics**
@@ -34,11 +34,11 @@ No problem set this week to give space to study for the midterm! However, there 
 
 **Daily assignment**
 
--   Daily assignment
+-   Review your notes from last class.
 
 **Class activity**
 
--   Covariance and Normal distribution properties refresher
+-   Covariance and Normal properties [refresher](class/cov_normal_properties.pdf)
 
 ------------------------------------------------------------------------
 
