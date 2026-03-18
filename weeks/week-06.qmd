@@ -39,6 +39,7 @@ No problem set this week to give space to study for the midterm! However, there 
 **Class activity**
 
 -   Covariance and Normal properties [refresher](class/cov_normal_properties.pdf)
+-   Joint distribution of sample mean and variance [practice problems](class/16_joint_dist.pdf)
 
 ------------------------------------------------------------------------
 
