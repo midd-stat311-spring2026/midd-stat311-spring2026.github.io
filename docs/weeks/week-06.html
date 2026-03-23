@@ -70,35 +70,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -215,6 +186,12 @@ window.Quarto = {
  <span class="menu-text">Week 06</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../weeks/week-07.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Week 07</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -284,17 +261,7 @@ window.Quarto = {
 <section id="friday-0320" class="level3" style="color: #6284a2">
 <h3 class="anchored" data-anchor-id="friday-0320">Friday (03/20)</h3>
 </section>
-<p><strong>Topics</strong></p>
-<ul>
-<li>Joint dist. of sample mean and variance (cont.)</li>
-<li><span class="math inline">\(t\)</span> distribution</li>
-</ul>
-<p><strong>Daily assignment</strong></p>
-<p>None!</p>
-<p><strong>Class activity</strong></p>
-<ul>
-<li>Sampling dist. of Normal variance estimators practice problems</li>
-</ul>
+<p>No class!!</p>
 
 
 

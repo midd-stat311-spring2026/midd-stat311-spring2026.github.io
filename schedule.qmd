@@ -38,13 +38,14 @@ A high-level overview of the semester's topics are presented here. Please select
 ### [Week 06](weeks/week-06.qmd)
 
 -   Sampling distributions
--   $\chi^2$ and $t$ distributions
+-   $\chi^2$ distribution
 -   Joint distribution of sample mean and variance
 
 ### SPRING BREAK
 
-### Week 07
+### [Week 07](weeks/week-07.qmd)
 
+-   $t$ distribution
 -   Confidence intervals!
 
 ### Week 08

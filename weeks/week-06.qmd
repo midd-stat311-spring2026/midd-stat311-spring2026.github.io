@@ -47,15 +47,4 @@ No problem set this week to give space to study for the midterm! However, there 
 ### Friday (03/20)
 :::
 
-**Topics**
-
--   Joint dist. of sample mean and variance (cont.)
--   $t$ distribution
-
-**Daily assignment**
-
-None!
-
-**Class activity**
-
--   Sampling dist. of Normal variance estimators practice problems
+No class!!

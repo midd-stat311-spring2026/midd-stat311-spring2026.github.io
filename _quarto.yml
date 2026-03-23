@@ -33,6 +33,7 @@ website:
         - weeks/week-04.qmd
         - weeks/week-05.qmd
         - weeks/week-06.qmd
+        - weeks/week-07.qmd
 
   page-footer:
     center: |

@@ -3,26 +3,29 @@ title: "Week 07"
 ---
 
 ::: {style="color: #6284a2"}
-### Tuesday (04/02)
+### Monday (03/30)
 :::
 
 **Topics**
 
--   $t$ distribution (cont.)
+-   $t$ distribution
 -   Introduce final project
 
 **Daily assignment**
 
--   None
+To be submitted by Canvas by 9:00am:
+
+-   [Daily assignment](daily/DA_18.pdf)
 
 **Class activity**
 
--   $t$ distribution [practice problem](daily/14_t_dist.pdf)
+-   Other practice problems
+-   $t$ distribution practice problem
 
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Thursday (04/04)
+### Wednesday (04/01)
 :::
 
 **Topics**
@@ -31,12 +34,14 @@ title: "Week 07"
 
 **Daily assignment**
 
--   [Daily assignment](daily/DA_14.pdf)
+To be submitted by Canvas by 9:00am:
+
+-   Daily assignment
 
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Friday (04/05)
+### Friday (04/03)
 :::
 
 **Topics**
@@ -45,8 +50,10 @@ title: "Week 07"
 
 **Daily assignment**
 
--   [Daily assignment](daily/DA_15.pdf)
+To be submitted by Canvas by 9:00am:
+
+-   Daily assignment
 
 **Class activity**
 
--   Confidence interval [practice problems](class/15_ci.pdf)
+-   Confidence interval practice problems

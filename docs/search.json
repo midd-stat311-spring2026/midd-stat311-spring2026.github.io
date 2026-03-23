@@ -142,7 +142,7 @@
     "href": "index.html#major-announcements",
     "title": "Statistical Inference",
     "section": "Major Announcements",
-    "text": "Major Announcements\n\nReminder: problem set 5 due Monday at 11:59pm to Canvas!\nMidterm 1 review problems released!\nOffice hours schedule:\n\nMonday 3/16: 2:30-4:00pm\nTuesday 3/17: 3:30-4:30pm\nWednesday 3/18: 3:30-4:30pm (extra)\nThursday 3/19: 11am-12:00pm\n\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
+    "text": "Major Announcements\n\nHave a safe and restful spring break!\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
   },
   {
     "objectID": "index.html#course-details",
@@ -163,7 +163,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "A high-level overview of the semester’s topics are presented here. Please select a week for a specific day’s assignments and materials.\n\nWeek 01\n\nWelcome!\nProbability and R review\nCore terminology\n\n\n\nWeek 02\n\nMaximum likelihood estimation\nProperties of MLEs\n\n\n\nWeek 03\n\nMethod of moments\nBias, MSE\n\n\n\nWeek 04\n\nFisher Information\nMLE asymptotics\nCramer-Rao Lower Bound, Efficiency\n\n\n\nWeek 05\n\nSufficiency\nRao-Blackwellization\nNumerical methods\n\n\n\nWeek 06\n\nSampling distributions\n\\(\\chi^2\\) and \\(t\\) distributions\nJoint distribution of sample mean and variance\n\n\n\nSPRING BREAK\n\n\nWeek 07\n\nConfidence intervals!\n\n\n\nWeek 08\n\nHypothesis testing\n\n\n\nWeek 09\n\np-values\nLikelihood ratio test\n\n\n\nWeek 10\n\nNeyman-Pearson Lemma\n\\(t\\)-tests\n\n\n\nWeek 11\n\n\\(F\\)-test\nSimple linear regression\n\n\n\nWeek 12\n\nBayesian methods",
+    "text": "A high-level overview of the semester’s topics are presented here. Please select a week for a specific day’s assignments and materials.\n\nWeek 01\n\nWelcome!\nProbability and R review\nCore terminology\n\n\n\nWeek 02\n\nMaximum likelihood estimation\nProperties of MLEs\n\n\n\nWeek 03\n\nMethod of moments\nBias, MSE\n\n\n\nWeek 04\n\nFisher Information\nMLE asymptotics\nCramer-Rao Lower Bound, Efficiency\n\n\n\nWeek 05\n\nSufficiency\nRao-Blackwellization\nNumerical methods\n\n\n\nWeek 06\n\nSampling distributions\n\\(\\chi^2\\) distribution\nJoint distribution of sample mean and variance\n\n\n\nSPRING BREAK\n\n\nWeek 07\n\n\\(t\\) distribution\nConfidence intervals!\n\n\n\nWeek 08\n\nHypothesis testing\n\n\n\nWeek 09\n\np-values\nLikelihood ratio test\n\n\n\nWeek 10\n\nNeyman-Pearson Lemma\n\\(t\\)-tests\n\n\n\nWeek 11\n\n\\(F\\)-test\nSimple linear regression\n\n\n\nWeek 12\n\nBayesian methods",
     "crumbs": [
       "Schedule"
     ]
@@ -209,7 +209,7 @@
     "href": "weeks/week-07.html",
     "title": "Week 07",
     "section": "",
-    "text": "Tuesday (04/02)\n\nTopics\n\n\\(t\\) distribution (cont.)\nIntroduce final project\n\nDaily assignment\n\nNone\n\nClass activity\n\n\\(t\\) distribution practice problem\n\n\n\nThursday (04/04)\n\nTopics\n\nConfidence intervals\n\nDaily assignment\n\nDaily assignment\n\n\n\nFriday (04/05)\n\nTopics\n\nConfidence intervals (cont.)\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nConfidence interval practice problems",
+    "text": "Monday (03/30)\n\nTopics\n\n\\(t\\) distribution\nIntroduce final project\n\nDaily assignment\nTo be submitted by Canvas by 9:00am:\n\nDaily assignment\n\nClass activity\n\nOther practice problems\n\\(t\\) distribution practice problem\n\n\n\nWednesday (04/01)\n\nTopics\n\nConfidence intervals\n\nDaily assignment\nTo be submitted by Canvas by 9:00am:\n\nDaily assignment\n\n\n\nFriday (04/03)\n\nTopics\n\nConfidence intervals (cont.)\n\nDaily assignment\nTo be submitted by Canvas by 9:00am:\n\nDaily assignment\n\nClass activity\n\nConfidence interval practice problems",
     "crumbs": [
       "Schedule",
       "Week 07"
@@ -220,7 +220,7 @@
     "href": "weeks/week-06.html",
     "title": "Week 06",
     "section": "",
-    "text": "No problem set this week to give space to study for the midterm! However, there are still daily assignments.\n\nMonday (03/16)\n\nTopics\n\nSampling distribution of a statistic\nChi-squared distribution\n\nDaily assignment\n\nDaily assignment\n\nPDF for sampling distibutions\n\n\nClass activity\n\nMGF refresher practice problems\n\n\n\nWednesday (03/18)\n\nTopics\n\nJoint dist. of sample mean and variance\n\nDaily assignment\n\nReview your notes from last class.\n\nClass activity\n\nCovariance and Normal properties refresher\nJoint distribution of sample mean and variance practice problems\n\n\n\nFriday (03/20)\n\nTopics\n\nJoint dist. of sample mean and variance (cont.)\n\\(t\\) distribution\n\nDaily assignment\nNone!\nClass activity\n\nSampling dist. of Normal variance estimators practice problems",
+    "text": "No problem set this week to give space to study for the midterm! However, there are still daily assignments.\n\nMonday (03/16)\n\nTopics\n\nSampling distribution of a statistic\nChi-squared distribution\n\nDaily assignment\n\nDaily assignment\n\nPDF for sampling distibutions\n\n\nClass activity\n\nMGF refresher practice problems\n\n\n\nWednesday (03/18)\n\nTopics\n\nJoint dist. of sample mean and variance\n\nDaily assignment\n\nReview your notes from last class.\n\nClass activity\n\nCovariance and Normal properties refresher\nJoint distribution of sample mean and variance practice problems\n\n\n\nFriday (03/20)\n\nNo class!!",
     "crumbs": [
       "Schedule",
       "Week 06"
