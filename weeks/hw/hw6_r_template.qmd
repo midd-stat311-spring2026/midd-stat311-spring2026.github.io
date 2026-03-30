@@ -1,0 +1,91 @@
+---
+title: 'STAT 311: Homework 6 (R)'
+format: pdf
+---
+
+```{r setup, include=FALSE, message = F}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+General note: the functions `sd()` and `var()` in `R` calculate the values $s$ and $s^2$ as we've seen in class. That is, `var(x)` calculates $s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (x_{i} - \bar{x})^2$, and `sd(x)` calculates the square root of this quantity.
+
+## Problem 1
+
+In a 2007 paper, researchers studied whether or not a new drug, K11777, works to treat schistosomiasis. Schistosomiasis is a disease caused by parasitic flatworms so K11777 helps to stop the worms from growing. In the study, 20 mice were infected with schistosomiasis and then half were randomly selected to receive the K11777 treatment. At the end of the treatment, the number of worms in the liver of each rat was counted.
+
+We want to construct interval estimates that can answer the question: Is the drug helping treat the disease, on average? The data on the number of worms in each of 20 rats is given below.
+
+```{r}
+# rats that received K11777
+treatment <- c(1, 2, 2, 10, 7, 3, 5, 9, 10, 6)
+
+# rats that did not receive K11777
+control <- c(16, 10,10,7, 17, 31, 26, 28, 13, 47)
+
+# create_df
+rat_df <- data.frame(treatment, control) |>
+  pivot_longer(cols = 1:2, names_to = "group", values_to = "worms" )
+```
+
+a)  Construct histograms of the data, one for each group. Do the data appear Normally distributed? Briefly justify your answer.
+
+```{r prob-1a, fig.width=5, fig.height = 2.5}
+
+```
+
+**Solution:**
+
+b)  No matter how you answered in (a), we will make the assumption that the data are Normal. *(You'll find that statisticians often default to Normality in the first analysis...)* Write a function that takes in two arguments: a vector of data and a coefficient level. The function should return a vector of length two, where the first and second elements are the lower and upper bounds of the symmetric $\gamma$-coefficient confidence interval that is appropriate for these data, respectively.
+
+    Using your function, report a 90% confidence interval estimate for the true average number of parasitic worms in the **treatment** group.
+
+```{r prob-1b}
+
+```
+
+c)  Using your same function, construct and report a 90% confidence interval estimate for the true average number of parasitic worms in the **control** group.
+
+```{r prob-1c}
+
+```
+
+d)  Based on your intervals in (b) and (c), answer the research question: Do you think the drug K11777 is helping to treat the disease? Briefly explain why or why not. (It might help to interpret the intervals first)
+
+    **Solution:**
+
+## Problem 2
+
+We saw in class that the coverage probability of a random interval $(A(\mathbf{X}), B(\mathbf{X}))$ is the probability that the interval contains $\theta$. In order for $(A(\mathbf{X}), B(\mathbf{X}))$ to be a $100\times \gamma$ % confidence interval for $\theta$, it must have coverage probability of at least $\gamma$ for all $\theta \in \Omega$. We will investigate coverage rates for a variety of random intervals in this problem.
+
+a)  Suppose $X_{1},\ldots, X_{n}$ are an IID random sample for $N(0,1)$. First set a seed of your choice. Then use `R` to simulate `nsim = 10000` sample data sets (consider making this a variable), each of size $n=6$. Make it such that your resulting matrix has 10000 rows and 5 columns moving forward.
+
+```{r prob-2a}
+
+```
+
+b)  For each sample from (a), find and store the bounds of a symmetric 95% confidence interval for $\mu$. Can you make use of a function from a previous problem? **DO NOT REPORT/PRINT/DISPLAY ALL 10000 INTERVALS IN YOUR FINAL SUBMISSION.**
+
+    *Note: while you used the true values of* $\mu$ *and* $\sigma^2$ *to simulate the datasets in (a), you should treat* $\mu$ and $\sigma^2$ *as unknown for the rest of this problem!*
+
+```{r prob-2b}
+
+```
+
+c)  Approximate and report the coverage rate of this confidence interval procedure by computing the *proportion* of samples which produced a 95% confidence interval that contained the true population mean $\mu$.
+
+```{r prob-2c}
+
+```
+
+d)  As a hint, you should have used either the $t$ or Normal distribution somewhere in part (b) to compute quantiles for your confidence interval for $\mu$. Suppose that instead, now you **incorrectly** treat the observed sample standard deviation $s$ as the true value of the population standard deviation $\sigma$.
+
+    Now repeat parts (b) and (c), but this time under this incorrect assumption.
+
+```{r prob-2d}
+
+```
+
+e)  How do the coverage rates from the procedures in (b) and (d) compare? Why is that?
+
+**Solution:**

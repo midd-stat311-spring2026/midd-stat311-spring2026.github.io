@@ -9,18 +9,18 @@ title: "Week 07"
 **Topics**
 
 -   $t$ distribution
--   Introduce final project
+-   Introduction to confidence intervals
 
 **Daily assignment**
 
 To be submitted by Canvas by 9:00am:
 
 -   [Daily assignment](daily/DA_18.pdf)
+-   Review notes from last week
 
 **Class activity**
 
--   Other practice problems
--   $t$ distribution practice problem
+-   $t$ distribution [practice problem](class/18_t_dist.pdf)
 
 ------------------------------------------------------------------------
 
@@ -30,13 +30,12 @@ To be submitted by Canvas by 9:00am:
 
 **Topics**
 
--   Confidence intervals
+-   Introduce final project
+-   Confidence intervals (cont.)
 
 **Daily assignment**
 
-To be submitted by Canvas by 9:00am:
-
--   Daily assignment
+None!
 
 ------------------------------------------------------------------------
 

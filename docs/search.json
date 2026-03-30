@@ -142,7 +142,7 @@
     "href": "index.html#major-announcements",
     "title": "Statistical Inference",
     "section": "Major Announcements",
-    "text": "Major Announcements\n\nHave a safe and restful spring break!\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
+    "text": "Major Announcements\n\nNo office hours Tuesday 3/31\nSign-up here for 1:1 with Becky to discuss Midterm 1 (Tuesday-Thursday)\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
   },
   {
     "objectID": "index.html#course-details",
@@ -209,7 +209,7 @@
     "href": "weeks/week-07.html",
     "title": "Week 07",
     "section": "",
-    "text": "Monday (03/30)\n\nTopics\n\n\\(t\\) distribution\nIntroduce final project\n\nDaily assignment\nTo be submitted by Canvas by 9:00am:\n\nDaily assignment\n\nClass activity\n\nOther practice problems\n\\(t\\) distribution practice problem\n\n\n\nWednesday (04/01)\n\nTopics\n\nConfidence intervals\n\nDaily assignment\nTo be submitted by Canvas by 9:00am:\n\nDaily assignment\n\n\n\nFriday (04/03)\n\nTopics\n\nConfidence intervals (cont.)\n\nDaily assignment\nTo be submitted by Canvas by 9:00am:\n\nDaily assignment\n\nClass activity\n\nConfidence interval practice problems",
+    "text": "Monday (03/30)\n\nTopics\n\n\\(t\\) distribution\nIntroduction to confidence intervals\n\nDaily assignment\nTo be submitted by Canvas by 9:00am:\n\nDaily assignment\nReview notes from last week\n\nClass activity\n\n\\(t\\) distribution practice problem\n\n\n\nWednesday (04/01)\n\nTopics\n\nIntroduce final project\nConfidence intervals (cont.)\n\nDaily assignment\nNone!\n\n\nFriday (04/03)\n\nTopics\n\nConfidence intervals (cont.)\n\nDaily assignment\nTo be submitted by Canvas by 9:00am:\n\nDaily assignment\n\nClass activity\n\nConfidence interval practice problems",
     "crumbs": [
       "Schedule",
       "Week 07"
@@ -338,9 +338,9 @@
   {
     "objectID": "project.html",
     "href": "project.html",
-    "title": "Final project",
+    "title": "Final Project",
     "section": "",
-    "text": "Downloadable PDF with final project description here (last updated 05/14) .\nKey dates:\nEvery group is required to give a presentation during our course’s exam period on Saturday, May 18 from 9:00am-12:00pm.\nThe majority of the details for the final draft can be found on Section 3.2 of the project description PDF. A few extra details that have been added are:\nRemember that only one final paper needs to be submitted per group!"
+    "text": "Key dates\n\nSunday 04/26 at 12:00pm: project proposal due to Canvas\nSaturday 05/09 at 12:00pm: rough draft for peer review due to Canvas\nThursday 05/14 at 7:00pm: project presentations during exam period\nThursday 05/14 through Monday 05/18: 1:1 conversations with Becky\nSunday 05/17 at 11:59pm: final draft and reflection due to Canvas (tentative)\n\n\n\n\nBrief description\nAn important skill that a working statistician or mathematician should have is the ability to independently investigate an advanced topic and then communicate the findings to a wider audience. This final project is designed as an opportunity for you to demonstrate semester-long cumulative knowledge of the theory of mathematical statistics, and to investigate the framework and application of a particular statistical method or procedure. As part of your investigation, you will apply the method to a particular data set to answer a research question of interest. Note: the emphasis of this project is on learning a new statistical inference method, technique, or concept. This is not intended to be a data analysis-forward project.\nYou will work individually to research a topic in mathematical statistics beyond the scope of what we’ve covered in class. You will share your results in the following ways, each providing different ways of helping you practice sharing statistical knowledge:\n\nVia a 5 - 6 page research paper,\nVia a presentation to a wider audience, and\nVia a 15-20 minute 1:1 conversation with Becky\n\nThis is an opportunity to investigate an area of interest that isn’t covered in class this semester. Alternatively, you may dive deeper into a topic that we only briefly covered in class this semester. Possible topics will be shared later in the semester. Aside from the dataset you choose, you should not use topics/material learned from other courses/research for your final project!"
   },
   {
     "objectID": "weeks/hw/templates/hw6_r.html",
@@ -756,5 +756,61 @@
     "title": "Newton-Raphson",
     "section": "Muon decay example",
     "text": "Muon decay example\n\n# muon decay example\nset.seed(10)\n# simulate data via inverse CDF\ncount &lt;- 1\nn &lt;- 25\ntheta_true &lt;- 0.5\nx &lt;- c()\nwhile(count &lt;= n){\n  u &lt;- runif(1)\n  a &lt;- theta_true / 4\n  b &lt;- 1/2\n  c &lt;- 1/2 - theta_true/4 - u\n  root &lt;- (-b + c(-1, 1) * sqrt(b^2 - 4 * a * c))/(2*a)\n  x &lt;- c(x, root[which(root &gt; -1 & root &lt; 1)])\n  count &lt;- count + 1\n}\n\n# visualize log likelihood to see where MLE is in relation to true theta\ntheta_grid &lt;- seq(-0.99,0.99,length=500)\nloglik &lt;- sapply(theta_grid,function(t){\n  sum(log(1 + t*x))\n})\n(mle &lt;- theta_grid[which.max(loglik)])\n\n[1] 0.4543287\n\ndata.frame(theta = theta_grid, log_like = loglik) |&gt;\n  ggplot(aes(x = theta, y = log_like)) +\n  geom_line() +\n  geom_vline(xintercept = mle, linetype = \"dashed\", col = \"orange\")\n\n\n\n\n\n\n\n# initial guess: MoM\ntheta_mom &lt;- 3 * mean(x)\ntheta_curr &lt;- theta_mom\ntheta_vec &lt;- c(theta_curr)\n\nflag &lt;- TRUE\neps &lt;- 0.0000000001\n\nwhile(flag){\n  # evaluate derivative(s)\n  score &lt;- sum(x / (1 + theta_curr * x))\n  score_prime &lt;- -sum(x^2 / (1 + theta_curr * x)^2)\n  # update parameter\n  theta_new &lt;- theta_curr - score/score_prime\n  # enforce parameter bounds??\n  theta_new &lt;- max(min(theta_new, 0.999), -0.999)\n  \n  # store parameter\n  theta_vec &lt;- c(theta_vec, theta_new)\n  \n  # set flag to FALSE if we have converged\n  if(abs(theta_new - theta_curr) &lt; eps){\n    flag &lt;- FALSE\n  }\n  # set \"new\" parameter to be the previous parameter\n  theta_curr &lt;- theta_new\n}\n\n\ndata.frame(theta_est = theta_vec) |&gt;\n  mutate(iteration = row_number()) |&gt;\n  ggplot(aes(x = iteration, y = theta_est)) +\n  geom_point() +\n  geom_hline(yintercept = mle, linetype = \"dashed\", col = \"orange\") +\n  labs(caption = \"Dashed line is observed MLE\")"
+  },
+  {
+    "objectID": "weeks/hw/hw6_r_template.html",
+    "href": "weeks/hw/hw6_r_template.html",
+    "title": "STAT 311: Homework 6 (R)",
+    "section": "",
+    "text": "General note: the functions sd() and var() in R calculate the values \\(s\\) and \\(s^2\\) as we’ve seen in class. That is, var(x) calculates \\(s^2 = \\frac{1}{n-1} \\sum_{i=1}^{n} (x_{i} - \\bar{x})^2\\), and sd(x) calculates the square root of this quantity."
+  },
+  {
+    "objectID": "weeks/hw/hw6_r_template.html#problem-1",
+    "href": "weeks/hw/hw6_r_template.html#problem-1",
+    "title": "STAT 311: Homework 6 (R)",
+    "section": "Problem 1",
+    "text": "Problem 1\nIn a 2007 paper, researchers studied whether or not a new drug, K11777, works to treat schistosomiasis. Schistosomiasis is a disease caused by parasitic flatworms so K11777 helps to stop the worms from growing. In the study, 20 mice were infected with schistosomiasis and then half were randomly selected to receive the K11777 treatment. At the end of the treatment, the number of worms in the liver of each rat was counted.\nWe want to construct interval estimates that can answer the question: Is the drug helping treat the disease, on average? The data on the number of worms in each of 20 rats is given below.\n\n# rats that received K11777\ntreatment &lt;- c(1, 2, 2, 10, 7, 3, 5, 9, 10, 6)\n\n# rats that did not receive K11777\ncontrol &lt;- c(16, 10,10,7, 17, 31, 26, 28, 13, 47)\n\n# create_df\nrat_df &lt;- data.frame(treatment, control) |&gt;\n  pivot_longer(cols = 1:2, names_to = \"group\", values_to = \"worms\" )\n\n\nConstruct histograms of the data, one for each group. Do the data appear Normally distributed? Briefly justify your answer.\n\nSolution:\n\nNo matter how you answered in (a), we will make the assumption that the data are Normal. (You’ll find that statisticians often default to Normality in the first analysis…) Write a function that takes in two arguments: a vector of data and a coefficient level. The function should return a vector of length two, where the first and second elements are the lower and upper bounds of the symmetric \\(\\gamma\\)-coefficient confidence interval that is appropriate for these data, respectively.\nUsing your function, report a 90% confidence interval estimate for the true average number of parasitic worms in the treatment group.\n\n\nUsing your same function, construct and report a 90% confidence interval estimate for the true average number of parasitic worms in the control group.\n\n\nBased on your intervals in (b) and (c), answer the research question: Do you think the drug K11777 is helping to treat the disease? Briefly explain why or why not. (It might help to interpret the intervals first)\nSolution:"
+  },
+  {
+    "objectID": "weeks/hw/hw6_r_template.html#problem-2",
+    "href": "weeks/hw/hw6_r_template.html#problem-2",
+    "title": "STAT 311: Homework 6 (R)",
+    "section": "Problem 2",
+    "text": "Problem 2\nWe saw in class that the coverage probability of a random interval \\((A(\\mathbf{X}), B(\\mathbf{X}))\\) is the probability that the interval contains \\(\\theta\\). In order for \\((A(\\mathbf{X}), B(\\mathbf{X}))\\) to be a \\(100\\times \\gamma\\) % confidence interval for \\(\\theta\\), it must have coverage probability of at least \\(\\gamma\\) for all \\(\\theta \\in \\Omega\\). We will investigate coverage rates for a variety of random intervals in this problem.\n\nSuppose \\(X_{1},\\ldots, X_{n}\\) are an IID random sample for \\(N(0,1)\\). First set a seed of your choice. Then use R to simulate nsim = 10000 sample data sets (consider making this a variable), each of size \\(n=6\\). Make it such that your resulting matrix has 10000 rows and 5 columns moving forward.\n\n\nFor each sample from (a), find and store the bounds of a symmetric 95% confidence interval for \\(\\mu\\). Can you make use of a function from a previous problem? DO NOT REPORT/PRINT/DISPLAY ALL 10000 INTERVALS IN YOUR FINAL SUBMISSION.\nNote: while you used the true values of \\(\\mu\\) and \\(\\sigma^2\\) to simulate the datasets in (a), you should treat \\(\\mu\\) and \\(\\sigma^2\\) as unknown for the rest of this problem!\n\n\nApproximate and report the coverage rate of this confidence interval procedure by computing the proportion of samples which produced a 95% confidence interval that contained the true population mean \\(\\mu\\).\n\n\nAs a hint, you should have used either the \\(t\\) or Normal distribution somewhere in part (b) to compute quantiles for your confidence interval for \\(\\mu\\). Suppose that instead, now you incorrectly treat the observed sample standard deviation \\(s\\) as the true value of the population standard deviation \\(\\sigma\\).\nNow repeat parts (b) and (c), but this time under this incorrect assumption.\n\n\nHow do the coverage rates from the procedures in (b) and (d) compare? Why is that?\n\nSolution:"
+  },
+  {
+    "objectID": "project_old.html",
+    "href": "project_old.html",
+    "title": "Final project",
+    "section": "",
+    "text": "Downloadable PDF with final project description here (last updated 05/14) .\nKey dates:\nEvery group is required to give a presentation during our course’s exam period on Saturday, May 18 from 9:00am-12:00pm.\nThe majority of the details for the final draft can be found on Section 3.2 of the project description PDF. A few extra details that have been added are:\nRemember that only one final paper needs to be submitted per group!"
+  },
+  {
+    "objectID": "project_old.html#rough-draft",
+    "href": "project_old.html#rough-draft",
+    "title": "Final project",
+    "section": "Rough draft",
+    "text": "Rough draft"
+  },
+  {
+    "objectID": "project_old.html#presentation",
+    "href": "project_old.html#presentation",
+    "title": "Final project",
+    "section": "Presentation",
+    "text": "Presentation"
+  },
+  {
+    "objectID": "project_old.html#final-draft",
+    "href": "project_old.html#final-draft",
+    "title": "Final project",
+    "section": "Final draft",
+    "text": "Final draft"
+  },
+  {
+    "objectID": "project_old.html#sec-reflection",
+    "href": "project_old.html#sec-reflection",
+    "title": "Final project",
+    "section": "Reflection",
+    "text": "Reflection\nIn addition to your final paper, please submit a roughly one page reflection that addresses the following questions. The reflections should be submitted individually.\n\nWhat were some of the most interesting discoveries you made while working on this project? These could be discoveries related to the topic or yourself while working on the project.\nWhat aspect of your project are you most proud of?\nWhat aspects of your project do you wish you could have improved or done better on?\nWhat aspects of the peer review were most helpful to you? Additionally, provide a specific example of some feedback that you incorporated into your final paper.\nHow do you think you grew/developed your statistical expertise through this project, or perhaps through this class as a whole?\nOptionally: what suggestions/feedback do you have for the final project when Becky teaches this class again? Is there anything else that you’d like to reflect on, whether it’s about the project or the class as a whole?"
   }
 ]
