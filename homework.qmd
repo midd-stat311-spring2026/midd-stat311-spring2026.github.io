@@ -15,3 +15,4 @@ Note: problem sets will be updated with new questions following each class. Comp
 -   [Problem Set 5](weeks/hw/hw5.pdf) (due 3/16/26 at 11:59pm to **Canvas**)
     -   **NOTE**: earlier due date to give feedback in time before midterm, but a shorter problem set!
     -   `.Rmd` file for assignment: {{< downloadthis weeks/hw/hw5_r_template.Rmd dname="hw5_R" label="hw5_R" id=mtcars-btn >}}. Rendered version [here](weeks/hw/hw5_r_template.qmd) for easier viewing
+-   [Problem Set 6](weeks/hw/hw6.pdf) (due 4/08/26)
