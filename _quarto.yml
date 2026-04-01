@@ -16,6 +16,8 @@ website:
         text: "Homework"
       - file: exam.qmd
         text: "Exams"
+      - file: project.qmd
+        text: "Project"
 
     right:
       - icon: bar-chart-fill
