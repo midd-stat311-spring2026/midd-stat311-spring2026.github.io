@@ -49,10 +49,8 @@ None!
 
 **Daily assignment**
 
-To be submitted by Canvas by 9:00am:
-
--   Daily assignment
+None! Review notes
 
 **Class activity**
 
--   Confidence interval practice problems
+-   Confidence interval [practice problems](class/20_CIs.pdf)
