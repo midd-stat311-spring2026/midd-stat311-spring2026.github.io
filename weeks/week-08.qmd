@@ -3,60 +3,62 @@ title: "Week 08"
 ---
 
 ::: {style="color: #6284a2"}
-### Tuesday (04/09)
+### Tuesday (04/06)
 :::
-
-Note: Homework 6 due tomorrow 4/10!
 
 **Topics**
 
--   Finish up CIs
-
--   Empirical CDF
+-   Introduction to Hypothesis tests
+-   Power
 
 **Daily assignment**
 
--   [Daily assignment](daily/DA_16.pdf)
+To be completed and submitted to Canvas by 9:00AM
+
+-   Daily assignment
 
 **Class activity**
+
+-   Power function example from class
+
+-   Hypothesis test power and error practice problems
 
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Thursday (04/11)
+### Wednesday (04/08)
 :::
-
-Bring your laptops!
 
 **Topics**
 
--   Bootstrap distribution
--   Bootstrap confidence intervals
+-   Level and size of test
 
 **Daily assignment**
 
--   None!
+To be completed and submitted to Canvas by 9:00AM
+
+-   TBD
 
 **Class activity**
 
--   Code from [bootstrap distribution demo](class/bootstrap_dist.Rmd)
+-   Hypothesis test power and error practice problems
 
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Friday (04/12)
+### Friday (04/10)
 :::
-
-Bring your laptops!
 
 **Topics**
 
--   Bootstrap confidence intervals (cont.)
+-   p-values
 
 **Daily assignment**
 
--   None!
+To be completed and submitted to Canvas by 9:00AM
+
+-   Daily assignment
 
 **Class activity**
 
--   Code from [bootstrap CI demo](class/bootstrap_ci.Rmd)
+-   p-value practice problems
