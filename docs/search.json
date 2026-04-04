@@ -329,7 +329,7 @@
     "href": "weeks/week-08.html",
     "title": "Week 08",
     "section": "",
-    "text": "Tuesday (04/06)\n\nTopics\n\nIntroduction to Hypothesis tests\nPower\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00AM\n\nDaily assignment\n\nClass activity\n\nPower function example from class\nHypothesis test power and error practice problems\n\n\n\nWednesday (04/08)\n\nTopics\n\nLevel and size of test\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00AM\n\nTBD\n\nClass activity\n\nHypothesis test power and error practice problems\n\n\n\nFriday (04/10)\n\nTopics\n\np-values\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00AM\n\nDaily assignment\n\nClass activity\n\np-value practice problems",
+    "text": "Tuesday (04/06)\n\nTopics\n\nIntroduction to Hypothesis tests\nPower\n\nDaily assignment\nTo be completed and submitted to Canvas by 10:00AM\n\nDaily assignment (a bit long so plan accordingly!)\n\nClass activity\n\nPower function example from class\nHypothesis test power and error practice problems\n\n\n\nWednesday (04/08)\n\nTopics\n\nLevel and size of test\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00AM\n\nTBD\n\nClass activity\n\nHypothesis test power and error practice problems\n\n\n\nFriday (04/10)\n\nTopics\n\np-values\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00AM\n\nDaily assignment\n\nClass activity\n\np-value practice problems",
     "crumbs": [
       "Schedule",
       "Week 08"
@@ -812,5 +812,26 @@
     "title": "Final project",
     "section": "Reflection",
     "text": "Reflection\nIn addition to your final paper, please submit a roughly one page reflection that addresses the following questions. The reflections should be submitted individually.\n\nWhat were some of the most interesting discoveries you made while working on this project? These could be discoveries related to the topic or yourself while working on the project.\nWhat aspect of your project are you most proud of?\nWhat aspects of your project do you wish you could have improved or done better on?\nWhat aspects of the peer review were most helpful to you? Additionally, provide a specific example of some feedback that you incorporated into your final paper.\nHow do you think you grew/developed your statistical expertise through this project, or perhaps through this class as a whole?\nOptionally: what suggestions/feedback do you have for the final project when Becky teaches this class again? Is there anything else that you’d like to reflect on, whether it’s about the project or the class as a whole?"
+  },
+  {
+    "objectID": "weeks/class/power_functions.html",
+    "href": "weeks/class/power_functions.html",
+    "title": "Power Function example",
+    "section": "",
+    "text": "Recall the following statistical model and hypotheses:\n\\[X_{1},\\ldots, X_{10} |\\theta \\sim \\text{Bern}(\\theta), \\qquad \\theta \\in [0,1]\\] \\[H_{0}: \\theta = \\frac{1}{2} \\qquad \\text{vs.} \\qquad H_{1}: \\theta \\neq \\frac{1}{2}\\] We have the following testing procedure \\(\\delta_{2}\\): \\(r(\\mathbf{X}) = |\\sum_{i=1}^{10} X_{i} - 5|, \\text{ with rejection region } R = \\{r(\\mathbf{X}) = 5 \\}\\)\nSo the power function is \\(\\pi(\\theta | \\delta_{2}) = P( \\sum_{i=1}^{10} X_{i} \\in \\{0, 10\\}|\\theta)\\).\n\n# theta is possible vector of theta_vals\n# n = number of trials\n# r_vals = values in rejection region\npower_fn &lt;- function(theta, n, r_vals){\n  n_theta &lt;- length(theta)\n  ret &lt;- rep(NA, n_theta)\n  for(i in 1:n_theta){\n    ret[i] &lt;- sum(dbinom(r_vals, n, theta[i]))\n  }\n  return(ret)\n}\n\n\n# create sequence of theta values for plotting purposes\ntheta_vals &lt;- seq(0, 1, 0.01)\nn &lt;- 10\ndelta2 &lt;- power_fn(theta_vals, n, c(0, 10))\n\n\ndata.frame(theta = theta_vals, power = delta2) |&gt;\n  ggplot(aes(x = theta, y = power)) +\n  geom_line()+\n  xlab(expression(theta)) +\n  theme(text = element_text(size = 14))\n\n\n\n\n\n\n\n\nWe can use the plot of this power function to talk about the probability of Type I and II error under \\(\\delta_{2}\\)."
+  },
+  {
+    "objectID": "weeks/class/power_functions.html#plotting-power-function",
+    "href": "weeks/class/power_functions.html#plotting-power-function",
+    "title": "Power Function example",
+    "section": "",
+    "text": "Recall the following statistical model and hypotheses:\n\\[X_{1},\\ldots, X_{10} |\\theta \\sim \\text{Bern}(\\theta), \\qquad \\theta \\in [0,1]\\] \\[H_{0}: \\theta = \\frac{1}{2} \\qquad \\text{vs.} \\qquad H_{1}: \\theta \\neq \\frac{1}{2}\\] We have the following testing procedure \\(\\delta_{2}\\): \\(r(\\mathbf{X}) = |\\sum_{i=1}^{10} X_{i} - 5|, \\text{ with rejection region } R = \\{r(\\mathbf{X}) = 5 \\}\\)\nSo the power function is \\(\\pi(\\theta | \\delta_{2}) = P( \\sum_{i=1}^{10} X_{i} \\in \\{0, 10\\}|\\theta)\\).\n\n# theta is possible vector of theta_vals\n# n = number of trials\n# r_vals = values in rejection region\npower_fn &lt;- function(theta, n, r_vals){\n  n_theta &lt;- length(theta)\n  ret &lt;- rep(NA, n_theta)\n  for(i in 1:n_theta){\n    ret[i] &lt;- sum(dbinom(r_vals, n, theta[i]))\n  }\n  return(ret)\n}\n\n\n# create sequence of theta values for plotting purposes\ntheta_vals &lt;- seq(0, 1, 0.01)\nn &lt;- 10\ndelta2 &lt;- power_fn(theta_vals, n, c(0, 10))\n\n\ndata.frame(theta = theta_vals, power = delta2) |&gt;\n  ggplot(aes(x = theta, y = power)) +\n  geom_line()+\n  xlab(expression(theta)) +\n  theme(text = element_text(size = 14))\n\n\n\n\n\n\n\n\nWe can use the plot of this power function to talk about the probability of Type I and II error under \\(\\delta_{2}\\)."
+  },
+  {
+    "objectID": "weeks/class/power_functions.html#comparing-power",
+    "href": "weeks/class/power_functions.html#comparing-power",
+    "title": "Power Function example",
+    "section": "Comparing power",
+    "text": "Comparing power\nConsider the original testing procedure \\(\\delta_{1}\\): \\(r(\\mathbf{X}) = |\\sum_{i=1}^{10} X_{i} - 5| \\text{ with rejection region } R = \\{r(\\mathbf{X}) \\geq 4 \\}\\).\nSo the power function is \\(\\pi(\\theta | \\delta_{1}) = P( \\sum_{i=1}^{10} X_{i} \\in \\{0, 1, 9, 10\\}|\\theta)\\).\n\ndelta1 &lt;- power_fn(theta_vals, n, c(0, 1, 9, 10))\ndata.frame(theta = theta_vals, delta1, delta2) |&gt;\n  pivot_longer(cols = 2:3, names_to = \"procedure\", values_to = \"power\") |&gt;\n  ggplot(aes(x = theta, y = power, col = procedure)) +\n  geom_line() + \n  scale_color_manual(values = c(\"purple\", \"black\"))+\n  xlab(expression(theta)) +\n  theme(text = element_text(size = 14))\n\n\n\n\n\n\n\n\nHow do the two testing procedures \\(\\delta_{1}\\) and \\(\\delta_{2}\\) compare with respect to the probabilities of committing a Type I vs. Type II error?"
   }
 ]

@@ -13,14 +13,13 @@ title: "Week 08"
 
 **Daily assignment**
 
-To be completed and submitted to Canvas by 9:00AM
+To be completed and submitted to Canvas by 10:00AM
 
--   Daily assignment
+-   [Daily assignment](daily/DA_21.pdf) (a bit long so plan accordingly!)
 
 **Class activity**
 
 -   Power function example from class
-
 -   Hypothesis test power and error practice problems
 
 ------------------------------------------------------------------------
