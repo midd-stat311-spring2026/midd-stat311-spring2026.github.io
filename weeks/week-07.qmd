@@ -53,4 +53,4 @@ None! Review notes
 
 **Class activity**
 
--   Confidence interval [practice problems](class/20_CIs.pdf)
+-   Confidence interval [practice problems](class/20_CIs.pdf). Solutions [here](class/20_CIs_soln.pdf).
