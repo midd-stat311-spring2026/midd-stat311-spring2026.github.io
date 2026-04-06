@@ -222,8 +222,8 @@ window.Quarto = {
 <section id="plotting-power-function" class="level2">
 <h2 class="anchored" data-anchor-id="plotting-power-function">Plotting power function</h2>
 <p>Recall the following statistical model and hypotheses:</p>
-<p><span class="math display">\[X_{1},\ldots, X_{10} |\theta \sim \text{Bern}(\theta), \qquad \theta \in [0,1]\]</span> <span class="math display">\[H_{0}: \theta = \frac{1}{2} \qquad \text{vs.} \qquad H_{1}: \theta \neq \frac{1}{2}\]</span> We have the following testing procedure <span class="math inline">\(\delta_{2}\)</span>: <span class="math inline">\(r(\mathbf{X}) = |\sum_{i=1}^{10} X_{i} - 5|, \text{ with rejection region } R = \{r(\mathbf{X}) = 5 \}\)</span></p>
-<p>So the power function is <span class="math inline">\(\pi(\theta | \delta_{2}) = P( \sum_{i=1}^{10} X_{i} \in \{0, 10\}|\theta)\)</span>.</p>
+<p><span class="math display">\[X_{1},\ldots, X_{10} |\theta \sim \text{Bern}(\theta), \qquad \theta \in [0,1]\]</span> <span class="math display">\[H_{0}: \theta = \frac{1}{2} \qquad \text{vs.} \qquad H_{1}: \theta \neq \frac{1}{2}\]</span> We have the following testing procedure <span class="math inline">\(\delta_{1}\)</span>: <span class="math inline">\(r(\mathbf{X}) = |\sum_{i=1}^{10} X_{i} - 5|, \text{ with rejection region } R = \{r(\mathbf{X}) = 5 \}\)</span></p>
+<p>So the power function is <span class="math inline">\(\pi(\theta | \delta_{1}) = P( \sum_{i=1}^{10} X_{i} \in \{0, 10\}|\theta)\)</span>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># theta is possible vector of theta_vals</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># n = number of trials</span></span>
@@ -241,41 +241,42 @@ window.Quarto = {
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># create sequence of theta values for plotting purposes</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>theta_vals <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.01</span>)</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>delta2 <span class="ot">&lt;-</span> <span class="fu">power_fn</span>(theta_vals, n, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">theta =</span> theta_vals, <span class="at">power =</span> delta2) <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> theta, <span class="at">y =</span> power)) <span class="sc">+</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="fu">expression</span>(theta)) <span class="sc">+</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>delta1 <span class="ot">&lt;-</span> <span class="fu">power_fn</span>(theta_vals, n, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">theta =</span> theta_vals, <span class="at">power =</span> delta1) <span class="sc">|&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> theta, <span class="at">y =</span> power)) <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="fu">expression</span>(theta)) <span class="sc">+</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="fu">pi</span>(theta  <span class="sc">~</span> <span class="st">"|"</span> <span class="sc">~</span> delta[<span class="dv">1</span>]))) <span class="sc">+</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="power_functions_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="576"></p>
+<p><img src="power_functions_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>We can use the plot of this power function to talk about the probability of Type I and II error under <span class="math inline">\(\delta_{2}\)</span>.</p>
+<p>We can use the plot of this power function to talk about the probability of Type I and II error under <span class="math inline">\(\delta_{1}\)</span>.</p>
 </section>
 <section id="comparing-power" class="level2">
 <h2 class="anchored" data-anchor-id="comparing-power">Comparing power</h2>
-<p>Consider the original testing procedure <span class="math inline">\(\delta_{1}\)</span>: <span class="math inline">\(r(\mathbf{X}) = |\sum_{i=1}^{10} X_{i} - 5| \text{ with rejection region } R = \{r(\mathbf{X}) \geq 4 \}\)</span>.</p>
-<p>So the power function is <span class="math inline">\(\pi(\theta | \delta_{1}) = P( \sum_{i=1}^{10} X_{i} \in \{0, 1, 9, 10\}|\theta)\)</span>.</p>
+<p>Consider the other testing procedure <span class="math inline">\(\delta_{2}\)</span>: <span class="math inline">\(r(\mathbf{X}) = |\sum_{i=1}^{10} X_{i} - 5| \text{ with rejection region } R = \{r(\mathbf{X}) \geq 4 \}\)</span>.</p>
+<p>So the power function is <span class="math inline">\(\pi(\theta | \delta_{2}) = P( \sum_{i=1}^{10} X_{i} \in \{0, 1, 9, 10\}|\theta)\)</span>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>delta1 <span class="ot">&lt;-</span> <span class="fu">power_fn</span>(theta_vals, n, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">10</span>))</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">theta =</span> theta_vals, delta1, delta2) <span class="sc">|&gt;</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">names_to =</span> <span class="st">"procedure"</span>, <span class="at">values_to =</span> <span class="st">"power"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> theta, <span class="at">y =</span> power, <span class="at">col =</span> procedure)) <span class="sc">+</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"purple"</span>, <span class="st">"black"</span>))<span class="sc">+</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="fu">expression</span>(theta)) <span class="sc">+</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>delta2 <span class="ot">&lt;-</span> <span class="fu">power_fn</span>(theta_vals, n, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">10</span>))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">theta =</span> theta_vals, delta1, delta2) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">names_to =</span> <span class="st">"procedure"</span>, <span class="at">values_to =</span> <span class="st">"power"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> theta, <span class="at">y =</span> power, <span class="at">col =</span> procedure)) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"purple"</span>))<span class="sc">+</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="fu">expression</span>(theta)) <span class="sc">+</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="fu">pi</span>(theta  <span class="sc">~</span> <span class="st">"|"</span> <span class="sc">~</span> delta)))<span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="power_functions_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="576"></p>
+<p><img src="power_functions_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="480"></p>
 </figure>
 </div>
 </div>

@@ -1,10 +1,11 @@
 ---
 title: "Power Function example"
+format: html
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = F, warning = F,
-                      fig.width = 6, fig.height = 4)
+                      fig.width = 5, fig.height = 3)
 library(tidyverse)
 ```
 
@@ -12,11 +13,11 @@ library(tidyverse)
 
 Recall the following statistical model and hypotheses:
 
-$$X_{1},\ldots, X_{10} |\theta \sim \text{Bern}(\theta), \qquad \theta \in [0,1]$$ $$H_{0}: \theta = \frac{1}{2} \qquad \text{vs.} \qquad H_{1}: \theta \neq \frac{1}{2}$$ We have the following testing procedure $\delta_{2}$: $r(\mathbf{X}) = |\sum_{i=1}^{10} X_{i} - 5|, \text{ with rejection region } R = \{r(\mathbf{X}) = 5 \}$
+$$X_{1},\ldots, X_{10} |\theta \sim \text{Bern}(\theta), \qquad \theta \in [0,1]$$ $$H_{0}: \theta = \frac{1}{2} \qquad \text{vs.} \qquad H_{1}: \theta \neq \frac{1}{2}$$ We have the following testing procedure $\delta_{1}$: $r(\mathbf{X}) = |\sum_{i=1}^{10} X_{i} - 5|, \text{ with rejection region } R = \{r(\mathbf{X}) = 5 \}$
 
-So the power function is $\pi(\theta | \delta_{2}) = P( \sum_{i=1}^{10} X_{i} \in \{0, 10\}|\theta)$.
+So the power function is $\pi(\theta | \delta_{1}) = P( \sum_{i=1}^{10} X_{i} \in \{0, 10\}|\theta)$.
 
-```{r}
+```{r echo = T}
 # theta is possible vector of theta_vals
 # n = number of trials
 # r_vals = values in rejection region
@@ -33,33 +34,33 @@ power_fn <- function(theta, n, r_vals){
 # create sequence of theta values for plotting purposes
 theta_vals <- seq(0, 1, 0.01)
 n <- 10
-delta2 <- power_fn(theta_vals, n, c(0, 10))
-```
+delta1 <- power_fn(theta_vals, n, c(0, 10))
 
-```{r}
-data.frame(theta = theta_vals, power = delta2) |>
+data.frame(theta = theta_vals, power = delta1) |>
   ggplot(aes(x = theta, y = power)) +
   geom_line()+
   xlab(expression(theta)) +
+  ylab(expression(pi(theta  ~ "|" ~ delta[1]))) +
   theme(text = element_text(size = 14))
 ```
 
-We can use the plot of this power function to talk about the probability of Type I and II error under $\delta_{2}$.
+We can use the plot of this power function to talk about the probability of Type I and II error under $\delta_{1}$.
 
 ## Comparing power
 
-Consider the original testing procedure $\delta_{1}$: $r(\mathbf{X}) = |\sum_{i=1}^{10} X_{i} - 5| \text{ with rejection region } R = \{r(\mathbf{X}) \geq 4 \}$.
+Consider the other testing procedure $\delta_{2}$: $r(\mathbf{X}) = |\sum_{i=1}^{10} X_{i} - 5| \text{ with rejection region } R = \{r(\mathbf{X}) \geq 4 \}$.
 
-So the power function is $\pi(\theta | \delta_{1}) = P( \sum_{i=1}^{10} X_{i} \in \{0, 1, 9, 10\}|\theta)$.
+So the power function is $\pi(\theta | \delta_{2}) = P( \sum_{i=1}^{10} X_{i} \in \{0, 1, 9, 10\}|\theta)$.
 
-```{r}
-delta1 <- power_fn(theta_vals, n, c(0, 1, 9, 10))
+```{r echo = T}
+delta2 <- power_fn(theta_vals, n, c(0, 1, 9, 10))
 data.frame(theta = theta_vals, delta1, delta2) |>
   pivot_longer(cols = 2:3, names_to = "procedure", values_to = "power") |>
   ggplot(aes(x = theta, y = power, col = procedure)) +
   geom_line() + 
-  scale_color_manual(values = c("purple", "black"))+
+  scale_color_manual(values = c("black", "purple"))+
   xlab(expression(theta)) +
+    ylab(expression(pi(theta  ~ "|" ~ delta)))+
   theme(text = element_text(size = 14))
   
 ```

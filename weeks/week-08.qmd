@@ -19,8 +19,8 @@ To be completed and submitted to Canvas by 10:00AM
 
 **Class activity**
 
--   Power function example from class
--   Hypothesis test power and error practice problems
+-   [Power function example](class/power_functions.qmd) from class
+-   Hypothesis test power and error [practice problems](class/21_ht_power.pdf)
 
 ------------------------------------------------------------------------
 
