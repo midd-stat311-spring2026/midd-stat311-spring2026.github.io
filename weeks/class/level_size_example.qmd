@@ -1,0 +1,152 @@
+---
+title: "Size and level of a test example"
+format: pdf
+editor_options: 
+  chunk_output_type: console
+---
+```{r message = F, echo = F}
+library(tidyverse)
+knitr::opts_chunk$set(echo = TRUE, message = F, warning = F,
+                      fig.width = 5, fig.height = 2.75, fig.align = "center")
+```
+
+\vspace{-3cm}
+## Calculating size of a test 
+
+Let $X_{1},\ldots, X_{100} | \theta \overset{iid}{\sim} \text{Bern}(\theta)$ where $\theta \in [0,1]$.
+$$H_{0}: \theta \leq 0.5 \qquad \qquad H_{1}: \theta > 0.5$$
+For our testing procedure $\delta$, define $r(\mathbf{X}) = \sum_{i=1}^{100} X_{i}$ and $R = \{r(\mathbf{X}) \geq 54 \}$.
+
+### Visualize power function
+
+We can see that the power function is increasing in $\theta$: $$\pi(\theta | \delta) = \text{Pr}\left(\sum_{i=1}^{100} X_{i} \geq 54 | \theta\right) = \sum_{k=54}^{100} \binom{100}{54}\theta^{54}(1-\theta)^{100-54}$$ 
+
+```{r echo = F}
+n <- 100
+theta_seq <- seq(0,1,0.0001)
+power <- 1 - pbinom(53, n, theta_seq)
+data.frame(theta = theta_seq, power = power) |>
+  ggplot(aes(x = theta, y = power)) +
+  geom_line(linewidth = 1) +
+  labs(x = expression(theta),
+       y = expression(pi (theta ~ "|" ~ delta))) +
+  theme(text =element_text(size = 15))
+```
+
+### Find size of test
+
+How to find its size? Recall:
+$$\alpha(\delta) = \sup_{\theta \in \Omega_{0}} \pi(\theta | \delta)$$
+
+```{r echo = F}
+size <- 1 - pbinom(53, n, 0.5)
+size_df <- data.frame(x = c(0, 0.5),
+                      xend = c(0.5, 0.5),
+                      y = c(size, 0),
+                      yend = c(size, size))
+df <- data.frame(theta = theta_seq, power = power) |>
+  mutate(space = ifelse(theta <= 0.5, "Omega_0", "Omega_1"))
+
+ggplot() +
+  geom_line(data = df, aes(x = theta, y = power, col = space),
+            linewidth = 1) +
+  #geom_segment(data = size_df, mapping = aes(x = x, xend = xend, y = y, yend = yend), linetype = "dashed") +
+  # geom_hline(yintercept = size, linetype = "dashed") +
+  labs(x = expression(theta),
+       y = expression(pi (theta ~ "|" ~ delta))) +
+  theme(text =element_text(size = 15)) +
+  guides(col = "none")
+```
+
+We see that the sup occurs at $\theta = 0.5$! So:
+
+$$\alpha(\delta) = \sup_{\theta \in \Omega_{0}} \text{Pr}\left(\sum_{i=1}^{100} X_{i} \geq 54 | \theta\right) =  \text{Pr}\left(\sum_{i=1}^{100} X_{i} \geq 54 | \theta = 0.5\right)$$
+Using R, the size of our test is:
+
+```{r}
+# pbinom(x, n, p) = P(X <= x)
+1 - pbinom(53, n, 0.5)
+```
+
+\clearpage
+## Finding a level-$\alpha_{0}$ test
+
+### Brute-force approach
+
+Now suppose I consider tests $\delta_{c}$ that have rejection regions $R = \{r(\mathbf{X}) \geq c \}$ for some $c$, where $r(\mathbf{X}) = \sum_{i=1}^{100} X_{i}$ as before. I want to find a $c$ that yields a level-10 test.
+
+The following plots $\text{Pr}(\sum X_{i} \geq c | \theta = 0.5)$ for $c = 0,1,\ldots, 100$. How can we use this to determine which $c$ gives us a level-0.10 test?
+
+```{r message=F, echo = F, fig.height=3.25}
+# option 1
+theta <- 0.5
+
+c_seq <- 0:100
+alpha0 <- 0.10
+power_c <- 1 - pbinom(c_seq - 1, n, theta)
+data.frame(c = c_seq, power = power_c) |>
+  mutate(below = power <= alpha0) |>
+  ggplot(aes(x = c, y = power)) +
+  geom_point() +
+    theme(text =element_text(size = 15)) +
+  geom_hline(yintercept = alpha0, linetype = "dashed",
+             linewidth = 0.35) +
+  scale_y_continuous(n.breaks = 10) +
+  scale_x_continuous(n.breaks = 10) +
+   guides(col = "none") +
+  labs(y = expression(pi(theta ~ "=" ~  0.5 ~ "|" ~ delta[c])))
+c_star <- c_seq[min(which(power_c < alpha0))]
+```
+
+```{r echo = F, eval = F}
+data.frame(c = c_seq, power = power_c) |>
+  mutate(below = c == c_star) |>
+  ggplot(aes(x = c, y = power, col = below)) +
+  geom_point() +
+    theme(text =element_text(size = 15)) +
+  # geom_hline(yintercept = alpha0, linetype = "dashed") +
+  scale_y_continuous(n.breaks = 10) +
+  scale_x_continuous(n.breaks = 10) +
+   guides(col = "none") +
+  scale_color_manual(values = c("black", "magenta")) +
+  labs(y = expression(pi(theta ~ "=" ~  0.5 ~ "|" ~ delta[c])))
+```
+
+We can see that these probabilities drop below 0.10 when $c = `r c_star`$! So the testing procedure that has rejection region $R = \{r(\mathbf{X}) \geq `r c_star` \}$ is a level-0.10 test of these hypotheses!
+
+```{r}
+# Confirm: P(sum Xi >= 57 | theta = 0.5) <= 0.10
+1 - pbinom(57 - 1, n, 0.5)
+```
+
+\textbf{Question:} does this choice of $c = `r c_star`$ yield the only level-0.10 test?
+
+### CLT approximation
+
+Using the CLT approach, we found 
+$$\text{Pr}\left(\sum_{i=1}^{100} X_{i} \geq c | \theta = 0.5\right) \approx 1- \Phi\left(\frac{c - 50}{5} \right)$$
+We will also plot this as a function of $c$ to find a level-0.10 test, next to the plot from before with the exact probabilites shown on the previous plot. Note that they are quite similar! 
+
+```{r echo = F, fig.height=3.25}
+data.frame(c = c_seq, Exact = power_c, CLT = 1 - pnorm( (c_seq - 50)/5)) |>
+  pivot_longer(cols = 2:3, names_to = "method", values_to = "prob") |>
+  ggplot(aes(x = c, y = prob)) +
+  geom_point(size = 0.65) +
+  geom_hline(yintercept = alpha0, linetype = "dashed",
+             linewidth = 0.35)+
+  theme(text =element_text(size = 13)) +
+    scale_y_continuous(n.breaks = 10) +
+  scale_x_continuous(n.breaks = 10) +
+  labs(y = "Probability") +
+  # labs(y = expression("CLT approx. of " ~ pi(theta ~ "=" ~  0.5 ~ "|" ~ delta[c]))) +
+  facet_wrap(~method)
+```
+
+We can see that the CLT yields the same choice of $c = `r c_star`$. 
+
+Let's obtain the CLT approximated probability:
+
+```{r}
+# verify CLT approximation
+1 - pnorm( (57 - 50) / 5)
+```

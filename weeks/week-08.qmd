@@ -20,7 +20,6 @@ To be completed and submitted to Canvas by 10:00AM
 **Class activity**
 
 -   [Power function example](class/power_functions.qmd) from class
--   Hypothesis test power and error [practice problems](class/21_ht_power.pdf)
 
 ------------------------------------------------------------------------
 
@@ -34,13 +33,12 @@ To be completed and submitted to Canvas by 10:00AM
 
 **Daily assignment**
 
-To be completed and submitted to Canvas by 9:00AM
-
--   TBD
+None!
 
 **Class activity**
 
--   Hypothesis test power and error practice problems
+-   Hypothesis test power and error [practice problems](class/21_ht_power.pdf)
+-   [Level and size example](class/level_size_example.qmd) from class
 
 ------------------------------------------------------------------------
 
