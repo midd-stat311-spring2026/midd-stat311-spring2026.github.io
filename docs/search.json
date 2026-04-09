@@ -329,7 +329,7 @@
     "href": "weeks/week-08.html",
     "title": "Week 08",
     "section": "",
-    "text": "Tuesday (04/06)\n\nTopics\n\nIntroduction to Hypothesis tests\nPower\n\nDaily assignment\nTo be completed and submitted to Canvas by 10:00AM\n\nDaily assignment (a bit long so plan accordingly!)\n\nClass activity\n\nPower function example from class\n\n\n\nWednesday (04/08)\n\nTopics\n\nLevel and size of test\n\nDaily assignment\nNone!\nClass activity\n\nHypothesis test power and error practice problems\nLevel and size example from class\n\n\n\nFriday (04/10)\n\nTopics\n\np-values\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00AM\n\nDaily assignment\n\nClass activity\n\np-value practice problems",
+    "text": "Tuesday (04/06)\n\nTopics\n\nIntroduction to Hypothesis tests\nPower\n\nDaily assignment\nTo be completed and submitted to Canvas by 10:00AM\n\nDaily assignment (a bit long so plan accordingly!)\n\nClass activity\n\nPower function example from class\n\n\n\nWednesday (04/08)\n\nTopics\n\nLevel and size of test\n\nDaily assignment\nNone!\nClass activity\n\nHypothesis test power and error practice problems\nLevel and size example from class\n\n\n\nFriday (04/10)\n\nTopics\n\nLevel and size cont.\np-values (if we’re lucky!)\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00AM\n\nNone!\n\nClass activity\n\np-value practice problems",
     "crumbs": [
       "Schedule",
       "Week 08"
@@ -854,5 +854,12 @@
     "title": "Size and level of a test example",
     "section": "Finding a level-\\(\\alpha_{0}\\) test",
     "text": "Finding a level-\\(\\alpha_{0}\\) test\n\nBrute-force approach\nNow suppose I want to find a level-0.10 test \\(\\delta^*\\) that is of the form \\(R = \\{r(\\mathbf{X}) \\geq c \\}\\) for some \\(c\\).\nThe follow plots \\(\\text{Pr}(\\sum X_{i} \\geq c | \\theta = 0.5)\\) for \\(c = 0,1,\\ldots, 100\\). How can we use this to determine which \\(c\\) gives us a level-0.10 test?\n\n\n\n\n\n\n\n\n\nWe can see that these probabilities drop below 0.10 when \\(c = 57\\)! So the testing procedure \\(\\delta^*\\) that is of the form \\(R = \\{r(\\mathbf{X}) \\geq 57 \\}\\) is a level-0.10 test of these hypotheses!\n\n# Confirm: P(sum Xi &gt;= 57 | theta = 0.5) &lt;= 0.10\n1 - pbinom(57 - 1, n, 0.5)\n\n[1] 0.09667395\n\n\n\n\nCLT approximation\nUsing the CLT approach, we found \\[\\text{Pr}\\left(\\sum_{i=1}^{100} X_{i} \\geq c | \\theta = 0.5\\right) \\approx 1- \\Phi\\left(\\frac{c - 50}{5} \\right)\\] Let’s plot this as a function of \\(c\\) to find a level-0.10 test:\n\n\n\n\n\n\n\n\n\nLet’s obtain the CLT approximated probability:\n\n# verify CLT approximation\n1 - pnorm( (57 - 50) / 5)\n\n[1] 0.08075666"
+  },
+  {
+    "objectID": "weeks/class/power_fun_eg2.html",
+    "href": "weeks/class/power_fun_eg2.html",
+    "title": "Another power function example",
+    "section": "",
+    "text": "library(tidyverse)\nn &lt;- 5\ndf_ls &lt;- list()\nc_vals &lt;- c(0.1, 0.25, 0.5, 1.2)\nfor(i in 1:length(c_vals)){\n  c &lt;- c_vals[i]\n  theta_seq &lt;- seq(0, 1.25, 0.01)\n  power_func &lt;- 1 - ( (1-theta_seq)^n - (1-c)^n)\n  power_func[theta_seq &gt;= c] &lt;- 1\n  df_ls[[i]] &lt;- data.frame(power_func, theta_seq, c = c)\n}\ndo.call(rbind, df_ls) |&gt;\n  mutate( c = factor(c)) |&gt;\n  ggplot(aes(x = theta_seq, y = power_func, col = c)) +\n  geom_line() +\n  labs(x = expression(theta),\n       y = expression(pi ( theta ~ \"|\" ~ delta[c]))) +\n  theme(text = element_text(size = 14))"
   }
 ]

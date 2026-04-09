@@ -1,0 +1,27 @@
+---
+title: "Another power function example"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r message = F}
+library(tidyverse)
+n <- 5
+df_ls <- list()
+c_vals <- c(0.1, 0.25, 0.5, 1.2)
+for(i in 1:length(c_vals)){
+  c <- c_vals[i]
+  theta_seq <- seq(0, 1.25, 0.01)
+  power_func <- 1 - ( (1-theta_seq)^n - (1-c)^n)
+  power_func[theta_seq >= c] <- 1
+  df_ls[[i]] <- data.frame(power_func, theta_seq, c = c)
+}
+do.call(rbind, df_ls) |>
+  mutate( c = factor(c)) |>
+  ggplot(aes(x = theta_seq, y = power_func, col = c)) +
+  geom_line() +
+  labs(x = expression(theta),
+       y = expression(pi ( theta ~ "|" ~ delta[c]))) +
+  theme(text = element_text(size = 14))
+
+```
