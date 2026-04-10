@@ -49,7 +49,6 @@ None!
 **Topics**
 
 -   Level and size cont.
--   p-values (if we're lucky!)
 
 **Daily assignment**
 
@@ -59,4 +58,4 @@ To be completed and submitted to Canvas by 9:00AM
 
 **Class activity**
 
--   p-value practice problems
+-   Finish practice problems from yesterday

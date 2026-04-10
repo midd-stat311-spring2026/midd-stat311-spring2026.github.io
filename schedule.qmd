@@ -51,10 +51,10 @@ A high-level overview of the semester's topics are presented here. Please select
 ### [Week 08](weeks/week-08.qmd)
 
 -   Hypothesis testing
+
+### [Week 09](weeks/week-09.qmd)
+
 -   p-values
-
-### Week 09
-
 -   Likelihood ratio test
 
 ### Week 10

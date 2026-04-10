@@ -163,7 +163,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "A high-level overview of the semester’s topics are presented here. Please select a week for a specific day’s assignments and materials.\n\nWeek 01\n\nWelcome!\nProbability and R review\nCore terminology\n\n\n\nWeek 02\n\nMaximum likelihood estimation\nProperties of MLEs\n\n\n\nWeek 03\n\nMethod of moments\nBias, MSE\n\n\n\nWeek 04\n\nFisher Information\nMLE asymptotics\nCramer-Rao Lower Bound, Efficiency\n\n\n\nWeek 05\n\nSufficiency\nRao-Blackwellization\nNumerical methods\n\n\n\nWeek 06\n\nSampling distributions\n\\(\\chi^2\\) distribution\nJoint distribution of sample mean and variance\n\n\n\nSPRING BREAK\n\n\nWeek 07\n\n\\(t\\) distribution\nConfidence intervals!\n\n\n\nWeek 08\n\nHypothesis testing\np-values\n\n\n\nWeek 09\n\nLikelihood ratio test\n\n\n\nWeek 10\n\nNeyman-Pearson Lemma\n\\(t\\)-tests\n\n\n\nWeek 11\n\n\\(F\\)-test\nSimple linear regression\n\n\n\nWeek 12\n\nBayesian methods",
+    "text": "A high-level overview of the semester’s topics are presented here. Please select a week for a specific day’s assignments and materials.\n\nWeek 01\n\nWelcome!\nProbability and R review\nCore terminology\n\n\n\nWeek 02\n\nMaximum likelihood estimation\nProperties of MLEs\n\n\n\nWeek 03\n\nMethod of moments\nBias, MSE\n\n\n\nWeek 04\n\nFisher Information\nMLE asymptotics\nCramer-Rao Lower Bound, Efficiency\n\n\n\nWeek 05\n\nSufficiency\nRao-Blackwellization\nNumerical methods\n\n\n\nWeek 06\n\nSampling distributions\n\\(\\chi^2\\) distribution\nJoint distribution of sample mean and variance\n\n\n\nSPRING BREAK\n\n\nWeek 07\n\n\\(t\\) distribution\nConfidence intervals!\n\n\n\nWeek 08\n\nHypothesis testing\n\n\n\nWeek 09\n\np-values\nLikelihood ratio test\n\n\n\nWeek 10\n\nNeyman-Pearson Lemma\n\\(t\\)-tests\n\n\n\nWeek 11\n\n\\(F\\)-test\nSimple linear regression\n\n\n\nWeek 12\n\nBayesian methods",
     "crumbs": [
       "Schedule"
     ]
@@ -329,7 +329,7 @@
     "href": "weeks/week-08.html",
     "title": "Week 08",
     "section": "",
-    "text": "Tuesday (04/06)\n\nTopics\n\nIntroduction to Hypothesis tests\nPower\n\nDaily assignment\nTo be completed and submitted to Canvas by 10:00AM\n\nDaily assignment (a bit long so plan accordingly!)\n\nClass activity\n\nPower function example from class\n\n\n\nWednesday (04/08)\n\nTopics\n\nLevel and size of test\n\nDaily assignment\nNone!\nClass activity\n\nHypothesis test power and error practice problems\nLevel and size example from class\n\n\n\nFriday (04/10)\n\nTopics\n\nLevel and size cont.\np-values (if we’re lucky!)\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00AM\n\nNone!\n\nClass activity\n\np-value practice problems",
+    "text": "Tuesday (04/06)\n\nTopics\n\nIntroduction to Hypothesis tests\nPower\n\nDaily assignment\nTo be completed and submitted to Canvas by 10:00AM\n\nDaily assignment (a bit long so plan accordingly!)\n\nClass activity\n\nPower function example from class\n\n\n\nWednesday (04/08)\n\nTopics\n\nLevel and size of test\n\nDaily assignment\nNone!\nClass activity\n\nHypothesis test power and error practice problems\nLevel and size example from class\n\n\n\nFriday (04/10)\n\nTopics\n\nLevel and size cont.\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00AM\n\nNone!\n\nClass activity\n\nFinish practice problems from yesterday",
     "crumbs": [
       "Schedule",
       "Week 08"
@@ -368,7 +368,7 @@
     "href": "weeks/week-09.html",
     "title": "Week 09",
     "section": "",
-    "text": "Tuesday (04/16)\n\nClass observed by department colleague!\nTopics\n\nIntroduction to Hypothesis tests\nPower\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nPower function example from class\nHypothesis test power and error practice problems\n\n\n\nThursday (04/18)\n\nTopics\n\nLevel and size of test\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\nHypothesis test power and error practice problems\n\n\n\nFriday (04/19)\n\nTopics\n\nNO CLASS: Spring symposium\n\nDaily assignment\n\nNone! But it’s an EXCELLENT idea to skim over readings and notes from this week, and to think about your final project",
+    "text": "Monday (04/13)\n\nTopics\n\np-values\n\nDaily assignment\nTo be completed and submitted to Canvas by 9:00AM:\n\nDaily assignment\n\nClass activity\n\np-value practice problems\n\n\n\nWednesday (04/15)\n\nPre-registration dessert social!!\nTopics\n\nLikelihood ratio test\n\nDaily assignment\n\nTBD\n\nClass activity\n\nTBD\n\n\n\nFriday (04/17)\n\nTopics\n\nNO CLASS: Spring symposium\n\nDaily assignment\n\nNone! But it’s an EXCELLENT idea to skim over readings and notes from this week.",
     "crumbs": [
       "Schedule",
       "Week 09"

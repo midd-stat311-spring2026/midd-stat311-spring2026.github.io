@@ -3,48 +3,47 @@ title: "Week 09"
 ---
 
 ::: {style="color: #6284a2"}
-### Tuesday (04/16)
-:::
-
-Class observed by department colleague!
-
-**Topics**
-
--   Introduction to Hypothesis tests
--   Power
-
-**Daily assignment**
-
--   [Daily assignment](daily/DA_17.pdf)
-
-**Class activity**
-
--   [Power function example](class/power_fns.Rmd) from class
-
--   Hypothesis test power and error [practice problems](class/16_ht_1.pdf)
-
-------------------------------------------------------------------------
-
-::: {style="color: #6284a2"}
-### Thursday (04/18)
+### Monday (04/13)
 :::
 
 **Topics**
 
--   Level and size of test
+-   p-values
 
 **Daily assignment**
 
--   [Daily assignment](daily/DA_18.pdf)
+To be completed and submitted to Canvas by 9:00AM:
+
+-   Daily assignment
 
 **Class activity**
 
--   Hypothesis test power and error [practice problems](class/16_ht_1.pdf)
+-   p-value practice problems
 
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Friday (04/19)
+### Wednesday (04/15)
+:::
+
+Pre-registration dessert social!!
+
+**Topics**
+
+-   Likelihood ratio test
+
+**Daily assignment**
+
+-   TBD
+
+**Class activity**
+
+-   TBD
+
+------------------------------------------------------------------------
+
+::: {style="color: #6284a2"}
+### Friday (04/17)
 :::
 
 **Topics**
@@ -53,4 +52,4 @@ Class observed by department colleague!
 
 **Daily assignment**
 
--   None! But it's an EXCELLENT idea to skim over readings and notes from this week, and to think about your final project
+-   None! But it's an EXCELLENT idea to skim over readings and notes from this week.
