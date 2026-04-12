@@ -16,7 +16,7 @@ None!
 
 **Class activity**
 
--   p-value practice problems
+-   p-value [practice problems](class/23_pvals.pdf)
 
 ------------------------------------------------------------------------
 
@@ -32,7 +32,9 @@ Pre-registration dessert social!!
 
 **Daily assignment**
 
--   TBD
+To be completed and submitted to Canvas by 9:00AM:
+
+-   [Daily assignment](daily/DA_25.pdf)
 
 **Class activity**
 
