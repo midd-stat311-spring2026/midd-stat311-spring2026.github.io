@@ -25,3 +25,12 @@ do.call(rbind, df_ls) |>
   theme(text = element_text(size = 14))
 
 ```
+
+```{r}
+c_seq <- seq(0, 1, 0.01)
+n <- 5
+size <- (1-c_seq)^n
+data.frame(size, c = c_seq) |>
+  ggplot(aes(x = c, y = size)) + 
+  geom_line()
+```

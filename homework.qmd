@@ -18,3 +18,4 @@ Note: problem sets will be updated with new questions following each class. Comp
 -   [Problem Set 6](weeks/hw/hw6.pdf) (due 4/08/26)
     -   `.Rmd` file for assignment: {{< downloadthis weeks/hw/hw6_r_template.Rmd dname="hw6_R" label="hw6_R" id=mtcars-btn >}}. Rendered version [here](weeks/hw/hw6_r_template.qmd) for easier viewing
 -   [Problem Set 7](weeks/hw/hw7.pdf) (due 4/15/26)
+-   [Problem Set 8](weeks/hw/hw8.pdf) (due 4/22/26)
