@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Becky Tang">
-<meta name="dcterms.date" content="2024-04-26">
 
-<title>LRT asymptotics – STAT 311: Statistical Inference</title>
+<title>Untitled – STAT 311: Statistical Inference</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -178,7 +176,7 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../project.html"> 
-<span class="menu-text">Final project</span></a>
+<span class="menu-text">Project</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -204,26 +202,14 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">LRT asymptotics</h1>
+<h1 class="title">Untitled</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Becky Tang </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">April 26, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -243,30 +229,30 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="small-n">Small <span class="math inline">\(n\)</span></h2>
 <p>Suppose we have the following hypotheses:</p>
 <p><span class="math display">\[H_{0}: \theta = 0.6 \qquad \text{vs.} \qquad H_{1}: \theta \neq 0.6\]</span></p>
-<p>Suppose we have <span class="math inline">\(n=6\)</span> coin flips and observe <span class="math inline">\(\sum X_i = 1\)</span> heads. What is the <span class="math inline">\(p\)</span> value for the observed data?</p>
+<p>Suppose we have <span class="math inline">\(n=60\)</span> coin flips and observe <span class="math inline">\(\sum X_i = 20\)</span> heads. What is the <span class="math inline">\(p\)</span> value for the observed data?</p>
 <section id="exact-p-value" class="level3">
 <h3 class="anchored" data-anchor-id="exact-p-value">Exact <span class="math inline">\(p\)</span>-value</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">60</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>theta0 <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">20</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Lambda_obs <span class="ot">&lt;-</span> ((n<span class="sc">*</span>theta0<span class="sc">/</span>y)<span class="sc">^</span>y) <span class="sc">*</span> (n<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>theta0)<span class="sc">/</span>(n <span class="sc">-</span> y))<span class="sc">^</span>(n <span class="sc">-</span> y)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Lambda_obs</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.09172943</code></pre>
+<pre><code>[1] 0.000170412</code></pre>
 </div>
 </div>
-<span class="math display">\[\begin{align*}
+<p><span class="math display">\[\begin{align*}
 \text{p-value} &amp;= \sup_{\theta \in \Omega_{0}} \text{Pr}(\Lambda(\mathbf{X}) \leq \Lambda(\mathbf{x})\mid \theta) \\
-&amp;= \text{Pr}\left(\Lambda(\mathbf{X}) \leq 0.0917 \mid \theta = 0.6\right)  \\
+&amp;= \text{Pr}\left(\Lambda(\mathbf{X}) \leq 0.0002 \mid \theta = 0.6\right)  \\
 &amp;=\text{Pr}\left(\sum X_i \in \{0, 1, 6\} \mid \theta = 0.6\right)
-\end{align*}\]</span>
+\end{align*}\]</span></p>
 <p>(Return to previous class’ code for a refresher!)</p>
 <p>Thus the <span class="math inline">\(p\)</span> value is</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="dv">0</span>, n, theta0) <span class="sc">+</span> <span class="fu">dbinom</span>(<span class="dv">1</span>, n, theta0) <span class="sc">+</span> <span class="fu">dbinom</span>(<span class="dv">6</span>, n, theta0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.087616</code></pre>
+<pre><code>[1] 0.0000000000000007580039</code></pre>
 </div>
 </div>
 </section>
@@ -275,34 +261,23 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pchisq</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span><span class="fu">log</span>(Lambda_obs), <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.02882853</code></pre>
+<pre><code>[1] 0.00003101494</code></pre>
 </div>
 </div>
 <p>Notice how different this is from the exact <span class="math inline">\(p\)</span> value! This is because <span class="math inline">\(n=6\)</span> observations is not large enough for asymptotics to kick in!</p>
 </section>
 </section>
-<section id="larger-n" class="level2">
-<h2 class="anchored" data-anchor-id="larger-n">Larger <span class="math inline">\(n\)</span></h2>
-<p>Suppose we have the same hypotheses, but now consider <span class="math inline">\(n = 18\)</span> coin flips, of which we observed <span class="math inline">\(\sum X_i = 3\)</span> heads. So we have the same proportion of heads as in the above case, but more samples overall.</p>
+<section id="exact-p-value-1" class="level2">
+<h2 class="anchored" data-anchor-id="exact-p-value-1">Exact p-value</h2>
+<p>Suppose we have the same hypotheses, but now consider <span class="math inline">\(n = 18\)</span> coin flips, of which we observed <span class="math inline">\(\sum X_i = 20\)</span> heads. So we have the same proportion of heads as in the above case, but more samples overall.</p>
 <p>The exact <span class="math inline">\(p\)</span> value for this data is (I challenge you to try obtaining this on your own):</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p_val</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0003163942</code></pre>
+<pre><code>[1] 0.00005208089</code></pre>
 </div>
 </div>
-<p>The approximate <span class="math inline">\(p\)</span> value using the asymptotic approximation is:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">18</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>theta0 <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>Lambda_obs <span class="ot">&lt;-</span> ((n<span class="sc">*</span>theta0<span class="sc">/</span>y)<span class="sc">^</span>y) <span class="sc">*</span> (n<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>theta0)<span class="sc">/</span>(n <span class="sc">-</span> y))<span class="sc">^</span>(n <span class="sc">-</span> y)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pchisq</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span><span class="fu">log</span>(Lambda_obs), <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.000153118</code></pre>
-</div>
-</div>
-<p>Notice how similar these values are now!</p>
+<p>Notice how similar these values are! Relies on large <span class="math inline">\(n\)</span>.</p>
 
 
 </section>
@@ -715,12 +690,7 @@ window.Quarto = {
     </div>   
     <div class="nav-footer-center">
 <ul>
-<li><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../img/middlebury.png" class="img-fluid figure-img" style="width:10.0%"></p>
-<figcaption>Logo image</figcaption>
-</figure>
-</div></li>
+<li><img src="../../img/middlebury.png" class="img-fluid" style="width:20.0%"></li>
 </ul>
 </div>
     <div class="nav-footer-right">

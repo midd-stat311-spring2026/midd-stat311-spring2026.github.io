@@ -38,7 +38,7 @@ To be completed and submitted to Canvas by 9:00AM:
 
 **Class activity**
 
--   TBD
+-   LRT [example](class/lrt_example.qmd)
 
 ------------------------------------------------------------------------
 

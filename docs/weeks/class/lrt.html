@@ -180,7 +180,7 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../project.html"> 
-<span class="menu-text">Final project</span></a>
+<span class="menu-text">Project</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -239,14 +239,14 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="lrt-set-up">LRT set-up</h2>
 <p>Recall the coin-flipping scenario again! We have <span class="math inline">\(X_{1},\ldots, X_{n}\)</span> are a random sample from a <span class="math inline">\(\text{Bern}(\theta)\)</span> distribution, where <span class="math inline">\(\theta\)</span> is the probability of Heads. We have the hypotheses</p>
 <p><span class="math display">\[H_{0}: \theta = \theta_{0} \qquad \text{vs.} \qquad H_{1}: \theta \neq \theta_{0}\]</span> We can conduct a LRT of these hypotheses. We found the likelihood ratio statistic to be:</p>
-<p><span class="math display">\[\Lambda(\mathbf{X}) = \left(\frac{n\theta_{0}}{\sum X_i}\right)^{\sum X_{i}} \left( \frac{n(1-\theta_{0})}{n - \sum X_i}\right)^{n - \sum X_i}\]</span> The LRT says reject when <span class="math inline">\(\Lambda(\mathbf{x}) \leq k\)</span> for some <span class="math inline">\(k \in [0,1]\)</span>. Notice that <span class="math inline">\(\Lambda(\mathbf{x})\)</span> depends on how many heads we see!</p>
+<p><span class="math display">\[\Lambda(\mathbf{X}) = \left(\frac{n\theta_{0}}{\sum X_i}\right)^{\sum X_{i}} \left( \frac{n(1-\theta_{0})}{n - \sum X_i}\right)^{n - \sum X_i}\]</span> The LRT says reject when <span class="math inline">\(\Lambda(\mathbf{X}) \leq k\)</span> for some <span class="math inline">\(k \in [0,1]\)</span>. Notice that <span class="math inline">\(\Lambda(\mathbf{X})\)</span> depends on how many heads we see!</p>
 </section>
 <section id="specific-case" class="level2">
 <h2 class="anchored" data-anchor-id="specific-case">Specific case</h2>
 <p>Suppose we have <span class="math inline">\(n=6\)</span> coin flips and <span class="math inline">\(\theta_{0} = 0.6\)</span>. That is,</p>
 <p><span class="math display">\[H_{0}: \theta = 0.6 \qquad \text{vs.} \qquad H_{1}: \theta \neq 0.6\]</span></p>
-<p>Also suppose we want a level <span class="math inline">\(0.08\)</span> LRT of these hypotheses, which means we need to find the value of <span class="math inline">\(k\)</span> such that</p>
-<p><span class="math display">\[\text{Pr}(\Lambda(\mathbf{x}) \leq k | \theta =  0.6) \leq 0.08\]</span> We can evaluate the test statistic for these specific values of <span class="math inline">\(n, \theta_{0}\)</span>, and each possible value of <span class="math inline">\(\sum_{i=1}^{6} X_i = y \in \{0,1,\ldots, 6\}\)</span>:</p>
+<p>Also suppose we want a level-<span class="math inline">\(0.08\)</span> LRT of these hypotheses, which means we need to find the values of <span class="math inline">\(k\)</span> such that</p>
+<p><span class="math display">\[\text{Pr}(\Lambda(\mathbf{X}) \leq k | \theta =  0.6) \leq 0.08\]</span> We can evaluate the test statistic for these specific values of <span class="math inline">\(n, \theta_{0}\)</span>, and each possible value of <span class="math inline">\(\sum_{i=1}^{6} X_i = y \in \{0,1,\ldots, 6\}\)</span>:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">6</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>theta0 <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
@@ -257,8 +257,8 @@ window.Quarto = {
 <pre><code>[1] 0.00409600 0.09172943 0.41990400 0.88473600 0.94478400 0.46438023 0.04665600</code></pre>
 </div>
 </div>
-<p>Since <span class="math inline">\(\Lambda(\mathbf{x})\)</span> is a function of <span class="math inline">\(\sum X_i\)</span>, <span class="math inline">\(\text{Pr}(\Lambda(\mathbf{x}) = k | \theta = 0.6)\)</span> can be obtained from <span class="math inline">\(\text{Pr}(\sum X_i = y |\theta = 0.6)\)</span>. For example, <span class="math inline">\(\text{Pr}(\Lambda(\mathbf{x}) = 0.004096) = \text{Pr}(\sum X_i = 0 | \theta = 0.6)\)</span>.</p>
-<p>We display the possible values of <span class="math inline">\(\Lambda(\mathbf{x})\)</span> below, along with their associated probabilities (which are obtained from <span class="math inline">\(\text{Pr}(\sum X_i = y |\theta = 0.6)\)</span>):</p>
+<p>Since <span class="math inline">\(\Lambda(\mathbf{X})\)</span> is a function of <span class="math inline">\(\sum X_i\)</span>, <span class="math inline">\(\text{Pr}(\Lambda(\mathbf{X}) = k | \theta = 0.6)\)</span> can be obtained from <span class="math inline">\(\text{Pr}(\sum X_i = y |\theta = 0.6)\)</span>. For example, <span class="math inline">\(\text{Pr}(\Lambda(\mathbf{X}) = 0.004096) = \text{Pr}(\sum X_i = 0 | \theta = 0.6)\)</span>.</p>
+<p>We display the possible values of <span class="math inline">\(\Lambda(\mathbf{X})\)</span> below, along with their associated probabilities (which are obtained from <span class="math inline">\(\text{Pr}(\sum X_i = y |\theta = 0.6)\)</span>):</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table caption-top table-sm table-striped small">
@@ -276,38 +276,38 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">\(Pr(\sum X_i = y \mid \theta_0)\)</td>
-<td style="text-align: right; border-left: 1px solid; border-right: 1px solid;">0.004096</td>
-<td style="text-align: right; border-left: 1px solid; border-right: 1px solid;">0.0368640</td>
-<td style="text-align: right; border-left: 1px solid; border-right: 1px solid;">0.138240</td>
-<td style="text-align: right; border-left: 1px solid; border-right: 1px solid;">0.276480</td>
-<td style="text-align: right; border-left: 1px solid; border-right: 1px solid;">0.311040</td>
-<td style="text-align: right; border-left: 1px solid; border-right: 1px solid;">0.1866240</td>
-<td style="text-align: right; border-left: 1px solid; border-right: 1px solid;">0.046656</td>
+<td style="text-align: left; border-left: 1px solid; border-right: 1px solid;">\(\Lambda(\mathbf{x})\)</td>
+<td style="text-align: right; border-left: 1px solid; border-right: 1px solid;">0.004</td>
+<td style="text-align: right; border-left: 1px solid; border-right: 1px solid;">0.092</td>
+<td style="text-align: right; border-left: 1px solid; border-right: 1px solid;">0.420</td>
+<td style="text-align: right; border-left: 1px solid; border-right: 1px solid;">0.885</td>
+<td style="text-align: right; border-left: 1px solid; border-right: 1px solid;">0.945</td>
+<td style="text-align: right; border-left: 1px solid; border-right: 1px solid;">0.464</td>
+<td style="text-align: right; border-left: 1px solid; border-right: 1px solid;">0.047</td>
 </tr>
 <tr class="even">
-<td style="text-align: left; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">\(\Lambda(\mathbf{x})\)</td>
-<td style="text-align: right; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">0.004096</td>
-<td style="text-align: right; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">0.0917294</td>
-<td style="text-align: right; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">0.419904</td>
-<td style="text-align: right; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">0.884736</td>
-<td style="text-align: right; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">0.944784</td>
-<td style="text-align: right; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">0.4643802</td>
-<td style="text-align: right; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">0.046656</td>
+<td style="text-align: left; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">\(Pr(\sum X_i = y \mid \theta_0)\)</td>
+<td style="text-align: right; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">0.004</td>
+<td style="text-align: right; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">0.037</td>
+<td style="text-align: right; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">0.138</td>
+<td style="text-align: right; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">0.276</td>
+<td style="text-align: right; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">0.311</td>
+<td style="text-align: right; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">0.187</td>
+<td style="text-align: right; border-left: 1px solid; border-right: 1px solid; border-bottom: 1px solid;">0.047</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>Now we can find the value <span class="math inline">\(k\)</span> such that <span class="math inline">\(\text{Pr}(\Lambda(\mathbf{x}) \leq k | \theta = 0.6) \leq 0.08\)</span>!</p>
+<p>Now we can find the value <span class="math inline">\(k\)</span> such that <span class="math inline">\(\text{Pr}(\Lambda(\mathbf{X}) \leq k | \theta = 0.6) \leq 0.08\)</span>!</p>
 <ul>
-<li><span class="math inline">\(\text{Pr}(\Lambda(\mathbf{x}) \leq 0.0041 | \theta = 0.6) = \text{Pr}(\sum X_i = 0 | \theta = 0.6) = 0.004 \leq 0.08\)</span> 😄</li>
-<li><span class="math inline">\(\text{Pr}(\Lambda(\mathbf{x}) \leq 0.0467 | \theta = 0.6) = \text{Pr}(\sum X_i = \{0, 6\} | \theta = 0.6) = 0.0041 + 0.0467 = 0.051 \leq 0.08\)</span> 😄</li>
-<li><span class="math inline">\(\text{Pr}(\Lambda(\mathbf{x}) \leq 0.0917 | \theta = 0.6) = \text{Pr}(\sum X_i = \{0, 6,1 \} | \theta = 0.6) = 0.0041 + 0.0467+ 0.0369 = 0.088 &gt; 0.08\)</span> 😭</li>
+<li><span class="math inline">\(\text{Pr}(\Lambda(\mathbf{X}) \leq 0.004 | \theta = 0.6) = \text{Pr}(\sum X_i = 0 | \theta = 0.6) = 0.004 \leq 0.08\)</span> 😄</li>
+<li><span class="math inline">\(\text{Pr}(\Lambda(\mathbf{X}) \leq 0.047 | \theta = 0.6) = \text{Pr}(\sum X_i = \{0, 6\} | \theta = 0.6) = 0.004 + 0.047 = 0.051 \leq 0.08\)</span> 😄</li>
+<li><span class="math inline">\(\text{Pr}(\Lambda(\mathbf{X}) \leq 0.092 | \theta = 0.6) = \text{Pr}(\sum X_i = \{0, 6,1 \} | \theta = 0.6) = 0.004 + 0.047+ 0.037 = 0.088 &gt; 0.08\)</span> 😭</li>
 </ul>
-<p>So rejecting <span class="math inline">\(H_{0}\)</span> when <span class="math inline">\(\Lambda(\mathbf{x}) \leq k\)</span> for any <span class="math inline">\(k \in [0, 0.0917)\)</span> yields a level-0.08 test.</p>
-<p>In particular, the test that rejects <span class="math inline">\(H_{0}\)</span> when <span class="math inline">\(k = 0.0467\)</span> has size 0.051.</p>
-<p>The test that rejects <span class="math inline">\(H_{0}\)</span> when <span class="math inline">\(k = 0.0041\)</span> has size 0.004.</p>
+<p>So rejecting <span class="math inline">\(H_{0}\)</span> when <span class="math inline">\(\Lambda(\mathbf{X}) \leq k\)</span> for any <span class="math inline">\(k \in [0, 0.092)\)</span> yields a level-0.08 test.</p>
+<p>In particular, the test that rejects <span class="math inline">\(H_{0}\)</span> when <span class="math inline">\(k = 0.047\)</span> has size 0.051.</p>
+<p>The test that rejects <span class="math inline">\(H_{0}\)</span> when <span class="math inline">\(k = 0.004\)</span> has size 0.004.</p>
 
 
 </section>
@@ -720,12 +720,7 @@ window.Quarto = {
     </div>   
     <div class="nav-footer-center">
 <ul>
-<li><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../img/middlebury.png" class="img-fluid figure-img" style="width:10.0%"></p>
-<figcaption>Logo image</figcaption>
-</figure>
-</div></li>
+<li><img src="../../img/middlebury.png" class="img-fluid" style="width:20.0%"></li>
 </ul>
 </div>
     <div class="nav-footer-right">

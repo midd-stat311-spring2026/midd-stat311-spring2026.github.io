@@ -1,0 +1,66 @@
+---
+title: "Likelihood Ratio Test example"
+format: 
+  pdf
+---
+
+\vspace{-2cm}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message= F, warning = F)
+```
+
+## LRT set-up
+
+Recall the coin-flipping scenario again! We have $X_{1},\ldots, X_{n}$ are a random sample from a $\text{Bern}(\theta)$ distribution, where $\theta$ is the probability of Heads. We have the hypotheses
+
+$$H_{0}: \theta = \theta_{0} \qquad \text{vs.} \qquad H_{1}: \theta \neq \theta_{0}$$ We can conduct a LRT of these hypotheses. We found the likelihood ratio statistic to be:
+
+$$\Lambda(\mathbf{X}) = \left(\frac{n\theta_{0}}{\sum X_i}\right)^{\sum X_{i}} \left( \frac{n(1-\theta_{0})}{n - \sum X_i}\right)^{n - \sum X_i}$$ The LRT says reject when $\Lambda(\mathbf{X}) \leq k$ for some $k \in [0,1]$. Notice that $\Lambda(\mathbf{X})$ depends on how many heads we see!
+
+## Specific case
+
+Suppose we have $n=6$ coin flips and $\theta_{0} = 0.6$. That is,
+
+$$H_{0}: \theta = 0.6 \qquad \text{vs.} \qquad H_{1}: \theta \neq 0.6$$
+
+Also suppose we want a level-$0.08$ LRT of these hypotheses, which means we need to find the values of $k$ such that
+$$\text{Pr}(\Lambda(\mathbf{X}) \leq k | \theta =  0.6) \leq 0.08$$ We can evaluate the test statistic $\Lambda(\mathbf{X})$ above for these specific values of $n, \theta_{0}$, and each possible value of $\sum_{i=1}^{6} X_i = y \in \{0,1,\ldots, 6\}$:
+
+```{r}
+n <- 6
+theta0 <- 0.6
+y <- 0:n
+Lambda <- ((n*theta0/y)^y) * (n*(1-theta0)/(n - y))^(n - y)
+```
+
+Since $\Lambda(\mathbf{X})$ is a function of $\sum X_i$, we can obtain $\text{Pr}(\Lambda(\mathbf{X}) = k | \theta = 0.6)$ from these Binomial PMF evaluations $\text{Pr}(\sum X_i = y |\theta = 0.6)$. For example, $\text{Pr}(\Lambda(\mathbf{X}) = `r Lambda[1]` | \theta - 0.6) = \text{Pr}(\sum X_i = 0 | \theta = 0.6)$.
+
+We display the possible values of $\Lambda(\mathbf{X})$ below, along with their associated probabilities (which are obtained from $\text{Pr}(\sum X_i = y |\theta = 0.6)$):
+
+```{r echo = F}
+library(kableExtra)
+library(tidyverse)
+library(knitr)
+prob_y <- dbinom(0:n, n, theta0)
+
+tab <- rbind(Lambda, prob_y)
+rownames(tab) <- c("\\(\\Lambda(\\mathbf{x})\\)", "\\(Pr(\\sum X_i = y \\mid \\theta_0)\\) ") 
+colnames(tab) <- paste0("y = ", 0:n)
+Lambda_sort <- sort(Lambda)
+prob_y_sort <- prob_y[sort(Lambda, index.return = T)$ix]
+y_sort <- (0:n)[sort(Lambda, index.return = T)$ix]
+
+kable(round(tab,3), format="latex", escape = F) %>%
+     column_spec(1:(n+2), border_left = T, border_right = T) %>%
+  kable_styling(latex_options = "hold_position") %>%
+  row_spec(., 2, extra_css = "border-bottom: 1px solid")
+```
+
+Now we can find the value $k$ such that $\text{Pr}(\Lambda(\mathbf{X}) \leq k | \theta = 0.6) \leq 0.08$!
+
+\vspace{8cm}
+
+So rejecting $H_{0}$ when $\Lambda(\mathbf{X}) \leq k$ for any $k \in \qquad \qquad \qquad$ yields a level-0.08 test.
+
+In particular, the test that rejects $H_{0}$ when $k = \qquad \qquad$ has size $\qquad$.
