@@ -58,7 +58,7 @@ d)  Based on your intervals in (b) and (c), answer the research question: Do you
 
 We saw in class that the coverage probability of a random interval $(A(\mathbf{X}), B(\mathbf{X}))$ is the probability that the interval contains $\theta$. In order for $(A(\mathbf{X}), B(\mathbf{X}))$ to be a $100\times \gamma$ % confidence interval for $\theta$, it must have coverage probability of at least $\gamma$ for all $\theta \in \Omega$. We will investigate coverage rates for a variety of random intervals in this problem.
 
-a)  Suppose $X_{1},\ldots, X_{n}$ are an IID random sample for $N(0,1)$. First set a seed of your choice. Then use `R` to simulate `nsim = 10000` sample data sets (consider making this a variable), each of size $n=6$. Make it such that your resulting matrix has 10000 rows and 5 columns moving forward.
+a)  Suppose $X_{1},\ldots, X_{n}$ are an IID random sample for $N(0,1)$. First set a seed of your choice. Then use `R` to simulate `nsim = 10000` sample data sets (consider making this a variable), each of size $n=6$. Make it such that your resulting matrix has 10000 rows and 6 columns moving forward.
 
 ```{r prob-2a}
 

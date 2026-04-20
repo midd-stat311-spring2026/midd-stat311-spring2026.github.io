@@ -176,6 +176,10 @@ window.Quarto = {
     <a class="nav-link" href="../../exam.html"> 
 <span class="menu-text">Exams</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../project.html"> 
+<span class="menu-text">Project</span></a>
+  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
@@ -265,7 +269,7 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="problem-2">Problem 2</h2>
 <p>We saw in class that the coverage probability of a random interval <span class="math inline">\((A(\mathbf{X}), B(\mathbf{X}))\)</span> is the probability that the interval contains <span class="math inline">\(\theta\)</span>. In order for <span class="math inline">\((A(\mathbf{X}), B(\mathbf{X}))\)</span> to be a <span class="math inline">\(100\times \gamma\)</span> % confidence interval for <span class="math inline">\(\theta\)</span>, it must have coverage probability of at least <span class="math inline">\(\gamma\)</span> for all <span class="math inline">\(\theta \in \Omega\)</span>. We will investigate coverage rates for a variety of random intervals in this problem.</p>
 <ol type="a">
-<li>Suppose <span class="math inline">\(X_{1},\ldots, X_{n}\)</span> are an IID random sample for <span class="math inline">\(N(0,1)\)</span>. First set a seed of your choice. Then use <code>R</code> to simulate <code>nsim = 10000</code> sample data sets (consider making this a variable), each of size <span class="math inline">\(n=6\)</span>. Make it such that your resulting matrix has 10000 rows and 5 columns moving forward.</li>
+<li>Suppose <span class="math inline">\(X_{1},\ldots, X_{n}\)</span> are an IID random sample for <span class="math inline">\(N(0,1)\)</span>. First set a seed of your choice. Then use <code>R</code> to simulate <code>nsim = 10000</code> sample data sets (consider making this a variable), each of size <span class="math inline">\(n=6\)</span>. Make it such that your resulting matrix has 10000 rows and 6 columns moving forward.</li>
 </ol>
 <ol start="2" type="a">
 <li><p>For each sample from (a), find and store the bounds of a symmetric 95% confidence interval for <span class="math inline">\(\mu\)</span>. Can you make use of a function from a previous problem? <strong>DO NOT REPORT/PRINT/DISPLAY ALL 10000 INTERVALS IN YOUR FINAL SUBMISSION.</strong></p>

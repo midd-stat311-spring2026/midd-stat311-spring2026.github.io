@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Untitled – STAT 311: Statistical Inference</title>
+<title>LRT asymptotics example – STAT 311: Statistical Inference</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -202,7 +202,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Untitled</h1>
+<h1 class="title">LRT asymptotics example</h1>
 </div>
 
 
@@ -219,67 +219,39 @@ window.Quarto = {
 </header>
 
 
-<section id="lrt-set-up" class="level2">
-<h2 class="anchored" data-anchor-id="lrt-set-up">LRT set-up</h2>
-<p>Recall the coin-flipping scenario again! We have <span class="math inline">\(X_{1},\ldots, X_{n}\)</span> are a random sample from a <span class="math inline">\(\text{Bern}(\theta)\)</span> distribution, where <span class="math inline">\(\theta\)</span> is the probability of Heads. We have the hypotheses</p>
+<section id="set-up" class="level2">
+<h2 class="anchored" data-anchor-id="set-up">Set-up</h2>
+<p>Recall the coin-flipping scenario again! We have <span class="math inline">\(X_{1},\ldots, X_{n}\)</span> are a random sample from a <span class="math inline">\(\text{Bern}(\theta)\)</span> distribution, where <span class="math inline">\(\theta\)</span> is the probability of Heads. We had the hypotheses</p>
 <p><span class="math display">\[H_{0}: \theta = \theta_{0} \qquad \text{vs.} \qquad H_{1}: \theta \neq \theta_{0}\]</span> We can conduct a LRT of these hypotheses. We found the likelihood ratio statistic to be:</p>
-<p><span class="math display">\[\Lambda(\mathbf{X}) = \left(\frac{n\theta_{0}}{\sum X_i}\right)^{\sum X_{i}} \left( \frac{n(1-\theta_{0})}{n - \sum X_i}\right)^{n - \sum X_i}\]</span>The LRT says reject when <span class="math inline">\(\Lambda(\mathbf{x}) \leq k\)</span> for some <span class="math inline">\(k \in [0,1]\)</span>. Notice that <span class="math inline">\(\Lambda(\mathbf{x})\)</span> depends on how many heads we see!</p>
-</section>
-<section id="small-n" class="level2">
-<h2 class="anchored" data-anchor-id="small-n">Small <span class="math inline">\(n\)</span></h2>
-<p>Suppose we have the following hypotheses:</p>
-<p><span class="math display">\[H_{0}: \theta = 0.6 \qquad \text{vs.} \qquad H_{1}: \theta \neq 0.6\]</span></p>
-<p>Suppose we have <span class="math inline">\(n=60\)</span> coin flips and observe <span class="math inline">\(\sum X_i = 20\)</span> heads. What is the <span class="math inline">\(p\)</span> value for the observed data?</p>
-<section id="exact-p-value" class="level3">
-<h3 class="anchored" data-anchor-id="exact-p-value">Exact <span class="math inline">\(p\)</span>-value</h3>
+<p><span class="math display">\[\Lambda(\mathbf{X}) = \left(\frac{n\theta_{0}}{\sum X_i}\right)^{\sum X_{i}} \left( \frac{n(1-\theta_{0})}{n - \sum X_i}\right)^{n - \sum X_i}\]</span>The LRT says reject when <span class="math inline">\(\Lambda(\mathbf{x}) \leq k\)</span> for some <span class="math inline">\(k \in [0,1]\)</span>.</p>
+<p>Consider <span class="math inline">\(\theta_{0} = 0.6\)</span> and <span class="math inline">\(n = 60\)</span> coin flips. Suppose we observed <span class="math inline">\(\sum X_i = 20\)</span> heads. Should we reject <span class="math inline">\(H_{0}\)</span>? Let’s obtain a p-value!</p>
+<section id="approximate-p-value" class="level3">
+<h3 class="anchored" data-anchor-id="approximate-p-value">Approximate <span class="math inline">\(p\)</span>-value</h3>
+<p>We know that under <span class="math inline">\(H_{0}\)</span>, in this problem the random variable <span class="math inline">\(-2\log \Lambda(\mathbf{X}) \overset{\cdot}{\sim} \chi^2_{1}\)</span> as <span class="math inline">\(n \rightarrow \infty\)</span>. Let’s obtain the approximate p-value.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">60</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>theta0 <span class="ot">&lt;-</span> <span class="fl">0.6</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">20</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Lambda_obs <span class="ot">&lt;-</span> ((n<span class="sc">*</span>theta0<span class="sc">/</span>y)<span class="sc">^</span>y) <span class="sc">*</span> (n<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>theta0)<span class="sc">/</span>(n <span class="sc">-</span> y))<span class="sc">^</span>(n <span class="sc">-</span> y)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>y_obs <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Lambda_obs <span class="ot">&lt;-</span> ((n<span class="sc">*</span>theta0<span class="sc">/</span>y_obs)<span class="sc">^</span>y_obs) <span class="sc">*</span> (n<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>theta0)<span class="sc">/</span>(n <span class="sc">-</span> y_obs))<span class="sc">^</span>(n <span class="sc">-</span> y_obs)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>Lambda_obs</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.000170412</code></pre>
 </div>
-</div>
-<p><span class="math display">\[\begin{align*}
-\text{p-value} &amp;= \sup_{\theta \in \Omega_{0}} \text{Pr}(\Lambda(\mathbf{X}) \leq \Lambda(\mathbf{x})\mid \theta) \\
-&amp;= \text{Pr}\left(\Lambda(\mathbf{X}) \leq 0.0002 \mid \theta = 0.6\right)  \\
-&amp;=\text{Pr}\left(\sum X_i \in \{0, 1, 6\} \mid \theta = 0.6\right)
-\end{align*}\]</span></p>
-<p>(Return to previous class’ code for a refresher!)</p>
-<p>Thus the <span class="math inline">\(p\)</span> value is</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="dv">0</span>, n, theta0) <span class="sc">+</span> <span class="fu">dbinom</span>(<span class="dv">1</span>, n, theta0) <span class="sc">+</span> <span class="fu">dbinom</span>(<span class="dv">6</span>, n, theta0)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0000000000000007580039</code></pre>
-</div>
-</div>
-</section>
-<section id="approximate-p-value" class="level3">
-<h3 class="anchored" data-anchor-id="approximate-p-value">Approximate <span class="math inline">\(p\)</span>-value</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pchisq</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span><span class="fu">log</span>(Lambda_obs), <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pval_approx <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pchisq</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">*</span><span class="fu">log</span>(Lambda_obs), <span class="at">df =</span> <span class="dv">1</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>pval_approx</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.00003101494</code></pre>
 </div>
 </div>
-<p>Notice how different this is from the exact <span class="math inline">\(p\)</span> value! This is because <span class="math inline">\(n=6\)</span> observations is not large enough for asymptotics to kick in!</p>
 </section>
-</section>
-<section id="exact-p-value-1" class="level2">
-<h2 class="anchored" data-anchor-id="exact-p-value-1">Exact p-value</h2>
-<p>Suppose we have the same hypotheses, but now consider <span class="math inline">\(n = 18\)</span> coin flips, of which we observed <span class="math inline">\(\sum X_i = 20\)</span> heads. So we have the same proportion of heads as in the above case, but more samples overall.</p>
-<p>The exact <span class="math inline">\(p\)</span> value for this data is (I challenge you to try obtaining this on your own):</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>p_val</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.00005208089</code></pre>
-</div>
-</div>
+<section id="exact-p-value" class="level3">
+<h3 class="anchored" data-anchor-id="exact-p-value">Exact <span class="math inline">\(p\)</span>-value</h3>
+<p>Let’s compare the approximation to the exact p-value under this LRT.</p>
+<p>The exact p-value for this data is (I challenge you to try obtaining this on your own) is 0.0000521.</p>
 <p>Notice how similar these values are! Relies on large <span class="math inline">\(n\)</span>.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

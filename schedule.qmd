@@ -57,10 +57,9 @@ A high-level overview of the semester's topics are presented here. Please select
 -   p-values
 -   Likelihood ratio test
 
-### Week 10
+### [Week 10](weeks/week-10.qmd)
 
--   Neyman-Pearson Lemma
-
+-   LRT asymptotics
 -   $t$-tests
 
 ### Week 11
