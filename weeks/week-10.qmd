@@ -9,7 +9,6 @@ title: "Week 10"
 **Topics**
 
 -   LRT asymptotics
--   Duality
 
 **Daily assignment**
 
@@ -27,11 +26,14 @@ title: "Week 10"
 
 **Topics**
 
+-   Duality
 -   t-test
 
 **Daily assignment**
 
--   TBD
+To be completed and submitted to Canvas by 9:00AM:
+
+-   [Daily assignment](daily/DA_28.pdf)
 
 **Class activity**
 
