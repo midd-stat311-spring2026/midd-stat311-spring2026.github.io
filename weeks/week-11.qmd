@@ -3,30 +3,30 @@ title: "Week 11"
 ---
 
 ::: {style="color: #6284a2"}
-### Tuesday (04/30)
+### Monday (04/27)
 :::
 
 **Topics**
 
--   $t$-test
+-   Intro to Bayesian statistics
 
 **Daily assignment**
 
--   [Daily assignment](daily/DA_20.pdf)
+-   None!
 
 **Class activity**
 
--   $t$-test [practice problems](class/19_t_test.pdf)
+-   TBD
 
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Thursday (05/02)
+### Wednesday (04/29)
 :::
 
 **Topics**
 
--   Two-sample $t$-test
+-   Bayes (cont.)
 
 **Daily assignment**
 
@@ -35,14 +35,12 @@ title: "Week 11"
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Friday (05/03)
+### Friday (05/01)
 :::
-
-**Midterm 2 today!**
 
 **Topics**
 
--   Review day
+-   Bayesian (cont.)
 
 **Daily assignment**
 

@@ -156,14 +156,14 @@
     "href": "exam.html",
     "title": "Exams",
     "section": "",
-    "text": "Midterm 2 will take place on Thursday 4/30 from 7:00-9:00pm in WNS 105. This midterm will focus on content from Weeks 6-10, but some concepts from the first half of the semester will be relevant (e.g. likelihood, MLE, estimators).\nYou will be provided a clean version of the distribution sheet that is available on the course website.\nYou are allowed a double-sided note sheet. This note sheet may have definitions, theorems, reminders to self, etc. But you may not have any worked out examples/derivations. This note sheet will be submitted alongside your midterm.\nFor extra practice, additional review problems will be made available here at the end of Week 10."
+    "text": "Midterm 2 will take place on Thursday 4/30 from 7:00-9:00pm in WNS 105. This midterm will focus on content from Weeks 6-10, but some concepts from the first half of the semester will be relevant (e.g. likelihood, MLE, estimators).\nYou will be provided a clean version of the distribution sheet that is available on the course website.\nYou are allowed a double-sided note sheet. This note sheet may have definitions, theorems, reminders to self, etc. But you may not have any worked out examples/derivations. This note sheet will be submitted alongside your midterm.\nFor extra practice, additional review problems are available here. Try to not look at them until after you’ve reviewed your notes and previous homework!"
   },
   {
     "objectID": "schedule.html",
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "A high-level overview of the semester’s topics are presented here. Please select a week for a specific day’s assignments and materials.\n\nWeek 01\n\nWelcome!\nProbability and R review\nCore terminology\n\n\n\nWeek 02\n\nMaximum likelihood estimation\nProperties of MLEs\n\n\n\nWeek 03\n\nMethod of moments\nBias, MSE\n\n\n\nWeek 04\n\nFisher Information\nMLE asymptotics\nCramer-Rao Lower Bound, Efficiency\n\n\n\nWeek 05\n\nSufficiency\nRao-Blackwellization\nNumerical methods\n\n\n\nWeek 06\n\nSampling distributions\n\\(\\chi^2\\) distribution\nJoint distribution of sample mean and variance\n\n\n\nSPRING BREAK\n\n\nWeek 07\n\n\\(t\\) distribution\nConfidence intervals!\n\n\n\nWeek 08\n\nHypothesis testing\n\n\n\nWeek 09\n\np-values\nLikelihood ratio test\n\n\n\nWeek 10\n\nLRT asymptotics\n\\(t\\)-tests\n\n\n\nWeek 11\n\n\\(F\\)-test\nSimple linear regression\n\n\n\nWeek 12\n\nBayesian methods",
+    "text": "A high-level overview of the semester’s topics are presented here. Please select a week for a specific day’s assignments and materials.\n\nWeek 01\n\nWelcome!\nProbability and R review\nCore terminology\n\n\n\nWeek 02\n\nMaximum likelihood estimation\nProperties of MLEs\n\n\n\nWeek 03\n\nMethod of moments\nBias, MSE\n\n\n\nWeek 04\n\nFisher Information\nMLE asymptotics\nCramer-Rao Lower Bound, Efficiency\n\n\n\nWeek 05\n\nSufficiency\nRao-Blackwellization\nNumerical methods\n\n\n\nWeek 06\n\nSampling distributions\n\\(\\chi^2\\) distribution\nJoint distribution of sample mean and variance\n\n\n\nSPRING BREAK\n\n\nWeek 07\n\n\\(t\\) distribution\nConfidence intervals!\n\n\n\nWeek 08\n\nHypothesis testing\n\n\n\nWeek 09\n\np-values\nLikelihood ratio test\n\n\n\nWeek 10\n\nLRT asymptotics\n\\(t\\)-tests\n\n\n\nWeek 11\n\nBayesian methods\n\n\n\nWeek 12\n\nSimple linear regression",
     "crumbs": [
       "Schedule"
     ]
@@ -390,7 +390,7 @@
     "href": "weeks/week-11.html",
     "title": "Week 11",
     "section": "",
-    "text": "Tuesday (04/30)\n\nTopics\n\n\\(t\\)-test\n\nDaily assignment\n\nDaily assignment\n\nClass activity\n\n\\(t\\)-test practice problems\n\n\n\nThursday (05/02)\n\nTopics\n\nTwo-sample \\(t\\)-test\n\nDaily assignment\n\nNone\n\n\n\nFriday (05/03)\n\nMidterm 2 today!\nTopics\n\nReview day\n\nDaily assignment\n\nNone!",
+    "text": "Monday (04/27)\n\nTopics\n\nIntro to Bayesian statistics\n\nDaily assignment\n\nNone!\n\nClass activity\n\nTBD\n\n\n\nWednesday (04/29)\n\nTopics\n\nBayes (cont.)\n\nDaily assignment\n\nNone\n\n\n\nFriday (05/01)\n\nTopics\n\nBayesian (cont.)\n\nDaily assignment\n\nNone!",
     "crumbs": [
       "Schedule",
       "Week 11"
@@ -475,7 +475,7 @@
     "href": "exam.html#sec-midterm1",
     "title": "Exams",
     "section": "",
-    "text": "Midterm 2 will take place on Thursday 4/30 from 7:00-9:00pm in WNS 105. This midterm will focus on content from Weeks 6-10, but some concepts from the first half of the semester will be relevant (e.g. likelihood, MLE, estimators).\nYou will be provided a clean version of the distribution sheet that is available on the course website.\nYou are allowed a double-sided note sheet. This note sheet may have definitions, theorems, reminders to self, etc. But you may not have any worked out examples/derivations. This note sheet will be submitted alongside your midterm.\nFor extra practice, additional review problems will be made available here at the end of Week 10."
+    "text": "Midterm 2 will take place on Thursday 4/30 from 7:00-9:00pm in WNS 105. This midterm will focus on content from Weeks 6-10, but some concepts from the first half of the semester will be relevant (e.g. likelihood, MLE, estimators).\nYou will be provided a clean version of the distribution sheet that is available on the course website.\nYou are allowed a double-sided note sheet. This note sheet may have definitions, theorems, reminders to self, etc. But you may not have any worked out examples/derivations. This note sheet will be submitted alongside your midterm.\nFor extra practice, additional review problems are available here. Try to not look at them until after you’ve reviewed your notes and previous homework!"
   },
   {
     "objectID": "weeks/class/lrt.html",

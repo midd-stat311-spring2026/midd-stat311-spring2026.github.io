@@ -62,11 +62,10 @@ A high-level overview of the semester's topics are presented here. Please select
 -   LRT asymptotics
 -   $t$-tests
 
-### Week 11
+### [Week 11](weeks/week-11.qmd)
 
--   $F$-test
--   Simple linear regression
+-   Bayesian methods
 
 ### Week 12
 
--   Bayesian methods
+-   Simple linear regression
