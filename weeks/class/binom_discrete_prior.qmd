@@ -43,8 +43,8 @@ bayes_table |>
 
 ```{r}
 # LIKELIHOOD
-x <- 4
-n <- 11
+x <- 2
+n <- 9
 ## since R is vectorized:
 like <- dbinom(x, size = n, prob = theta)
 ## equivalently

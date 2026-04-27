@@ -951,7 +951,7 @@
     "href": "weeks/class/binom_discrete_prior.html#likelihood",
     "title": "Learning about a Binomial Success Probability",
     "section": "Likelihood",
-    "text": "Likelihood\n\n# LIKELIHOOD\nx &lt;- 4\nn &lt;- 11\n## since R is vectorized:\nlike &lt;- dbinom(x, size = n, prob = theta)\n## equivalently\n## like &lt;- choose(11, y) * theta^y * (1-theta)^(11-y)\nbayes_table &lt;- bayes_table |&gt;\n  add_column(likelihood = like)"
+    "text": "Likelihood\n\n# LIKELIHOOD\nx &lt;- 2\nn &lt;- 9\n## since R is vectorized:\nlike &lt;- dbinom(x, size = n, prob = theta)\n## equivalently\n## like &lt;- choose(11, y) * theta^y * (1-theta)^(11-y)\nbayes_table &lt;- bayes_table |&gt;\n  add_column(likelihood = like)"
   },
   {
     "objectID": "weeks/class/binom_discrete_prior.html#marginal-likelihood-prior-1",
@@ -965,13 +965,13 @@
     "href": "weeks/class/binom_discrete_prior.html#posterior-prior-1",
     "title": "Learning about a Binomial Success Probability",
     "section": "Posterior (prior 1)",
-    "text": "Posterior (prior 1)\n\n# POSTERIOR UNDER PRIOR 1\nbayes_table &lt;- bayes_table |&gt;\n  mutate(posterior1 = product1 / marg_like1)\nbayes_table |&gt;\n  select(theta, posterior1)\n\n  theta    posterior1\n1   0.1 0.01893857939\n2   0.2 0.13286167531\n3   0.3 0.26413206805\n4   0.4 0.28375828506\n5   0.5 0.19333918362\n6   0.6 0.08407652891\n7   0.7 0.02079173713\n8   0.8 0.00207596368\n9   0.9 0.00002597885\n\n# confirm valid PMF \nsum(bayes_table$posterior1)\n\n[1] 1\n\n# visualize prior vs posterior\n# note: could also plot in two separate plots without pivoting\np1 &lt;- bayes_table |&gt;\n  pivot_longer(cols = c(\"prior1\", \"posterior1\"), names_to = \"dist\", values_to = \"probs\") |&gt;\n  mutate(theta = factor(theta),\n         dist = factor(dist, levels = c(\"prior1\", \"posterior1\"))) |&gt; # for prettier visualization\n  ggplot(aes(x = theta, y = probs)) + \n  geom_col() +\n  facet_wrap(~dist) +\n    labs(x = expression(theta),\n      y = \"Probability\",\n      title = bquote(paste(\"Comparison of\" ~ f(theta) ~ \"and\" ~ f(theta ~ \"|\" ~ x ~ \"=\" ~ .(x)))))\n\np1"
+    "text": "Posterior (prior 1)\n\n# POSTERIOR UNDER PRIOR 1\nbayes_table &lt;- bayes_table |&gt;\n  mutate(posterior1 = product1 / marg_like1)\nbayes_table |&gt;\n  select(theta, posterior1)\n\n  theta     posterior1\n1   0.1 0.172540644083\n2   0.2 0.302610329960\n3   0.3 0.267376133286\n4   0.4 0.161574412017\n5   0.5 0.070456957901\n6   0.6 0.021277288825\n7   0.7 0.003865794038\n8   0.8 0.000295517900\n9   0.9 0.000002921991\n\n# confirm valid PMF \nsum(bayes_table$posterior1)\n\n[1] 1\n\n# visualize prior vs posterior\n# note: could also plot in two separate plots without pivoting\np1 &lt;- bayes_table |&gt;\n  pivot_longer(cols = c(\"prior1\", \"posterior1\"), names_to = \"dist\", values_to = \"probs\") |&gt;\n  mutate(theta = factor(theta),\n         dist = factor(dist, levels = c(\"prior1\", \"posterior1\"))) |&gt; # for prettier visualization\n  ggplot(aes(x = theta, y = probs)) + \n  geom_col() +\n  facet_wrap(~dist) +\n    labs(x = expression(theta),\n      y = \"Probability\",\n      title = bquote(paste(\"Comparison of\" ~ f(theta) ~ \"and\" ~ f(theta ~ \"|\" ~ x ~ \"=\" ~ .(x)))))\n\np1"
   },
   {
     "objectID": "weeks/class/binom_discrete_prior.html#compare-to-posterior-under-prior-2",
     "href": "weeks/class/binom_discrete_prior.html#compare-to-posterior-under-prior-2",
     "title": "Learning about a Binomial Success Probability",
     "section": "Compare to posterior under prior 2",
-    "text": "Compare to posterior under prior 2\n\n\n  theta     posterior2\n1   0.1 0.006168515787\n2   0.2 0.043274594401\n3   0.3 0.086030889543\n4   0.4 0.369693507640\n5   0.5 0.377836937562\n6   0.6 0.109538817078\n7   0.7 0.006772110839\n8   0.8 0.000676165538\n9   0.9 0.000008461613"
+    "text": "Compare to posterior under prior 2\n\n\n  theta    posterior2\n1   0.1 0.09077074024\n2   0.2 0.15919822139\n3   0.3 0.14066210121\n4   0.4 0.34000635760\n5   0.5 0.22239734613\n6   0.6 0.04477449977\n7   0.7 0.00203372943\n8   0.8 0.00015546701\n9   0.9 0.00000153721"
   }
 ]

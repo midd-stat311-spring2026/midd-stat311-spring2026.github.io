@@ -249,8 +249,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="likelihood">Likelihood</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># LIKELIHOOD</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">4</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">11</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">9</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="do">## since R is vectorized:</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>like <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(x, <span class="at">size =</span> n, <span class="at">prob =</span> theta)</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="do">## equivalently</span></span>
@@ -277,16 +277,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>bayes_table <span class="sc">|&gt;</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(theta, posterior1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  theta    posterior1
-1   0.1 0.01893857939
-2   0.2 0.13286167531
-3   0.3 0.26413206805
-4   0.4 0.28375828506
-5   0.5 0.19333918362
-6   0.6 0.08407652891
-7   0.7 0.02079173713
-8   0.8 0.00207596368
-9   0.9 0.00002597885</code></pre>
+<pre><code>  theta     posterior1
+1   0.1 0.172540644083
+2   0.2 0.302610329960
+3   0.3 0.267376133286
+4   0.4 0.161574412017
+5   0.5 0.070456957901
+6   0.6 0.021277288825
+7   0.7 0.003865794038
+8   0.8 0.000295517900
+9   0.9 0.000002921991</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># confirm valid PMF </span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(bayes_table<span class="sc">$</span>posterior1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -320,16 +320,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="compare-to-posterior-under-prior-2">Compare to posterior under prior 2</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>  theta     posterior2
-1   0.1 0.006168515787
-2   0.2 0.043274594401
-3   0.3 0.086030889543
-4   0.4 0.369693507640
-5   0.5 0.377836937562
-6   0.6 0.109538817078
-7   0.7 0.006772110839
-8   0.8 0.000676165538
-9   0.9 0.000008461613</code></pre>
+<pre><code>  theta    posterior2
+1   0.1 0.09077074024
+2   0.2 0.15919822139
+3   0.3 0.14066210121
+4   0.4 0.34000635760
+5   0.5 0.22239734613
+6   0.6 0.04477449977
+7   0.7 0.00203372943
+8   0.8 0.00015546701
+9   0.9 0.00000153721</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
