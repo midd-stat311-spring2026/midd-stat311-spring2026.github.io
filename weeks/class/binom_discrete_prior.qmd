@@ -1,0 +1,121 @@
+---
+title: "Learning about a Binomial Success Probability"
+subtitle: "Discrete prior"
+date: "April 27, 2026"
+editor_options: 
+  chunk_output_type: console
+format:
+  html:
+    toc: true
+---
+
+```{r message = F}
+library(tidyverse)
+library(patchwork)
+knitr::opts_chunk$set(fig.width = 7, fig.height = 4)
+```
+
+## Prior 
+
+```{r}
+# PRIOR
+theta <- seq(0.1, 0.9, by = 0.1)
+prior1 <- rep(1/9, 9)
+prior2 <- c(0.05, 0.05, 0.05, 0.2, 0.3, 0.2, 0.05, 0.05, 0.05)
+
+# create data frame for visualization and wrangling
+bayes_table <- data.frame(theta, prior1, prior2) 
+
+# visualize different priors
+bayes_table |>
+  pivot_longer(cols = 2:3, names_to = "prior", values_to = "prior_probs") |>
+  mutate(theta = factor(theta)) |> # for prettier visualization
+  ggplot(aes(x = theta, y = prior_probs)) + 
+  geom_col() +
+  facet_wrap(~ prior) +
+  labs(x = expression(theta),
+      y = expression(f(theta)),
+      title = "Prior")
+
+```
+
+## Likelihood
+
+```{r}
+# LIKELIHOOD
+x <- 4
+n <- 11
+## since R is vectorized:
+like <- dbinom(x, size = n, prob = theta)
+## equivalently
+## like <- choose(11, y) * theta^y * (1-theta)^(11-y)
+bayes_table <- bayes_table |>
+  add_column(likelihood = like) 
+```
+
+## Marginal likelihood (prior 1)
+
+```{r}
+# MARGINAL LIKELIHOOD UNDER PRIOR 1
+bayes_table <- bayes_table |>
+  mutate(product1 = prior1 * likelihood)
+marg_like1 <- sum(bayes_table$product1)
+```
+
+## Posterior (prior 1)
+
+```{r}
+# POSTERIOR UNDER PRIOR 1
+bayes_table <- bayes_table |>
+  mutate(posterior1 = product1 / marg_like1)
+bayes_table |>
+  select(theta, posterior1)
+
+# confirm valid PMF 
+sum(bayes_table$posterior1)
+
+# visualize prior vs posterior
+# note: could also plot in two separate plots without pivoting
+p1 <- bayes_table |>
+  pivot_longer(cols = c("prior1", "posterior1"), names_to = "dist", values_to = "probs") |>
+  mutate(theta = factor(theta),
+         dist = factor(dist, levels = c("prior1", "posterior1"))) |> # for prettier visualization
+  ggplot(aes(x = theta, y = probs)) + 
+  geom_col() +
+  facet_wrap(~dist) +
+    labs(x = expression(theta),
+      y = "Probability",
+      title = bquote(paste("Comparison of" ~ f(theta) ~ "and" ~ f(theta ~ "|" ~ x ~ "=" ~ .(x)))))
+
+p1
+```
+
+## Compare to posterior under prior 2
+
+```{r echo = F, fig.width=8}
+# MARGINAL LIKELIHOOD UNDER PRIOR 2
+bayes_table <- bayes_table |>
+  mutate(product2 = prior2 * likelihood)
+marg_like2 <- sum(bayes_table$product2)
+
+# POSTERIOR UNDER PRIOR 1
+bayes_table <- bayes_table |>
+  mutate(posterior2 = product2 / marg_like2)
+bayes_table |>
+  select(theta, posterior2)
+
+# visualize prior vs posterior
+# note: could also plot in two separate plots without pivoting
+p2 <- bayes_table |>
+  pivot_longer(cols = c("prior2", "posterior2"), names_to = "dist", values_to = "probs") |>
+  mutate(theta = factor(theta),
+         dist = factor(dist, levels = c("prior2", "posterior2"))) |> # for prettier visualization
+  ggplot(aes(x = theta, y = probs)) + 
+  geom_col() +
+  facet_wrap(~dist) +
+   labs(x = expression(theta),
+      y = "Probability",
+      title = bquote(paste("Comparison of" ~ f(theta) ~ "and" ~ f(theta ~ "|" ~ x ~ "=" ~ .(x)))))
+
+p1 + p2
+```

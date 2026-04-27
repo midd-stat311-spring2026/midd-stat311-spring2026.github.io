@@ -16,7 +16,7 @@ title: "Week 11"
 
 **Class activity**
 
--   TBD
+-   [Intro Bayes viz](class/binom_discrete_prior.qmd)
 
 ------------------------------------------------------------------------
 

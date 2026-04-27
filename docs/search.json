@@ -390,7 +390,7 @@
     "href": "weeks/week-11.html",
     "title": "Week 11",
     "section": "",
-    "text": "Monday (04/27)\n\nTopics\n\nIntro to Bayesian statistics\n\nDaily assignment\n\nNone!\n\nClass activity\n\nTBD\n\n\n\nWednesday (04/29)\n\nTopics\n\nBayes (cont.)\n\nDaily assignment\n\nNone\n\n\n\nFriday (05/01)\n\nTopics\n\nBayesian (cont.)\n\nDaily assignment\n\nNone!",
+    "text": "Monday (04/27)\n\nTopics\n\nIntro to Bayesian statistics\n\nDaily assignment\n\nNone!\n\nClass activity\n\nIntro Bayes viz\n\n\n\nWednesday (04/29)\n\nTopics\n\nBayes (cont.)\n\nDaily assignment\n\nNone\n\n\n\nFriday (05/01)\n\nTopics\n\nBayesian (cont.)\n\nDaily assignment\n\nNone!",
     "crumbs": [
       "Schedule",
       "Week 11"
@@ -931,5 +931,47 @@
     "title": "Final Project",
     "section": "Details",
     "text": "Details\nSee this PDF for more details about the final project!"
+  },
+  {
+    "objectID": "weeks/class/binom_discrete_prior.html",
+    "href": "weeks/class/binom_discrete_prior.html",
+    "title": "Learning about a Binomial Success Probability",
+    "section": "",
+    "text": "library(tidyverse)\nlibrary(patchwork)\nknitr::opts_chunk$set(fig.width = 7, fig.height = 4)"
+  },
+  {
+    "objectID": "weeks/class/binom_discrete_prior.html#prior",
+    "href": "weeks/class/binom_discrete_prior.html#prior",
+    "title": "Learning about a Binomial Success Probability",
+    "section": "Prior",
+    "text": "Prior\n\n# PRIOR\ntheta &lt;- seq(0.1, 0.9, by = 0.1)\nprior1 &lt;- rep(1/9, 9)\nprior2 &lt;- c(0.05, 0.05, 0.05, 0.2, 0.3, 0.2, 0.05, 0.05, 0.05)\n\n# create data frame for visualization and wrangling\nbayes_table &lt;- data.frame(theta, prior1, prior2) \n\n# visualize different priors\nbayes_table |&gt;\n  pivot_longer(cols = 2:3, names_to = \"prior\", values_to = \"prior_probs\") |&gt;\n  mutate(theta = factor(theta)) |&gt; # for prettier visualization\n  ggplot(aes(x = theta, y = prior_probs)) + \n  geom_col() +\n  facet_wrap(~ prior) +\n  labs(x = expression(theta),\n      y = expression(f(theta)),\n      title = \"Prior\")"
+  },
+  {
+    "objectID": "weeks/class/binom_discrete_prior.html#likelihood",
+    "href": "weeks/class/binom_discrete_prior.html#likelihood",
+    "title": "Learning about a Binomial Success Probability",
+    "section": "Likelihood",
+    "text": "Likelihood\n\n# LIKELIHOOD\nx &lt;- 4\nn &lt;- 11\n## since R is vectorized:\nlike &lt;- dbinom(x, size = n, prob = theta)\n## equivalently\n## like &lt;- choose(11, y) * theta^y * (1-theta)^(11-y)\nbayes_table &lt;- bayes_table |&gt;\n  add_column(likelihood = like)"
+  },
+  {
+    "objectID": "weeks/class/binom_discrete_prior.html#marginal-likelihood-prior-1",
+    "href": "weeks/class/binom_discrete_prior.html#marginal-likelihood-prior-1",
+    "title": "Learning about a Binomial Success Probability",
+    "section": "Marginal likelihood (prior 1)",
+    "text": "Marginal likelihood (prior 1)\n\n# MARGINAL LIKELIHOOD UNDER PRIOR 1\nbayes_table &lt;- bayes_table |&gt;\n  mutate(product1 = prior1 * likelihood)\nmarg_like1 &lt;- sum(bayes_table$product1)"
+  },
+  {
+    "objectID": "weeks/class/binom_discrete_prior.html#posterior-prior-1",
+    "href": "weeks/class/binom_discrete_prior.html#posterior-prior-1",
+    "title": "Learning about a Binomial Success Probability",
+    "section": "Posterior (prior 1)",
+    "text": "Posterior (prior 1)\n\n# POSTERIOR UNDER PRIOR 1\nbayes_table &lt;- bayes_table |&gt;\n  mutate(posterior1 = product1 / marg_like1)\nbayes_table |&gt;\n  select(theta, posterior1)\n\n  theta    posterior1\n1   0.1 0.01893857939\n2   0.2 0.13286167531\n3   0.3 0.26413206805\n4   0.4 0.28375828506\n5   0.5 0.19333918362\n6   0.6 0.08407652891\n7   0.7 0.02079173713\n8   0.8 0.00207596368\n9   0.9 0.00002597885\n\n# confirm valid PMF \nsum(bayes_table$posterior1)\n\n[1] 1\n\n# visualize prior vs posterior\n# note: could also plot in two separate plots without pivoting\np1 &lt;- bayes_table |&gt;\n  pivot_longer(cols = c(\"prior1\", \"posterior1\"), names_to = \"dist\", values_to = \"probs\") |&gt;\n  mutate(theta = factor(theta),\n         dist = factor(dist, levels = c(\"prior1\", \"posterior1\"))) |&gt; # for prettier visualization\n  ggplot(aes(x = theta, y = probs)) + \n  geom_col() +\n  facet_wrap(~dist) +\n    labs(x = expression(theta),\n      y = \"Probability\",\n      title = bquote(paste(\"Comparison of\" ~ f(theta) ~ \"and\" ~ f(theta ~ \"|\" ~ x ~ \"=\" ~ .(x)))))\n\np1"
+  },
+  {
+    "objectID": "weeks/class/binom_discrete_prior.html#compare-to-posterior-under-prior-2",
+    "href": "weeks/class/binom_discrete_prior.html#compare-to-posterior-under-prior-2",
+    "title": "Learning about a Binomial Success Probability",
+    "section": "Compare to posterior under prior 2",
+    "text": "Compare to posterior under prior 2\n\n\n  theta     posterior2\n1   0.1 0.006168515787\n2   0.2 0.043274594401\n3   0.3 0.086030889543\n4   0.4 0.369693507640\n5   0.5 0.377836937562\n6   0.6 0.109538817078\n7   0.7 0.006772110839\n8   0.8 0.000676165538\n9   0.9 0.000008461613"
   }
 ]
