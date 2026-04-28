@@ -8,7 +8,7 @@ toc: true
 
 Midterm 2 will take place on Thursday 4/30 from 7:00-9:00pm in WNS 105. This midterm will focus on content from Weeks 6-10, but some concepts from the first half of the semester will be relevant (e.g. likelihood, MLE, estimators).
 
-You will be provided a clean version of the distribution sheet that is available on the course website.
+You will be provided a clean version of the distribution sheet that is available [here](weeks/exam/distributions_311_midterm2.pdf).
 
 You are allowed a **double**-sided note sheet. This note sheet may have definitions, theorems, reminders to self, etc. But you may not have any worked out examples/derivations. This note sheet will be submitted alongside your midterm.
 
