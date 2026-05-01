@@ -31,3 +31,5 @@ This is an opportunity to investigate an area of interest that isn’t covered i
 ## Details
 
 See this [PDF](weeks/project/311_project.pdf) for more details about the final project!
+
+-   Here's an [example](weeks/project/project_example.pdf) of a previous student's final paper
