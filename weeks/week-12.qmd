@@ -3,7 +3,7 @@ title: "Week 12"
 ---
 
 ::: {style="color: #6284a2"}
-### Tuesday (05/07)
+### Monday (05/04)
 :::
 
 **Topics**
@@ -17,7 +17,7 @@ title: "Week 12"
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Thursday (05/09)
+### Wednesday (05/06)
 :::
 
 **Topics**
@@ -26,12 +26,12 @@ title: "Week 12"
 
 **Daily assignment**
 
--   [Daily assignment](daily/DA_21.pdf)
+-   None!
 
 ------------------------------------------------------------------------
 
 ::: {style="color: #6284a2"}
-### Friday (05/11)
+### Friday (05/08)
 :::
 
 **Topics**
@@ -44,4 +44,4 @@ title: "Week 12"
 
 **Class activity**
 
--   [Simple linear regression code](class/slr.qmd)
+-   Simple linear regression code
