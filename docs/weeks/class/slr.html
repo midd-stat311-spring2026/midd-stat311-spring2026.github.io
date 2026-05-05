@@ -6,8 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Becky Tang">
-<meta name="dcterms.date" content="2024-05-10">
 
 <title>Simple linear regression – STAT 311: Statistical Inference</title>
 <style>
@@ -178,7 +176,7 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../project.html"> 
-<span class="menu-text">Final project</span></a>
+<span class="menu-text">Project</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -211,19 +209,7 @@ window.Quarto = {
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Becky Tang </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">May 10, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -245,17 +231,12 @@ window.Quarto = {
 <li><p><code>unemp</code>: the unemployment rate in the year of the midterm election</p></li>
 <li><p><code>house_change</code>: percent change in the House seats for the sitting president’s party</p></li>
 </ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> midterms_house <span class="sc">%&gt;%</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>year <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1935</span>, <span class="dv">1939</span>)) <span class="co"># filter out Depression Era</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 </section>
 <section id="simple-linear-regression" class="level1">
 <h1>Simple Linear Regression</h1>
 <p>If we’re interested in understanding how <code>house_change</code> is related to <code>unemp</code>, we might consider a simple linear regression model of the form:</p>
-<p><span class="math display">\[\text{housechange} = \beta_{0} + \beta_{1} \text{unemp} + \epsilon\]</span> One big assumption is that the response variable is Normal:</p>
+<p><span class="math display">\[\text{housechange}_{i} = \beta_{0} + \beta_{1} \text{unemp} + \epsilon_{i}\]</span> One big assumption is that the response variable is Normal. Let’s check this:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(dat<span class="sc">$</span>house_change, <span class="at">xlab =</span> <span class="st">"Percent change"</span>, <span class="at">main =</span> <span class="st">"Histogram of midterm election changeover"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -264,30 +245,46 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>Do this look Normal? Not so sure… But we will proceed anyway!</p>
+<p>Do this look Normal? Not so sure… But we will proceed anyway! (Note, in this analysis we filter out the Depression Era.) Let’s look at a scatterplot of the data:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="slr_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <section id="point-estimates" class="level2">
 <h2 class="anchored" data-anchor-id="point-estimates">Point estimates</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(dat)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> dat<span class="sc">$</span>house_change</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>ybar <span class="ot">&lt;-</span> <span class="fu">mean</span>(y)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> dat<span class="sc">$</span>unemp</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>xbar <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>s_x2 <span class="ot">&lt;-</span> <span class="fu">sum</span>((x <span class="sc">-</span> xbar)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>b1_hat <span class="ot">&lt;-</span> <span class="fu">sum</span>((y <span class="sc">-</span> ybar)<span class="sc">*</span>(x <span class="sc">-</span> xbar))<span class="sc">/</span>s_x2</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>b0_hat <span class="ot">&lt;-</span> ybar <span class="sc">-</span> b1_hat <span class="sc">*</span> xbar</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>s2_hat <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">/</span>n)<span class="sc">*</span><span class="fu">sum</span>((y <span class="sc">-</span> (b0_hat <span class="sc">+</span> b1_hat<span class="sc">*</span>x))<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>b0_hat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(dat)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> dat<span class="sc">$</span>house_change</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ybar <span class="ot">&lt;-</span> <span class="fu">mean</span>(y)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> dat<span class="sc">$</span>unemp</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>xbar <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>s_x2 <span class="ot">&lt;-</span> <span class="fu">sum</span>((x <span class="sc">-</span> xbar)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>b1_mle <span class="ot">&lt;-</span> <span class="fu">sum</span>((y <span class="sc">-</span> ybar)<span class="sc">*</span>(x <span class="sc">-</span> xbar))<span class="sc">/</span>s_x2</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>b0_mle <span class="ot">&lt;-</span> ybar <span class="sc">-</span> b1_mle <span class="sc">*</span> xbar</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>s2_mle <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">/</span>n)<span class="sc">*</span><span class="fu">sum</span>((y <span class="sc">-</span> (b0_mle <span class="sc">+</span> b1_mle<span class="sc">*</span>x))<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>s_tilde <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(s2_mle<span class="sc">*</span>n<span class="sc">/</span>(n<span class="dv">-2</span>))</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># report</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>b0_mle</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -7.364406</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>b1_hat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>b1_mle</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -0.8897261</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>s2_hat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>s2_mle</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 73.95685</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>s_tilde</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8.912639</code></pre>
 </div>
 </div>
 </section>
@@ -296,11 +293,11 @@ window.Quarto = {
 <section id="hypothesis-test" class="level3">
 <h3 class="anchored" data-anchor-id="hypothesis-test">Hypothesis test</h3>
 <p>We might want to better understand if unemployment rate really is associated with changes in composition of the House seats. Consider the hypotheses</p>
-<p><span class="math display">\[H_{0}: \beta_{1} = 0 \qquad \text{vs.} \qquad H_{1}: \beta_{1} \neq 0\]</span> Let <span class="math inline">\(U = s_{x}\left(\frac{\hat{\beta}_{1} - 0}{\sigma'}\right)\)</span>. Recall our rejection rule for a level <span class="math inline">\(\alpha_{0}\)</span> test of these hypotheses is to reject <span class="math inline">\(H_{0}\)</span> if <span class="math inline">\(|U| \geq c = T^{-1}_{n-2}(1 - \frac{\alpha_{0}}{2})\)</span>. In particular, consider <span class="math inline">\(\alpha_{0} = 0.05\)</span>:</p>
+<p><span class="math display">\[H_{0}: \beta_{1} = 0 \qquad \text{vs.} \qquad H_{1}: \beta_{1} \neq 0\]</span> Let <span class="math inline">\(r(\mathbf{Y}) = s_{x}\left(\frac{\hat{\beta}_{1,MLE}}{\sigma'}\right)\)</span>. Recall our rejection rule for a level <span class="math inline">\(\alpha_{0}\)</span> test of these hypotheses is to reject <span class="math inline">\(H_{0}\)</span> if <span class="math inline">\(|r(\mathbf{Y}) | \geq T^{-1}_{n-2}(1 - \frac{\alpha_{0}}{2})\)</span>. In particular, consider <span class="math inline">\(\alpha_{0} = 0.05\)</span>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>s_tilde <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(n<span class="sc">*</span>s2_hat<span class="sc">/</span>(n<span class="dv">-2</span>))</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(s_x2)<span class="sc">*</span>(b1_hat <span class="sc">-</span> <span class="dv">0</span>)<span class="sc">/</span>s_tilde</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>u</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>s_x <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(s_x2)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>r_obs <span class="ot">&lt;-</span> s_x<span class="sc">*</span>b1_mle<span class="sc">/</span>s_tilde</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>r_obs</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1.065546</code></pre>
 </div>
@@ -312,14 +309,14 @@ window.Quarto = {
 <pre><code>[1] 2.051831</code></pre>
 </div>
 </div>
-<p>Since <span class="math inline">\(|U| = |u| = 1.066\)</span> is less than <span class="math inline">\(c = 2.052\)</span>, we fail to reject <span class="math inline">\(H_{0}\)</span>. So we cannot conclude that there is a linear association between unemployment rate and the percent change in house representatives from the president’s party during midterm elections.</p>
+<p>Since <span class="math inline">\(|r(\mathbf{Y}_{obs})| = 1.066\)</span> is less than <span class="math inline">\(c = 2.052\)</span>, we fail to reject <span class="math inline">\(H_{0}\)</span>. So we cannot conclude that there is a linear association between unemployment rate and the percent change in house representatives from the president’s party during midterm elections.</p>
 </section>
 <section id="p-value" class="level3">
 <h3 class="anchored" data-anchor-id="p-value">p-value</h3>
-<p>We can also obtain the p-value and compare its value to <span class="math inline">\(0.05\)</span></p>
+<p>We can also obtain the p-value and compare its value to <span class="math inline">\(0.05\)</span> to conduct a level-0.05 test:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># p-value</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(<span class="sc">-</span><span class="fu">abs</span>(u), n<span class="dv">-2</span>) <span class="sc">+</span> <span class="fu">pt</span>(<span class="fu">abs</span>(u), n<span class="dv">-2</span>, <span class="at">lower.tail =</span> F)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(<span class="fu">abs</span>(r_obs), <span class="at">df =</span>  n<span class="dv">-2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2960654</code></pre>
 </div>
@@ -765,12 +762,7 @@ F-statistic: 1.135 on 1 and 27 DF,  p-value: 0.2961</code></pre>
     </div>   
     <div class="nav-footer-center">
 <ul>
-<li><div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../img/middlebury.png" class="img-fluid figure-img" style="width:10.0%"></p>
-<figcaption>Logo image</figcaption>
-</figure>
-</div></li>
+<li><img src="../../img/middlebury.png" class="img-fluid" style="width:20.0%"></li>
 </ul>
 </div>
     <div class="nav-footer-right">
