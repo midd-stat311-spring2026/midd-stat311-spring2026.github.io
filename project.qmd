@@ -8,7 +8,9 @@ title: "Final Project"
 
 -   Saturday 05/09 at **11:59pm**: rough draft for peer review due to Canvas
 
--   Thursday 05/14 at 7:00pm: project presentations during exam period
+    -   Peer review guidelines [here](weeks/project/peer_review_guide.pdf)
+
+-   Thursday 05/14 at **9:00am**: project presentations during exam period
 
 -   Thursday 05/14 through Monday 05/18: 1:1 conversations with Becky
 
