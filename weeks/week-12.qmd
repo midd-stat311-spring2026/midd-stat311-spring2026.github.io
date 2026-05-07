@@ -37,6 +37,7 @@ title: "Week 12"
 **Topics**
 
 -   Inference for SLR (cont.)
+-   Time to work on project
 
 **Daily assignment**
 
@@ -44,4 +45,4 @@ title: "Week 12"
 
 **Class activity**
 
--   Simple linear regression code
+-   Simple linear regression [code](class/slr.qmd)
