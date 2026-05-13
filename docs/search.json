@@ -142,7 +142,7 @@
     "href": "index.html#major-announcements",
     "title": "Statistical Inference",
     "section": "Major Announcements",
-    "text": "Major Announcements\n\nRough draft due date changed to Saturday 5/9 11:59pm\nSign up here for 15 minute 1:1 meetings for your project\n\nFeel free to book back-to-back meetings if necessary!\n\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
+    "text": "Major Announcements\n\nSign up here for 15 minute 1:1 meetings for your project\n\nFeel free to book back-to-back meetings if necessary!\n\nPresentation order posted!\n\n\nRequired textbook: Probability and Statistics, 4th edition by DeGroot and Schervish."
   },
   {
     "objectID": "index.html#course-details",
@@ -340,7 +340,7 @@
     "href": "project.html",
     "title": "Final Project",
     "section": "",
-    "text": "Sunday 04/26 at 12:00pm: project proposal due to Canvas\nSaturday 05/09 at 11:59pm: rough draft for peer review due to Canvas\n\nPeer review guidelines here\n\nThursday 05/14 at 9:00am: project presentations during exam period\nThursday 05/14 through Monday 05/18: 1:1 conversations with Becky\nSunday 05/17 at 11:59pm: final draft and reflection due to Canvas (tentative)"
+    "text": "Sunday 04/26 at 12:00pm: project proposal due to Canvas\nSaturday 05/09 at 11:59pm: rough draft for peer review due to Canvas\n\nPeer review guidelines here\n\nThursday 05/14 at 9:00am: project presentations during exam period.\nThursday 05/14 through Monday 05/18: 1:1 conversations with Becky\nSunday 05/17 at 11:59pm: final draft due to Canvas (no reflection needed)"
   },
   {
     "objectID": "weeks/hw/templates/hw6_r.html",
@@ -930,7 +930,7 @@
     "href": "project.html#details",
     "title": "Final Project",
     "section": "Details",
-    "text": "Details\nSee this PDF for more details about the final project!\n\nHere’s an example of a previous student’s final paper"
+    "text": "Details\nSee this PDF for more details about the final project!\n\nHere’s an example of a previous student’s final paper\n\n\nPresentation order\nRemember, ~10 minute presentations:\n\nRiley F.\nBenjamin H.\nSunny H.\nSkylar W.\nRiley H.\nShingo K.\nHaru K.\nSebastian P.\nIsaac T.\nMaria D."
   },
   {
     "objectID": "weeks/class/binom_discrete_prior.html",
